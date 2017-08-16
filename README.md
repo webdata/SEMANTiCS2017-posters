@@ -40,10 +40,10 @@ We use Firefox and its Web developer Toolbar.
 <a href="#ftn0"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn0" title="Footnote 1: https://www.big-data-europe.eu/">1</a></sup></a> 
 ```
 
-This should be replaced with (note that the outter link is removed, and an href property is included in the inner link):
+This should be replaced with (note that the outter link is removed, the href property is included in the inner link and the name property is replaced by an id property):
 
 ```
-<sup class="fn cgen" data-rash-original-content=" "><a href="#ftn1" name="fn_pointer_ftn1" title="Footnote 2: https://www.big-data-europe.eu/">2</a></sup>
+<sup class="fn cgen" data-rash-original-content=" "><a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 2: https://www.big-data-europe.eu/">2</a></sup>
 ```
 
 
