@@ -16,7 +16,11 @@ We use Firefox and its Web developer Toolbar.
 
 * Open the HTML file and select View Source/View Generated Source
 * Save the result 
+* Remove the unnecessary final footer (it does not provide any functionality now), that is:
 
+```
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 760</span><span>Figures: 0</span><span>Tables: 0</span><span>Formulas: 0</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer>
+```
 
 2. Adapt the text to pass the HTML 5 validation: https://validator.w3.org 
 
