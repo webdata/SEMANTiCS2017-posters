@@ -1,4 +1,4 @@
-# SEMANTiCS2017-posters
+﻿# SEMANTiCS2017-posters
 
 This repository includes all accepted papers at the P&D track at [SEMANTiCS 2017](https://2017.semantics.cc/).
 
@@ -50,10 +50,16 @@ This should be replaced with (note that the outter link is removed, the href pro
 <sup class="fn cgen" data-rash-original-content=" "><a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 2: https://www.big-data-europe.eu/">2</a></sup>
 ```
 
+3. Change roles with classes
 
-**Important Note:** There are other errors regarding the doc-* roles. Nonetheless, as stated by Silvio Peroni, RASH creator: All the doc-* roles comes from the DPUB-ARIA specification: https://www.w3.org/TR/dpub-aria-1.0/. All these role are already supported by the NU Validator for HTML5 (https://github.com/validator/validator) used by the W3C validator service. Just a side note: while the version on GitHub is updated with this feature, I think they have not already used such latest version in http://validator.w3.org/. 
+There are validations errors regarding the doc-* roles. All the doc-* roles comes from the DPUB-ARIA specification: https://www.w3.org/TR/dpub-aria-1.0/, which would be soon a candidate recommendation and included in the validator. 
 
-In the worst case, one could delete these roles, the document is still correctly visualized.
+Until then, one could do the following procedure to be safe of errors:
+
+* In the HTML file, replace all occurrences of **role=** with **class=** in HTML tags (essentially, *section* and *li* tags)
+
+
+* In the *css/rash.css file*, replace all occurrences of **role=** with **class=** 
 
 
 
