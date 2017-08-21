@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>Towards Open Data Mashups for Data Journalism</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Institute of Software Technology and Information Systems, TU Wien, Austria"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Fajar J. Ekaputra"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="fajar.ekaputra@tuwien.ac.at"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Niina Maarit Novak"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="niina.novak@tuwien.ac.at"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Elmar Kiesling"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="elmar.kiesling@tuwien.ac.at"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Peb R. Aryan"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="peb.aryan@tuwien.ac.at"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Ba-Lam Do"/>
+      <meta about="#author-5"
+            property="schema:email"
+            content="ba.do@tuwien.ac.at"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-6"
+            name="dc.creator"
+            property="schema:name"
+            content="Tuan-Dat Trinh"/>
+      <meta about="#author-6"
+            property="schema:email"
+            content="tuan.trinh@tuwien.ac.at"/>
+      <link about="#author-6"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-7"
+            name="dc.creator"
+            property="schema:name"
+            content="A Min Tjoa"/>
+      <meta about="#author-7"
+            property="schema:email"
+            content="a.tjoa@tuwien.ac.at"/>
+      <link about="#author-7"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="Data Journalism"/>
+      <meta property="prism:keyword" content="Linked Data Mashup"/>
+      <meta property="prism:keyword" content="Open Data"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>In line with a broad social and political movement in recent years, public and private sector actors have started to open up their data and to publish it on various portals. However, the actual use of the available open data sets is still rather limited in many sectors. Consequently, the potentials of available open data sets are not fully realized, which may discourage open data publishers. To encourage a broader adoption of open data and to contribute towards making democratic processes more transparent, critical data journalism is essential. In this demo paper, we propose an approach called Open Data Mashups for Data Journalism (ODMOJO) that aims to bridge open data publishers and their consumers, i.e., journalists and society at large, with Linked Data technologies. Specifically, our approach will facilitate the access, reuse, and integration of open data for General Data Journalism. We plan to evaluate our approach with potential journalism partners as well as open data publishers in Austria, to foster further adoption and utilization of open data through data journalism and Linked Data technologies.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>The open data movement was initiated in the early 2000s and started to gain momentum worldwide in 2009, when U.S. president Obama in his first policy paper opened up thousands of government datasets to the public <a href="#_Ref490833618"> </a>. This movement had its early promises to bring accountability of data publishers (i.e., governments and organizations) and to foster innovation and civic participation <a href="#_Ref490833928"> </a>. </p>
+         <p>Despite its early promise, the growth of this movement has slowed down lately, thus a catalyst is needed to push the movement further forward. Journalism can act as an intermediary between open data publishers and data consumers and plays a critical role in promoting a broader adoption of open data. To this end, activists aim to cooperate with NGOs and professional journalists to foster the utilization of open data <a href="#_Ref490833618"> </a>. Nevertheless, journalists are not considered among the main targets of open data. This is evident, for instance, in Stoneman's observation <a href="#_Ref490833952"> </a> that none of the numerous manifestos and policy papers on open data mentions journalism.</p>
+         <p>Even with efforts from open data activists to introduce journalists to the concept of open data and a number of potential business models for open data in a journalistic context <a href="#_Ref490833966"> </a>, major practical adoption barriers remain. In particular, working with (open) data is still a difficult task for many journalists due to a lack of expertise and tools. The quality of open data <a href="#_Ref490833980"> </a> 
+            <a href="#_Ref490833994"> </a>, e.g., syntax and semantic heterogeneities and metadata mismatches add further challenges to open data utilization. Lowering this utilization barrier and raising awareness for the advantages of open data <a href="#_Ref490834005"> </a>, specifically on how to facilitate access, reuse, combination, and integration of open data within journalism workflows, are therefore key challenges. </p>
+         <p>To address these challenges, in this demo paper we propose a semantic collaborative mashup environment for open data journalism. To this end, we develop a platform that facilitates efficient integration of open data within General Data Journalism practice using Linked Data technologies. We will explain related work, our platform and initial prototype development next.</p>
+      </section>
+      <section>
+         <h1>Related Work</h1>
+         <p>A closer look on the tools used to assist today’s data journalists, reveals that a mix of well established, traditional tools and modern web-based technologies is currently being employed in Data Journalism <a href="#_Ref490834005"> </a>.</p>
+         <p>For cleaning, organizing and analysing data sets tools such as spreadsheets (e.g. Microsoft Excel), databases (e.g. Microsoft Access, MySQL), text-editors (e.g. TextMate, BBEdit) and statistical software (SPSS Statistics, R) are predominantly used. Web-based tools including Open Refine<a href="#ftn1"> </a> and Google Fusion Tables are used for publishing and connecting data with other services. Data visualization tools include Tableau<a href="#ftn2"> </a> and Google Fusion Tables for visualising maps. Moreover, arbitrary programming languages (e.g. Python, Ruby, JavaScript) are used. Notably data journalists prefer end user tools which require, none or very little assistance of developers to create content <a href="#_Ref490834005"> </a>.</p>
+         <p>To utilize open data in Data Journalism there are various ways, including single-purpose apps, interactive apps, information aggregators, comparison models, open data repositories and service platforms <a href="#_Ref490833966"> </a>. From these options, service platforms for open data, such as Junar<a href="#ftn3"> </a> or Engage<a href="#ftn4"> </a> are particularly interesting in journalistic applications due to their support for a broad range of open data sources acquisition and visualization. Other tools such as Sparqlines <a href="#_Ref490834073"> </a> focus on visualizations for displaying statistical open data as inline-charts. However, the currently available tools for open data have a number of limitations. First, they are not designed to allow ad-hoc integration of heterogeneous data from various sources. Second, they do not provide complete provenance information for data visualization results (related to trust issue). Finally, since they are not designed specifically for journalism, they lack integration with journalism article authoring tools.</p>
+         <p>We observe that the existing tools and platforms for Data Journalism and open data consist of a variety of different tools for assisting parts of the data journalism process. There is, however, a lack for a comprehensive tool to assist data journalists throughout the process. To this extent, the ODMOJO approach aims at providing a novel tool for assisting data journalists to not only organise and analyse data, but above all to integrate and process data, as well as to publish and embed data in articles as interactive data visualisations with provenance information. </p>
+      </section>
+      <section>
+         <h1>Open Data Mashups for Data Journalism</h1>
+         <p>Although Data Journalism only gained strong momentum in recent years in journalistic communities <a href="#_Ref490834090"> </a> 
+            <a href="#_Ref490834094"> </a>, analyzing quantitative data has been a professional subfield of computer-assisted reporting (CAR) since the late 1980s. In a broad sense of today’s data journalism, a descendant of CAR, involves any activity dealing with data in conjunction with journalistic activities, in particular obtaining, reporting on, curating and publishing data. Data journalists therefore require expertise in statistical analysis, computer science, visualisation tools and web design <a href="#_Ref490834117"> </a>. A recent publication categorizes Data Journalism into three categories <a href="#_Ref490834129"> </a>: </p>
+         <ul>
+            <li>
+               <p>
+                  <strong>Investigative Data Journalism (IDJ)</strong>, where journalists spend considerable time (up to several years) to prepare data stories, typically based on large and heterogeneous data. Investigation requires considerable efforts and advanced data and coding skills as these stories are typically focused on unofficial, confidential and/or data leaks.</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Generic Data Journalism (GDJ)</strong>, where journalists have limited time (few hours to several days) and data skills. They typically focus on data stories involving public and open access data.</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Real-time Data Journalism (RDJ)</strong>, where journalism articles are (semi-) automatically generated from data. RDJ requires specific data skills and is typically based on real-time official press releases and emails.</p>
+            </li>
+         </ul>
+         <p>The Open Data Mashups for Data Journalism (ODMOJO) approach aims at bridging the gap between open data publishers and journalists. It will support Generic Data Journalism (GDJ) by lowering the barrier of open data utilization for journalists. An overview of the ODMOJO approach is shown in <a href="#_Ref490485635"> </a>. The approach is built on three main pillars: (i) flexible ad-hoc data integration, (ii) collaborative authoring, and (iii) reader engagement. Each of these core functionalities yield benefits for the tasks of Getting Data, Using Data and Delivering Data Stories of Data Journalism <a href="#_Ref490834090"> </a>, respectively.</p>
+         <figure id="_Ref490485635">
+            <p>
+               <img src="./img/image1.png" alt=" Open Data Mashups for Data Journalism"/>
+            </p>
+            <figcaption> Open Data Mashups for Data Journalism</figcaption>
+         </figure>
+         <ol>
+            <li>
+               <p>
+                  <strong>Flexible Ad-hoc Data Integration</strong> of open and non-open data from heterogeneous sources leverages semantic representations as a data integration enabler. Apart from open data, it is also possible to integrate data from other sources, such as social media, the linked data cloud or internal data of news organizations.</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Collaborative Authoring</strong> provides an infrastructure that helps journalists and data engineers -a typical role in current news organizations- to work together in creating data stories. This concept allows data engineers to provide data collections as individual widgets that can be reused and combined with other widgets as necessary. ODMOJO also facilitates integration with advanced analytic tools and local data storage as part of a tool chain.</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Reader Engagement</strong>. The ODMOJO approach aims at increasing reader engagement through a set of features such as interactive visualizations (e.g., data parameterization), the provision of provenance information (i.e., data tracing), sharing functions (e.g., to social media), and embedding tools (e.g., iframe for web blog).</p>
+            </li>
+         </ol>
+      </section>
+      <section>
+         <h1>Prototype: A Linked Widget Platform Extension</h1>
+         <p>We develop an initial prototype of the ODMOJO approach using Symphony framework<a href="#ftn5"> </a>
+            <sup> </sup>as an extension of the Linked Widget Platform (LWP) <a href="#_Ref490834161"> </a> 
+            <a href="#_Ref490834164"> </a>, a Linked Data-based mashup environment where end-users can assemble sets of Linked Widgets –an extension of standard web widgets with associated semantic models- as a mashup to address their data needs.</p>
+         <p>The LWP provides powerful mechanisms for users to acquire, process, integrate and visualise data, via different types of widgets: data/input widgets for data acquisitions, process/transformation widgets for data integration and processing, and output widgets for presentations or visualizations <a href="#_Ref490834164"> </a> 
+            <a href="#_Ref490834161"> </a>. We choose to build ODMOJO on LWP instead of other alternatives, such as LD-Reactor <a href="#_Ref490834032"> </a>, due to the LWP ability to provide an interactive and collaborative mechanism for (open) data integration and processing. Furthermore, the LWP is developed according to three fundamental principles, which make it suitable as the basis for a development of an ODMOJO prototype: </p>
+         <ul>
+            <li>
+               <p>
+                  <strong>Openness</strong> - developers can implement and add their Linked Widgets to the Linked Widget Platform. </p>
+            </li>
+            <li>
+               <p>
+                  <strong>Connectedness</strong> - users can integrate Linked Widgets from various developers by connecting them in a Linked Widget Mashup, and</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Reusability</strong> - facilitating users to share and adapt both Linked Widgets and Linked Widget Mashups.</p>
+            </li>
+         </ul>
+         <figure id="_Ref490486042">
+            <p>
+               <img src="./img/image2.jpeg"
+                    alt=" A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)"/>
+            </p>
+            <figcaption> A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)</figcaption>
+         </figure>
+         <p>An example of a simple geo-location Linked Widget mashup for air quality measurement in the city of Vienna and the respective ODMOJO authoring tool prototype for embedding the widget in an article is shown in <a href="#_Ref490486042"> </a>. In the prototype, journalists or data engineers can develop, fork or reuse open and non-open data mashups for articles in an LWP demo instance<a href="#ftn6"> </a>. The resulting mashups are then available for embedding in an authoring environment<a href="#ftn7"> </a>. Articles produced from the prototype allow users to interact, parameterize, and see the data processing flow in order to foster engagement. A video, demonstrating the initial ODMOJO prototype is available online<a href="#ftn8"> </a>. </p>
+         <p>To fully support the ODMOJO approach, the following improvements are currently planned: </p>
+         <ul>
+            <li>
+               <p>
+                  <strong>Scalable System Architecture</strong> - the Linked Widget server needs to be scalable in order to handle a large number of reader interactions.</p>
+            </li>
+            <li>
+               <p>
+                  <strong>Data Security and Privacy</strong> - sensitive data may need to be secured and/or anonymized before publication. </p>
+            </li>
+            <li>
+               <p>
+                  <strong>Linked Widgets for Journalism</strong> - to address specific journalistic requirements with respect to access, processing, and visualization of data, a set of appropriate widgets should be developed.</p>
+            </li>
+         </ul>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="_Ref490833618" role="doc-biblioentry">
+               <p>Baack, S.: Datafication and empowerment: How the open data movement re-articulates notions of democracy, participation, and journalism. Big Data &amp; Society 2(2) (2015).</p>
+            </li>
+            <li id="_Ref490834090" role="doc-biblioentry">
+               <p>Gray, J., Bounegru, L., Chambers, L.: The data journalism handbook. Oreilly and Associate Series, O'Reilly Media (2012).</p>
+            </li>
+            <li id="_Ref490833966" role="doc-biblioentry">
+               <p>Janssen, M., Zuiderwijk, A.: Infomediary business models for connecting open data providers and users. Social Science Computer Review 32(5), pp.694-711 (2014).</p>
+            </li>
+            <li id="_Ref490833952" role="doc-biblioentry">
+               <p>Stoneman, J.: Does open data need journalism? Reuters Institute for the Study of Journalism, University of Oxford (2015).</p>
+            </li>
+            <li id="_Ref490834161" role="doc-biblioentry">
+               <p>Trinh, T.D., Wetz, P., Do, B.L., Kiesling, E., Tjoa, A.M.: Distributed mashups: A collaborative approach to data integration. IJWIS 11(3), pp.370-396 (2015).</p>
+            </li>
+            <li id="_Ref490834129" role="doc-biblioentry">
+               <p>Uskali, T.I., Kuutti, H.: Models and streams of data journalism. The Journal of Media Innovations 2(1), pp.77-88 (2015).</p>
+            </li>
+            <li id="_Ref490833928" role="doc-biblioentry">
+               <p>Reggi, L., Dawes, S.: Open government data ecosystems: Linking transparency for innovation with transparency for participation and accountability. In: International Conference on Electronic Government and the Information Systems Perspective. pp. 74-86, Springer (2016).</p>
+            </li>
+            <li id="_Ref490834094" role="doc-biblioentry">
+               <p>Rogers, S.: Facts are Sacred: The power of data. Faber &amp; Faber (2013).</p>
+            </li>
+            <li id="_Ref490834164" role="doc-biblioentry">
+               <p>Anjomshoaa, A., Kiesling, E., Trinh, T., Do, B., Wetz, P., Tjoa, A.M.: Leveraging the web of data via linked widgets. JoSSR 6(1), pp.7-27 (2014). http://dx.doi.org/10.1007/s12927-014-0001-9 </p>
+            </li>
+            <li id="_Ref490833980" role="doc-biblioentry">
+               <p>Umbrich, J., Neumaier, S. and Polleres,A.: Quality assessment and evolution of open data portals. Future Internet of Things and Cloud (FiCloud), 2015 3rd International Conference on. IEEE (2015).</p>
+            </li>
+            <li id="_Ref490833994" role="doc-biblioentry">
+               <p>Máchová, R. and Lnénicka, M.: Evaluating the Quality of Open Data Portals on the National Level. Journal of theoretical and applied electronic commerce research 12.1, pp. 21-41, (2017).</p>
+            </li>
+            <li id="_Ref490834032" role="doc-biblioentry">
+               <p>Khalili, A., Loizou,A. and van Harmelen, F.: Adaptive linked data-driven web components: Building flexible and reusable semantic web interfaces. ESWC (Lecture Notes in Computer Science) 9678, pp.677-692 (2016).</p>
+            </li>
+            <li id="_Ref490834005" role="doc-biblioentry">
+               <p>Howard, A. B.: The Art and Science of Data-Driven Journalism. White Papers. Two Center for Digital Journalism, Columbia University (2014). https://doi.org/10.7916/D8Q531V1</p>
+            </li>
+            <li id="_Ref490834117" role="doc-biblioentry">
+               <p>Coddington, M.: Clarifying Journalism’s Quantitative Turn. Digital Journalism, Volume 3, 2015 – Issue 3, pp.331-348 (2015). http://dx.doi.org/10.1080/21670811.2014.976400</p>
+            </li>
+            <li id="_Ref490834073" role="doc-biblioentry">
+               <p>Capadisli, S.: Sparqlines: SPARQL to Sparkline. CEUR (Central Europe workshop proceedings): Proceedings of the 4th International Workshop on Semantic Statistics, Volume 1654, urn:nbn:de:0074-1654-1 (2016). http://csarven.ca/sparqlines-sparql-to-sparkline</p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> http://openrefine.org/ </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> http://www.tableau.com</p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> http://junar.com</p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> http://engagedata.eu</p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> https://symfony.com/</p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> http://linkedwidgets.org</p>
+         </section>
+         <section id="ftn7" role="doc-endnote">
+            <p> http://odmojo.linkedwidgets.org</p>
+         </section>
+         <section id="ftn8" role="doc-endnote">
+            <p> http://youtu.be/KR0if_uCnJU</p>
+         </section>
+      </section>
+   </body>
+</html>

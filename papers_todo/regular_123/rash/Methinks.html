@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>Methinks: Enabling Sophisticated Comment Management in the Social Web</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="FORTH, Greece"/>
+      <meta about="#affiliation-2" property="schema:name" content="UCL, UK"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Giorgos Flouris"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="fgeo@ics.forth.gr"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Theodore Patkos"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="patkos@ics.forth.gr"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Ilia Adami"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="iadami@ics.forth.gr"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Antonis Bikakis"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="a.bikakis@ucl.ac.uk"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Manos Dimitrakis"/>
+      <meta about="#author-5"
+            property="schema:email"
+            content="mdimitrak@ics.forth.gr"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-6"
+            name="dc.creator"
+            property="schema:name"
+            content="George Mathioudakis"/>
+      <meta about="#author-6"
+            property="schema:email"
+            content="gmathiou@ics.forth.gr"/>
+      <link about="#author-6"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-7"
+            name="dc.creator"
+            property="schema:name"
+            content="Giannis Roussakis"/>
+      <meta about="#author-7"
+            property="schema:email"
+            content="rousakis@ics.forth.gr"/>
+      <link about="#author-7"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-8"
+            name="dc.creator"
+            property="schema:name"
+            content="Dimitris Plexousakis"/>
+      <meta about="#author-8" property="schema:email" content="dp@ics.forth.gr"/>
+      <link about="#author-8"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="Comments"/>
+      <meta property="prism:keyword" content="Reviews"/>
+      <meta property="prism:keyword" content="Semantic Web"/>
+      <meta property="prism:keyword" content="Social Web"/>
+      <meta property="prism:keyword" content="Computational Argumentation"/>
+      <meta property="prism:keyword" content="Crowdsourcing"/>
+      <meta name="dcterms.subject"
+            content="Information systems: Reputation systems"/>
+      <meta name="dcterms.subject"
+            content="Information systems: Social tagging systems"/>
+      <meta name="dcterms.subject" content="Information systems: Content ranking"/>
+      <meta name="dcterms.subject"
+            content="Information systems: Social recommendation"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>User reviews, comments and votes on the Social Web form the modern version of word-of-mouth communication, which has a huge impact on people’s shopping habits, businesses and the overall market. Despite that, systems have so far limited practical success in helping consumers and businesses analysing, managing and understanding Social Web content. In this paper, we present a new tool that leverages a combination of techniques from Semantic Web, Computational Argumentation and Crowdsourcing to support this activity, through an intuitive and functional user interface.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>The Social Web is populated with arguments, which usually have the form of comments, opinions or reviews, and are the main ingredients of online discussion forums, social networks, online rating and review sites, debate portals and other online communities - the electronic version of word-of-mouth communication. Since the emergence of the Social Web, its impact has been paramount to several aspects of human behaviour, ranging from health-related <a href="#_Ref490737972"> </a>, to buying <a href="#_Ref490738051"> </a>, travelling <a href="#_Ref490738065"> </a> or voting habits <a href="#_Ref490738076"> </a>. Also, opinions in the Social Web significantly impact businesses and the overall market; a study on the impact of online reviews on the restaurant industry found that a one-star increase in Yelp.com rating led to a 5-9% increase in the revenue of the rated restaurants <a href="#_Ref490738087"> </a>.</p>
+         <p>It is thus clear that understanding, analysing and managing such comments is of paramount importance in various industrial sectors. Towards this end, two main approaches exist. On the one end, Computational Argumentation <a href="#_Ref490738126"> </a> has provided mature results in understanding and formalizing the interplay of arguments in structured debates. This work has yet limited applicability on the Social Web, due to the highly unstructured nature of the latter, despite some recent efforts to bridge the differences <a href="#_Ref490738134"> </a>, <a href="#_Ref490738141"> </a>. On the other end, opinion analysis methods attempt to make sense out of online discussions, relying heavily on Natural Language Processing (NLP) techniques. Their performance in understanding the basic trends and sentiments of online dialogues has improved remarkably over the last years, yet their accuracy is still very low when it comes to identifying the arguments in opinions, understanding their relations (attack/support), or extracting the most acceptable arguments in a dialogue <a href="#_Ref490738149"> </a>.</p>
+         <p>The Methinks system aims to bring these two approaches closer, by harnessing crowdsourcing techniques instead of NLP for obtaining meta-information about an opinion and by relying on Semantic Web and Computational Argumentation methods to automate opinion processing. The novelties reside both at the frontend, where a number of features have been developed to facilitate the task of comment annotation for the <em>consumer</em> (typically a potential customer searching for a product or service, having the role of comment reader or writer), and at the backend where novel, powerful and semantically-enriched analytical tools have been developed to assist the <em>analyst</em> (typically an employee of the product or service provider, a system administrator, or a market analyst) in the task of spotting valuable comments and ironing out irrelevant or unhelpful ones. Eventually, the experience of all beneficiaries is improved by a more elaborate characterization of comments in terms of acceptance of the opinions they express by the participants of a given dialogue, and quality of their content.</p>
+      </section>
+      <section>
+         <h1>Features of Methinks</h1>
+         <section>
+            <h1>General Properties</h1>
+            <p>Methinks is an online service developed using modern web technologies, intended to be licensed and delivered as Software as a Service (SaaS). The target market of Methinks includes, among others, hotels, online booksellers, listings directories (e.g., booking.com, ebay, etc.) and content aggregators.</p>
+            <p>Unlike generic commenting and debating tools such as Disqus<a href="#ftn1"> </a>, the objectives of Methinks are very much market-related, namely to (a) assist the consumer towards <em>more informed shopping decisions</em>, and (b) help the analyst identify <em>trends</em>, as well as <em>problematic or attractive characteristics</em> of the offered products or services to improve their business. Each objective is achieved through a different frontend operating on the same backend<a href="#ftn2"> </a>.</p>
+            <p>For the User Interface design of the final prototype, the user-centred design (UCD) process <a href="#_Ref490738642"> </a> was followed to ensure optimal usability of the end product. The process included the following phases: user requirement collection and analysis, creation of high-fidelity interface mock-up designs, expert walkthrough evaluation of the prototypes, adjustments based on expert evaluation results, user-based evaluation in a laboratory environment, and further adjustments of the prototype based on the results from the evaluation.</p>
+         </section>
+         <section>
+            <h1>Features for the Consumer</h1>
+            <section>
+               <h1>Comments as first-class citizens</h1>
+               <p>In Methinks, comments are organised in user-generated <em>topics</em>. For example, in the provided demo (referring to the hotel domain), different topics may include <q>restaurant</q> and <q>room</q>; however, the list of topics is open, to allow the comment writers to give emphasis on any aspect that they consider important (e.g., <q>mosquitos</q> or <q>nightlife</q>).</p>
+               <p>One of the main ideas behind Methinks is that comments are treated as <em>first-class citizens</em>, carrying as much information as the actual description of a product or service. A button brings about a drawer showing the provided comments, with various options for searching, filtering, organising or viewing them (see <a href="#_Ref490739495"> </a>). The related retrieval functionalities are implemented using SPARQL queries posed against an RDF backend following an appropriate ontological schema.</p>
+               <figure id="_Ref490739495">
+                  <p>
+                     <img src="./img/image1.png" alt="  The  Drawer (Main Methinks Window)"/>
+                  </p>
+                  <figcaption>  The  Drawer (Main Methinks Window)</figcaption>
+               </figure>
+               <p>More importantly, comments are <em>integrated</em> with the actual page content. Any textual content in the description of the product/service that corresponds to an existing topic of discussion appears underlined in an indication that there is further information linked to it. On mouse-over, a box appears above the underlined text showing the number of discussions that have been created on this particular topic (see <a href="#_Ref490743450"> </a>). Upon clicking inside the box, the main Methinks plug-in window (<a href="#_Ref490739495"> </a>) expands and shows the discussions that are associated with the selected topic. Similarly, selecting some text in the description, allows one to search in the comments for this text, or create a new topic for this text.</p>
+               <figure id="_Ref490743450">
+                  <p>
+                     <img src="./img/image2.png"
+                          alt=" Integration  of Comments in Web Page Content"/>
+                  </p>
+                  <figcaption> Integration  of Comments in Web Page Content</figcaption>
+               </figure>
+            </section>
+            <section>
+               <h1>Leveraging crowdsourcing and argumentation to understand comments</h1>
+               <p>Whenever a consumer wants to add a comment to the system, this can appear as a new comment, or as a <em>reaction</em> to an existing one. In both cases, the comment writer needs to provide topics (existing or new ones), and may additionally provide various types of textual and/or structured feedback. The system provides help in selecting topics, by proposing existing topics that match what the user is writing.</p>
+               <p>Textual feedback is addressed to humans, whereas structured feedback (like votes, star ratings and characterizations of aspects as outdated or helpful) helps evaluating the comments and the product/service. In fact, users have various ways to criticise (or praise) various aspects of previously submitted comments or of the product/service under discussion, and this rich feedback is leveraged by complex argumentation-inspired algorithms, whose details can be found at <a href="#_Ref490741703"> </a>. These algorithms allow a fine-grained analysis of how positively or negatively the crowd views certain aspects associated with the product/service at hand, or the comment itself, by leveraging (among other things) the two types of relations among comments (attack/support) using methods from quantitative argumentation frameworks <a href="#_Ref490738141"> </a>, as well as by employing the categorization of feedback in different aspects and/or topics.</p>
+               <p>Comments are evaluated by assessing their <em>quality</em> and <em>acceptance</em>. The quality rating of a comment determines its reliability and usefulness for other consumers and helps in ranking the comments. The acceptance rating is used to determine whether other consumers agree with the comment’s assessment on the topic (positive or negative); this in turn determines the contribution of the comment in formulating the final score assigned to the topic. NLP technologies may help improve these algorithms in the future; yet, our goal on involving users in the loop aims at keeping them engaged in the reviewing process.</p>
+            </section>
+         </section>
+         <section>
+            <h1>Features for the Analyst</h1>
+            <p>With regards to the analyst, we have developed a rich graphical user interface (GUI) allowing monitoring trends and understanding the social feeling associated with products (see <a href="#_Ref490743665"> </a>). The analyst interface allows <em>moderating</em> (accepting/rejecting) comments, thereby allowing the analyst to block comments with offensive or profane language, and control what comments are published to the webpage. It also allows <em>responding</em> to comments, a feature that gains popularity in most review sites. More importantly, it provides various <em>visualizations</em> of the comments’/topics’ quantity and scores. All visualizations allow various types of organisation and filtering along various dimensions (temporal, topical, status etc), leveraging the flexibility of our semantic representation and facilitated by SPARQL expressiveness.</p>
+            <figure id="_Ref490743665">
+               <p>
+                  <img src="./img/image3.png" alt=" The User Interface for the Analyst"/>
+               </p>
+               <figcaption> The User Interface for the Analyst</figcaption>
+            </figure>
+         </section>
+         <section>
+            <h1>Used Technologies</h1>
+            <p>The frontend was implemented as a web-page plugin using the AngularJS<a href="#ftn3"> </a> framework. It was designed and developed with the following two principles in mind: easy web-page integration and minimum possible dependencies on external javascript and styling libraries.</p>
+            <p>The analyst interface was implemented as a single-page application in order to provide a user experience similar to that of a desktop application. It was developed on top of AngularJS framework, using Twitter Bootstrap<a href="#ftn4"> </a> for the styling and positioning of the UI  components. The various analytics graphs are created dynamically as SVG images with the help of the nvd3<a href="#ftn5"> </a> and D3.js<a href="#ftn6"> </a> libraries.</p>
+            <p>The backend uses Virtuoso Triplestore<a href="#ftn7"> </a> version 7.2 to store all the created comments along with all the metadata (e.g., creation date, authors, comment relations etc.) that are necessary for supporting Methinks’ functionalities. The storage and data access layers are implemented using RDF and SPARQL, respectively.</p>
+            <p>Even though Methinks’ data could conceivably be stored also using relational technologies, the use of semantics allows future interoperability among different deployments of the Methinks platform and datasets from the Data Web, therefore allowing better integration and paving the road for future developments that could lead to a global repository of annotation-rich comments, where comments from different web sites and products/services could be combined with online data to provide a more complete user experience.</p>
+            <p>The ontology used for the representation of the comments transfers part of the business logic to the representation layer, for easier maintenance, and is shown in <a href="#_Ref490744387"> </a>. The ontology design employed a functionality-oriented approach. In particular, the top-level concepts (O1_Creation_Data, O2_Strength, O3_Concept) were created with regards to the types of properties that different lower-level concepts should support. For example, the class O1_Strength is the domain of all properties associated with the notion of strength (acceptability, quality, etc.) and subsumes all concepts whose value (strength) is evaluated in the system (namely, topics and various types of arguments). The same idea is used for the other concepts. More details are omitted due to lack of space.</p>
+            <figure id="_Ref490744387">
+               <p>
+                  <img src="./img/image4.png" alt=" The Methinks Ontology"/>
+               </p>
+               <figcaption> The Methinks Ontology</figcaption>
+            </figure>
+         </section>
+      </section>
+      <section>
+         <h1>Conclusion</h1>
+         <p>In this paper, we presented <em>Methinks</em>, a tool for enhanced review sites that allows easier management and analysis of user comments in a Social Web context. Emphasis is given to market-related web sites, providing features that create benefit for both the consumer and the product/service provider. The tool is still under development, and various new features are considered, such as the introduction of multimedia comments, cross-website and/or cross-product comparison using comment scores and others.</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="_Ref490738076" role="doc-biblioentry">
+               <p>R.M. Bond, C.J. Fariss, J.J. Jones, A.D.I. Kramer, C. Marlow, J.E. Settle, J.H. Fowler. A 61-million-person experiment in social influence and political mobilization. Nature 489(7415):295–298, 2012.</p>
+            </li>
+            <li id="_Ref490738126" role="doc-biblioentry">
+               <p>P. Besnard, A. Hunter. Elements of Argumentation. The MIT Press. 2008.</p>
+            </li>
+            <li id="_Ref490738141" role="doc-biblioentry">
+               <p>P. Baroni,  M. Romano,  F.  Toni,  M.  Aurisicchio,  G. Bertanza. Automatic evaluation of design alternatives with quantitative argumentation. Argument &amp; Computation 6(1):24–49, 2015.</p>
+            </li>
+            <li id="_Ref490737972" role="doc-biblioentry">
+               <p>W.-y.S. Chou, A. Prestin, C. Lyons, K.y. Wen. Web 2.0 for health promotion: Reviewing the current evidence. American Journal of Public Health 103(1):e9–e18, 2012. </p>
+            </li>
+            <li id="_Ref490738051" role="doc-biblioentry">
+               <p>C.M. Cheung, D.R. Thadani. The impact of electronic word-of-mouth communication: A literature analysis and integrative model. Decision Support Systems 54(1):461–470. 2012.</p>
+            </li>
+            <li id="_Ref490738134" role="doc-biblioentry">
+               <p>S. Eilmez, J. Martins, J. Leite. Extending social abstract argumentation with votes on attacks. In Theory and Applications of Formal Argumentation, pages 16–31, 2014.</p>
+            </li>
+            <li id="_Ref490738149" role="doc-biblioentry">
+               <p>M. Lippi, P. Torroni. Argumentation Mining: State of the Art and Emerging Trends. ACM Transactions on Internet Technology 16(2)10, March 2016. </p>
+            </li>
+            <li id="_Ref490738087" role="doc-biblioentry">
+               <p>M. Luca. Reviews, reputation, and revenue: The case of yelp.com. Technical Report 12-016, Harvard Business School. 2011.</p>
+            </li>
+            <li id="_Ref490738642" role="doc-biblioentry">
+               <p>D.A. Norman, S.W. Draper. User-centred System Design: New Perspectives on Human-Computer Interaction. L. Erlbaum Associates Inc., 1986.</p>
+            </li>
+            <li id="_Ref490741703" role="doc-biblioentry">
+               <p>T. Patkos, G. Flouris, A. Bikakis. Symmetric Multi-Aspect Evaluation of Comments (Extended Abstract). ECAI-16, 2016.</p>
+            </li>
+            <li id="_Ref490738065" role="doc-biblioentry">
+               <p>Q. Ye, R. Law, B. Gu, W. Chen. The influence of user-generated content on traveller behaviour: An empirical investigation on the effects of e-word-of-mouth to hotel online bookings. Computers in Human Behaviour 27(2):634–639. 2011.</p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> https://disqus.com/</p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> Consumer interface: http://139.91.183.40:8080/methinks-dev/demo/ (some features require login; you may create your own account, or use the name: demo_user@demo.com with password: demo_user).</p>
+            <p>Analyst interface: http://139.91.183.40:8080/methinks-dev/admin/#!/login (username: <a href="../customXml/item1.xml">admin@admin.com</a>, password: admin1234).</p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> https://angularjs.org</p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> http://getbootstrap.com</p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> http://nvd3.org</p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> https://d3js.irg</p>
+         </section>
+         <section id="ftn7" role="doc-endnote">
+            <p> https://virtuoso.openlinksw.com</p>
+         </section>
+      </section>
+   </body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>Network-based Knowledge Graph Assessment</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Digital Insight Lab, Austrian Institute of Technology, Vienna, Austria"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Semantic Web Company, Vienna, Austria"/>
+      <meta about="#affiliation-3"
+            property="schema:name"
+            content="Semantic Web Company, Austria, Vienna"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Jan Rörden"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="jan.roerden@ait.ac.at"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Artem Revenko"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="Artem.Revenko@semantic-web.com"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Bernhard Haslhofer"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="Bernhard.Haslhofer@ait.ac.at"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Andreas Blumauer"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="Andreas.Blumauer@semantic-web.com"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-3"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>Knowledge graphs have become increasingly important in information retrieval tasks. However, if semantically interlinked concepts do not reflect the semantics of a document corpus, users might be confronted with non-relevant query results. In this work, we propose a network-metrics based method that allows assessment of knowledge graph quality within the context of a domain-specific document corpus. Preliminary results show that our methodology is able to point out structural and semantic issues in the knowledge graph, as well as provide information on the overall semantic fit of knowledge graph and domain specific corpora.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>A knowledge graph represents entities and their relations. Those entities - both abstract and concrete - can be grouped into classes according to their semantics, and should ideally cover every aspect that is important for a certain domain [Ehrlinger and Wöß, 2016]. Generally speaking, there are two different categories of knowledge graphs, generic and specific. Examples for generic graphs are DBpedia [Auer et al., 2007], the Google Knowledge Graph [Singhal, 2012] or Wikidata<a href="#ftn1"> </a>, which all cover a broad range of topics and domains. Specific knowledge graphs are tailored towards a specific domain, organization, or enterprise context.</p>
+         <p>Knowledge graphs often integrate data from various heterogeneous sources, provide a human-interpretable representation as well as a formalized, machine-readable basis for information retrieval tasks such as (latent) semantic indexing which relies on formalized and identifiable representation of real-world concepts [Deerwester et al., 1990], classification tasks and search engines or recommendation systems.</p>
+         <p>The effectiveness of those tasks heavily relies on the quality of the employed knowledge graph. Missing labeling and documentation issues can lead to misinterpretation, structural issues such as missing relationships between concepts might lead to incomplete or misleading interpretations of domain descriptions [Mader et al., 2012].</p>
+         <p>Related work in the area of knowledge graph quality (c.f., [Paulheim, 2017] for a survey), error detection and improvement studies has focused on the following issues: [Paulheim and Bizer, 2014] use statistical distributions of properties and types in RDF knowledge bases to compute their correctness; [Mader et al., 2012] and [Suominen and Mader, 2014] focus on SKOS vocabulary quality (e.g. missing/incomplete labels, orphan concepts, disconnected components) etc. Those and other methods rely on the knowledge graph itself. To our knowledge, there is no established research that uses a combined approach taking into account both a knowledge graph and a domain specific thesaurus (which is done for knowledge graph completion - but not for quality assessment).</p>
+         <p>In our work, we focus on knowledge graph quality issues that arise when the quality of a knowledge graph or thesaurus needs to be quantified in the context of a given document corpus, which is specific to a certain domain (e.g., medicine, economics). This requirement often arises when knowledge graph engineers or taxonomists take a document corpus as a basis for knowledge graph design or when existing graphs should be adapted to related application domains. Within this context, our contribution can be summarized as follows:</p>
+         <ul>
+            <li>
+               <p>We investigated the applicability of network metrics for measuring the quality of a given thesaurus in the context of a given, domain-specific document corpus.</p>
+            </li>
+            <li>
+               <p>We propose a method to quantify the semantic fit between thesaurus and document corpus.</p>
+            </li>
+         </ul>
+         <p>Our proposed quality quantification methods should help taxonomists and domain experts, who are in charge of designing and managing a knowledge graph, to identify possible quality issues in their design and make informed decisions. Our poster will introduce this approach and accompanying demo will give visitors the opportunity to gain hands-on experience. </p>
+      </section>
+      <section>
+         <h1>Approach</h1>
+         <p>Our network-based knowledge graph assessment approach consists of three subsequent steps: first, we apply a knowledge graph only perspective and compute network-based metrics to learn about the importance and structural relevance of concepts. Second, we focus on the document corpus and extract concepts and relationships using co-occurrence analysis techniques. Finally, we combine those two perspectives and provide metrics to assess the quality of a knowledge graph in the context of a document corpus.</p>
+         <section>
+            <h1>Knowledge Graph Perspective</h1>
+            <p>In a first step, we extract a network representation from given knowledge graphs expressed in SKOS by extracting skos:Concepts and a configurable set of SKOS<a href="#ftn2"> </a> and non-SKOS relations.</p>
+            <p>By applying network clustering algorithms, we can identify unconnected components or concepts, which could be an indicator for missing relationships. We also compute the <em>diameter</em> of the knowledge graph, which might be an indicator for genericity or specificity of a knowledge graph. Figure 1 shows a network representation of the <q>All about Cocktails</q> thesaurus<a href="#ftn3"> </a>, with one concept being disconnected from the others. We will use this thesaurus as an example for the following metrics. Knowing which concepts occur both in the thesaurus and the corpus, we can also remove all concepts (vertices) from the thesaurus that are not mentioned in the corpus. The resulting graph can be quite different; so we use both the CG (corpus graph) and the TG (thesaurus graph) for further analysis.</p>
+            <figure>
+               <p>
+                  <img src="./img/image1.jpg" alt="Network representation of a thesaurus"/>
+               </p>
+               <figcaption>Network representation of a thesaurus</figcaption>
+            </figure>
+            <p>On a concept-level, we compute the <em>degree</em> (number of incoming and outgoing edges) and <em>PageRank</em> of concepts, which can serve as indicators for the importance of a concept. Table 1 shows the <em>degree</em>, Table 2 the <em>PageRank</em>.</p>
+            <figure>
+               <table>
+                  <tr>
+                     <th>Concept label</th>
+                     <th>degree</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p> „Martini glass“</p>
+                     </td>
+                     <td>
+                        <p>34</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Contemporary Classics“</p>
+                     </td>
+                     <td>
+                        <p>31</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„The Unforgettables“</p>
+                     </td>
+                     <td>
+                        <p>30</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Gin“</p>
+                     </td>
+                     <td>
+                        <p>24</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Shooters“</p>
+                     </td>
+                     <td>
+                        <p>22</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>Concept degree</figcaption>
+            </figure>
+            <figure>
+               <table>
+                  <tr>
+                     <th>Concept label</th>
+                     <th>PageRank</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Martini glass“</p>
+                     </td>
+                     <td>
+                        <p>0.0169</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Old Tom Gin“</p>
+                     </td>
+                     <td>
+                        <p>0.0121</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Gin“</p>
+                     </td>
+                     <td>
+                        <p>0.0114</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Old Fashioned glass“</p>
+                     </td>
+                     <td>
+                        <p>0.0110</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Vodka Citron“</p>
+                     </td>
+                     <td>
+                        <p>0.0109</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>Concept PageRank</figcaption>
+            </figure>
+            <p>By computing <em>closeness</em> (mean number of steps to access every other vertex) and <em>betweenness</em> (number of shortest paths going through a concept) of concepts, we can provide insight into the structural importance of concepts. Removing a concept with high <em>betweenness</em>, for example, could split a knowledge graph into several disconnected components.</p>
+            <figure>
+               <table>
+                  <tr>
+                     <th>Concept label</th>
+                     <th>closeness</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„IBA official cocktails“</p>
+                     </td>
+                     <td>
+                        <p>0.00854</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Beverages“</p>
+                     </td>
+                     <td>
+                        <p>0.00504</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Contemporary Classics“</p>
+                     </td>
+                     <td>
+                        <p>0.00499</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„The Unforgettables“</p>
+                     </td>
+                     <td>
+                        <p>0.00462</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Alcoholic beverages“</p>
+                     </td>
+                     <td>
+                        <p>0.00437</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>Concept closeness</figcaption>
+            </figure>
+            <figure>
+               <table>
+                  <tr>
+                     <th>Concept label</th>
+                     <th>betweenness</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Distilled beverages“</p>
+                     </td>
+                     <td>
+                        <p>0.00161</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Liquer“</p>
+                     </td>
+                     <td>
+                        <p>0.00124</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Alcoholic beverages“</p>
+                     </td>
+                     <td>
+                        <p>0.00088</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Contemporary Classics“</p>
+                     </td>
+                     <td>
+                        <p>0.00082</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>„Vermouth“</p>
+                     </td>
+                     <td>
+                        <p>0.00074</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>Concept betweenness</figcaption>
+            </figure>
+         </section>
+         <section>
+            <h1>Combined Knowledge Graph and Corpus Perspective </h1>
+            <p>The intuition behind this step is that a knowledge graph, which is a tailored to a specific domain, defines concepts and semantic relations, which should also appear in a document corpus taken from that domain.</p>
+            <p>As shown in Figure 2, possible discrepancies can already be observed by mapping corpus concepts onto a thesaurus network. This example shows a coverage of 81% - green vertices (concepts) show up in both the thesaurus and the corpus.</p>
+            <figure>
+               <p>
+                  <img src="./img/image2.jpg" alt="Thesaurus and corpus"/>
+               </p>
+               <figcaption>Thesaurus and corpus</figcaption>
+            </figure>
+            <p>For the second part of our analysis, we go beyond simple coverage rate. Ideally, a thesaurus and a corpus share the same concepts<a href="#ftn4"> </a> and relations. The basic metrics are: number of distinct concepts; total concept occurrences; concept coverage (how many concepts of the thesaurus show up in the corpus?).  </p>
+            <p>Having gathered this information, we attempt to judge on how well a thesaurus fits a given corpus (or vice versa), going beyond simple concept coverage rate. For this, we calculated Pearson correlation coefficients between <em>document frequency</em> (df) of concepts on the one hand, and <em>PageRank</em>, <em>closeness</em> and <em>betweenness</em> on the other hand (Table 5).</p>
+            <figure>
+               <table>
+                  <tr>
+                     <th>Correlation</th>
+                     <th>Pearson correlation</th>
+                     <th>p-value</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; degree, TG</p>
+                     </td>
+                     <td>
+                        <p>0.165</p>
+                     </td>
+                     <td>
+                        <p>0.006</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; degree, CG</p>
+                     </td>
+                     <td>
+                        <p>0.169</p>
+                     </td>
+                     <td>
+                        <p>0.005</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; PageRank, TG </p>
+                     </td>
+                     <td>
+                        <p>0.017</p>
+                     </td>
+                     <td>
+                        <p>0.77</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; PageRank, CG</p>
+                     </td>
+                     <td>
+                        <p>0.036</p>
+                     </td>
+                     <td>
+                        <p>0.55</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; betweenness, TG</p>
+                     </td>
+                     <td>
+                        <p>0.172</p>
+                     </td>
+                     <td>
+                        <p>0.004</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; betweenness, CG</p>
+                     </td>
+                     <td>
+                        <p>0.175</p>
+                     </td>
+                     <td>
+                        <p>0.003</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; closeness, TG</p>
+                     </td>
+                     <td>
+                        <p>0.130</p>
+                     </td>
+                     <td>
+                        <p>0.03</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>df &amp; closeness, CG</p>
+                     </td>
+                     <td>
+                        <p>0.111</p>
+                     </td>
+                     <td>
+                        <p>0.06</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>Correlations</figcaption>
+            </figure>
+            <p>Furthermore, we use <em>concept co-occurrences</em> as a measurement for semantic distance in the corpus, which we expect to be reflected in the thesaurus as well. For this, we perform a logarithmic transformation of co-occurrences to the range [1, thesaurusDiameter <em>d</em>]. The expectation here is that the higher the co-occurrence of any given pair of concepts is, the smaller should be their distance in the thesaurus. We apply cosine similarities of distance vectors to quantify the gap between optimal distances according to the co-occurrences and real distances based on the TG and the CG. A result of -1 means they are exactly opposite, 1 that they are the same and 0 indicates orthogonality:</p>
+            <figure>
+               <p>
+                  <math xmlns="http://www.w3.org/1998/Math/MathML">
+                     <mfrac>
+                        <mrow>
+                           <mo>(</mo>
+                           <mi>d</mi>
+                           <mo>-</mo>
+                           <mn>1</mn>
+                           <mo>)</mo>
+                           <mo>(</mo>
+                           <mfrac>
+                              <mrow>
+                                 <mn>1</mn>
+                              </mrow>
+                              <mrow>
+                                 <mi>l</mi>
+                                 <mi>o</mi>
+                                 <mi>g</mi>
+                                 <mi> </mi>
+                                 <mo>(</mo>
+                                 <mi>x</mi>
+                                 <mo>)</mo>
+                                 <mi> </mi>
+                              </mrow>
+                           </mfrac>
+                           <mo>-</mo>
+                           <mi>m</mi>
+                           <mi>i</mi>
+                           <mi>n</mi>
+                           <mo>⁡</mo>
+                           <mo>(</mo>
+                           <mfrac>
+                              <mrow>
+                                 <mn>1</mn>
+                              </mrow>
+                              <mrow>
+                                 <mi>l</mi>
+                                 <mi>o</mi>
+                                 <mi>g</mi>
+                                 <mo>⁡</mo>
+                                 <mo>(</mo>
+                                 <mi>x</mi>
+                                 <mo>)</mo>
+                              </mrow>
+                           </mfrac>
+                           <mo>)</mo>
+                           <mo>)</mo>
+                        </mrow>
+                        <mrow>
+                           <mi>m</mi>
+                           <mi>a</mi>
+                           <mi>x</mi>
+                           <mi> </mi>
+                           <mo>(</mo>
+                           <mfrac>
+                              <mrow>
+                                 <mn>1</mn>
+                              </mrow>
+                              <mrow>
+                                 <mi>l</mi>
+                                 <mi>o</mi>
+                                 <mi>g</mi>
+                                 <mi> </mi>
+                                 <mo>(</mo>
+                                 <mi>x</mi>
+                                 <mo>)</mo>
+                                 <mi> </mi>
+                              </mrow>
+                           </mfrac>
+                           <mo>)</mo>
+                           <mi> </mi>
+                           <mo>-</mo>
+                           <mi>m</mi>
+                           <mi>i</mi>
+                           <mi>n</mi>
+                           <mo>⁡</mo>
+                           <mo>(</mo>
+                           <mfrac>
+                              <mrow>
+                                 <mn>1</mn>
+                              </mrow>
+                              <mrow>
+                                 <mi>l</mi>
+                                 <mi>o</mi>
+                                 <mi>g</mi>
+                                 <mo>⁡</mo>
+                                 <mo>(</mo>
+                                 <mi>x</mi>
+                                 <mo>)</mo>
+                              </mrow>
+                           </mfrac>
+                           <mo>)</mo>
+                        </mrow>
+                     </mfrac>
+                     <mo>+</mo>
+                     <mn>1</mn>
+                  </math>
+               </p>
+            </figure>
+            <p>This resulted in a cosine similarity of 0.80 for the complete thesaurus graph TG, and 0.77 for the corpus graph CG.</p>
+         </section>
+         <section>
+            <h1>Preliminary Results</h1>
+            <p>We have applied our methodology on a combination of 4 thesauri and 7 document corpora. Guided by our proposed metrics and combined with manual inspection, we were able to: </p>
+            <ul>
+               <li>
+                  <p>Find missing relationships between concepts, which were of semantic relevance in the corpus, but not reflected in the thesaurus.</p>
+               </li>
+               <li>
+                  <p>Identify structural flaws in existing thesauri.</p>
+               </li>
+               <li>
+                  <p>Map document corpora to specific regions of a thesaurus. This could be useful for creating domain-specific thesauri from generic knowledge graphs.</p>
+               </li>
+            </ul>
+            <p>Currently, a clear limitation of our approach is that our proposed approach has not yet been evaluated against a gold-standard dataset. Therefore, we propose to implement the methodology presented here in a series of snapshots, triggered by the number of edits made. With this, domain experts can determine whether the concepts and relations they add have meaningful impact on the knowledge graphs quality.</p>
+         </section>
+      </section>
+      <section>
+         <h1>Demo Implementation</h1>
+         <p>The web application<a href="#ftn5"> </a> allows one to connect to a PoolParty server, specify the project (thesaurus) and the related corpus, and assess the quality of their fit. The quality is assessed through the comparison of structural distances between concepts in the thesaurus versus the co-occurrence distances in the specified corpus ("Distances Comparison Quality"). The structural distance between individual pairs of concepts are plotted on the X axis, whereas textual distances are on the Y axis. The r^2 value of the linear approximation is taken as the score.</p>
+         <p>Moreover, the frequencies of the concepts in the corpus are depicted in the "taxonomy coverage" figure. With the help of the coverage figure the user can visualize and investigate the important concepts and branches in the thesaurus and, possibly, remove concepts or extend the most important branches. The occurring concepts are labelled blue, the concepts whose children occur in the corpus are marked orange, unmentioned concepts are gray.</p>
+         <p>In a separate ranking the user may investigate the "importance" of different concepts in the thesaurus. The importance is assessed with the help of betweenness metrics.</p>
+         <p>Another method for assessing the quality of the fit is called "information capture". Here the application plots the number of extracted concepts (Y axis) versus the importance score of the discovered terms (i.e. terms that are not present in the thesaurus). Since we struggle to annotate the document well and reflect the important information with the annotations, this figure helps to visualize how homogeneously the documents are annotated throughout the corpus. Again, the r^2 value of the linear approximation is taken as the score.</p>
+         <p>All the visualizations are interactive, the user may investigate the plots including zooming and getting informative tooltips.</p>
+      </section>
+      <section>
+         <h1>Conclusion and future work</h1>
+         <p>With the approach outlined in this paper, we are able to suggest improvements to the thesaurus so that it fits the corpus better. With the hypothesis that the distances from corpus-based co-occurrences and the thesaurus graph should be as congruent as possible, a number of improvements to a thesaurus can be made. Additionally, we implemented an initial proof-of-concept demo.</p>
+         <section>
+            <h1>Future Work</h1>
+            <p>We identified further possible improvements for our methodology, which will be implemented in a follow-up project later this year. Apart from improving the thesaurus by fixing obvious mistakes, we plan to re-create the thesaurus based on the corpus itself.</p>
+            <p>For this, we will use the semantic distances based on concept co-occurrences to re-create a network representation of a knowledge graph from scratch. The existing thesaurus can then either be improved (create and/or remove edges, only use a subset of a bigger thesaurus etc.), or the new graph can be enriched with additional information (vertex/edge type etc.) and used as a thesaurus; it could be even possible to combine existing thesauri. This approach is especially useful when the corpus is diverse and no fitting thesaurus exists.</p>
+         </section>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <p>Auer, Sören, et al. "Dbpedia: A nucleus for a web of open data." <em>The semantic web</em> (2007): 722-735.</p>
+         <p>Deerwester, Scott, et al. "Indexing by latent semantic analysis." <em>Journal of the American society for information science</em> 41.6 (1990): 391.</p>
+         <p>Ehrlinger, Lisa, and Wolfram Wöß. "Towards a Definition of Knowledge Graphs." <em>SEMANTiCS (Posters, Demos, SuCCESS)</em>. 2016.</p>
+         <p>Mader, Christian, Bernhard Haslhofer, and Antoine Isaac. "Finding quality issues in SKOS vocabularies." <em>Theory and Practice of Digital Libraries</em> (2012): 222-233. </p>
+         <p>Paulheim, Heiko, and Christian Bizer. "Improving the quality of linked data using statistical distributions." <em>International Journal on Semantic Web and Information Systems (IJSWIS)</em> 10.2 (2014): 63-86. </p>
+         <p>Paulheim, Heiko. "Knowledge graph refinement: A survey of approaches and evaluation methods." <em>Semantic web</em> 8.3 (2017): 489-508. </p>
+         <p>Singhal, Amit. "Introducing the knowledge graph: things, not strings." <em>Official google blog</em> (2012).</p>
+         <p>Suominen, Osma, and Christian Mader. "Assessing and improving the quality of SKOS vocabularies." <em>Journal on Data Semantics</em> 3.1 (2014): 47-73.</p>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> 
+               <a href="../customXml/item1.xml">https://www.wikidata.org</a> 
+            </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> 
+               <a href="numbering.xml">https://www.w3.org/2004/02/skos/intro</a> 
+            </p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> A thesaurus is a specific kind of knowledge graph that we use to demonstrate our method.</p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> The concepts have been extracted using the PoolParty API, which only returned the concepts that exist in the accompanying thesaurus.</p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> 
+               <a href="styles.xml">https://research.semantic-web.com/thesaurus_harmony/</a>
+            </p>
+         </section>
+      </section>
+   </body>
+</html>
