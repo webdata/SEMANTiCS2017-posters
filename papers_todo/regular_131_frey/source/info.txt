@@ -1,0 +1,10 @@
+- the final RASH is in the rash folder (with manual fixes)
+
+if you have a question email to
+	hofer@informatik.uni-leipzig.de
+	hellmann@informatik.uni-leipzig.de
+
+
+- camera ready odt for creating a proper PDF version is "MaSQue (camera-pdf).odt"
+- camera ready odt for creating an almost publishable (minor fixes still occur due to rash conversion bugs e.g. missing commas, spaces etc.) rash is in "MaSQue (camera-RASH).odt"
+- "MaSQue (camera-references-new).odt" is primarily based on the pdf version but with a changed reference to circumvent rash conversion issues.

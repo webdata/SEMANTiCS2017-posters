@@ -1,0 +1,86 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{SPECIAL: Scalable Policy-awarE Linked Data arChitecture for prIvacy, trAnsparency and compLiance}
+\titlerunning{SPECIAL}
+\author{Javier D. Fernández\inst{1} \and
+Sabrina Kirrane\inst{2} \and
+Axel Polleres\inst{1} \and
+Rigo Wenning\inst{3}}
+\authorrunning{Javier D. Fernández et al.}
+\institute{Vienna University of Economics and Business & Complexity Science Hub, Vienna, Austria\and
+Vienna University of Economics and Business, Vienna, Austria\and
+W3C, Sophia-Antipolis, France\\
+\email{jfernand@wu.ac.at, 
+sabrina.kirrane@wu.ac.at, 
+axel.polleres@wu.ac.at, 
+rigo@w3.org}}
+\maketitle
+
+\begin{abstract}
+SPECIAL is a research and innovation action, which is funded under the H2020 ICT-18-2016 Big data PPP: privacy-preserving big data technologies call. The SPECIAL project aims to address the contradiction between Big Data innovation and privacy-aware data protection by proposing a technical solution that makes both of these goals realistic.
+
+\keywords{Big Data, Compliance, Data protection, Legislation, Linked Data, Privacy, Robustness, Scalability, Transparency}
+\end{abstract}
+
+
+\section{Introduction}
+
+The SPECIAL\footnote{https://www.specialprivacy.eu/} platform, which is routed in Semantic Web technologies and Linked Data principles  \cite{__RefHeading__354_1658379157}: (i) supports the acquisition of user consent at collection time and the recording of both data and metadata (consent, policies, event data, context) according to legislative and user-specified policies; (ii) caters for privacy-aware, secure workflows that include usage/access control, transparency and compliance verification; (iii) demonstrates robustness in terms of performance, scalability and security all of which are necessary to support privacy preserving innovation in Big Data environments; and (iv) provides a dashboard with feedback and control features that make privacy in Big Data comprehensible and manageable for data subjects, controllers, and processors. SPECIAL shall allow citizens and organisations to share more data, while guaranteeing data protection compliance, thus enabling both trust and the creation of valuable new insights from shared data. In order to support transparency across company borders Linked Data principles such as allocating unique IRIs to data resources and using these IRIs to associate metadata (i.e. policies and event data) with said resources will be employed.
+
+\section{R\&D activities and goals}
+
+The SPECIAL project, will be realised by combining and significantly extending big data architectures to handle Linked Data, harnessing them with sticky policies  \cite{__RefHeading__352_1658379157} as well as scalable queryable encryption  \cite{__RefHeading__356_1658379157} \cite{__RefHeading__350_1658379157}, and developing advanced user interaction and control features. SPECIAL builds on top of the Big Data Europe\footnote{https://www.big-data-europe.eu/} and PrimeLife\footnote{http://primelife.ercim.eu/} projects, exploits their results, and further advances the state of the art of privacy enhancing technologies. Against this background, the vision of SPECIAL translates into the following, concrete activities and goals:
+\begin{itemize}
+\item A policy management framework is required in order to ensure that data subjects can associate access and usage policies with their personal data and to support the derivation of policies for processed data. At the centre of this objective is the need for a policy language that is able to represent not only access/usage policies in machine readable format, but also legal rules, business rules, provenance data, and contextual information. Additionally, there is a need to develop automated policy synthesis techniques that can be used to derive policies for data produced by Big Data processing algorithms (aggregation, mining, etc.).
+\item A transparency and compliance framework is needed in order to generate an immutable record of events that are linked to data and associated policies. Encryption, hashing and digital signatures are required in order to ensure both the integrity and non-repudiation of policies and events. In order to support traceability in terms of both the processing and sharing of personal data it is necessary to link data, policies and provenance/events with contextual information relating to the user and/or the environment. While, from a compliance perspective, it is necessary to automatically verify that the processing and sharing of personal data is inline with access and usage policies and also with the data protections legislation, and to inform the relevant parties in a nonintrusive manner.
+\item Both the policy management and the transparency and compliance frameworks need to be realised in the form of a scalable architecture. The proposed scalable policy-aware Linked Data architecture will be evaluated under real-world conditions not only in terms of functionality, but also placing a strong emphasis on nonfunctional requirements, such as performance, scalability and security.
+\end{itemize}
+
+\subsubsection*{Acknowledgements.}Supported by the European Union's Horizon 2020 research and innovation programme under grant 731601.
+
+
+\begin{thebibliography}{4}
+
+\bibitem{__RefHeading__354_1658379157} Bizer, C., Heath, T., \& Berners-Lee, T. (2009). Linked Data - The Story So Far. International Journal on Semantic Web and Information Systems, 5, pp. 1-22.
+\bibitem{__RefHeading__356_1658379157} Brakerski, Z., \& Vaikuntanathan, V. (2014). Efficient fully homomorphic encryption from (standard) LWE. SIAM Journal on Computing, 43(2), pp. 831-871.
+\bibitem{__RefHeading__350_1658379157} Cash, D., Jaeger, J., Jarecki, S., Jutla, C., Krawczyk, H., Rosu, M., \& Steiner, M. (2014). Dynamic searchable encryption in very-large databases: Data structures and implementation. IACR Cryptology ePrint Archive, 2014:853
+\bibitem{__RefHeading__352_1658379157} Trablesi, S., Neven, G., Ragget, D. et al. (2011). Report on design and implementation. PrimeLife Deliverable D5.3.4. Available at: \url{http://primelife.ercim.eu/images/stories/deliverables/d5.3.4-report\_on\_design\_and\_implementation-public.pdf}. 
+
+\end{thebibliography}
+
+\end{document}

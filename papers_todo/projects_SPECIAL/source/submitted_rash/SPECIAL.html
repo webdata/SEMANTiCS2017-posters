@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/rash.css"/>
+      <script src="js/jquery.min.js"> </script>
+      <script src="js/bootstrap.min.js"> </script>
+      <script src="js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>SPECIAL: Scalable Policy-awarE Linked Data arChitecture for prIvacy, trAnsparency and&#xD; compLiance</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Vienna University of Economics and Business &amp; Complexity Science Hub, Vienna, Austria"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Vienna University of Economics and Business, Vienna, Austria"/>
+      <meta about="#affiliation-3"
+            property="schema:name"
+            content="W3C, Sophia-Antipolis, France"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Javier D. Fernández"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="jfernand@wu.ac.at"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Sabrina Kirrane"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="sabrina.kirrane@wu.ac.at"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Axel Polleres"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="axel.polleres@wu.ac.at"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Rigo Wenning"/>
+      <meta about="#author-4" property="schema:email" content="rigo@w3.org"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-3"/>
+      <meta property="prism:keyword" content="Linked Data"/>
+      <meta property="prism:keyword" content="Privacy"/>
+      <meta property="prism:keyword" content="Data protection"/>
+      <meta property="prism:keyword" content="Big Data"/>
+      <meta property="prism:keyword" content="Transparency"/>
+      <meta property="prism:keyword" content="Compliance"/>
+      <meta property="prism:keyword" content="Legislation"/>
+      <meta property="prism:keyword" content="Scalability"/>
+      <meta property="prism:keyword" content="Robustness"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>
+            <strong>Abstract</strong>
+         </h1>
+         <p>SPECIAL is a research and innovation action, which is funded under the H2020&#xD; ICT-18-2016 Big data PPP: privacy-preserving big data technologies call. The&#xD; SPECIAL project aims to address the contradiction between Big Data innovation&#xD; and privacy-aware data protection by proposing a technical solution that makes&#xD; both of these goals realistic.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>The SPECIAL<a href="#ftn0"> </a> platform, which is routed in Semantic Web technologies and Linked Data principles <a href="#__RefHeading__354_1658379157"> </a>: (i) supports the acquisition&#xD; of user consent at collection time and the recording of both data and metadata&#xD; (consent, policies, event data, context) according to legislative and user-specified&#xD; policies; (ii) caters for privacy-aware, secure workflows that include usage/access&#xD; control, transparency and compliance verification; (iii) demonstrates robustness&#xD; in terms of performance, scalability and security all of which are necessary to&#xD; support privacy preserving innovation in Big Data environments; and (iv) provides a dashboard with feedback and control features that make privacy in Big&#xD; Data comprehensible and manageable for data subjects, controllers, and processors. SPECIAL shall allow citizens and organisations to share more data, while&#xD; guaranteeing data protection compliance, thus enabling both trust and the creation of valuable new insights from shared data. In order to support transparency&#xD; across company borders Linked Data principles such as allocating unique IRIs&#xD; to data resources and using these IRIs to associate metadata (i.e. policies and&#xD; event data) with said resources will be employed.</p>
+      </section>
+      <section>
+         <h1>R&amp;D activities and goals</h1>
+         <p>The SPECIAL project, will be realised by combining and significantly extending big data architectures to handle Linked Data, harnessing them with sticky&#xD; policies <a href="#__RefHeading__352_1658379157"> </a> as well as scalable queryable encryption <a href="#__RefHeading__356_1658379157"> </a>
+            <a href="#__RefHeading__350_1658379157"> </a>, and developing advanced user&#xD; interaction and control features. SPECIAL builds on top of the Big Data Europe<a href="#ftn1"> </a> and PrimeLife<a href="#ftn2"> </a> projects, exploits their results, and further advances the state of the art of privacy enhancing technologies. Against this background, the&#xD; vision of SPECIAL translates into the following, concrete activities and goals:&#xD;</p>
+         <ul>
+            <li>
+               <p>A policy management framework is required in order to ensure that data&#xD; subjects can associate access and usage policies with their personal data and&#xD; to support the derivation of policies for processed data. At the centre of&#xD; this objective is the need for a policy language that is able to represent not&#xD; only access/usage policies in machine readable format, but also legal rules,&#xD; business rules, provenance data, and contextual information. Additionally,&#xD; there is a need to develop automated policy synthesis techniques that can be&#xD; used to derive policies for data produced by Big Data processing algorithms&#xD; (aggregation, mining, etc.).&#xD;</p>
+            </li>
+            <li>
+               <p>A transparency and compliance framework is needed in order to generate an&#xD; immutable record of events that are linked to data and associated policies.&#xD; Encryption, hashing and digital signatures are required in order to ensure&#xD; both the integrity and non-repudiation of policies and events. In order to&#xD; support traceability in terms of both the processing and sharing of personal&#xD; data it is necessary to link data, policies and provenance/events with contextual information relating to the user and/or the environment. While, from a&#xD; compliance perspective, it is necessary to automatically verify that the processing and sharing of personal data is inline with access and usage policies&#xD; and also with the data protections legislation, and to inform the relevant&#xD; parties in a nonintrusive manner.&#xD;</p>
+            </li>
+            <li>
+               <p>Both the policy management and the transparency and compliance frameworks need to be realised in the form of a scalable architecture. The proposed&#xD; scalable policy-aware Linked Data architecture will be evaluated under real-world conditions not only in terms of functionality, but also placing a strong&#xD; emphasis on nonfunctional requirements, such as performance, scalability&#xD; and security.</p>
+            </li>
+         </ul>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>Supported by the European Union’s Horizon 2020 research and innovation programme under grant 731601.</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="__RefHeading__354_1658379157" role="doc-biblioentry">
+               <p>Bizer, C., Heath, T., &amp; Berners-Lee, T. (2009). Linked Data - The Story So Far. International Journal&#xD; on Semantic Web and Information Systems, 5, pp. 1-22.</p>
+            </li>
+            <li id="__RefHeading__356_1658379157" role="doc-biblioentry">
+               <p>Brakerski, Z., &amp; Vaikuntanathan, V. (2014). Efficient fully homomorphic encryption from (standard)&#xD; LWE. SIAM Journal on Computing, 43(2), pp. 831-871.</p>
+            </li>
+            <li id="__RefHeading__350_1658379157" role="doc-biblioentry">
+               <p>Cash, D., Jaeger, J., Jarecki, S., Jutla, C., Krawczyk, H., Rosu, M., &amp; Steiner, M. (2014). Dynamic&#xD; searchable encryption in very-large databases: Data structures and implementation. IACR Cryptology ePrint&#xD; Archive, 2014:853</p>
+            </li>
+            <li id="__RefHeading__352_1658379157" role="doc-biblioentry">
+               <p>Trablesi, S., Neven, G., Ragget, D. et al. (2011). Report on design and implementation. PrimeLife&#xD; Deliverable D5.3.4. Available at:&#xD; <a href="http://primelife.ercim.eu/images/stories/deliverables/d5.3.4-report_on_design_and_implementation-public.pdf">http://primelife.ercim.eu/images/stories/deliverables/d5.3.4-report_on_design_and_implementation-public.pdf</a>. </p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn0" role="doc-endnote">
+            <p>https://www.specialprivacy.eu/</p>
+         </section>
+         <section id="ftn1" role="doc-endnote">
+            <p>https://www.big-data-europe.eu/</p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p>http://primelife.ercim.eu/</p>
+         </section>
+      </section>
+   </body>
+</html>

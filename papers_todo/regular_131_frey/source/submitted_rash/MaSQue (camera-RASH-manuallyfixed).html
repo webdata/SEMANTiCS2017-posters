@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/rash.css"/>
+      <script src="js/jquery.min.js"> </script>
+      <script src="js/bootstrap.min.js"> </script>
+      <script src="js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>MaSQue: An Approach for Flexible Metadata Storage and Querying in RDF</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="AKSW/KILT, Leipzig University, Leipzig, Germany"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Johannes Frey"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="frey@informatik.uni-leipzig.de"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Sebastian Hellmann"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="hellmann@informatik.uni-leipzig.de"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="RDF"/>
+      <meta property="prism:keyword" content="SPARQL"/>
+      <meta property="prism:keyword" content="metadata representation"/>
+      <meta property="prism:keyword" content="reification"/>
+      <meta property="prism:keyword" content="provenance"/>
+      <meta name="dcterms.subject" content="Information systems, Data provenance"/>
+      <meta name="dcterms.subject"
+            content="Information systems, Resource Description Framework (RDF)"/>
+      <meta name="dcterms.subject" content="Information systems, Data exchange"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>The maintenance and use of metadata, such as provenance and time-related information (when was a data entity created or retrieved), is of increasing importance in the Semantic Web, especially for Big Data applications, that work on heterogeneous data from multiple sources and which require high data quality. In an RDF dataset it is possible to store metadata alongside the actual RDF data and several possible Metadata Representation Models (e.g. Singleton Property and n-ary relation) have been proposed. However, studies investigating the performance of these models show that choosing the appropriate metadata representation depends on the used data and metadata, queries and RDF store. To allow a flexible storage and querying of data and its metadata independent of the applied Metadata Representation Model, we propose MaSQue (Metadata Storage and Querying). The approach introduces an intermediate (meta)data serialization format and query annotations as metadata layer on top of RDF and SPARQL. </p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>Within the <q>Smart Data Web</q> project<a href="#ftn1"> </a> data about persons, locations, companies and their products is fetched from many different sources (government files, industry databases, websites and social network texts) to extract, transform, integrate and aggregate the information to represent it in one open industry knowledge graph. The involved tools generate a variety of metadata in every step of the data processing pipeline. Such metadata (e.g. the name of the source the fact has been found in, the retrieval date and license of that source, the version number of the (recognition) tool, which has been used etc.) describes how a fact or piece of information has been derived.</p>
+         <p>The storage of such metadata alongside the data in the same RDF store allows to record fine-grained traceability and provenance information, license and access rights, data trustworthiness and confidence scores for every single fact in the knowledge graph. Detailed metadata increases data quality and supports subsequent data processing steps. Resolving conflicting data values (like the number of employees) for a company found in different sources, can be improved by metadata-based heuristics, e.g. prefer newer facts or prefer values from a source, which is known to ensure high data quality.</p>
+         <p>Besides the RDF Reification Vocabulary<a href="#ftn2"> </a> other Metadata Representation Models (MRMs) have been presented. <a href="#refFigure0"> </a> illustrates the MRMs considered in this work. Comparing the performance of these models was subject of a few evaluations <a href="#__RefNumPara__7659_402125764"> </a>,<a href="#__RefNumPara__7725_402125764"> </a>,<a href="#__RefNumPara__7731_402125764"> </a>,<a href="#__RefNumPara__7733_402125764"> </a>. However, the performance results of the MRMs differ significantly between the evaluation scenarios and can be influenced by use case specific parameters like characteristics of data and metadata, complexity of the queries and the used RDF store <a href="#__RefNumPara__9273_402125764"> </a>,<a href="#__RefNumPara__7725_402125764"> </a>. Thus it is challenging to determine the best MRM for a scenario beforehand. To enable the development of an RDF application extensively using metadata, but without restricting it a-priori to one concrete implementation of an MRM, we propose MaSQue (Metadata Storage and Querying). MaSQue serves as an abstraction layer for different MRMs covering both the storage and serialization of RDF (meta)data as well as querying RDF stores using SPARQL.</p>
+         <figure id="refFigure0">
+            <p>
+               <img src="img/100002010000078C0000019E15958F2D1E8C2850.png"
+                    alt="Structure of different Metadata Representation Models: Six different ways of describing (or reifying) an RDF triple s, p, o with a metadata key and value pair are supported by MaSQue; Companion property (cpprop), nary relation (nary), named graphs (ngraphs), singleton properties (sgprop), standard reification (stdreif), and the Blazegraph-specific Reification Done Right (rdr). Besides rdr, which is based on the vendor-independent RDF* and SPARQL* 3, all approaches use an explicit statement identifier (red), which is used to attach metadata (green) to the data (grey). Cpprop and stdreif are based on additional triple handlers (white). Properties which also occur as subject in another triple are drawn with dashed lines."/>
+            </p>
+            <figcaption>
+               <strong>Structure of different Metadata Representation Models: </strong>Six different ways of describing (or reifying) an RDF triple <code>s, p, o</code>with a metadata <code>key</code>and <code>value</code>pair are supported by MaSQue; Companion property (cpprop), nary relation (nary), named graphs (ngraphs), singleton properties (sgprop), standard reification (stdreif), and the Blazegraph-specific Reification Done Right (rdr). Besides rdr, which is based on the vendor-independent RDF* and SPARQL* <a href="#__RefNumPara__7691_402125764"> </a>, all approaches use an explicit statement identifier (red), which is used to attach metadata (green) to the data (grey). Cpprop and stdreif are based on additional triple handlers (white). Properties which also occur as subject in another triple are drawn with dashed lines.</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Metadata levels and Metadata Representation Models</h1>
+         <p>As <strong>Metadata Representation Model (MRM)</strong>, we define a strategy of splitting an RDF statement or triple <em>t</em> and its set of key-value based metadata facts <em>m</em> into several triples or quads, such that we can store and query metadata - for all statements individually - in an RDF Store. The MRMs supported by MaSQue are displayed and briefly discussed in <a href="#refFigure0"> </a>. For a detailed explanation we refer to <a href="#__RefNumPara__7725_402125764"> </a> and <a href="#__RefNumPara__9273_402125764"> </a> (cpprop and rdr). As <strong>metadata</strong> we understand the aforementioned detailed, descriptive information (confidence, provenance, validity scope, traceability information, license etc.) for an individual triple or a small subset of triples from the knowledge graph. <strong>Meta-metadata</strong> is characterized by one or more nested layers of metadata, which describe metadata itself. </p>
+         <section>
+            <h1>Metadata granularity levels, factorization and grouping</h1>
+            <p>Metadata can be recorded for individual triples or sets of triples. In the context of MaSQue we distinguish between three granularity levels. Metadata on<strong> </strong>
+               <strong>graph-level</strong>
+               <strong> </strong>provides information for all entities and statements within the same named graph. It is typically applied to store provenance for several or all entities/triples of an entire dataset. The <strong>entity/resource-level</strong> is the level where all statements with the same subject (entity identifier) share meta information. The most fine-grained metadata is on <strong>triple-level</strong>, where metadata is kept for each statement or triple (classic reification scenario). As <strong>factorization</strong>
+               <strong> </strong>we denote the feature of cpprop and ngraphs to store shared metadata (on various granularity levels) only once. This is realized by using the same statement identifier for all statements sharing the same metadata. The remainder MRMs are not capable of this technique since they rely on the identifier to reconstruct the actual data triple or, in the case of rdr, do not use an id. Within MaSQue we use a workaround. Instead of connecting the metadata to every statement, the metadata will be linked to a new shared resource, and only the link from the statements to that resource will be stored redundantly. Another requirement towards metadata storage (especially in the Wikidata use case from <a href="#__RefNumPara__7725_402125764"> </a>) is the creation of metadata fact groups or logical units. To give an example: If a fact was retrieved from two sources with two different confidence scores, the source and score form a logical unit. The confidence score does only make sense in the scope of the source. </p>
+         </section>
+      </section>
+      <section>
+         <h1>MaSQue Approach</h1>
+         <p>MaSQue is a Java-based framework and command line utility. Its paradigm is to hide the complexity and individual characteristics of various MRMs behind a uniform <q>mask</q>. The usage of MaSQue in a scenario, in which storage and retrieval of extensive and fine grained RDF metadata is crucial, allows to switch between different MRMs without rewriting the application logic. It consists of 2 major components meta-RDF and meta-SPARQL, which establish an abstraction layer for RDF data and its metadata for storage &amp; serialization and querying respectively. The software architecture enables extensions for other MRMs (besides the supported ones from <a href="#refFigure0"> </a>).</p>
+         <section>
+            <h1>Meta-RDF</h1>
+            <p>Meta-RDF<a href="#ftn3"> </a> had been designed to convert datasets into various MRMs. The component features a novel JSON representation, which allows the association of metadata to quad(s) for different levels of granularity. Moreover it supports meta-metadata. Once the source dataset is converted into the JSON representation, this intermediate format can be used to create NQuads files for the various MRMs. The JSON representation is optimized for a parallel conversion of huge datasets, which do not fit into main memory. Meta-RDF supports different serialization and optimization schemes<a href="#ftn4"> </a> (factorization for all MRMs, combination of ngraphs with other MRMs for efficient meta-metadata representation, logical metadata groups etc.) for the MRMs. While the JSON format is intended for a batch conversion of a complete dataset, applications can also use the integrated Java data model abstraction (DAO) to convert RDF metadata on-the-fly. The data model is described in <a href="#refListing0"> </a>. The model was introduced to explicitly represent different aspects of metadata storage which can be leveraged by different MRMs. It allows among others to express different granularity and share levels, an easy way of nesting metadata and the definition of logical metadata groups. </p>
+            <p/>
+            <figure id="refListing0">
+               <p>
+                  <img width="80%" src="img/1001C352000036FC0000211B388620536C0402BE.svg"
+                       alt="Excerpt from meta-RDF JSON data model"/>
+               </p>
+               <figcaption>Excerpt from meta-RDF JSON data model</figcaption>
+            </figure>
+         </section>
+         <section>
+            <h1>Meta-SPARQL</h1>
+            <p>In order to enable MRM-independent SPARQL queries, the generic and extensible tool meta-SPARQL<a href="#ftn5"> </a> has been developed. It allows automatic rewriting of SPARQL queries for different MRMs. The idea is, to replace every triple pattern within a SPARQL query by a set of special annotations, which will be translated by meta-SPARQL into the appropriate format. Every query needs to be written as a template in an intermediate SPARQL dialect based on these annotations. It consists of 4 annotations explained in <a href="#refTable0"> </a>. The template can be converted into query instances of the various MRMs. Therefore query templates can be written independent of granularity support and other MRM-specific characteristics. The semantics of every annotation is further illustrated by a set of examples online<a href="#ftn6"> </a>. Meta-SPARQL features a file format to convert several query templates at once, which can be used for MRM benchmarking purposes, but also exposes functions for the conversion of single queries or annotations.</p>
+            <figure id="refTable0">
+               <table>
+                  <tr>
+                     <th>Annotation</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>#!data(?s,?p,?o)!#</p>
+                     </td>
+                     <td>
+                        <p>replacing a regular data triple pattern (for regular data queries)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>#!reif(?id,?s,?p,?o)!#</p>
+                     </td>
+                     <td>
+                        <p>analogous to #!data but retrieving statement id as well</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>#meta(?id,?k,?v)!#</p>
+                     </td>
+                     <td>
+                        <p>retrieve metadata key and value, using a statement id</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>#meta2(?id,?k,?v)!#</p>
+                     </td>
+                     <td>
+                        <p>retrieve metadata key and value, which is reified itself (due to meta-metadata), using a statement id</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>
+                  <strong>Meta-SPARQL query translation annotation types. </strong>Every annotation type corresponds to a function in the meta-SPARQL tool, which expects one or more parameters. The parameters can be SPARQL variables or RDF names (IRI, literal).</figcaption>
+            </figure>
+         </section>
+      </section>
+      <section>
+         <h1>Conclusions and Future Work</h1>
+         <p>To the best of our knowledge we proposed the first generic approach, which allows the conversion and querying of RDF data(sets) with metadata and meta-metadata while retaining the flexibility to exchange the underlying MRMs and featuring multiple granularity levels. We applied MaSQue in two usage scenarios (a DBpedia-based company dataset with revision metadata on entity-level<a href="#ftn7"> </a> and an artists knowledge<a href="#ftn8"> </a> graph with provenance on triple-level. However these scenarios where read-only and did not consider SPARUL queries, which need to be studied in the future. Furthermore a user, which wants to use the SPARQL endpoint UI (containing data and metadata), still needs to know the details of the used MRM. To address this issue, we could think of extending and utilizing MaSQue as a SPARQL proxy. To go one step further, a more sophisticated metadata-aware system could be developed, which allows unified querying, regardless the used MRMs, granularity levels and metadata levels. To improve the support of meta-SPARQL query templates by SPARQL APIs, the definition of a mapping from ngraphs’ intuitive and standard compliant queries to meta-SPARQL’s annotations using designated (<q>magic</q>) properties could be investigated. </p>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>This work was supported by grants from the Federal Ministry for Economic Affairs and Energy of Germany (BMWi) for the Smart Data Web project (GA-01MD15010B)<a href="#ftn9"> </a>, as well as from the European Union for the Horizon 2020 project ALIGNED (GA-644055)<a href="#ftn10"> </a>. MaSQue has been developed in the Master's thesis of the first author. Special thanks go to Kay Müller, who supervised and mentored that thesis. </p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="__RefNumPara__9273_402125764" role="doc-biblioentry">
+               <p>Frey, J., Müller, K., Hellmann, S., Rahm, E., and Vidal, M.-E. Evaluation of metadata representations in RDF stores. Under review in <em>SWJ special issue on Linked Data Benchmarking</em>, <a href="http://www.semantic-web-journal.net/content/evaluation-metadata-representations-rdf-stores">http://www.semantic-web-journal.net/content/evaluation-metadata-representations-rdf-stores</a> 
+               </p>
+            </li>
+            <li id="__RefNumPara__7659_402125764" role="doc-biblioentry">
+               <p>Fu, G., Bolton, E., Queralt-Rosinach, N., Furlong, L. I., Nguyen, V., Sheth, A. P., Bodenreider, O., and Dumontier, M. Exposing provenance metadata using different RDF models. In <em>Proceedings </em>
+                  <em>of 8th SWAT4LS </em>
+                  <em>Conference.</em> (2015), pp. 167–176.</p>
+            </li>
+            <li id="__RefNumPara__7691_402125764" role="doc-biblioentry">
+               <p>Hartig, O. Foundations of RDF* and SPARQL* (An Alternative Approach to Statement-Level Metadata in RDF). In <em>11th Alberto Mendelzon Workshop on Foundations of Data Management </em>(2017).</p>
+            </li>
+            <li id="__RefNumPara__7725_402125764" role="doc-biblioentry">
+               <p>Hernández, D., Hogan, A., Riveros, C., Rojas, C., and Zerega, E. Querying wikidata: Comparing sparql, relational and graph databases. In <em>ISWC 2016 Proceedings, Part II</em> (2016), pp. 88–103.</p>
+            </li>
+            <li id="__RefNumPara__7731_402125764" role="doc-biblioentry">
+               <p>Hernández, D., Hogan, A., and Krötzsch, M. Reifying rdf: What works well with wikidata? In <em>SSWS@ISWC</em> (2015), vol. 1457 of <em>CEUR Workshop Proceedings</em>, CEUR-WS.org, pp. 32–47.</p>
+            </li>
+            <li id="__RefNumPara__7733_402125764" role="doc-biblioentry">
+               <p>Nguyen, V., Bodenreider, O., and Sheth, A. P. Don’t like rdf reification?: making statements about statements using singleton property. In <em>WWW</em> (2014), ACM, pp. 759–770.</p>
+            </li>
+         </ol>
+         <ol/>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p>
+               <a href="http://smartdataweb.de/">http://smartdataweb.de/</a>
+            </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p>
+               <a href="http://www.w3.org/TR/rdf11-mt/#reification">http://www.w3.org/TR/rdf11-mt/#reification</a>
+            </p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p>
+               <a href="http://github.com/AKSW/meta-rdf">http://github.com/AKSW/meta-rdf</a>
+            </p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p>
+               <a href="http://vmdbpedia.informatik.uni-leipzig.de:8088/frey/masque/meta-rdf/">http://vmdbpedia.informatik.uni-leipzig.de:8088/frey/masque/meta-rdf/</a>
+            </p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p>
+               <a href="http://github.com/AKSW/meta-sparql">http://github.com/AKSW/meta-sparql</a> 
+            </p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p>
+               <a href="http://vmdbpedia.informatik.uni-leipzig.de:8088/frey/masque/meta-sparql/">http://vmdbpedia.informatik.uni-leipzig.de:8088/frey/masque/meta-sparql/</a>
+            </p>
+         </section>
+         <section id="ftn7" role="doc-endnote">
+            <p>
+               <a href="https://github.com/AKSW/dbpedia-revision-meta-convert">https://github.com/AKSW/dbpedia-revision-meta-convert</a>
+            </p>
+         </section>
+         <section id="ftn8" role="doc-endnote">
+            <p>
+               <a href="https://github.com/Vehnem/metardf-converter">https://github.com/Vehnem/metardf-converter</a>
+            </p>
+         </section>
+         <section id="ftn9" role="doc-endnote">
+            <p>
+               <a href="http://smartdataweb.de/">http://smartdataweb.de/</a>
+            </p>
+         </section>
+         <section id="ftn10" role="doc-endnote">
+            <p>
+               <a href="http://aligned-project.eu/">http://aligned-project.eu/</a> 
+            </p>
+         </section>
+      </section>
+   </body>
+</html>
