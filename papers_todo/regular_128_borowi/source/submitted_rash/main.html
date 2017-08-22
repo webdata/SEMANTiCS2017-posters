@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/rash.css"/>
+      <script src="js/jquery.min.js"> </script>
+      <script src="js/bootstrap.min.js"> </script>
+      <script src="js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>Ontology-driven Visual Exploration of Preclinical Research Data in the Spinal Cord Injury Domain</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="CITEC, Bielefeld University, Germany"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Neurology, HHU Düsseldorf, Germany"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Alexander Borowi"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="aborowi@techfak.uni-bielefeld.de"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Hendrik ter Horst"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="hterhors@cit-ec.uni-bielefeld.de"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Matthias Hartung"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="mhartung@cit-ec.uni-bielefeld.de"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Veronica Estrada"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="veronica.estrada@uni-duesseldorf.de"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Nicole Brazda"/>
+      <meta about="#author-5"
+            property="schema:email"
+            content="nicole.brazda@uni-duesseldorf.de"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-6"
+            name="dc.creator"
+            property="schema:name"
+            content="Hans Werner Müller"/>
+      <meta about="#author-6"
+            property="schema:email"
+            content="hanswerner.mueller@uni-duesseldorf.de"/>
+      <link about="#author-6"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-7"
+            name="dc.creator"
+            property="schema:name"
+            content="Philipp Cimiano"/>
+      <meta about="#author-7"
+            property="schema:email"
+            content="cimiano@cit-ec.uni-bielefeld.de"/>
+      <link about="#author-7"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="Visual Data Analytics"/>
+      <meta property="prism:keyword" content="Open Research Data"/>
+      <meta property="prism:keyword" content="Linked Data"/>
+      <meta property="prism:keyword" content="Ontology-based Access"/>
+      <meta property="prism:keyword" content="Spinal Cord Injury"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>We present SCIExplorer<a href="#ftn1"> </a>, an interactive web application for browsing research data represented in RDF format. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the potentially high entrance barriers faced by human domain experts interested in investigating research results at a glance without the need to formulate complex queries. In contrast, SCIExplorer provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually. We demonstrate that the tool can be effectively used to answer relevant competency questions in the domain of spinal cord injury, thus providing intuitive access to the results of preclinical studies which are represented in RDF. In particular, SCIExplorer offers drill-downs to individual preclinical results in order to visualize their core parameters at an interpretable level of abstraction that is guided by an underlying domain ontology.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>The amount of openly available research data in machine-readable formats such as RDF is constantly growing, due to the rise of open research portals, on the one hand, and successively more powerful natural language processing tools offering the capability of transforming unstructured data into structured form, on the other. Being tailored to automated processing by machines and services, these data sources are often hard to access by human researchers, as research data in various domains are inherently highly complex, and the data representation formalisms impose high barriers to human domain experts regarding their ability to interact with the data source. Against this background, the need for low-level, intuitive access to research data in RDF or derived formalisms becomes more important than ever. Current approaches towards browsing linked data such as LODmilla <a href="#__RefNumPara__9808_1959585331"> </a>, Yuzu <a href="#__RefNumPara__9846_1959585331"> </a>, Disco <a href="#__RefNumPara__9848_1959585331"> </a> or Tabulator <a href="#__RefNumPara__9850_1959585331"> </a> closely follow the RDF data model. In case of complex knowledge structures as they are ubiquitous in research data, this may result in obfuscation due to a multitude of triples which need to be browsed.</p>
+         <p>In this work, we present SCIExplorer, an interactive web application for investigating the results of preclinical studies in the spinal cord injury (SCI) domain that are represented in RDF. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the aforementioned problems, thus enabling domain experts without profound technical knowledge to formulate complex queries that are meaningful from a research perspective. In particular, the tool provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually, and offers drill-downs to individual preclinical results in order to visualize their results and core parameters at a glance. We demonstrate that SCIExplorer can be effectively used to answer relevant domain-specific competency questions provided by experts.</p>
+      </section>
+      <section>
+         <h1>Background: Automatically Populating a Spinal Cord Injury Knowledge Base from Preclinical Studies</h1>
+         <p>Our motivation to develop an exploration tool for efficiently browsing RDF research data arose in the context of the PSINK project<a href="#ftn2"> </a>, that aims at ontology-based information extraction from large amounts of preclinical studies in the SCI domain. The main project goal is to create the first comprehensive SCI knowledge base in order to foster translation from preclinicial research into therapeutic concepts that are likely to be effective in human patients. The resulting knowledge structures, i.e., the results of preclinical studies, are represented in an RDF database that can be queried via SPARQL. Both the information extraction process and the data representation scheme underlying the SCIExplorer are guided by the Spinal Cord Injury Ontology (SCIO) that is specifically developed in this project <a href="#__RefNumPara__9937_1959585331"> </a>. Currently, SCIO contains over 500 entities and relations describing a preclinical study in a very fine-grained and well-structured way.</p>
+      </section>
+      <section>
+         <h1>SCIExplorer</h1>
+         <p>This tool was developed to explore the complex structures of preclinical studies that follow the conceptualization provided by the Spinal Cord Injury Ontology. The interface is generated semi-automatically given the specifications of an ontology and a configuration file. The latter is used to enable different views to the data, thus focusing on different aspects of SCIO.</p>
+         <p>
+            <strong>Technical Details. </strong>SCIExplorer is a stand-alone framework written in Java, HTML and PHP.<a href="#ftn3"> </a> It is accessible though common web-browsers. The graphical interfaces relies on the JavaEE standard JavaServer Faces – Framework (JSF) that is based on Servlets and JavaServer Pages (JSP). The content management is realized with PrimeFaces. </p>
+         <p>
+            <strong>System Architecture. </strong>
+            <a href="#refFigure0"> </a> shows the overall system architecture. This work focuses on the SCIExplorer (grey box) that is divided into three main parts:</p>
+         <figure id="refFigure0">
+            <p>
+               <img src="img/100002010000021E00000282A9ECCEA52E89BA7E.png"
+                    alt="System Architecture"/>
+            </p>
+            <figcaption>System Architecture</figcaption>
+         </figure>
+         <ol>
+            <li>
+               <p>The <em>Exploration Interface</em> serves as an entry point. It is aligned to the ontology and modified by a configuration file that specifies different views to the data. The data exploration is driven by various filter strategies that are automatically extracted from the ontology.</p>
+            </li>
+            <li>
+               <p>The <em>Query Generator</em> automatically transforms set filters (based on concepts and properties provided by SCIO) into SPARQL statements.</p>
+            </li>
+            <li>
+               <p>The extracted data is prepared and visualized in the <em>Data Presentation</em> module. The configuration file specifies the parts of the data that should be viewed. </p>
+            </li>
+         </ol>
+         <p>In the following, all parts are described in more detail.</p>
+         <section>
+            <h1>Exploration Interface</h1>
+            <p>A major motivation of researchers working in the SCI domain is on gaining a deeper, comparative understanding of therapeutic approaches that have been investigated in previous preclinical studies and the core parameters involved in their successful or ineffective application. Our exploration interface adapts to this focus by offering the choice of a treatment (optionally including subtypes) as an entry point via an interactive search field (cf. <a href="#refFigure1"> </a>).</p>
+            <figure id="refFigure1">
+               <p>
+                  <img src="img/100000000000032D0000006200F985CC364DCE6F.png"
+                       alt="Entry point of the system. A treatment can be selected from an interactive search field."/>
+               </p>
+               <figcaption>Entry point of the system. A treatment can be selected from an interactive search field.</figcaption>
+            </figure>
+            <figure id="refFigure2">
+               <p>
+                  <img src="img/100000000000019800000311B8839549525C6583.png"
+                       alt="Different filter."/>
+               </p>
+               <figcaption>Different filter.</figcaption>
+            </figure>
+            <p>A drop-down menu provides a list of common treatments that are covered by the ontology, e.g., pharmaceutical compounds, hypothermic treatments, or rehabilitative trainings. Based on the selected treatment, further filters can be applied subsequently.</p>
+            <p>Main aspects of a preclinical SCI study as covered by SCIExplorer are <em>Treatment</em>, <em>AnimalModel</em>, <em>InjuryType </em>
+               <em>and </em>
+               <em>InvestigationMethod</em>. </p>
+            <p>Possible filters are automatically extracted from the ontology and grouped by their ontological role (i.e., subtype relations, object-type properties and data-type properties). Addressing these roles, we differentiate between two types of filters (cf. <a href="#refFigure2"> </a>): </p>
+            <ol>
+               <li>
+                  <p>
+                     <strong>Boolean Filter.</strong>
+                     Users can set constraints by specifying a rdf:type constraints to make sure that only results for a certain type are retrieved (e.g. <em>RatModel</em> or <em>Male</em>).</p>
+               </li>
+               <li>
+                  <p>
+                     <strong>RegEx Filter.</strong>
+                     For data-type properties, users can set constrains by limiting the values of the object position to a certain range.</p>
+               </li>
+            </ol>
+            <p>All properties, sub-properties and sub-class relations are flattened under each main aspect in order to reduce the complexity of the data. We argue that the exact hierarchical structure below these main aspects can be discarded without losing any important information. </p>
+         </section>
+         <section>
+            <h1>Filter-driven Dynamic Generation of SPARQL Queries </h1>
+            <p>The dynamic generation of SPARQL queries takes all previously set filters into account and translates them into a set of SPARQL statements. Each filter that was set by the user in the GUI is translated into a basic graph pattern (BGP) in the SPARQL query. BGPs can be typing statements using <code>rdf:type</code> or triples involving an object property or data-type property. For instance, the filter specifying that the user is interested in trials in rats (cf. <a href="#refFigure2"> </a>) imposes an <code>rdf:type</code>
+              constraint on the possible subtypes of the <em>AnimalModel </em>class in SCIO, which would be translated as follows:</p>
+            <figure>
+               <pre>
+                  <code>?OrganismModel rdfs:type scio:RatModel.</code>
+               </pre>
+               <figcaption>Translation of type constraint into query statement</figcaption>
+            </figure>
+            <p>Analogously, SPARQL statements capturing filters over object properties (e.g., <code>scio:hasGender</code>) are translated as follows:</p>
+            <figure>
+               <pre>
+                  <code>?OrganismModel scio:hasGender scio:Male.</code>
+               </pre>
+               <figcaption>Translation of object-type property constraint into query statement</figcaption>
+            </figure>
+            <p>An example of a filter involving a data-type property is the specification of an interval of animals’ weights, which is translated into SPARQL using a <code>FILTER</code> statement:</p>
+            <figure>
+               <pre>
+                  <code>?OrganismModel scio:hasWeight ?Weight.
+?Weight scio-data:hasValue ?WeightValue.
+<code>       FILTER regex(?WeightValue, "300-400 gramm", "I")</code>
+                  </code>
+               </pre>
+               <figcaption>Translation of data-type property constraint into query statement</figcaption>
+            </figure>
+            <p>In order to generate a complete SPARQL query, statements on classes with a common parent (e.g., <em>RatModel</em> and <em>MouseModel</em> with parent <em>Animal</em>
+               <em>Model</em>) are disjunctively combined using the <code>UNION</code> keyword. All other statements are combined into a conjunction.</p>
+         </section>
+         <section>
+            <h1>Data Presentation</h1>
+            <p>Retrieved results are presented in bar diagrams (one per main aspect) capturing the success rate of the respective treatments, divided into positive, negative, and neutral outcome. By default, the four main aspects and all properties of the selected treatment are shown in one dashboard. An example of a bar diagram displaying the observed outcomes of a particular treatment for different dosages is shown in <a href="#refFigure6"> </a>. </p>
+            <figure id="refFigure6">
+               <p>
+                  <img src="img/100000000000023D0000013F9EA6E294E6113887.png"
+                       alt="Bar diagram for different dosages"/>
+               </p>
+               <figcaption>Bar diagram for different dosages</figcaption>
+            </figure>
+            <p>If all desired filters are set, the user can switch to a drill-down view in which the retrieved results are arranged in a table (each column representing a main aspect of a study, each row representing a result). In the interest of presenting an entire study at a glance, aspect-related columns are grouped together. <a href="#refFigure8"> </a> shows an example drill-down.</p>
+         </section>
+      </section>
+      <section>
+         <h1>Use Cases in the Spinal Cord Injury Domain</h1>
+         <p>Common requirements proposed by researchers in the SCI domain involve <em>answering competency questions</em> aiming at comparative views of individual studies with a focus on certain key parameters, or <em>treatment analytics</em> at different levels of depth and granularity (e.g., detecting clusters of equivalent treatment concepts, predicting their prospective success in different model organisms, among others). Definitive answers to such information needs may require statistical analyses and meta studies. Yet, SCIExplorer in its current state is already capable of delivering valuable information regarding comparative views on treatments or the generation of new hypotheses or explanations about the observed (in-)efficacy of therapeutic concepts.</p>
+         <figure id="refFigure7">
+            <p>
+               <img src="img/100000000000044000000362DF44BF4E3D7C9BF0.png"
+                    alt="Exemplary dashboard for answering competency questions"/>
+            </p>
+            <figcaption>Exemplary dashboard for answering competency questions</figcaption>
+         </figure>
+         <p>Consider the following competency question:</p>
+         <p>In which lesion models being tested in male rats or mice have no negative effects of erythropoietin been observed so far?</p>
+         <p>Answering this question requires the specification of three filters (<em>MouseModel</em>, <em>RatModel</em>, <em>Male</em>). As a result, the answer can be inferred from investigating the <em>InjuryType</em> pane on the dashboard (cf. <a href="#refFigure7"> </a>): The current data pool contains two different injury models treated with erythropoietin, viz., compressions and contusions. So far, negative outcomes have only been reported for compressions. </p>
+         <p>Additionally, inspection of the <em>Dosage</em> pane shows that the negative result is tied to a particular dosage of 0.01 ml/kg of erythropoietin; however, the same dosage has also led to positive and neutral outcomes. In order to explore this finding in more detail, a drill-down can be generated by adding an additional constraint for the specific dosage. The resulting table, presenting all individual results from the RDF data pool which satisfy the current set of ontological constraints at a glance, is displayed in <a href="#refFigure8"> </a>. </p>
+         <p>As can be seen from the table, the difference in outcomes (positive vs. negative/neutral) is due to different time points of the measurement of the observation (four weeks vs. six weeks after treatment). Apparently, all other parameters being equal, erythropoietin in mice tends to induce early effects towards functional recovery after compression which are not sustainable over time, though.</p>
+         <figure id="refFigure8">
+            <p>
+               <img src="img/100000000000060F0000029180E4C65234901207.png"
+                    alt="Comparative drill-down to study results based on previously specified constraints"/>
+            </p>
+            <figcaption>Comparative drill-down to study results based on previously specified constraints</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Discussion</h1>
+         <p>We have presented SCIExplorer as a tool that enables visual analytics over research data represented in RDF, based on an intuitive access layer that is guided by an underlying domain ontology. With a focus on the spinal cord injury domain, we have demonstrated that SCIExplorer is capable to highlight meaningful and interpretable information for domain experts, without the need for specifying complex queries in a formal language such as SPARQL. SCIExplorer is automatically derived from a data-describing ontology, assuming a particular view on the underlying RDF data pool. We envisage two main directions for further development of SCIExplorer: first, adapting the tool to different research domains; second, increasing the degrees of freedom in the exploration process (e.g., by providing alternative entry points), while keeping the complexity faced by the user at a tractable level.</p>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>This work has been funded by the Federal Ministry of Education and Research (BMBF, Germany) in the PSINK projects (031L0028A &amp; 031L0028B).</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="__RefNumPara__9846_1959585331" role="doc-biblioentry">
+               <p>John P. McCrae (2016): Yuzu. Publishing Any Data as Linked Data, in: Proceedings of ISWC Posters and Demo Track.</p>
+            </li>
+            <li id="__RefNumPara__9850_1959585331" role="doc-biblioentry">
+               <p>Tim Berners-Lee, Yuhsin Chen, Lydia Chilton, Dan Connolly, Ruth Dhanaraj, James Hollenbach, Adam Lerer, David Sheets (2006): <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">Tabulator. Exploring and Analyzing </a>
+                  <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">linked </a>
+                  <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">data on the Semantic Web</a>, in: Procedings of the <a href="http://swui.semanticweb.org/swui06">3rd International Semantic Web User Interaction Workshop</a>, Athens, Georgia.</p>
+            </li>
+            <li id="__RefNumPara__9848_1959585331" role="doc-biblioentry">
+               <p>Christian Bizer, Tobias Gauß (2007): Disco Hyperdata Browser. A simple browser for navigating the Semantic Web. <a href="http://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/">h</a>
+                  <a href="http://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/">ttp://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/</a>
+               </p>
+            </li>
+            <li id="__RefNumPara__9808_1959585331" role="doc-biblioentry">
+               <p>András Micsik, Sándor Turbucz, Attila Györök (2016): LODmilla: A Linked Data Browser for All, in: Proceedings of SEMANTICS Posters and Demo Track. <a href="http://ceur-ws.org/Vol-1224/paper8.pdf">http://ceur-ws.org/Vol-1224/paper8.pdf</a>
+               </p>
+            </li>
+            <li id="__RefNumPara__9937_1959585331" role="doc-biblioentry">
+               <p>Nicole Brazda, Veronica Estrada, Tarek Kirchhoffer, Hendrik ter Horst, Matthias Hartung, Cord Wiljes, Roman Klinger, Philipp Cimiano, Hans Werner Müller (2016): SCIO. The Spinal Cord Injury Ontology, a Prerequisite for Automated Data Extraction from Publications on Research in Spinal Cord Injury, in: Proceedings of the 18th Spinal Research Network Meeting.</p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p>
+               <a href="http://psink.techfak.uni-bielefeld.de/SCIOExplorerv2/index.xhtml">http://psink.techfak.uni-bielefeld.de/SCIOExplorerv2/index.xhtml</a>
+            </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p>
+               <a href="http://www.psink.de/">http://www.psink.de</a>
+            </p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p>
+               <a href="https://github.com/ag-sc/SCIExplorer">https://github.com/ag-sc/SCIExplorer</a>
+            </p>
+         </section>
+      </section>
+   </body>
+</html>

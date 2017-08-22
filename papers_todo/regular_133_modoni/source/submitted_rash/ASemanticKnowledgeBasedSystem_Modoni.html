@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>A semantic approach to recognize behaviours in teenagers</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Institute of Industrial Technologies and Automation - National Research Council, Bari, Italy"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Institute of Industrial Technologies and Automation - National Research Council, Milano, Italy"/>
+      <meta about="#affiliation-3"
+            property="schema:name"
+            content="Ropardo S.R.L., Sibiu, Romania"/>
+      <meta about="#affiliation-4"
+            property="schema:name"
+            content="Eurecat, Barcelona, Spain"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Gianfranco E. Modoni"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="gianfranco.modoni@itia.cnr.it"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Marco Sacco"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="marco.sacco@itia.cnr.it"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Gabriela Candea"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="gabriela.candea@ropardo.ro"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-3"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Silvia Orte"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="silvia.orte@eurecat.org"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-4"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Filip Velickovski"/>
+      <meta about="#author-5"
+            property="schema:email"
+            content="filip.velickovski@eurecat.org"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-4"/>
+      <meta property="prism:keyword" content="Semantic Web"/>
+      <meta property="prism:keyword" content="Context awareness"/>
+      <meta property="prism:keyword" content="Semantic Repository"/>
+      <meta property="prism:keyword" content="Behaviour recognition"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>This research aims to realize a knowledge-based system recognizing teenagers’ behaviours in the lifestyle domain. Since various heterogeneous data sources are involved in this recognition process (e.g. wearable sensors, etc.), it is essential to face the harmonization of the data produced from these disparate sources and expressed under the form of both structured and unstructured content. The herein proposed approach leverages a common semantic reference model which represents the individual as a whole, permitting classification and integration of behavioural and contextual information. In this regard, an automatic semantic enrichment of the data produced by the involved sources is carried out, thus allowing to support a behaviour recognition process handled in a two-phase process (real-time and long-term detection and analysis of behaviours and trends).</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>Presently we are witnessing a growing demand of customized services which are tailored to the specific needs and characteristics of users. A key success factor for the implementation of these services is the user profiling, which consists of creating an explicit representation of a person's identity, i.e., a conceptual understanding of the user <a href="#_Ref490677013"> </a> 
+            <a href="#_Ref490677039"> </a> that is commonly employed to enhance usability as well as to support personalization, adaptivity and other user-centric features <a href="#_Ref490677081"> </a>. In addition, as a user might be found in various contexts, it is essential to construct a conceptual representation of a user model which is context-aware, thus able to infer which context the user is in a given moment in time, and consequently adapts the intervention to the selected context.  </p>
+         <p>This paper reports major features of an approach to support the process of user profiling which leverages the combination of Semantic Web technologies (SWT) <a href="#_Ref490677097"> </a> with the mobile and wearable technologies. The potential of this approach has been verified in the context of the European research project PEGASO<a href="#ftn1"> </a> 
+            <a href="#_Ref490677114"> </a> which aimed at promoting healthy lifestyle among teenagers. In particular, it provides personalized interventions based on the recognition of users’ behaviours with the objective of triggering an adjustable behaviour change process. In this regard, an ontology-based approach (Fig. 1) <a href="#_Ref490677130"> </a> is adopted to capture and cover the knowledge related with the so called Virtual Individual Model (VIM) <a href="#_Ref490677147"> </a>, characterizing the user on different aspects (i.e. physical, functional and behavioural parameters) <a href="#_Ref490677160"> </a>. Such a common reference model, which represents the individual as a whole, can contribute to harmonize data from different sources, providing in this way a systematic manner to classify and integrate the valuable knowledge. In fact, the common data model collects all the information and defines the reciprocal relationships between individual's different aspects, aggregating and unifying all the information. The definition of VIM stems from a conceptual framework of relations linking status, behaviours of the individual in different domains as well the context and the relation <a href="#_Ref490677173"> </a>.  </p>
+         <p>This paper is structured as follows. Section 2 introduces the behaviour recognition in PEGASO project, while Section 3 illustrates the semantic approach followed in this project to support behaviour recognition. Finally, Section 4 draws the conclusions, summarizing the main outcomes.</p>
+         <figure>
+            <p>
+               <img src="./img/image1.png"
+                    alt="PEGASO approach based on Semantic Web Technologies"/>
+            </p>
+            <figcaption>PEGASO approach based on Semantic Web Technologies</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>The behaviour recognition in PEGASO</h1>
+         <section>
+            <h1>The data sources </h1>
+            <p>Leveraging the VIM, a Behaviour Recognition System (BRS) has been implemented to conduct an individualized behaviour detection. The BRS is implemented as a two-dimensional system (short and long term) to be able to measure the two timescales considered in the project. In particular, the BRS is based on a mobile platform, where the smartphone is a key element that acts as the main contact point with the user. The mobile device also acts as communication gateway towards the sensors, running reasoning processes that allows inferring in real-time the necessary information to personalize the interventions delivered through the apps. This analysis is performed upon the available data extracted from various sources. Specifically:</p>
+            <ul>
+               <li>
+                  <p>Physical activity and sleep data is retrieved from available wearables (e.g. bracelet, etc.) and smartphone accelerometer.  </p>
+               </li>
+               <li>
+                  <p>Nutritional information is gathered through a mobile food app. </p>
+               </li>
+               <li>
+                  <p>Context data includes different kind of information that involves users’ situation in a certain moment (e.g. day and weather information, user location).</p>
+               </li>
+            </ul>
+         </section>
+      </section>
+      <section>
+         <h1>Overview of the Knowledge Based System</h1>
+         <section>
+            <h1>The VIM ontology</h1>
+            <p>The definition of a common reference model, which represents the individual as a whole, is proposed as a solution to harmonize data from the different heterogeneous sources, providing in this way a systematic manner to classify and integrate the valuable knowledge. The common data model defines the reciprocal relationship between the individual's different aspects, aggregating and unifying all this information. In particular, the definition of such virtual individual model stems from a conceptual model of relations linking status, behaviours of the individual in different domains as well the context surrounding the individual. This reference model is represented through a set of ontologies by adopting the SWT. An ontology based approach offers the significant key advantages of allowing to represent a formal semantics which contributes to enhance the interoperability of different software applications. In addition, it allows to entail and infer new knowledge about the concepts and their linking relationships, in addition to those initially already asserted. Finally, it allows to efficiently model and manage data to be distributed over the network, under the form of Linked Open Data (LOD) <a href="#_Ref490677234"> </a>. The latter is a proven way to publish and interlink public set of data in the scientific community (and also other fields).  Considering the relevance of the open model, we could imagine another connection to the LOD diagram through a circle containing the VIM meta model which is paired with a data set of example.</p>
+         </section>
+         <section>
+            <h1>The architecture</h1>
+            <p>The proposed technological architecture is capable to handle and expose the VIM ontology (expressed in OWL DL<a href="#ftn2"> </a>). It consists of two main pillars hosted on AWS cloud: the Semantic Repository (SR) and the Connector (Fig. 2). This latter represents the one single gateway, which play the role of Integration Service <a href="#_Ref490677244"> </a>, by transforming and combining structured and unstructured legacy data into valuable information according to the common data model behind VIM ontology. After this conversion process, the extracted information are also persisted and stored in a specific database (Semantic Repository). Specifically, the managed data comprise (Figure 3): </p>
+            <ul>
+               <li>
+                  <p>the domain ontology (TBOX), as representation of the knowledge about VIM; </p>
+               </li>
+               <li>
+                  <p>the ontological population (ABOX), compliant to the domain ontology; </p>
+               </li>
+               <li>
+                  <p>the derivation rules (RBOX) needed to properly entail the implicit knowledge and specified through the syntax of SWRL<a href="#ftn3"> </a>.</p>
+               </li>
+            </ul>
+            <p>The Connector, exposed as a RESTFUL web-service, is in charge of translating received HTTP requests into corresponding queries, formulated in SPARQL<a href="#ftn4"> </a> which is the standard language to compose the semantic query. Thus, SPARQL queries play the role of mediator between the application-driven models and the ABOX, TBOX and RBOX of the VIM model (Fig. 3).  </p>
+         </section>
+         <section>
+            <h1>The Semantic Repository</h1>
+            <p>One of the strengths of the SWT is that they allow to virtually express any type of information. The flip side is that this expressivity and flexibility imply the need to revise for SWT most part of the classical data management problems, including efficient storage and query optimization. Thus, as the request of semantic applications in real scenarios is continuously growing, the issue of efficiently storing and retrieving RDF data is getting more and more relevant. This need is posing significant challenges for researchers and technologists in terms of scalable and efficient stores. Under these conditions, a significant study of the PEGASO project has regarded the identification of a valid RDF store <a href="#_Ref490721446"> </a>, which finally brought to exploit an instance of the Stardog database<a href="#ftn5"> </a>.</p>
+         </section>
+         <section>
+            <h1>Interaction of the data sources with the Semantic Repository</h1>
+            <p>BRS takes advantage of both mHealth (smartphone apps and wearables) and cloud solutions to perform a two-stage processing of the user-generated data at different timespans to provide different levels of feedback and user interaction. Collected data, which encompasses indicators of detectable target behaviours, is cleaned and then fused into daily aggregated summaries (24h timespan) that are finally stored in the SR deployed in the cloud for further knowledge management. Additionally, collected and inferred data in those 24h timespan is continuously analyzed to provide real-time response to detected events such as behaviour abnormalities.</p>
+            <p>On the other side, the PEGASO cloud consumes the inferred information from the semantic repository to build a longer timespan summary (1 month) to be further analyzed. This long-term analysis is in charge of identifying user behaviour trends and evaluate the user progression on the goals set in the platform. As a result, it provides behavioural feedback and recommendations on personalized behaviour change interventions.</p>
+            <p> </p>
+            <figure>
+               <p>
+                  <img src="./img/image2.png"
+                       alt="Technological platform hosting VIM ontology"/>
+               </p>
+               <figcaption>Technological platform hosting VIM ontology</figcaption>
+            </figure>
+            <figure>
+               <p>
+                  <img src="./img/image3.png" alt="  Ontology querying mechanism"/>
+               </p>
+               <figcaption>  Ontology querying mechanism</figcaption>
+            </figure>
+         </section>
+      </section>
+      <section>
+         <h1>Experimental Settings</h1>
+         <p>The services exposed by the architecture had been evaluated in terms of performance under  heavy load (e.g high number of client connections), through a session of  stress tests, using the Chrome plugin RESTful Stress<a href="#ftn6"> </a>. The stress test demonstrated that the overall architecture satisfies the requirement in terms of horizontal scalability. Moreover, a six-month pilot study to assess the feasibility of the system in real life conditions was carried out in four different countries. Approximately 350 participants of the four pilot sites have been involved during the study. The feedback concerning the use of the semantic architecture is positive. In particular, the architecture confirmed its capability to support the concurrent access of different users (up to 100) with an acceptable average duration of a request (under the threshold of 100 milliseconds). </p>
+      </section>
+      <section>
+         <h1>Conclusions</h1>
+         <p>This paper has introduced an approach to support teenager behaviour recognition which is based on a semantic architecture. The latter offers interesting advantage, in particular allowing to enhance the semantic interoperability of the data sources monitoring and collecting teenager data. In addition, the architecture provides a SPARQL endpoint, which is the preliminary step to expose the meta-model of the VIM as Linked Open Data.  </p>
+         <p>Future developments will address three main goals. First of all, the VIM-based approach will be validated also with other categories of users, different from teenagers (e.g. elderly people or people with impairment). In fact, even the PEGASO approach has been conceived for teenager, VIM ontology can be tailored for other categories of users, while the semantic architecture is agnostic to the meta-model  of the used semantic data. The second goal will concern the integration of other sensors to extend the functionalities of the already implemented knowledge based system. Finally, the proposed architecture will be extended to enable a new model of collaboration among the involved sensors and apps, which can support their synergistic and smarter interaction and cooperation <a href="#_Ref490756416"> </a>. </p>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>This work has been partially funded by the EU 7th Framework Programme under the grant agreement No: 610727, <q>Personalised Guidance Services for Optimising lifestyle in teenagers through awareness, motivation and engagement</q> (PEGASO).</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="_Ref490677013" role="doc-biblioentry">
+               <p>M. Sacco, E. G. Caldarola, G. Modoni, and W. Terkaj. Supporting the design of AAL through a SW integration framework: the D4All project. International Conference on Universal Access in Human-Computer Interaction. Springer International Publishing, 2014.</p>
+            </li>
+            <li id="_Ref490677039" role="doc-biblioentry">
+               <p>G. Fischer. User Modeling in Human-Computer Interaction. User Modeling and User-Adapted Interaction. 11: 65-68, 2001.</p>
+            </li>
+            <li id="_Ref490677081" role="doc-biblioentry">
+               <p>M. Golemati et al.. Creating an ontology for the user profile: Method and applications. Proceedings of the first RCIS conference, 2007.</p>
+            </li>
+            <li id="_Ref490677097" role="doc-biblioentry">
+               <p>T. Berners-Lee, J. Hendler and O. Lassila, "The Semantic Web", Scientific American, vol. 284, n. 5, 2001.</p>
+            </li>
+            <li id="_Ref490677114" role="doc-biblioentry">
+               <p>R. Guarneri, and G. Andreoni. PEGASO Fit for Future. European Project Space on Computational Intelligence. Knowledge Discovery and Systems Engineering for Health and Sports.</p>
+            </li>
+            <li id="_Ref490677130" role="doc-biblioentry">
+               <p>T. R. Gruber. A translation approach to portable ontology specifications. Knowledge acquisition, 5(2), 1993.</p>
+            </li>
+            <li id="_Ref490677147" role="doc-biblioentry">
+               <p>C. Lafortuna, J. C. Serrano, et al.. The building of a virtual individual model (VIM): multi domain characterisation of health status in the PEGASO project. Advances in Human Aspects of Healthcare, 2014.</p>
+            </li>
+            <li id="_Ref490677160" role="doc-biblioentry">
+               <p>F. Velickovski, S. Orte, et al.. Detection and Assessment of Behaviours Associated with the Risk of Obesity in Adolescents. In eHealth 360°. Springer International Publishing, 2017.</p>
+            </li>
+            <li id="_Ref490677173" role="doc-biblioentry">
+               <p>A. Sojic, W. Terkaj, et al.. Modularising ontology and designing inference patterns to personalise health condition assessment: the case of obesity. Journal of Biomedical Semantics, 7(1), 12, 2016.</p>
+            </li>
+            <li id="_Ref490677234" role="doc-biblioentry">
+               <p>C. Bizer, T. Heath, and T. Berners-Lee. Linked data-the story so far. Semantic Services, Interoperability and Web Applications: Emerging Concepts, 2009.</p>
+            </li>
+            <li id="_Ref490677244" role="doc-biblioentry">
+               <p>G. E. Modoni, M. Veniero, and M. Sacco. Semantic Knowledge Management and Integration Services for AAL Applications. Proceedings ForItAAL2016, Lecture Notes in Electrical Engineering, 2016.</p>
+            </li>
+            <li id="_Ref490721446" role="doc-biblioentry">
+               <p>G. E. Modoni, M. Sacco, and W. Terkaj. A survey of RDF store solutions. Proceedings of the 20th International Conference on Engineering, Technology and Innovation, 2014.</p>
+            </li>
+            <li id="_Ref490756416" role="doc-biblioentry">
+               <p>G.E. Modoni, M. Veniero, A. Trombetta, et al.. Semantic based events signaling for AAL systems. Journal of Ambient Intelligence and Humanized Computing, 2017.</p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> 
+               <a href="../customXml/item1.xml">http://pegasof4f.eu/home</a>
+            </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> http://www.w3.org/TR/owl-features/</p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> 
+               <a href="numbering.xml">https://www.w3.org/Submission/SWRL/</a>
+            </p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> 
+               <a href="styles.xml">https://www.w3.org/TR/sparql11-query/</a>
+            </p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> 
+               <a href="settings.xml">http://stardog.com/</a>
+            </p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> 
+               <a href="webSettings.xml">https://chrome.google.com/webstore/detail/restful-stress/</a>
+            </p>
+         </section>
+      </section>
+   </body>
+</html>

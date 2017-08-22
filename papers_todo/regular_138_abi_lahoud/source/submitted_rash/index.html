@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  prefix="
+  schema: http://schema.org/
+  prism: http://prismstandard.org/namespaces/basic/2.0/
+  dcterms: http://purl.org/dc/terms/">
+  <head>
+    <!-- Visualisation requirements (mandatory for optimal reading) -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/rash.css"/>
+    <script src="js/jquery.min.js"><![CDATA[ ]]></script>
+    <script src="js/bootstrap.min.js"><![CDATA[ ]]></script>
+    <script src="js/rash.js"><![CDATA[ ]]></script>
+    <!-- /END Visualisation requirements (mandatory for optimal reading) -->
+
+    <title property="dcterms:title">Linking Data To Understand The Fintech Ecosystem</title>
+
+    <!-- Author's data (one or more) -->
+    <meta about="#eal" property="schema:name" name="dc.creator" content="Elie Abi-Lahoud"/>
+    <meta about="#eal" property="schema:email" content="elie.abilahoud@ucd.ie"/>
+    <link about="#eal" property="schema:affiliation" href="#bs-ucd"/>
+
+    <meta about="#per" property="schema:name" name="dc.creator" content="Paul-Emmanuel Raoul"/>
+    <meta about="#per" property="schema:email" content="paul-emmanuel.raoul@ucd.ie"/>
+    <link about="#per" property="schema:affiliation" href="#bs-ucd"/>
+
+    <meta about="#cm" property="schema:name" name="dc.creator" content="Cal Muckley"/>
+    <meta about="#cm" property="schema:email" content="cal.muckley@ucd.ie"/>
+    <link about="#cm" property="schema:affiliation" href="#bs-ucd"/>
+
+    <!-- Affiliations -->
+    <meta about="#bs-ucd" property="schema:name" content="School of Business, University College Dublin, Ireland"/>
+
+    <!-- Paper keywords (one or more) -->
+    <meta property="prism:keyword" content="Financial technology"/>
+    <meta property="prism:keyword" content="Knowledge representation"/>
+    <meta property="prism:keyword" content="Design science research"/>
+    <meta property="prism:keyword" content="Fintech"/>
+    <meta property="prism:keyword" content="Regtech"/>
+    <meta property="prism:keyword" content="Semantic web"/>
+    <meta property="prism:keyword" content="Linked open data"/>
+    <meta property="prism:keyword" content="Ontology"/>
+    <meta property="prism:keyword" content="RDF graph"/>
+    <meta property="prism:keyword" content="SPARQL"/>
+    <meta property="prism:keyword" content="Data visualisation"/>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"> </script>
+  </head>
+  <body>
+    <section id="SectionAbstract" role="doc-abstract">
+      <h1>Abstract</h1>
+
+      <p>The fintech ecosystem is a highly dynamic environment. Venture investment in fintech grew
+      by 11% to $17.4 billion in 2016 according to
+      <a href="https://www.forbes.com/sites/lawrencewintermeyer/2017/02/17/global-fintech-vc-investment-soars-in-2016">Forbes</a>
+      and <a href="https://www.slideshare.net/innovatefinance/the-2016-vc-fintech-investment-landscape-71849828/1">Pitchbook</a>.
+      Having a clear picture of this ecosystem at a given point in time is much needed to inform policy activities
+      as evidenced by the European Commission call for tenders SMART 2016/0042. This paper describes our approach
+      to integrating, enriching and presenting data about the fintech ecosystem. It presents <em>FintechBrowser</em>,
+      a demonstrator of an integrated set of dashboards and a graph explorative-browsing tool.</p>
+    </section>
+
+    <section>
+      <h1>Introduction</h1>
+
+      <p>Over the past decade we have witnessed technology-driven innovations that disrupted the financial
+      services industry and continue to do so. In consumer payments, nascent start-ups are able to bring to
+      market affordable and flexible cross-border payment solutions outperforming some of the largest
+      traditional financial institutions. In the funding space, the rise of crowd-funding democratised
+      access-to-capital creating a whole new market segment. In investment management, robo-advisors renewed
+      the faith of many in the applications of Artificial Agents while providing satisfying results at
+      competitive costs. Disruption caught-up even with currencies - one of the oldest concepts in the
+      financial industry - with the proliferation of crypto-currencies using blockchain technologies.</p>
+
+      <p>Having a clear picture of this ecosystem at a given point in time is much needed to inform policy
+      activities as evidenced by the European Commission call for tenders SMART 2016/0042. Our research
+      is focussed on exploring the fintech ecosystem using ontological modelling. It seeks, inter alia, to
+      improve our understanding of this ecosystem, which is a critically important environment from which
+      solutions to operational risks at financial institutions frequently arise. We combine novel knowledge
+      representation and data modelling techniques to reveal links between concepts represented in the data
+      which otherwise are not accessible. We use semantic web standards to free data from tables &amp;
+      spreadsheets and to enrich it with linked open data. We visualise data through the lens of our ontology
+      and present it on a map and in a navigable graph.</p>
+
+      <p>The rest of the paper is structured as follows. In <a href="#SectionTowardsAFintechKnowledgeGraph"> </a>
+      we describe our approach to building a fintech knowledge graph<a href="#ftn1"></a>. In
+      <a href="#SectionFintechBrowserToNavigateTheGraph"></a> we present FintechBrowser<a href="#ftn2"></a>,
+      a tool for presenting and navigating the fintech knowledge graph. Finally, in
+      <a href="#SectionConclusions"></a> we conclude the paper and outline on-going work to extend the knowledge
+      graph and FintechBrowser.</p>
+    </section>
+
+    <section id="SectionTowardsAFintechKnowledgeGraph">
+      <h1>Towards a fintech knowledge graph</h1>
+      <p>Current semantic web specifications <a href="#BrickleyRDFSchema"></a> <a href="#McGuinnessOWLOverview"></a>
+      <a href="#HarrisSPARQL"></a> and tools <a href="#MusenProtege"></a> <a href="#McBrideJena"></a>
+      <a href="#ApacheJena"></a> allow to represent a domain by documenting its concepts and the relationships
+      between them, to source data instantiating this representation from heterogeneous sources and to perform
+      automated reasoning to draw inferences and deductions from data following the domain representation. We
+      build on these capabilities in order to construct the nucleus of a knowledge graph of the fintech ecosystem.
+      Ehrlinger &amp; Wöß <a href="#EhrlingerDefinitionKnowledgeGraphs"></a> outline that a knowledge graph is
+      <q>somehow superior to a knowledge base</q> as a knowledge graph <q>acquires and integrates information into
+      an ontology and applies a reasoner to derive new knowledge</q>. At the heart of this fintech knowledge
+      graph is our OWL fintech ontology. We enrich the latter with custom-built layers of extensions to include
+      additional domain knowledge and by tapping into, and reusing knowledge from, the Linked Open Data Cloud.
+      <a href="#SectionConclusions"></a> outlines our plan to evolve this knowledge base into a knowledge graph.</p>
+
+      <section>
+        <h1>Building an ontology of the fintech ecosystem</h1>
+        <p>We follow a Design Science approach in building our ontology <a href="#HevnerDesignScience"></a>.
+        With the objective of maximising our ontology's chances of reuse, we pay special attention to guidelines
+        2 and 4 on the relevance of the research and the value of the contribution as described by Hevner et al.
+        To this end, we have assembled an advisory committee of domain experts in financial services, in fintech
+        and in technology <a href="#FintechEcosystem"></a> to observe, assist and assess. The ontology architecture
+        is described in <a href="#FigureOntologyArchitecture"></a> (Top left). A core module contains definitions
+        of OWL classes, object properties and restrictions representing the main actors of the fintech ecosystem
+        and the relationships among them. Extension modules build on top of the core one to add further concepts
+        as we learn about them or as they become relevant to the applications/queries this ontology underpins.
+        For example, we are designing an extension to represent innovation programs and accelerators and another
+        extension to represent conferences and industry events. In addition to these two layers and as our study
+        evolves, the time dimension is becoming more and more relevant to support for example queries about people
+        changing roles or investment trends over time. To this end, we are adding time-related information to some
+        concepts, roles and relationships. The ontology metrics of the current version of our core ontology module
+        are highlighted in <a href="#FigureOntologyArchitecture"></a> (Right) in a screenshot from Protégé
+        <a href="#MusenProtege"></a>.</p>
+
+        <figure id="FigureOntologyArchitecture">
+          <p>
+            <img src="img/ontology-architecture.png" alt="Ontology's architecure"/>
+          </p>
+          <figcaption>
+            (Top left) Overview of the fintech ecosystem ontology and its extensions. (Bottom left)
+            Excerpt of the ontology key competency questions. (Right) Excerpt of the Core ontology metrics from
+            Protégé.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h1>Validating and enriching the ontology</h1>
+        <p>In our Design Science approach and following guidelines 3 and 5 on evaluation and rigour
+        <a href="#HevnerDesignScience"></a>, we gathered a set of queries that the first version of
+        the ontology should help answer. This is in-line with ontology engineering best practices and
+        widely referenced guidelines <a href="#UscholdOntologies"></a> <a href="#Fernandez-LopezMethontology"></a>.
+        <a href="#FigureOntologyArchitecture"></a> (Bottom left) shows an excerpt of these questions.
+        As we were capturing these key competency questions, we were able to identify classes and entities
+        which are highlighted between quotes in <a href="#FigureOntologyArchitecture"></a> (Bottom left) and
+        which made their way to our ontology.</p>
+
+        <p>The Linked Open Data community is growing steadily <a href="#BauerLinkedOpenData"></a>
+        <a href="#BizerLinkedData"></a> and in particular Dbpedia <a href="#AuerDbpedia"></a> contains
+        knowledge relevant to this study. We link to Dbpedia to obtain information, for example, about
+        locations, cities and population sizes. We use this linked data in queries such as the second one
+        described in <a href="#FigureOntologyArchitecture"></a> (Bottom left), where we correlate technologies
+        with services and locations of firms and then filter by the size of the population in this (these)
+        location(s). Another source of knowledge we are currently working on linking to, is the Financial
+        Industry Business Ontology (FIBO). FIBO is an initiative supported by many institutions
+        <a href="#BennettTheFinancialIndustryBusinessOntology"></a>. Modules of FIBO are undergoing the Objet
+        Management Group's rigorous standardisation process <a href="#FinancialServicesStandardsFIBO"></a>.
+        In particular, FIBO Business Entities and its modules contain knowledge relevant to this study such
+        as the definitions of entities and corporations and also individuals representing a wide array of
+        regulators in different jurisdictions.</p>
+      </section>
+    </section>
+
+    <section id="SectionFintechBrowserToNavigateTheGraph">
+      <h1>FintechBrowser to navigate the graph</h1>
+      <p>The architecture of FintechBrowser is illustrated in <a href="#FigureFintechBrowserArchitecture"></a>.
+      A front-end sits on top of the knowledge graph. It allows the user to express queries by selecting
+      filtering criteria and constraining them. FintechBrowser then translates these user queries into SPARQL
+      queries that are executed against the graph. FintechBrowser allows the user to visualise and navigate
+      the knowledge graph. It has three main front-end views: 1) a list view, 2) a map view, and 3) a graph
+      view. All three views are controlled by the aforementioned set of selection criteria and filters.</p>
+
+      <figure id="FigureFintechBrowserArchitecture">
+        <p>
+          <img src="img/fintechbrowser-architecture.png" alt="FintechBrowser's software architecure"/>
+        </p>
+        <figcaption>
+          Software architecture of FintechBrowser.
+        </figcaption>
+      </figure>
+
+      <p>For experimentation purposes, we loaded a test dataset containing information about 200+ fintech
+      firms, banks and investors located in Europe, the United States and Africa. In the map view, we were
+      able to see the how the firms where geographically clustered and distributed with just a glance at the
+      screen. This was facilitated by SPARQL queries launched at runtime to Dbpedia in order to retrieve geographic
+      coordinates of firms' locations. In the graph navigation view, we were able to explore for each node
+      in the graph all the nodes linked to it. See for example screenshot in <a href="#FigureFintechBrowserInterface"></a>
+      where the user started from a firm providing a compliance analysis service, navigated to another one using the
+      same technology: blockchain, to see that the second firm uses the same technology but for a different
+      service, namely payment.</p>
+
+      <figure id="FigureFintechBrowserInterface">
+        <p>
+          <img src="img/fintechbrowser-interface.png" alt="FintechBrowser's main interface"/>
+        </p>
+        <figcaption>
+          Screenshot of FintechBrowser in the graph navigation view.
+        </figcaption>
+      </figure>
+
+      <p>One major advantage of this approach is that some of these links were not asserted in the original
+      dataset but rather inferred at runtime using the domain description in the ontology. For instance, in
+      response to the query: <em>list all investors who have invested in (a company that is located in) Dublin</em>,
+      the system was able to follow the property chain: <code>(investor) investedInRound (investmentRound) +
+      (company) hasReceivedInvestmentInRound (investmentRound) + (company) isLocatedIn (city)</code> in order to infer
+      <code>(investor) investedInCity (city)</code>. Furthermore, the location attribute in the ontology,
+      combined with instance data from Dbpedia allowed the system to automatically answer queries such as
+      the second one described in <a href="#FigureOntologyArchitecture"></a> (Bottom left).</p>
+    </section>
+
+    <section id="SectionConclusions">
+      <h1>Conclusions</h1>
+      <p>We follow a Design Science approach in building our ontology <a href="#HevnerDesignScience"></a>.
+      With the objective of maximising our ontology's chances of reuse, we pay special attention to guidelines
+      2 and 4 on the relevance of the research and the value of the contribution as described by Hevner et al.
+      To this end, we have assembled an advisory committee of domain experts in financial services, in fintech
+      and in technology <a href="#FintechEcosystem"></a> to observe, assist and assess. The ontology architecture
+      is described in <a href="#FigureOntologyArchitecture"></a> (Top left). A core module contains definitions
+      of OWL classes, object properties and restrictions representing the main actors of the fintech ecosystem
+      and the relationships among them. Extension modules build on top of the core one to add further concepts
+      as we learn about them or as they become relevant to the applications/queries this ontology underpins.
+      For example, we are designing an extension to represent innovation programs and accelerators and another
+      extension to represent conferences and industry events. In addition to these two layers and as our study
+      evolves, the time dimension is becoming more and more relevant to support for example queries about people
+      changing roles or investment trends over time. To this end, we are adding time-related information to some
+      concepts, roles and relationships. The ontology metrics of the current version of our core ontology module
+      are highlighted in <a href="#FigureOntologyArchitecture"></a> (Right) in a screenshot from Protégé
+      <a href="#MusenProtege"></a>.</p>
+
+      <p>As it stands, FintechBrowser operates on manually collected data, which we believe is an impediment
+      to it reaching its full potential and helping us improve our understanding of the fintech ecosystem. We
+      are exploring a series of algorithms to automatically (or semi-automatically) collect instance data and
+      evolve our knowledge base to a knowledge graph <a href="#EhrlingerDefinitionKnowledgeGraphs"></a>.
+      We are evaluating Named Entity Recognition and other Natural Language Processing techniques to populate
+      the graph from different sources including company websites and news. With more data continuously being
+      added and time-stamped, it is our expectation that through this study we will be able to deepen our
+      understanding of this ecosystem by exploring the impact of criteria such as "education", "tax rates", etc.
+      on fintech performance expressed in terms of number of "deal values", "patents", etc. at a given "location",
+      and in a subsequent step to explore scenarios of future development of the fintech ecosystem.</p>
+    </section>
+
+    <section role="doc-acknowledgements">
+      <h1>Acknowledgments</h1>
+      <p>This work is supported by Enterprise Ireland and IDA Ireland under the Government of Ireland Technology Centre Programme. It is also supported by University College Dublin, College of Business Research Support scheme 2017.</p>
+    </section>
+
+    <section id="SectionReferences" role="doc-bibliography">
+      <h1>References</h1>
+      <ul>
+        <li id="EhrlingerDefinitionKnowledgeGraphs" role="doc-biblioentry">
+          <p>Ehrlinger, L., &amp; Wöß, W. (2016). Towards a Definition of Knowledge Graphs. SEMANTiCS.</p>
+        </li>
+        <li id="BrickleyRDFSchema" role="doc-biblioentry">
+          <p>Brickley, D. and Guha, R.V. (2004). RDF vocabulary description language 1.0: RDF schema.</p>
+        </li>
+        <li id="McGuinnessOWLOverview" role="doc-biblioentry">
+          <p>McGuinness, D.L. and Van Harmelen, F. (2004). OWL web ontology language overview.
+          W3C recommendation, 10(10), p.2004.</p>
+        </li>
+        <li id="HarrisSPARQL" role="doc-biblioentry">
+          <p>Harris, S., Seaborne, A. and Prud’hommeaux, E. (2013). SPARQL 1.1 query language. W3C
+          recommendation, 21(10).</p>
+        </li>
+        <li id="MusenProtege" role="doc-biblioentry">
+          <p>Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters.
+          Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4),
+          June 2015. DOI: 10.1145/2557001.25757003.</p>
+        </li>
+        <li id="McBrideJena" role="doc-biblioentry">
+          <p>McBride, B. (2001). Jena: Implementing the rdf model and syntax specification. In Second
+          International Conference on Semantic Web-Volume 40 (pp. 23-28).</p>
+        </li>
+        <li id="ApacheJena" role="doc-biblioentry">
+          <p>Apache Jena: project website. https://jena.apache.org/ (Last visited June 2017).</p>
+        </li>
+        <li id="HevnerDesignScience" role="doc-biblioentry">
+          <p>Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information
+          Systems Research. Management Information Systems Quarterly, 28(1), p.6.</p>
+        </li>
+        <li id="FintechEcosystem" role="doc-biblioentry">
+          <p>Fintech Ecosystem: project website. www.fintechecosystem.net (Last visited July 2017).</p>
+        </li>
+        <li id="UscholdOntologies" role="doc-biblioentry">
+          <p>Uschold, M. and Gruninger, M. (1996). Ontologies: Principles, methods and applications. The
+          knowledge engineering review, 11(02), pp.93-136.</p>
+        </li>
+        <li id="Fernandez-LopezMethontology" role="doc-biblioentry">
+          <p>Fernández-López, M., Gómez-Pérez, A. and Juristo, N. (1997). Methontology: from
+          ontological art towards ontological engineering.</p>
+        </li>
+        <li id="BauerLinkedOpenData" role="doc-biblioentry">
+          <p>Bauer, F. and Kaltenböck, M. (2011). Linked open data: The essentials. Edition
+          mono/monochrom, Vienna.</p>
+        </li>
+        <li id="BizerLinkedData" role="doc-biblioentry">
+          <p>Bizer, C., Heath, T., Idehen, K. and Berners-Lee, T. (2008). Linked data on the web
+          (LDOW2008). In 17th international conference on World Wide Web (pp. 1265-1266). ACM.</p>
+        </li>
+        <li id="AuerDbpedia" role="doc-biblioentry">
+          <p>Auer, S., Bizer, C., Kobilarov, G., Lehmann, J., Cyganiak, R. and Ives, Z. (2007). Dbpedia: A
+          nucleus for a web of open data. The semantic web, pp.722-735.</p>
+        </li>
+        <li id="BennettTheFinancialIndustryBusinessOntology" role="doc-biblioentry">
+          <p>Bennett, M. (2013). The financial industry business ontology: Best practice for big data.
+          Journal of Banking Regulation, 14(3-4), pp.255-268.</p>
+        </li>
+        <li id="FinancialServicesStandardsFIBO" role="doc-biblioentry">
+          <p>Financial Services Standards: FIBO, Object Management Group Website.
+          http://www.omg.org/hot-topics/finance.htm (Last visited June 2017).</p>
+        </li>
+      </ul>
+    </section>
+
+    <section role="doc-endnotes">
+      <section id="ftn1" role="doc-endnote">
+        <p>The ontology will be made available at: <a href="https://github.com/FinTechEcosystem">https://github.com/FinTechEcosystem</a>.</p>
+      </section>
+
+      <section id="ftn2" role="doc-endnote">
+        <p>Demonstrations of FintechBrowser are available via: <a href="http://fintechecosystem.net">http://fintechecosystem.net</a>.</p>
+      </section>
+    </section>
+  </body>
+</html>

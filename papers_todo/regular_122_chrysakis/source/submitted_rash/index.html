@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>PRESS: A Publication REpository Semantic System</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Foundation for Research and Technology Hellas, Institute of Computer Science"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Ioannis Chrysakis"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="hrysakis@ics.forth.gr"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Emmanouil Dermitzakis"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="dermitz@ics.forth.gr"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Giorgos Flouris"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="fgeo@ics.forth.gr"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Theodore Patkos"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="patkos@ics.forth.gr"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Dimitris Plexousakis"/>
+      <meta about="#author-5" property="schema:email" content="dp@ics.forth.gr"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="web semantics"/>
+      <meta property="prism:keyword" content="linked data"/>
+      <meta property="prism:keyword" content="digital libraries"/>
+      <meta property="prism:keyword" content="publication systems"/>
+      <meta property="prism:keyword" content="ontology management"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>Publication management systems can be instrumental in disseminating research results across academia and industry, by providing facilities for uploading, editing and searching for publications. Usually, these systems can be used by individuals to assist them in their research or by organizations to help them classify and promote their publication items. In this paper, we present PRESS, an open-source publication system that exploits semantic technologies in order to cover the needs of both individuals and organizations. Thus, it supports fast data entry, advanced query capabilities and integration with other systems or datasets.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>Technological and science evolution frequently leads to innovative research results that can be exploited to improve our life through new techniques, products and services. Typically, research results are recorded in publications in order to keep academia and industry always informed. Thus, scientists and developers can be assisted to extend and evolve their work or to be inspired towards new discoveries. Moreover, inside a lab or a large organization there is a need to store publications into an open repository, which should be easily accessible to the public for the purposes of dissemination, or for reasons related to internal document classification. In fact, we can find systems that automatically aggregate or index publications like Google Scholar and DBLP. </p>
+         <p>Therefore, it is valuable to deploy systems that can store and organize the different types of publications for easy browsing and exploration. This is the aim of publication management systems, which provide facilities for both ingestion and searching in a corpus of publications. Although a variety of commercial systems exists, this paper provides an advanced, open-source solution, which facilitates flexible customization, independence and integration. Most other open-source approaches offer limited search capabilities, because they rely on rigid relational schemes and could not exploit semantics.</p>
+         <p>We employ semantic technologies to provide more advanced search capabilities and full classification of publications on a system that follows a loosely-coupled architecture. More precisely, we use a custom ontology that covers the proposed classification scheme and is compatible with the CERIF model <a href="#_Ref474417470"> </a> a standard that the EU recommends to its member states for recording information about research activity. To validate our approach, we load a dataset to the repository that contains actual publications and has been originally expressed in CERIF XML format.</p>
+         <p> </p>
+      </section>
+      <section>
+         <h1>Related Work</h1>
+         <p>Publication systems are part of the wider class of integrated library systems (ILS). Focusing on those that provide functionalities for both inserting and searching for publications we can distinguish between commercial and open-source solutions. </p>
+         <p>Commercial solutions are designed mainly for expert users, such as librarians, and offer automation on traditional librarian tasks, such as digitizing, cataloguing and storing publications. The Ex Libris by ProQuest<a href="#ftn1"> </a> has gained status as the largest technology provider to academic libraries <a href="#_Ref490663034"> </a> offering APIs, platforms and discovery services. Similarly OCLC<a href="#ftn2"> </a> and Bibliotheca<a href="#ftn3"> </a> provide a variety of commercial apps (i.e. cloudLibrary, Worldshare Management Services) that can satisfy the end user in terms of ingesting or browsing publication content. Although these solutions are robust, they are not public and extensible (some of them do not even provide a web interface), and cannot address specialized needs. </p>
+         <p>Open-source solutions include Dspace<a href="#ftn4"> </a>, Koha<a href="#ftn5"> </a> and Fedora<a href="#ftn6"> </a>. Dspace and Koha have the advantage of providing a web interface, which facilitates the use of a typical publication system by academic or research institutes.  Fedora is an open source repository system, but lacks an interface for the related features. The main limitation of these systems is their difficulty in expressing complex queries beyond the typical text search as this presupposed knowledge of the underlying relational database schemas. Another approach is to employ a content management system (CMS), like Drupal, and its supported publications modules (e.g. Biblio). The limitation of this solution is that the system can become so bound to the CMS and to its respective relational database, thereby reducing query capabilities. Bibbase<a href="#ftn7"> </a> dynamically renders an up-to-date HTML page enabling a web based solution with easy setup and integration, based on bib files which are processed centrally by the BibBase server.</p>
+         <p>OpenAIRE<a href="#ftn8"> </a>  is a participatory European open access infrastructure that acts as aggregator of scientific publications and associated material via repository networks like Zenodo<a href="#ftn9"> </a>. It does not actually stores publications but exposes them using Dublin Core model<a href="#ftn10"> </a> through respective LOD services, while offering guidelines to support CERIF-XML semantics. Finally, Folio<a href="#ftn11"> </a> is a recent community-based approach that represents a partnership between libraries and vendors aiming to create an open source library services platform and a "plug-and-play" application that will function as a cohesive experience in a single user interface.</p>
+      </section>
+      <section>
+         <h1>Methodology</h1>
+         <section>
+            <h1>Semantics</h1>
+            <p>Semantic Web technology enables more sophisticated knowledge management, by applying evolving and refactoring schemas, metadata and relationships between them <a href="#_Ref490663279"> </a>. The flexibility of semantically enriched data gives rise to the implementation of efficient semantics-aware applications that can facilitate data integration, support knowledge enrichment and advanced query capabilities by searching between multiple patterns across the metadata. </p>
+            <p>Our system leverages such technologies by developing a basic ontology in OWL (called Press Ontology) which is CERIF compatible and captures the core schema containing basic entities that are related with each publication, and their respective properties and relationships. The ontology (see <a href="#_Ref490663813"> </a>) consists of 6 top classes, 4 main (Publication, Person, Laboratory and Project) and 2 complementary ones (List, List_Slot). The latter are used for keeping the sequence on items following the approach of <a href="#_Ref490663486"> </a>. Classes are connected through 7 object properties that denote their relationships. We use 47 data properties to cover all attributes of a publication.  </p>
+            <figure id="_Ref490663813">
+               <p>
+                  <img src="./img/image1.png" alt="The PRESS Ontology"/>
+               </p>
+               <figcaption>The PRESS Ontology</figcaption>
+            </figure>
+            <p>The Publication class contains 4 direct subclasses and various indirect ones, representing different publication types (e.g., Book, Conference/Workshop etc). Different properties are used to connect publications to their authors (a property to the Person Class), authors’ affiliations (property to Organization) and projects that funded the work (property to Project Class). We use the FOAF ontology<a href="#ftn12"> </a> for Person entities. Finally, the PRESS ontology provides features like keeping the order of authors, distinguishing peer reviewed from non-peer reviewed publications, better query evaluation based on indirect classes classification and a small but comprehensive schema. For each publication we store metadata information as RDF triples to the Blazegraph<a href="#ftn13"> </a> repository which is an ultra-scalable, open-sourced, high-performance graph database which can store up to 50B triples/quads. It is a plug and play cross-platform software, which also provides a REST API with an embedded endpoint for enabling SPARQL query functionalities. </p>
+         </section>
+         <section>
+            <h1>Architecture</h1>
+            <p>For the basic functionalities of PRESS we chose Drupal<a href="#ftn14"> </a>, a robust CMS with a large established community that enables scalable development of web modules. PRESS can be conceptually divided into four main groups for the installed modules plus one for our developed module (see <a href="#_Ref490664034"> </a>). All modules communicate with each other independently of their conceptual group since they are built with the same Web Programming technologies. The first group deals with the <em>User Authentication </em>containing modules for leveraging security to the system. The second group (<em>UI Modules</em>) is related with modules necessary for the User Interface development. The third group consists of <em>Back-End modules</em> which are necessary for the unique identification and storing of each publication, enabling search engine optimization and sharing of external libraries. The core drupal functionalities are provided by the default <em>Core Modules </em>group.  Finally, the drupal module that we implemented (named <em>Publication Module</em>) creates one page per publication, and displays all the relevant information that can be edited later by each author.</p>
+            <figure id="_Ref490664034">
+               <p>
+                  <img src="./img/image2.png" alt="The PRESS Architecture"/>
+               </p>
+               <figcaption>The PRESS Architecture</figcaption>
+            </figure>
+            <p>Also, we developed a library (<em>PRESS library</em>) that deals with the basic user interfaces for inserting, editing or searching for any publication exploiting the core UI modules and the publication module. Finally, the actual document of publication is stored as a pdf file in the file system of the webserver, exploiting the core modules of Drupal. Our architecture is loosely-coupled. Thus, we can replace existing modules (e.g., user authentication), interfaces (e.g. search interface), or even the ontology schema with alternative implementations without jeopardizing data consistency. All data is accessible through a public SPARQL endpoint. </p>
+         </section>
+         <section>
+            <h1>Features and Innovation</h1>
+            <p>The core innovative feature of PRESS is its advanced query capabilities. For example, it supports full free text queries by using the extended RDF predicate <em>bds:search</em> of SPARQL, as it has been implemented in Blazegraph. Moreover, with SPARQL, we can make complex and expressive queries upon RDF/OWL metadata, such as cross snapshot queries, range queries on dates etc.  The use of Blazegraph Repository ensures scalability and stability <a href="#_Ref490664453"> </a> for the storing of all semantic information. Another advantage of PRESS is that it is open-source, cross platform, web-based and requires low resources to run <a href="#_Ref490664467"> </a>. It is extensible and currently integrated with Drupal CMS. In addition, a core design decision was for the system to be usable by all kinds of users, and not just experienced ones (i.e. librarians). Towards this end, we support a responsive and user-friendly interface, a basic security policy, import/export facilities (using DOI) and search engine optimization techniques. To the best of our knowledge there is no other semantic-aware open-source publication system that can provide all the above functionalities.</p>
+         </section>
+      </section>
+      <section>
+         <h1>Implementation</h1>
+         <section>
+            <h1>The Press System</h1>
+            <p>We will now present briefly two basic user interfaces of PRESS that implemented using the bootstrap library<a href="#ftn15"> </a>. The authenticated user has two options: to add a publication manually via a webform, or to enter the respective DOI <a href="#_Ref490665523"> </a> (see <a href="#_Ref490666384"> </a>). In the first option the user has to select a category and a subcategory and in turn to fill in the dynamic fields of the form. The second option helps users to automatically fill in all the fields by extracting information of the imported DOI embedding the CrossrefOpen URL resolver functionality. PRESS can automatically add an author, which is authorized (via LDAP module) or can manually add a new one. Also, it can change the order via drag and drop functionality. Furthermore, user-defined tags could be added per publication for extra classification purposes.</p>
+            <p>The search interface gives three options of searching (see <a href="#_Ref490666406"> </a>): full-text search, advanced search and browsing by category. The full text search capability provides fast retrieving information of a keyword or a phrase that is contained in at least one attribute of a publication. The advanced search offers query templates that can be enabled dynamically according to user options and under specified concepts (i.e peer reviewed publications). These templates can be configured to support any kind of linked concept (semantically any class or property). Finally, the browsing by category gives a supervisory look of the current status of the publication repository focusing on the classification of the publications. In each top category the user can browse the related articles by clicking on the name of the category or open up the dynamic panel for more specific categories.</p>
+            <figure id="_Ref490666384">
+               <p>
+                  <img src="./img/image3.PNG" alt="The Add UI"/>
+               </p>
+               <figcaption>The Add UI</figcaption>
+            </figure>
+            <figure id="_Ref490666406">
+               <p>
+                  <img src="./img/image4.PNG" alt="The Search UI"/>
+               </p>
+               <figcaption>The Search UI</figcaption>
+            </figure>
+         </section>
+         <section>
+            <h1>Use Case – The VRE4EIC Project</h1>
+            <p>The VRE4EIC is an ongoing EU project that aims at providing a Europe-wide interoperable Virtual Research Environment (VRE) to empower multidisciplinary research communities. The project will result in a reference architecture for VREs, along with software components that exploit metadata from publications, persons, organizations and projects following the CERIF model. We used the 3M tool <a href="#_Ref490665546"> </a> to create the appropriate mappings, in order to align our ontology schema and to make the data fully compatible with the project’s approach. For demonstration purposes, we further loaded the synthetic datasets of publications that come from EKT repository referring to 1.76M Triples and finally deployed an installation of PRESS <a href="#_Ref490664467"> </a>. This use case shows in practice that the system can be simply adapted to the different needs of research institutes and can be scalable enough with semantic linked data that are located in the semantic repository.</p>
+         </section>
+      </section>
+      <section>
+         <h1>Future Work</h1>
+         <p>We are currently working on improving user’s search and import experience by adding some extra features to PRESS like providing more elaborate statistics per year, author, project etc. Finally, our desire is to support more import and export utilities by exploiting bib files. </p>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>This work has been partially funded from the EU H2020 VRE4EIC project under grant agreement No. 676247.</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="_Ref474417470" role="doc-biblioentry">
+               <p>The CERIF Model:</p>
+               <p>
+                  <a href="http://www.eurocris.org/cerif/main-features-cerif">http://www.eurocris.org/cerif/main-features-cerif</a>  
+               </p>
+            </li>
+            <li id="_Ref490663034" role="doc-biblioentry">
+               <p>Library Systems Report (2017). American Libraries Magazine. 1 May, 2017. <a href="https://americanlibrariesmagazine.org/2017/05/01/library-systems-report-2017/">https://americanlibrariesmagazine.org/2017/05/01/library-systems-report-2017/</a> 
+               </p>
+            </li>
+            <li id="_Ref490663279" role="doc-biblioentry">
+               <p>Tim Berners-Lee, James Hendler &amp; Ora Lassila (2001): The Semantic Web: A new form of Web content that is meaningful to computers would unleash a revolution of new possibilities, Scientific American.</p>
+            </li>
+            <li id="_Ref490663486" role="doc-biblioentry">
+               <p>The Ordered List Ontology: <a href="http://smiy.sourceforge.net/olo/spec/orderedlistontology.html">http://smiy.sourceforge.net/olo/spec/orderedlistontology.html</a>
+               </p>
+            </li>
+            <li id="_Ref490664453" role="doc-biblioentry">
+               <p>
+                  <a href="https://utecht.github.io/rdf/triple%20stores/comparing-triplestores/">https://utecht.github.io/rdf/triple%20stores/comparing-triplestores/</a>
+               </p>
+            </li>
+            <li id="_Ref490665523" role="doc-biblioentry">
+               <p>The DOI Handbook:</p>
+               <p>
+                  <a href="https://www.doi.org/hb.html">https://www.doi.org/hb.html</a>
+               </p>
+            </li>
+            <li id="_Ref490665546" role="doc-biblioentry">
+               <p>Marketakis, Y., Minadakis, N., Kondylakis, H., Konsolaki, K., Samaritakis, G., Theodoridou, M., Flouris, G., &amp; Doerr, M. (2016). X3ML Mapping Framework for Information Integration in Cultural Heritage and Beyond. International Journal on Digital Libraries, Special Issue on <q>Extending, Mapping and Focusing the CIDOC CRM</q>, 1-19.</p>
+            </li>
+            <li id="_Ref490664467" role="doc-biblioentry">
+               <p>The PRESS demo:</p>
+               <p>
+                  <a href="https://www.ics.forth.gr/isl/PressDemo">https://www.ics.forth.gr/isl/PressDemo</a> 
+               </p>
+            </li>
+         </ol>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> http://www.exlibrisgroup.com/</p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> https://www.oclc.org/</p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> http://www.bibliotheca.com</p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> http://www.dspace.org/</p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> http://www.koha.org/</p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> https://getfedora.org/</p>
+         </section>
+         <section id="ftn7" role="doc-endnote">
+            <p> https://bibbase.org/</p>
+         </section>
+         <section id="ftn8" role="doc-endnote">
+            <p> https://www.openaire.eu/</p>
+         </section>
+         <section id="ftn9" role="doc-endnote">
+            <p> https://www.zenodo.org/</p>
+         </section>
+         <section id="ftn10" role="doc-endnote">
+            <p> http://dublincore.org/</p>
+         </section>
+         <section id="ftn11" role="doc-endnote">
+            <p>  https://www.folio.org/platform/</p>
+         </section>
+         <section id="ftn12" role="doc-endnote">
+            <p> http://xmlns.com/foaf/spec/</p>
+         </section>
+         <section id="ftn13" role="doc-endnote">
+            <p> https://www.blazegraph.com/</p>
+         </section>
+         <section id="ftn14" role="doc-endnote">
+            <p> https://www.drupal.org/</p>
+         </section>
+         <section id="ftn15" role="doc-endnote">
+            <p> http://getbootstrap.com/</p>
+         </section>
+      </section>
+   </body>
+</html>
