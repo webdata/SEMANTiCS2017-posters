@@ -1,35 +1,54 @@
-#toCEUR
+'''
+toCEUR: RASH to CEUR rdy HTML5
+'''
 
-# curl -F "uploaded_file=@MaSQue.html;type=text/html" http://validator.w3.org/check > res.html && firefox res.html
-
-import os
-import time
-import logging
-import requests
-import dataset
 import sys
-import io
-import urllib2
 import codecs
-from lxml import html, etree
+from bs4 import BeautifulSoup
 
-def removejs():
-    print 'placeholder'
+def removejs(soup):
     
-def run(path):
+    for script in soup(["script", "style"]):
+        script.extract() 
+        
+    return soup
+
+def removexmlns():
+    '''
+    xmlns attributes
+    '''
+    
+def metalink():
+    '''
+    about in meta and link tag
+    '''
+    
+def copycss():
+    '''
+    put all css and stuff in output folder
+    '''
+        
+def run(path, out):
     # read html file
     f = codecs.open(path, "r", "utf-8")
+    
+    html = f.read().replace('role=', 'class=')
 
     # parse html
-    doc = html.fromstring(f)
+    soup = BeautifulSoup(html, 'html.parser')
     
-    #print html.tostring(doc)
+    soup = removejs(soup)
+    
+    #output
+    print soup.prettify().encode('utf-8')
+    with open(out+"/out.html", "w") as file:
+        file.write(str(soup))
 
 if __name__ == '__main__':
     try:
         path = sys.argv[1]
+        out = sys.argv[2]
     except IndexError:
-        print 'usage:'
-        
-    run(path)
+        print 'usage: toCEUR.py <path/to/input/html> <path/to/output/folder>'
+    run(path, out)
 
