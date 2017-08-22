@@ -61,6 +61,16 @@ Until then, one could do the following procedure to be safe of errors:
 
 * In the *css/rash.css file*, replace all occurrences of **role=** with **class=** 
 
+## Validate produced HTML5
+
+nu validator
+```
+java -jar vnu.jar <path/to/html/file>
+```
+w3c validator script
+```
+./w3cvalidate.sh <path/to/html/file>
+```
 
 
 
