@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>Business domain translation of problem spaces (WIP draft)</title>
+   </head>
+   <body>
+      <p>© 2017. Sebastian Samaruga (<a href="mailto:ssamarug@gmail.com">ssamarug@gmail.com</a>)</p>
+      <section role="doc-abstract">
+         <h1>Summary</h1>
+         <p>Keywords: Semantic Web, RDF, OWL, Big Data, Big Linked Data, Dataflow, Event Driven, Message Driven, ESB, EAI.</p>
+         <p>Objectives: Streamline and augment analysis and knowledge discovery capabilities for enhanced declarative and reactive event driven process flows between frameworks, protocols and tools for Semantic Web backed integration and Big (linked) Data applications.</p>
+         <p>Achieve diverse information schema merge and interoperability (for example for different domains or applications databases). Translate behavior in one context (domain) into corresponding behavior in other context. Aggregate diverse domain data (facts) into corresponding domains state.</p>
+         <section>
+            <h1>Feature: Data backends / services virtualization (federation / syndicaton / synchronization)</h1>
+            <p>Any datasources (applications / services) entities and schema regarded as being meaningful for a business domain translation and integration use case, regardless of their source format or protocol, should be provided of an adapter mechanism (Node + Service) which makes it available as ‘reactive endpoint’ which provides CRUD services for other Node / Service to consume / synchronise.</p>
+         </section>
+         <section>
+            <h1>Feature: Schema (ontology) merge / match / alignment</h1>
+            <p>Diverse domain application data with disparate backend databases and services and diverse sources of business data (linked data ontologies, customers, product and suppliers among others) are to be aligned by merging matching entities and schema, once syndication and synchronization are available.</p>
+            <p>Examples: different names for the same entity, entity class or entity attribute.</p>
+         </section>
+         <section>
+            <h1>Feature: Domain translation of problem spaces</h1>
+            <p>Object model: schema / data of facts, information, knowledge (behavior).</p>
+            <p>Given a business domain problem space (data, schema and behavior for an application, for example) a ‘translation’ could be made between other domain(s) problem spaces which encompasses a given set of data, schema and behavior instances (objectives) to be solved in the other domains in respect of the problems in the first domain.</p>
+            <p>This shall be accomplished by means of an event-driven architecture over a semantics aware layer which leverages diverse backend integration (sync) and schema merge / interoperability. Also, a declarative layer is provided for aggregation and composition of related event flows of various objectives to met a given purpose (dataflow activation).</p>
+            <p>Example: In the healthcare domain an event: flu diagnose growth above normal limits is to be translated in the financial domain (maybe of a government or an institution) as an increase of money amount dedicated to flu prevention or treatment. In the media or advertisement domain the objectives of informing population about flu prevention and related campaigns may be raised. And in the technology sector the tasks of analyzing and summarizing statistical data for better campaigns must be done.</p>
+         </section>
+         <section>
+            <h1>Deployment: Node abstraction</h1>
+            <p>A Node is a Service (Node interface extends those of Service). Service is available for discovery and binding. Node(s) and Service(s) are message-oriented and become ‘activated’ (dataflow) when they can provide an ‘enhancement’ over a pertaining subject or entity within dialogs (messages) in their scopes.</p>
+            <p>Bindings: Patterns / Templates. A Node has a collection of declarative bindings (dataflow subscriptions). Binding Templates specify patterns for the declarative activation of Services to be bound (scope, instantiation, activation: data / schema of facts, information and knowledge / behavior).</p>
+            <p>Discovery (orchestration): Service instantiation / activation. Scopes. An application (context) deployment is comprised of one or more Node(s) which depends declaratively on other Node(s) and Service(s) for fulfilling its behavior augmentating or being augmented (enhancements) regarding knowledge schema and behavior flows.</p>
+         </section>
+         <section>
+            <h1>Deployment: Service abstraction</h1>
+            <p>Services (and Nodes exposing Services) are declaratively specified for its scope having data / schema metadata for its:</p>
+            <p>Interfaces: Endpoints.</p>
+            <p>Messages: Object Model.</p>
+            <p>A Service is a collection of Message : (Facts, Information, Knowledge schema / behavior) definitions for the arguments / return values for its Endpoint interfaces.</p>
+         </section>
+         <section>
+            <h1>Deployment</h1>
+            <p>Service and Node bindings are the means of declaratively composing application behavior. Services may include, for instance, a metamodel service suitable for aggregation and inferencing over statement data. Services may also include, for example, an index or a registry service used, perhaps by other services, for functional composition of behavior.</p>
+            <p>Discovery mechanisms resolve proper Service instances to be bound into Node flows. A Node Service may be requesting by a given Service in a given scope which may be, for example, ‘singleton’ (one Service instance per binding) or have a compound (shared) scope. A Node would have, for example, its own metamodel service instance but may share a scoped registry service with another Node(s). Scoping, nesting.</p>
+         </section>
+         <section>
+            <h1>Client: Protocol / platform bindings</h1>
+            <p>Protocol bindings (Node IO) Services:</p>
+            <p>REST HATEOAS (HAL / JSONLD). LDP.</p>
+            <p>SOAP.</p>
+            <p>OData.</p>
+            <p>SPARQL.</p>
+            <p>Internal Node(s) knowledge and Services exposed (by some Node IO) via these protocols. In the case of REST / LDP Resources endpoints implemented HTTP methods are created from knowledge (aggregated, aligned and augmented) entity classes and instances (for CRUD). For SOAP and OData a similar ‘object model’ is exposed via corresponding interfaces.</p>
+            <p>SPARQL May mix ‘high level’ aggregated schema and instances with lower level RDF / OWL statements or metadata.</p>
+            <p>Interactions (knowledge / behavior) is to be modelled also as ‘objects’ into the ontology (for all protocols) and, for example, what would be otherwise stated as a ‘method’ in some platform is rendered as a class of some entity to instantiate and for which populate ‘roles’ and whose results are functional relationships via the ‘activation’ of other resources.</p>
+            <p>Platform bindings (Clients) Services:</p>
+            <p>JavaEE (JPA / JVM dynamic language).</p>
+            <p>JavaScript (browser).</p>
+            <p>JavaScript (NodeJS).</p>
+            <p>PHP.</p>
+            <p>.Net (LINQ).</p>
+            <p>Platforms bindings are meant to provide a ‘native’ language / platform representation (classes and instances) of knowledge (data, schema and behavior) stored into Node(s) via their services.</p>
+            <p>Interaction with knowledge aware nodes is provided by platform bindings wrapping calls into an specific protocol binding. Then, entities (classes / instances / behavior) of each specific platform / language / runtime are ‘generated’ from parsed data and metadata.</p>
+            <p>This way business applications of different platforms in different languages will leverage the benefits of having a real time integration and interoperability semantic enhancements backend.</p>
+         </section>
+      </section>
+   </body>
+</html>

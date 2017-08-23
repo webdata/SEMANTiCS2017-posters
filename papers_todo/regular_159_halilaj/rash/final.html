@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>DemoEffTE: A Demonstrator of Dependency-aware Evaluation of Test Cases over Ontology</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="University of Bonn / Fraunhofer IAIS, Germany"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Fraunhofer IAIS, Germany / Universidad Simon Bolivar, Venezuela"/>
+      <meta about="#affiliation-3"
+            property="schema:name"
+            content="Fraunhofer IAIS, Germany"/>
+      <meta about="#affiliation-4"
+            property="schema:name"
+            content="Technische Informationsbibliothek, Hannover, Germany"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Lavdim Halilaj"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="halilaj@cs.uni-bonn.de"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Irlán Grangel-González"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="grangel@cs.uni-bonn.de"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Maria-Esther Vidal"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="vidal@cs.uni-bonn.de"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Steffen Lohmann"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="steffen.lohmann@iais.fraunhofer.de"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-3"/>
+      <meta about="#author-5"
+            name="dc.creator"
+            property="schema:name"
+            content="Sören Auer"/>
+      <meta about="#author-5"
+            property="schema:email"
+            content="soeren.auer@tib.eu"/>
+      <link about="#author-5"
+            property="schema:affiliation"
+            href="#affiliation-4"/>
+      <meta property="prism:keyword" content="Ontology Engineering"/>
+      <meta property="prism:keyword" content="Test-Driven Ontology Development"/>
+      <meta property="prism:keyword" content="Test Cases"/>
+      <meta property="prism:keyword" content="Dependency Graph"/>
+   </head>
+   <body>
+    
+         <section role="doc-abstract">
+            <h1>
+               Abstract
+            </h1>
+            <p>Traditional approaches, which follow a <em>test-driven development</em> technique, allow a set of test cases to be exhaustively evaluated ensuring that each modification of an ontology does not violate predefined requirements. However, the time required for the evaluation of test cases is high and usually represents a bottleneck in an ontology development process. The <em>EffTE</em> framework tackles this problem; it relies on a graph-based model of the dependencies between test cases to support users during an ontology development process. Traversing the dependency graph is realized using breadth-first search along with a mechanism that tracks <em>tabu</em> test cases, i.e., test cases that will be ignored for further evaluation due to faulty parent test cases. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for validating an ontology after each modification. We demonstrate the benefits of prioritization and selection of the test cases to be evaluated with <em>DemoEffTE</em>. Attendees will observe the behavior of both a naive approach and the <em>EffTE </em>framework on different configuration settings such as different: (1) ontology size; (2) topology of the dependency graph of the test cases; and (3) number of test cases. The demo is available at: <a href="http://vocol.iais.fraunhofer.de/DemoEffTE">http://vocol.iais.fraunhofer.de/DemoEffTE</a>.</p>
+         </section>
+         <section>
+            <h1>
+               <strong>Introduction </strong>
+            </h1>
+            <p>The development of domain-specific ontologies requires joint efforts among different groups of stakeholders, such as knowledge engineers and domain experts. Functional requirements can be expressed through Competency Questions, which are questions that the underlying ontology should be able to answer <a href="#Uschold"> </a>. However, the concurrent definition of ontology concepts often results in a violation of the defined requirements, or creates design issues like duplicate entries or missing documentation. For example, in the large and monolithic DBpedia<a href="#ftn1"> </a>
+             ontology, version  2016-04 only 556 from a total of 2,849 properties have associated label descriptions or comments <a href="#Mihindukulasooriya"> </a>. To ensure that any ontology modification has only the expected effects, a set of test cases can be defined based on Competency Questions. This is similar to the test-driven software development principles, where test cases that represent requirements, are defined before the code is actually written <a href="#Fraser"> </a>.
+            </p>
+            <p>Commonly, the time demand for evaluating predefined test cases is high and represents a bottleneck in the ontology development process. Therefore, with a naive approach, test cases are exhaustively evaluated to identify any not intended modification or design issue introduced during the concurrent development of the ontology. Since much effort is invested in creating and extending ontologies for various domains, it is crucial to make ontology development and maintenance cost-effectively <a href="#Mehrotra"> </a>.
+            </p>
+            <p>On the other hand, modeling the relationship between test cases using a dependency graph enables prioritization and selection of test cases to be evaluated. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for ontology validation after each modification. In order to illustrate the benefits of a test cases dependency graph compared to the cases where such a graph is not used, we designed <em>DemoEffTE, </em>a naive and dependency-aware test cases evaluation demonstrator. Attendees will be able to choose various options related to the: (1) ontology size; (2) topology of dependency graphs; and (3) number of test cases and observe results like total evaluation time and number of evaluated test cases. The demo includes a set of test cases to be evaluated that provides a comparison of the performance between a naive approach and <em>EffTE</em>.</p>
+         </section>
+         <section>
+            <h1>
+               <strong>The DemoEffTE Architecture</strong>
+            </h1>
+            <p>The architecture of <em>DemoEffTE </em>is illustrated in <a href="#_Ref490561090"> </a> and is composed of two main components: (1) the GUI; and (2) <em>Test Cases Processing (TCP)</em>. The GUI provides the possibility for the users to specify the approach to be tested; ontology size; number of test cases and the typology of the dependency graph. The <em>TCP </em>component receives as input the selections made by users. Next, according to the chosen options, the <em>TCP </em>component validates the ontology file against a set of test cases, which are defined by the user and stored in the <em>Test Cases DB</em> module. The <em>Test Case Selection </em>is responsible for prioritization and selection of the test cases to be evaluated. Each test case is evaluated in the <em>Test Case Evaluation</em>. The collected results are returned to the GUI, where can further be explored by attendees.</p>
+            <figure id="_Ref490561090">
+               <p>
+                  <img src="./img/image1.jpg"
+                       alt="The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output."/>
+               </p>
+               <figcaption>The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output.</figcaption>
+            </figure>
+            <figure id="_Ref490556646">
+               <p>
+                  <img src="./img/image2.jpg"
+                       alt="A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated."/>
+               </p>
+               <figcaption>A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated.</figcaption>
+            </figure>
+            <p>
+               <em>DemoEffTE </em>demonstrates the evaluation of a set of 15 test cases using the naive approach and the <em>EffTE</em> framework. <a href="#_Ref490556646"> </a> illustrates that in different instances of time, the number of evaluated test cases after each ontology modification using a naive approach is always the same, i.e., 15 test cases. On the other hand, as shown in <a href="#_Ref490556603"> </a>, the number of evaluated test cases in different instance of times is reduced. This comes as a result of considering the parent-child relationships between test cases modeled as a dependency graph, where a faulty parent indicates a set a faulty children test cases.</p>
+            <figure id="_Ref490556603">
+               <p>
+                  <img src="./img/image3.jpg"
+                       alt="The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases."/>
+               </p>
+               <figcaption>The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases.</figcaption>
+            </figure>
+            <p>The results are visualized using D3.js library according to the selected options. Additionally, <em>DemoEffTE </em>illustrates traversals of a dependency graph according to a breadth-first search algorithm. This illustration is enabled in an animation view developed on Cytoscape.js<a href="#ftn3"> </a> library. Bar charts that depict the results are designed using Highcharts.js<a href="#ftn4"> </a>. The <em>TCP </em>component is implemented using Java Apache Jena libraries version 3.0.1. The entire implementation of <em>DemoEffTE </em>is deployed on a virtual server with AMD Opteron 2.3 GHz CPU, 4 cores, 8 GB RAM operating in SUSE Linux Enterprise Server 12 SP1.</p>
+         </section>
+         <section>
+            <h1>
+               <strong>Demonstration of Scenarios</strong>
+            </h1>
+            <p>We design several scenarios to illustrate the efficiency of the <em>EffTE</em> approach.  Thus, attendees will be able to observe how a naive approach and the <em>EffTE</em> approach exhibit different behavior on the evaluation of a given set of test cases. <em>DemoEffTE </em>demonstrates the execution of both approaches in five instances of time.  In the first four time instances, various test cases are randomly chosen to fail. No faulty test cases are included in the instance number five, in order to show the behavior of both approaches on the same conditions. Two evaluation metrics will be shown: (1) evaluation time; and (2) number of evaluated test cases. The following scenarios are demonstrated: </p>
+            <p>
+               <strong>Effect of an Ontology Size</strong>. The impact of the ontology size will be observed on a set of test cases. We asses the efficiency of a naive approach and the <em>EffTE</em> framework on three different ontologies: (1) <em>FOAF</em>: an ontology used to describe persons, activities, and relationships between them and other objects; (2) <em>Schema.org</em> ontology describes entities, actions, and their relations to promote the usage of the structured data; and (3) <em>DBpedia</em>, a cross-domain ontology for describing the information extracted from Wikipedia infoboxes. <a href="#_Ref490556687"> </a> describes these ontologies in terms number of triples, different subjects, properties, and objects.</p>
+            <figure id="_Ref490556687">
+               <table>
+                  <tr>
+                     <td>
+                        <p>
+                           <strong>Ontology</strong>
+                        </p>
+                     </td>
+                     <td>
+                        <p>
+                           <strong># triples</strong>
+                        </p>
+                     </td>
+                     <td>
+                        <p>
+                           <strong># subjects</strong>
+                        </p>
+                     </td>
+                     <td>
+                        <p>
+                           <strong># properties</strong>
+                        </p>
+                     </td>
+                     <td>
+                        <p>
+                           <strong># objects</strong>
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>FOAF</p>
+                     </td>
+                     <td>
+                        <p>631</p>
+                     </td>
+                     <td>
+                        <p>86</p>
+                     </td>
+                     <td>
+                        <p>15</p>
+                     </td>
+                     <td>
+                        <p>192</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Schema.org</p>
+                     </td>
+                     <td>
+                        <p>8,103</p>
+                     </td>
+                     <td>
+                        <p>1,569</p>
+                     </td>
+                     <td>
+                        <p>13</p>
+                     </td>
+                     <td>
+                        <p>3,545</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>DBpedia</p>
+                     </td>
+                     <td>
+                        <p>30,793</p>
+                     </td>
+                     <td>
+                        <p>3,986</p>
+                     </td>
+                     <td>
+                        <p>23</p>
+                     </td>
+                     <td>
+                        <p>16,807</p>
+                     </td>
+                  </tr>
+               </table>
+               <figcaption>
+                    Description of Ontologies. Different ontology sizes in terms of number of triples, subjects, properties, and objects.
+                </figcaption>
+            </figure>
+            <p>
+               <strong>Impact of the Topology of the Dependency Graph</strong>. The goal of this scenario is to show the impact of the topology of dependency graph in the evaluation of set of test cases. <a href="#_Ref490563258"> </a> shows three topologies with 10 test cases each where test case has different dependencies between each other. The topologies are randomly generated using RStudio<a href="#ftn5"> </a> 
+               <em>randomDag</em>
+               <em>
+                  <a href="#ftn6"> </a>
+               </em>
+               <em> </em>function. Attendees will be able to visualize the results from evaluation of a given set of test cases produced over a period of five instances of time.</p>
+            <p>
+		    <figure id="_Ref490563258">
+               <p>
+                  <img src="./img/image4.jpg"
+                       alt="Test Cases. Three different topologies of dependency graphs between test cases ."/>
+               </p>
+               <figcaption>Test Cases. Three different topologies of dependency graphs between test cases.</figcaption>
+            </figure>
+			 
+             
+            </p>
+            <p>
+               <strong>Impact of the Number of the Test Cases. </strong>We demonstrate three different dependency graphs composed of 10, 20, and 30 test cases, respectively. <a href="#_Ref49056325890"> </a> illustrates the dependency graphs randomly generated using RStudio <em>randomDag </em>function. Similar to other scenarios, for each set, a random number of test cases are chosen to fail using a <em>Random Distribution</em> function in RStudio. Attendees will be able to visualize the results produced over a period of time. </p>
+            <figure id="_Ref49056325890">
+               <p>
+                  <img src="./img/image5.jpg"
+                       alt="Test Cases. Three different topologies of dependency graphs between test cases ."/>
+               </p>
+               <figcaption>Test Cases. Three different sets composed of 10, 20, and 30 test cases, respectively.</figcaption>
+            </figure>
+            <p>  </p>
+         </section>
+         <section>
+            <h1>
+               <strong>Conclusions</strong>
+            </h1>
+            <p>
+               <em>DemoEffTE </em>provides a visual comparison how modeling relationships between test cases using dependency graphs affects the performance of the overall evaluation time after each ontology change. Particularly, <em>DemoEffTE </em>shows a trade-off between a naive approach that exhaustively evaluates all test cases and the <em>EffTE </em>framework in three different scenarios. Attendees will be able to explore all the scenarios, understand why modeling relationship of test cases using dependency graphs play an important role in ontology development process. Furthermore, they will observe how this dependency graph modeling enables minimization of the test cases to be evaluated, thus reducing the time required for validating an ontology after each modification.</p>
+         </section>
+         <section role="doc-acknowledgements">
+            <h1>
+               <strong>Acknowledgements</strong>
+            </h1>
+            <p>This work has been supported by the European Union's Horizon 2020 programme for the project BigDataEurope (grant no. 644564), and the German Federal Ministry of Education and Research (BMBF) for the projects Industrial Data Space (grant no. 01IS15054) and SDI-X (grant no. 01IS15035C).</p>
+         </section>
+          <section id="SectionReferences" role="doc-bibliography">
+         <h1>References</h1>
+        <ul>
+        <li id="Uschold" role="doc-biblioentry">
+          <p>Uschold, M. & Gruninger, M. (1996). Ontologies: principles, methods and applications. Knowledge Engineering Review, 11(2):93–136.</p>
+        </li>
+		<li id="Mihindukulasooriya" role="doc-biblioentry">
+          <p>Mihindukulasooriya, N., Poveda-Villalón, M., García-Castro, R., & Gómez-Pérez, A. (2016). Collaborative Ontology Evolution and Data Quality - An Empirical Analysis. In 13th OWL: Experiences and Directions Workshop.</p>
+        </li>
+		<li id="Mehrotra" role="doc-biblioentry">
+          <p>Mehrotra, M. (2002). Ontology analysis for the semantic web. In Ontologies and the Semantic Web: AAAI Workshop (Technical Report WS-02-11). AAAI Press.</p>
+        </li>
+		<li id="Fraser" role="doc-biblioentry">
+          <p>Fraser, S. Beck, K., Caputo, B., Mackinnon, T., Newkirk, J., & C. Poole. (2003). Test driven development (tdd). In 4th International Conference on Extreme Programming and Agile Processes in Software Engineering, pages 459–462. Springer-Verlag.</p>
+        </li>
+		</ul>
+		</section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> http://wiki.dbpedia.org/services-resources/ontology/</p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> http://js.cytoscape.org/</p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> https://www.highcharts.com/</p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> https://www.rstudio.com/</p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> https://rdrr.io/rforge/pcalg/man/randomDAG.html</p>
+         </section>
+     
+   </body>
+</html>
