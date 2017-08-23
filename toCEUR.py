@@ -41,6 +41,22 @@ def copyresourcefiles():
     put all resources in output folder
     '''
     
+def nestedlinks(soup):
+    '''
+    removes nested links
+    '''
+    for a in soup.findAll('sup'):
+        if a.parent.name == 'a':
+            link = a.parent['href']
+            a.parent.unwrap()
+            innerlink = a.find('a')
+            innerlink['href']=link
+            innerlink['id'] = innerlink['name']
+            del innerlink['name'] 
+            
+    return soup
+    
+    
 def generatedSourceHtml():
     '''
     # geckodriver in PATH
@@ -60,16 +76,20 @@ def run(path, out):
     html = f.read().replace('role=', 'class=')
 
     # parse html
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html.replace('ISO-8859-1', 'utf-8'), 'html.parser')
     
     soup = removejs(soup)
     soup = removexmlns(soup)
     soup = metalink(soup)
+    soup = nestedlinks(soup)
+    
+    soup.find('footer').decompose()
     
     # output
     # print soup.prettify().encode('utf-8')
     with open(out+"/"+path.replace('/','_'), "w") as file:
-        file.write(str(soup))
+        #.encode('ascii', 'xmlcharrefreplace')
+        file.write('<!DOCTYPE HTML>\n'+soup.prettify().encode('utf-8'))
 
 if __name__ == '__main__':
     # generatedSourceHtml()
