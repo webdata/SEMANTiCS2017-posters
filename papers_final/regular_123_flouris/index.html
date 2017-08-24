@@ -1,0 +1,853 @@
+<!DOCTYPE HTML>
+<html prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="./css/rash.css" rel="stylesheet"/>
+  <title>
+   Methinks: Enabling Sophisticated Comment Management in the Social Web
+  </title>
+  <meta content="FORTH, Greece" property="schema:name"/>
+  <meta content="UCL, UK" property="schema:name"/>
+  <meta content="Giorgos Flouris" name="dc.creator" property="schema:name"/>
+  <meta content="fgeo@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Theodore Patkos" name="dc.creator" property="schema:name"/>
+  <meta content="patkos@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Ilia Adami" name="dc.creator" property="schema:name"/>
+  <meta content="iadami@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Antonis Bikakis" name="dc.creator" property="schema:name"/>
+  <meta content="a.bikakis@ucl.ac.uk" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Manos Dimitrakis" name="dc.creator" property="schema:name"/>
+  <meta content="mdimitrak@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="George Mathioudakis" name="dc.creator" property="schema:name"/>
+  <meta content="gmathiou@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Giannis Roussakis" name="dc.creator" property="schema:name"/>
+  <meta content="rousakis@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Dimitris Plexousakis" name="dc.creator" property="schema:name"/>
+  <meta content="dp@ics.forth.gr" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Comments" property="prism:keyword"/>
+  <meta content="Reviews" property="prism:keyword"/>
+  <meta content="Semantic Web" property="prism:keyword"/>
+  <meta content="Social Web" property="prism:keyword"/>
+  <meta content="Computational Argumentation" property="prism:keyword"/>
+  <meta content="Crowdsourcing" property="prism:keyword"/>
+  <meta content="Information systems: Reputation systems" name="dcterms.subject"/>
+  <meta content="Information systems: Social tagging systems" name="dcterms.subject"/>
+  <meta content="Information systems: Content ranking" name="dcterms.subject"/>
+  <meta content="Information systems: Social recommendation" name="dcterms.subject"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    Methinks: Enabling Sophisticated Comment Management in the Social Web
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Giorgos Flouris
+    </strong>
+    <code class="email">
+     <a href="mailto:fgeo@ics.forth.gr">
+      fgeo@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Theodore Patkos
+    </strong>
+    <code class="email">
+     <a href="mailto:patkos@ics.forth.gr">
+      patkos@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Ilia Adami
+    </strong>
+    <code class="email">
+     <a href="mailto:iadami@ics.forth.gr">
+      iadami@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Antonis Bikakis
+    </strong>
+    <code class="email">
+     <a href="mailto:a.bikakis@ucl.ac.uk">
+      a.bikakis@ucl.ac.uk
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     UCL, UK
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Manos Dimitrakis
+    </strong>
+    <code class="email">
+     <a href="mailto:mdimitrak@ics.forth.gr">
+      mdimitrak@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     George Mathioudakis
+    </strong>
+    <code class="email">
+     <a href="mailto:gmathiou@ics.forth.gr">
+      gmathiou@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Giannis Roussakis
+    </strong>
+    <code class="email">
+     <a href="mailto:rousakis@ics.forth.gr">
+      rousakis@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Dimitris Plexousakis
+    </strong>
+    <code class="email">
+     <a href="mailto:dp@ics.forth.gr">
+      dp@ics.forth.gr
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     FORTH, Greece
+    </span>
+   </address>
+   <p class="acm_subject_categories">
+    <strong>
+     ACM Subject Categories
+    </strong>
+    <br/>
+    <code>
+     Information systems: Reputation systems
+    </code>
+    <br/>
+    <code>
+     Information systems: Social tagging systems
+    </code>
+    <br/>
+    <code>
+     Information systems: Content ranking
+    </code>
+    <br/>
+    <code>
+     Information systems: Social recommendation
+    </code>
+   </p>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       Comments
+      </code>
+     </li>
+     <li>
+      <code>
+       Reviews
+      </code>
+     </li>
+     <li>
+      <code>
+       Semantic Web
+      </code>
+     </li>
+     <li>
+      <code>
+       Social Web
+      </code>
+     </li>
+     <li>
+      <code>
+       Computational Argumentation
+      </code>
+     </li>
+     <li>
+      <code>
+       Crowdsourcing
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    User reviews, comments and votes on the Social Web form the modern version of word-of-mouth communication, which has a huge impact on people’s shopping habits, businesses and the overall market. Despite that, systems have so far limited practical success in helping consumers and businesses analysing, managing and understanding Social Web content. In this paper, we present a new tool that leverages a combination of techniques from Semantic Web, Computational Argumentation and Crowdsourcing to support this activity, through an intuitive and functional user interface.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Introduction
+   </h1>
+   <p>
+    The Social Web is populated with arguments, which usually have the form of comments, opinions or reviews, and are the main ingredients of online discussion forums, social networks, online rating and review sites, debate portals and other online communities - the electronic version of word-of-mouth communication. Since the emergence of the Social Web, its impact has been paramount to several aspects of human behaviour, ranging from health-related
+    <a href="#_Ref490737972">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: W.-y.S. Chou, A. Prestin, C. Lyons, K.y. Wen. Web 2.0 for health promotion: Reviewing the current evidence. American Journal of Public Health 103(1):e9–e18, 2012.">
+      [4]
+     </span>
+    </a>
+    , to buying
+    <a href="#_Ref490738051">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: C.M. Cheung, D.R. Thadani. The impact of electronic word-of-mouth communication: A literature analysis and integrative model. Decision Support Systems 54(1):461–470. 2012.">
+      [5]
+     </span>
+    </a>
+    , travelling
+    <a href="#_Ref490738065">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Q. Ye, R. Law, B. Gu, W. Chen. The influence of user-generated content on traveller behaviour: An empirical investigation on the effects of e-word-of-mouth to hotel online bookings. Computers in Human Behaviour 27(2):634–639. 2011.">
+      [11]
+     </span>
+    </a>
+    or voting habits
+    <a href="#_Ref490738076">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: R.M. Bond, C.J. Fariss, J.J. Jones, A.D.I. Kramer, C. Marlow, J.E. Settle, J.H. Fowler. A 61-million-person experiment in social influence and political mobilization. Nature 489(7415):295–298, 2012.">
+      [1]
+     </span>
+    </a>
+    . Also, opinions in the Social Web significantly impact businesses and the overall market; a study on the impact of online reviews on the restaurant industry found that a one-star increase in Yelp.com rating led to a 5-9% increase in the revenue of the rated restaurants
+    <a href="#_Ref490738087">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: M. Luca. Reviews, reputation, and revenue: The case of yelp.com. Technical Report 12-016, Harvard Business School. 2011.">
+      [8]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    It is thus clear that understanding, analysing and managing such comments is of paramount importance in various industrial sectors. Towards this end, two main approaches exist. On the one end, Computational Argumentation
+    <a href="#_Ref490738126">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: P. Besnard, A. Hunter. Elements of Argumentation. The MIT Press. 2008.">
+      [2]
+     </span>
+    </a>
+    has provided mature results in understanding and formalizing the interplay of arguments in structured debates. This work has yet limited applicability on the Social Web, due to the highly unstructured nature of the latter, despite some recent efforts to bridge the differences
+    <a href="#_Ref490738134">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: S. Eilmez, J. Martins, J. Leite. Extending social abstract argumentation with votes on attacks. In Theory and Applications of Formal Argumentation, pages 16–31, 2014.">
+      [6]
+     </span>
+    </a>
+    ,
+    <a href="#_Ref490738141">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: P. Baroni, M. Romano, F. Toni, M. Aurisicchio, G. Bertanza. Automatic evaluation of design alternatives with quantitative argumentation. Argument &amp; Computation 6(1):24–49, 2015.">
+      [3]
+     </span>
+    </a>
+    . On the other end, opinion analysis methods attempt to make sense out of online discussions, relying heavily on Natural Language Processing (NLP) techniques. Their performance in understanding the basic trends and sentiments of online dialogues has improved remarkably over the last years, yet their accuracy is still very low when it comes to identifying the arguments in opinions, understanding their relations (attack/support), or extracting the most acceptable arguments in a dialogue
+    <a href="#_Ref490738149">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: M. Lippi, P. Torroni. Argumentation Mining: State of the Art and Emerging Trends. ACM Transactions on Internet Technology 16(2)10, March 2016.">
+      [7]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    The Methinks system aims to bring these two approaches closer, by harnessing crowdsourcing techniques instead of NLP for obtaining meta-information about an opinion and by relying on Semantic Web and Computational Argumentation methods to automate opinion processing. The novelties reside both at the frontend, where a number of features have been developed to facilitate the task of comment annotation for the
+    <em>
+     consumer
+    </em>
+    (typically a potential customer searching for a product or service, having the role of comment reader or writer), and at the backend where novel, powerful and semantically-enriched analytical tools have been developed to assist the
+    <em>
+     analyst
+    </em>
+    (typically an employee of the product or service provider, a system administrator, or a market analyst) in the task of spotting valuable comments and ironing out irrelevant or unhelpful ones. Eventually, the experience of all beneficiaries is improved by a more elaborate characterization of comments in terms of acceptance of the opinions they express by the participants of a given dialogue, and quality of their content.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Features of Methinks
+   </h1>
+   <section>
+    <h2>
+     General Properties
+    </h2>
+    <p>
+     Methinks is an online service developed using modern web technologies, intended to be licensed and delivered as Software as a Service (SaaS). The target market of Methinks includes, among others, hotels, online booksellers, listings directories (e.g., booking.com, ebay, etc.) and content aggregators.
+    </p>
+    <p>
+     Unlike generic commenting and debating tools such as Disqus
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 1: https://disqus.com/">
+       1
+      </a>
+     </sup>
+     , the objectives of Methinks are very much market-related, namely to (a) assist the consumer towards
+     <em>
+      more informed shopping decisions
+     </em>
+     , and (b) help the analyst identify
+     <em>
+      trends
+     </em>
+     , as well as
+     <em>
+      problematic or attractive characteristics
+     </em>
+     of the offered products or services to improve their business. Each objective is achieved through a different frontend operating on the same backend
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn2" id="fn_pointer_ftn2" title="Footnote 2: Consumer interface: http://139.91.183.40:8080/methinks-dev/demo/ (some features require login; you may create your own account, or use the name: demo_user@demo.com with password: demo_user). Analyst interface: http://139.91.183.40:8080/methinks-dev/admin/#!/login (username: admin@admin.com, password: admin1234).">
+       2
+      </a>
+     </sup>
+     .
+    </p>
+    <p>
+     For the User Interface design of the final prototype, the user-centred design (UCD) process
+     <a href="#_Ref490738642">
+      <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: D.A. Norman, S.W. Draper. User-centred System Design: New Perspectives on Human-Computer Interaction. L. Erlbaum Associates Inc., 1986.">
+       [9]
+      </span>
+     </a>
+     was followed to ensure optimal usability of the end product. The process included the following phases: user requirement collection and analysis, creation of high-fidelity interface mock-up designs, expert walkthrough evaluation of the prototypes, adjustments based on expert evaluation results, user-based evaluation in a laboratory environment, and further adjustments of the prototype based on the results from the evaluation.
+    </p>
+   </section>
+   <section>
+    <h2>
+     Features for the Consumer
+    </h2>
+    <section>
+     <h3>
+      Comments as first-class citizens
+     </h3>
+     <p>
+      In Methinks, comments are organised in user-generated
+      <em>
+       topics
+      </em>
+      . For example, in the provided demo (referring to the hotel domain), different topics may include
+      <q>
+       restaurant
+      </q>
+      and
+      <q>
+       room
+      </q>
+      ; however, the list of topics is open, to allow the comment writers to give emphasis on any aspect that they consider important (e.g.,
+      <q>
+       mosquitos
+      </q>
+      or
+      <q>
+       nightlife
+      </q>
+      ).
+     </p>
+     <p>
+      One of the main ideas behind Methinks is that comments are treated as
+      <em>
+       first-class citizens
+      </em>
+      , carrying as much information as the actual description of a product or service. A button brings about a drawer showing the provided comments, with various options for searching, filtering, organising or viewing them (see
+      <a href="#_Ref490739495">
+       <span class="cgen" data-rash-original-content=" ">
+        Figure 1
+       </span>
+      </a>
+      ). The related retrieval functionalities are implemented using SPARQL queries posed against an RDF backend following an appropriate ontological schema.
+     </p>
+     <figure id="_Ref490739495">
+      <p>
+       <img alt="  The  Drawer (Main Methinks Window)" src="./img/image1.png"/>
+      </p>
+      <figcaption>
+       <strong class="cgen" data-rash-original-content="">
+        Figure 1.
+       </strong>
+       The  Drawer (Main Methinks Window)
+      </figcaption>
+     </figure>
+     <p>
+      More importantly, comments are
+      <em>
+       integrated
+      </em>
+      with the actual page content. Any textual content in the description of the product/service that corresponds to an existing topic of discussion appears underlined in an indication that there is further information linked to it. On mouse-over, a box appears above the underlined text showing the number of discussions that have been created on this particular topic (see
+      <a href="#_Ref490743450">
+       <span class="cgen" data-rash-original-content=" ">
+        Figure 2
+       </span>
+      </a>
+      ). Upon clicking inside the box, the main Methinks plug-in window (
+      <a href="#_Ref490739495">
+       <span class="cgen" data-rash-original-content=" ">
+        Figure 1
+       </span>
+      </a>
+      ) expands and shows the discussions that are associated with the selected topic. Similarly, selecting some text in the description, allows one to search in the comments for this text, or create a new topic for this text.
+     </p>
+     <figure id="_Ref490743450">
+      <p>
+       <img alt=" Integration  of Comments in Web Page Content" src="./img/image2.png"/>
+      </p>
+      <figcaption>
+       <strong class="cgen" data-rash-original-content="">
+        Figure 2.
+       </strong>
+       Integration  of Comments in Web Page Content
+      </figcaption>
+     </figure>
+    </section>
+    <section>
+     <h3>
+      Leveraging crowdsourcing and argumentation to understand comments
+     </h3>
+     <p>
+      Whenever a consumer wants to add a comment to the system, this can appear as a new comment, or as a
+      <em>
+       reaction
+      </em>
+      to an existing one. In both cases, the comment writer needs to provide topics (existing or new ones), and may additionally provide various types of textual and/or structured feedback. The system provides help in selecting topics, by proposing existing topics that match what the user is writing.
+     </p>
+     <p>
+      Textual feedback is addressed to humans, whereas structured feedback (like votes, star ratings and characterizations of aspects as outdated or helpful) helps evaluating the comments and the product/service. In fact, users have various ways to criticise (or praise) various aspects of previously submitted comments or of the product/service under discussion, and this rich feedback is leveraged by complex argumentation-inspired algorithms, whose details can be found at
+      <a href="#_Ref490741703">
+       <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: T. Patkos, G. Flouris, A. Bikakis. Symmetric Multi-Aspect Evaluation of Comments (Extended Abstract). ECAI-16, 2016.">
+        [10]
+       </span>
+      </a>
+      . These algorithms allow a fine-grained analysis of how positively or negatively the crowd views certain aspects associated with the product/service at hand, or the comment itself, by leveraging (among other things) the two types of relations among comments (attack/support) using methods from quantitative argumentation frameworks
+      <a href="#_Ref490738141">
+       <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: P. Baroni, M. Romano, F. Toni, M. Aurisicchio, G. Bertanza. Automatic evaluation of design alternatives with quantitative argumentation. Argument &amp; Computation 6(1):24–49, 2015.">
+        [3]
+       </span>
+      </a>
+      , as well as by employing the categorization of feedback in different aspects and/or topics.
+     </p>
+     <p>
+      Comments are evaluated by assessing their
+      <em>
+       quality
+      </em>
+      and
+      <em>
+       acceptance
+      </em>
+      . The quality rating of a comment determines its reliability and usefulness for other consumers and helps in ranking the comments. The acceptance rating is used to determine whether other consumers agree with the comment’s assessment on the topic (positive or negative); this in turn determines the contribution of the comment in formulating the final score assigned to the topic. NLP technologies may help improve these algorithms in the future; yet, our goal on involving users in the loop aims at keeping them engaged in the reviewing process.
+     </p>
+    </section>
+   </section>
+   <section>
+    <h2>
+     Features for the Analyst
+    </h2>
+    <p>
+     With regards to the analyst, we have developed a rich graphical user interface (GUI) allowing monitoring trends and understanding the social feeling associated with products (see
+     <a href="#_Ref490743665">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 3
+      </span>
+     </a>
+     ). The analyst interface allows
+     <em>
+      moderating
+     </em>
+     (accepting/rejecting) comments, thereby allowing the analyst to block comments with offensive or profane language, and control what comments are published to the webpage. It also allows
+     <em>
+      responding
+     </em>
+     to comments, a feature that gains popularity in most review sites. More importantly, it provides various
+     <em>
+      visualizations
+     </em>
+     of the comments’/topics’ quantity and scores. All visualizations allow various types of organisation and filtering along various dimensions (temporal, topical, status etc), leveraging the flexibility of our semantic representation and facilitated by SPARQL expressiveness.
+    </p>
+    <figure id="_Ref490743665">
+     <p>
+      <img alt=" The User Interface for the Analyst" src="./img/image3.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 3.
+      </strong>
+      The User Interface for the Analyst
+     </figcaption>
+    </figure>
+   </section>
+   <section>
+    <h2>
+     Used Technologies
+    </h2>
+    <p>
+     The frontend was implemented as a web-page plugin using the AngularJS
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn3" id="fn_pointer_ftn3" title="Footnote 3: https://angularjs.org">
+       3
+      </a>
+     </sup>
+     framework. It was designed and developed with the following two principles in mind: easy web-page integration and minimum possible dependencies on external javascript and styling libraries.
+    </p>
+    <p>
+     The analyst interface was implemented as a single-page application in order to provide a user experience similar to that of a desktop application. It was developed on top of AngularJS framework, using Twitter Bootstrap
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn4" id="fn_pointer_ftn4" title="Footnote 4: http://getbootstrap.com">
+       4
+      </a>
+     </sup>
+     for the styling and positioning of the UI  components. The various analytics graphs are created dynamically as SVG images with the help of the nvd3
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn5" id="fn_pointer_ftn5" title="Footnote 5: http://nvd3.org">
+       5
+      </a>
+     </sup>
+     and D3.js
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn6" id="fn_pointer_ftn6" title="Footnote 6: https://d3js.irg">
+       6
+      </a>
+     </sup>
+     libraries.
+    </p>
+    <p>
+     The backend uses Virtuoso Triplestore
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn7" id="fn_pointer_ftn7" title="Footnote 7: https://virtuoso.openlinksw.com">
+       7
+      </a>
+     </sup>
+     version 7.2 to store all the created comments along with all the metadata (e.g., creation date, authors, comment relations etc.) that are necessary for supporting Methinks’ functionalities. The storage and data access layers are implemented using RDF and SPARQL, respectively.
+    </p>
+    <p>
+     Even though Methinks’ data could conceivably be stored also using relational technologies, the use of semantics allows future interoperability among different deployments of the Methinks platform and datasets from the Data Web, therefore allowing better integration and paving the road for future developments that could lead to a global repository of annotation-rich comments, where comments from different web sites and products/services could be combined with online data to provide a more complete user experience.
+    </p>
+    <p>
+     The ontology used for the representation of the comments transfers part of the business logic to the representation layer, for easier maintenance, and is shown in
+     <a href="#_Ref490744387">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 4
+      </span>
+     </a>
+     . The ontology design employed a functionality-oriented approach. In particular, the top-level concepts (O1_Creation_Data, O2_Strength, O3_Concept) were created with regards to the types of properties that different lower-level concepts should support. For example, the class O1_Strength is the domain of all properties associated with the notion of strength (acceptability, quality, etc.) and subsumes all concepts whose value (strength) is evaluated in the system (namely, topics and various types of arguments). The same idea is used for the other concepts. More details are omitted due to lack of space.
+    </p>
+    <figure id="_Ref490744387">
+     <p>
+      <img alt=" The Methinks Ontology" src="./img/image4.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 4.
+      </strong>
+      The Methinks Ontology
+     </figcaption>
+    </figure>
+   </section>
+  </section>
+  <section>
+   <h1>
+    Conclusion
+   </h1>
+   <p>
+    In this paper, we presented
+    <em>
+     Methinks
+    </em>
+    , a tool for enhanced review sites that allows easier management and analysis of user comments in a Social Web context. Emphasis is given to market-related web sites, providing features that create benefit for both the consumer and the product/service provider. The tool is still under development, and various new features are considered, such as the introduction of multimedia comments, cross-website and/or cross-product comparison using comment scores and others.
+   </p>
+  </section>
+  <section class="doc-bibliography">
+   <h1>
+    References
+   </h1>
+   <ol>
+    <li class="doc-biblioentry" id="_Ref490738076">
+     <p>
+      R.M. Bond, C.J. Fariss, J.J. Jones, A.D.I. Kramer, C. Marlow, J.E. Settle, J.H. Fowler. A 61-million-person experiment in social influence and political mobilization. Nature 489(7415):295–298, 2012.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738126">
+     <p>
+      P. Besnard, A. Hunter. Elements of Argumentation. The MIT Press. 2008.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738141">
+     <p>
+      P. Baroni,  M. Romano,  F.  Toni,  M.  Aurisicchio,  G. Bertanza. Automatic evaluation of design alternatives with quantitative argumentation. Argument &amp; Computation 6(1):24–49, 2015.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490737972">
+     <p>
+      W.-y.S. Chou, A. Prestin, C. Lyons, K.y. Wen. Web 2.0 for health promotion: Reviewing the current evidence. American Journal of Public Health 103(1):e9–e18, 2012.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738051">
+     <p>
+      C.M. Cheung, D.R. Thadani. The impact of electronic word-of-mouth communication: A literature analysis and integrative model. Decision Support Systems 54(1):461–470. 2012.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738134">
+     <p>
+      S. Eilmez, J. Martins, J. Leite. Extending social abstract argumentation with votes on attacks. In Theory and Applications of Formal Argumentation, pages 16–31, 2014.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738149">
+     <p>
+      M. Lippi, P. Torroni. Argumentation Mining: State of the Art and Emerging Trends. ACM Transactions on Internet Technology 16(2)10, March 2016.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738087">
+     <p>
+      M. Luca. Reviews, reputation, and revenue: The case of yelp.com. Technical Report 12-016, Harvard Business School. 2011.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738642">
+     <p>
+      D.A. Norman, S.W. Draper. User-centred System Design: New Perspectives on Human-Computer Interaction. L. Erlbaum Associates Inc., 1986.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490741703">
+     <p>
+      T. Patkos, G. Flouris, A. Bikakis. Symmetric Multi-Aspect Evaluation of Comments (Extended Abstract). ECAI-16, 2016.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="_Ref490738065">
+     <p>
+      Q. Ye, R. Law, B. Gu, W. Chen. The influence of user-generated content on traveller behaviour: An empirical investigation on the effects of e-word-of-mouth to hotel online bookings. Computers in Human Behaviour 27(2):634–639. 2011.
+     </p>
+    </li>
+   </ol>
+  </section>
+  <section class="doc-endnotes">
+   <h1>
+    Footnotes
+   </h1>
+   <section class="doc-endnote" id="ftn1">
+    <p>
+     https://disqus.com/
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn1">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn2">
+    <p>
+     Consumer interface: http://139.91.183.40:8080/methinks-dev/demo/ (some features require login; you may create your own account, or use the name: demo_user@demo.com with password: demo_user).
+    </p>
+    <p>
+     Analyst interface: http://139.91.183.40:8080/methinks-dev/admin/#!/login (username:
+     <a href="../customXml/item1.xml">
+      admin@admin.com
+     </a>
+     , password: admin1234).
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn2">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn3">
+    <p>
+     https://angularjs.org
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn3">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn4">
+    <p>
+     http://getbootstrap.com
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn4">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn5">
+    <p>
+     http://nvd3.org
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn5">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn6">
+    <p>
+     https://d3js.irg
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn6">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn7">
+    <p>
+     https://virtuoso.openlinksw.com
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn7">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+  </section>
+ </body>
+</html>

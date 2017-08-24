@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" 
-    prefix="
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="
         schema: http://schema.org/
-        prism: http://prismstandard.org/namespaces/basic/2.0/">
-    <head>
+        prism: http://prismstandard.org/namespaces/basic/2.0/">﷐<head>
         <!-- Visualisation requirements (mandatory for optimal reading) -->
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="css/rash.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rash.css">
         
         <script src="js/jquery.min.js"> </script>
         <script src="js/bootstrap.min.js"> </script>
@@ -20,16 +16,16 @@
         <title property="dcterms:title">TableQA: Question Answering on Tabular Data</title>
         
         <!-- Author's data (one or more) -->
-        <meta about="#author-1" name="dc.creator" content="Svitlana Vakulenko"/>
-        <meta about="#author-1" property="schema:email" content="svitlana.vakulenko@wu.ac.at"/>
-        <link about="#author-1" property="schema:affiliation" href="#wu"/>
+        <meta about="#author-1" name="dc.creator" content="Svitlana Vakulenko">
+        <meta about="#author-1" property="schema:email" content="svitlana.vakulenko@wu.ac.at">
+        <link about="#author-1" property="schema:affiliation" href="#wu">
         
-        <meta about="#author-2" name="dc.creator" content="Vadim Savenkov"/>
-        <meta about="#author-2" property="schema:email" content="vadim.savenkov@wu.ac.at"/>
-        <link about="#author-2" property="schema:affiliation" href="#wu"/>
+        <meta about="#author-2" name="dc.creator" content="Vadim Savenkov">
+        <meta about="#author-2" property="schema:email" content="vadim.savenkov@wu.ac.at">
+        <link about="#author-2" property="schema:affiliation" href="#wu">
         
         <!-- Affiliations -->
-        <meta about="#wu" property="schema:name" content="Vienna University of Economics and Business"/>
+        <meta about="#wu" property="schema:name" content="Vienna University of Economics and Business">
         
         <!-- Paper keywords (one or more) -->
         <!-- <meta property="prism:keyword" content="Question answering"/>
@@ -37,7 +33,7 @@
         <meta property="prism:keyword" content="Machine learning"/> -->
         
         <!-- ACM category (one or more) -->
-        <meta name="dcterms.subject" content="Information retrieval,Retrieval tasks and goals,Question answering"/> 
+        <meta name="dcterms.subject" content="Information retrieval,Retrieval tasks and goals,Question answering"> 
         <!-- /END Metadata -->
     </head>
     <body>
@@ -73,7 +69,7 @@
             <p>The architecture of our system for table-based question answering is summarized in Figure <a href="#figure_arch"></a>. Each of the individual components is described in further details below.</p>
             <figure id="figure_arch">
                     <p>
-                        <img style="width:50em;" src="img/archTableQA.png" />
+                        <img style="width:50em;" src="img/archTableQA.png">
                     </p>
                     <figcaption>System architecture. T - input table; Q - question; A - answer.</figcaption>
                 </figure>
@@ -83,7 +79,7 @@
                 Training examples consist of the input table decomposed into row-column-value triples and a question/answer pair, for instance: 
                 <figure id="table_1">
                     <table border="1">
-                        <tr>
+                        <tbody><tr>
                             <td rowspan="1" colspan="1"><p>Row1</p></td>
                             <td rowspan="1" colspan="1"><p>City</p></td>
                             <td rowspan="1" colspan="1"><p>Klagenfurt</p></td>
@@ -113,7 +109,7 @@
                             <td rowspan="1" colspan="1"><p>Emigration</p></td>
                             <td rowspan="1" colspan="1"><p>100</p></td>
                         </tr>
-                    </table>
+                    </tbody></table>
                     <p><strong>Question</strong>: What is the immigration in Salzburg?</p>
                     <p><strong>Answer</strong>: 170</p>
                     <!-- <figcaption>Caption of the table.</figcaption> -->
@@ -130,7 +126,7 @@
                 <p>The network is trained using stochastic gradient descent with linear start to avoid the local minima as in <a href="#SukhbaatarSWF15"></a>. The objective function is to minimize the cross-entropy loss between the predicted answer and the true answer from the training set.</p>
                 <figure id="figure_ui">
                     <p>
-                        <img style="width:50em;" src="img/screen3.png" />
+                        <img style="width:50em;" src="img/screen3.png">
                     </p>
                     <figcaption>Demonstration of the neural network model trained towards question answering from tables. The highlighted cells and their intensity indicate the attention weights over the input table that were activated to predict the answer to the input question.</figcaption>
                 </figure>
@@ -182,5 +178,5 @@
                 <p>Implementation based on <a href="https://github.com/vinhkhuc/MemN2N-babi-python">MemN2N-babi-python</a></p>
             </section>
         </section>
-    </body>
-</html>
+    
+</body>﷯</html>
