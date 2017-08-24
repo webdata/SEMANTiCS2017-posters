@@ -2,11 +2,13 @@
 toCEUR: RASH to CEUR rdy HTML5
 '''
 
+import os
 import sys
 import codecs
-from selenium import webdriver
-from selenium.webdriver import Firefox
+# from selenium import webdriver
+# from selenium.webdriver import Firefox
 from bs4 import BeautifulSoup
+from shutil import copytree, ignore_patterns
 
 def removejs(soup):
     
@@ -36,10 +38,21 @@ def metalink(soup):
             del linktag[attribute]
     return soup
     
-def copyresourcefiles():
+def copyresourcefiles(path, out):
     '''
     put all resources in output folder
     '''
+    copytree(path, out, ignore=ignore_patterns('final.html', 'rash.css'))
+
+def copyrashcss(path, out):
+    f = codecs.open(path+'/css/rash.css', "r", "utf-8")
+    
+    replaced = f.read().replace('role=','class=')
+    
+    with open(out+'/css/rash.css', "w") as file:
+        #.encode('ascii', 'xmlcharrefreplace')
+        file.write(replaced.encode('utf-8'))
+    
     
 def nestedlinks(soup):
     '''
@@ -71,7 +84,7 @@ def generatedSourceHtml():
 
 def run(path, out):
     # read html file
-    f = codecs.open(path, "r", "utf-8")
+    f = codecs.open(path+'/final.html', "r", "utf-8")
     
     html = f.read().replace('role=', 'class=')
 
@@ -86,19 +99,20 @@ def run(path, out):
     soup.find('footer').decompose()
     
     # output
-    # print soup.prettify().encode('utf-8')
-    with open(out+"/"+path.replace('/','_'), "w") as file:
+    copyresourcefiles(path, out)
+    copyrashcss(path, out)
+    
+    with open(out+'/index.html', "w") as file:
         #.encode('ascii', 'xmlcharrefreplace')
         file.write('<!DOCTYPE HTML>\n'+soup.prettify().encode('utf-8'))
 
 if __name__ == '__main__':
     # generatedSourceHtml()
-    
     try:
         path = sys.argv[1]
         out = sys.argv[2]
     except IndexError:
-        print 'usage: toCEUR.py <path/to/input/html> <path/to/output/folder>'
+        print 'usage: toCEUR.py <path/to/input/folder> <path/to/output/folder>'
     run(path, out)
     
 
