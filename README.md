@@ -61,6 +61,21 @@ Until then, one could do the following procedure to be safe of errors:
 
 * In the *css/rash.css file*, replace all occurrences of **role=** with **class=** 
 
+## Above steps with a script
+
+Use the toCEUR.py for doing the steps above
+
+```
+python2.7 toCEUR.py <path/to/input/folder> <path/to/output/folder>
+```
+
+Input folder with the final.html (as generated source from firefox)
+
+Python dependencies:
+```
+pip2.7 install bs4
+```
+
 ## Validate produced HTML5
 
 nu validator
