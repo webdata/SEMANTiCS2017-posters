@@ -1,24 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="grammar/rash.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<!DOCTYPE html>
-<!-- 
-SPARQL as a Foreign Language
-by Tommaso Soru, Edgard Marx, Diego Moussallem, Gustavo Publio, André Valdestilhas, Diego Esteves, Ciro Baron Neto
-
-This work is licensed under a Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/).
-You are free to:
-* Share - copy and redistribute the material in any medium or format
-* Adapt - remix, transform, and build upon the material
-for any purpose, even commercially.
-
-The licensor cannot revoke these freedoms as long as you follow the license terms.
-
-Under the following terms:
-* Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
--->
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" 
-    prefix="
+<html xmlns="http://www.w3.org/1999/xhtml" prefix="
         sd: https://w3id.org/scholarlydata/person/
         fabio: http://purl.org/spar/fabio/
         cito: http://purl.org/spar/cito/
@@ -26,14 +6,13 @@ Under the following terms:
         schema: http://schema.org/
         prism: http://prismstandard.org/namespaces/basic/2.0/
         frbr: http://purl.org/vocab/frbr/core#
-        dcterms: http://purl.org/dc/terms/">
-    <head>
+        dcterms: http://purl.org/dc/terms/">﷐<head>
         <!-- Visualisation requirements (mandatory for optimal reading) -->
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="css/rash.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rash.css">
 
         <script src="js/jquery.min.js"> </script>
         <script src="js/bootstrap.min.js"> </script>
@@ -45,49 +24,49 @@ Under the following terms:
         <title property="dcterms:title" typeof="fabio:ResearchPaper">SPARQL as a Foreign Language</title>
 
         <!-- Author's data (one or more) -->
-        <meta about="sd:tommaso-soru" typeof="schema:Person" name="dc.creator" property="schema:name" content="Tommaso Soru"/>
-        <meta about="sd:tommaso-soru" property="schema:email" content="tsoru@informatik.uni-leipzig.de"/>
-        <link about="sd:tommaso-soru" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw"/>
+        <meta about="sd:tommaso-soru" typeof="schema:Person" name="dc.creator" property="schema:name" content="Tommaso Soru">
+        <meta about="sd:tommaso-soru" property="schema:email" content="tsoru@informatik.uni-leipzig.de">
+        <link about="sd:tommaso-soru" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw">
 
-        <meta about="sd:edgard-marx" typeof="schema:Person" name="dc.creator" property="schema:name" content="Edgard Marx"/>
-        <meta about="sd:edgard-marx" property="schema:email" content="edgard.marx@htwk-leipzig.de"/>
-        <link about="sd:edgard-marx" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/leipzig-university-of-applied-sciences"/>
+        <meta about="sd:edgard-marx" typeof="schema:Person" name="dc.creator" property="schema:name" content="Edgard Marx">
+        <meta about="sd:edgard-marx" property="schema:email" content="edgard.marx@htwk-leipzig.de">
+        <link about="sd:edgard-marx" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/leipzig-university-of-applied-sciences">
 
-        <meta about="sd:diego-moussallem" typeof="schema:Person" name="dc.creator" property="schema:name" content="Diego Moussallem"/>
-        <meta about="sd:diego-moussallem" property="schema:email" content="moussallem@informatik.uni-leipzig.de"/>
-        <link about="sd:diego-moussallem" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw"/>
+        <meta about="sd:diego-moussallem" typeof="schema:Person" name="dc.creator" property="schema:name" content="Diego Moussallem">
+        <meta about="sd:diego-moussallem" property="schema:email" content="moussallem@informatik.uni-leipzig.de">
+        <link about="sd:diego-moussallem" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw">
 
-        <meta about="sd:gustavo-publio" typeof="schema:Person" name="dc.creator" property="schema:name" content="Gustavo Publio"/>
-        <meta about="sd:gustavo-publio" property="schema:email" content="gustavo.publio@informatik.uni-leipzig.de"/>
-        <link about="sd:gustavo-publio" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw"/>
+        <meta about="sd:gustavo-publio" typeof="schema:Person" name="dc.creator" property="schema:name" content="Gustavo Publio">
+        <meta about="sd:gustavo-publio" property="schema:email" content="gustavo.publio@informatik.uni-leipzig.de">
+        <link about="sd:gustavo-publio" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw">
 
-        <meta about="sd:andre-valdestilhas" typeof="schema:Person" name="dc.creator" property="schema:name" content="Andr&eacute; Valdestilhas"/>
-        <meta about="sd:andre-valdestilhas" property="schema:email" content="valdestilhas@informatik.uni-leipzig.de"/>
-        <link about="sd:andre-valdestilhas" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw"/>
+        <meta about="sd:andre-valdestilhas" typeof="schema:Person" name="dc.creator" property="schema:name" content="André Valdestilhas">
+        <meta about="sd:andre-valdestilhas" property="schema:email" content="valdestilhas@informatik.uni-leipzig.de">
+        <link about="sd:andre-valdestilhas" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw">
 
-        <meta about="sd:diego-esteves" typeof="schema:Person" name="dc.creator" property="schema:name" content="Diego Esteves"/>
-        <meta about="sd:diego-esteves" property="schema:email" content="esteves@cs.uni-bonn.de"/>
-        <link about="sd:diego-esteves" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/university-of-bonn"/>
+        <meta about="sd:diego-esteves" typeof="schema:Person" name="dc.creator" property="schema:name" content="Diego Esteves">
+        <meta about="sd:diego-esteves" property="schema:email" content="esteves@cs.uni-bonn.de">
+        <link about="sd:diego-esteves" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/university-of-bonn">
 
-        <meta about="sd:ciro-baron-neto" typeof="schema:Person" name="dc.creator" property="schema:name" content="Ciro Baron Neto"/>
-        <meta about="sd:ciro-baron-neto" property="schema:email" content="cbaron@informatik.uni-leipzig.de"/>
-        <link about="sd:ciro-baron-neto" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw"/>
+        <meta about="sd:ciro-baron-neto" typeof="schema:Person" name="dc.creator" property="schema:name" content="Ciro Baron Neto">
+        <meta about="sd:ciro-baron-neto" property="schema:email" content="cbaron@informatik.uni-leipzig.de">
+        <link about="sd:ciro-baron-neto" property="schema:affiliation" href="https://w3id.org/scholarlydata/organisation/aksw">
 
         <!-- Affiliations -->
-        <meta about="https://w3id.org/scholarlydata/organisation/aksw" property="schema:name" typeof="schema:Organization" content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany"/>
-        <meta about="https://w3id.org/scholarlydata/organisation/leipzig-university-of-applied-sciences" property="schema:name" typeof="schema:Organization" content="Faculty of Computer Science Mathematics and Natural Sciences, Leipzig University of Applied Sciences, Germany"/>
-        <meta about="https://w3id.org/scholarlydata/organisation/university-of-bonn" property="schema:name" typeof="schema:Organization" content="Smart Data Analytics, University of Bonn, Germany"/>
+        <meta about="https://w3id.org/scholarlydata/organisation/aksw" property="schema:name" typeof="schema:Organization" content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany">
+        <meta about="https://w3id.org/scholarlydata/organisation/leipzig-university-of-applied-sciences" property="schema:name" typeof="schema:Organization" content="Faculty of Computer Science Mathematics and Natural Sciences, Leipzig University of Applied Sciences, Germany">
+        <meta about="https://w3id.org/scholarlydata/organisation/university-of-bonn" property="schema:name" typeof="schema:Organization" content="Smart Data Analytics, University of Bonn, Germany">
 
         <!-- Paper keywords (one or more) -->
-        <meta property="prism:keyword" content="Question Answering"/>
-        <meta property="prism:keyword" content="Machine Translation"/>
-        <meta property="prism:keyword" content="Neural Networks"/>
-        <meta property="prism:keyword" content="Deep Learning"/>
-        <meta property="prism:keyword" content="SPARQL"/>
-        <meta property="prism:keyword" content="Linked Data"/>
+        <meta property="prism:keyword" content="Question Answering">
+        <meta property="prism:keyword" content="Machine Translation">
+        <meta property="prism:keyword" content="Neural Networks">
+        <meta property="prism:keyword" content="Deep Learning">
+        <meta property="prism:keyword" content="SPARQL">
+        <meta property="prism:keyword" content="Linked Data">
         <!-- /END Metadata -->
     </head>
-    <body>
+    <body><header class="page-header container cgen" data-rash-original-content=""><h1 class="title">SPARQL as a Foreign Language</h1><address class="lead authors"><strong class="author_name">Tommaso Soru</strong> <code class="email"><a href="mailto:tsoru@informatik.uni-leipzig.de">tsoru@informatik.uni-leipzig.de</a></code><br><span class="affiliation">Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany</span></address><address class="lead authors"><strong class="author_name">Edgard Marx</strong> <code class="email"><a href="mailto:edgard.marx@htwk-leipzig.de">edgard.marx@htwk-leipzig.de</a></code><br><span class="affiliation">Faculty of Computer Science Mathematics and Natural Sciences, Leipzig University of Applied Sciences, Germany</span></address><address class="lead authors"><strong class="author_name">Diego Moussallem</strong> <code class="email"><a href="mailto:moussallem@informatik.uni-leipzig.de">moussallem@informatik.uni-leipzig.de</a></code><br><span class="affiliation">Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany</span></address><address class="lead authors"><strong class="author_name">Gustavo Publio</strong> <code class="email"><a href="mailto:gustavo.publio@informatik.uni-leipzig.de">gustavo.publio@informatik.uni-leipzig.de</a></code><br><span class="affiliation">Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany</span></address><address class="lead authors"><strong class="author_name">André Valdestilhas</strong> <code class="email"><a href="mailto:valdestilhas@informatik.uni-leipzig.de">valdestilhas@informatik.uni-leipzig.de</a></code><br><span class="affiliation">Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany</span></address><address class="lead authors"><strong class="author_name">Diego Esteves</strong> <code class="email"><a href="mailto:esteves@cs.uni-bonn.de">esteves@cs.uni-bonn.de</a></code><br><span class="affiliation">Smart Data Analytics, University of Bonn, Germany</span></address><address class="lead authors"><strong class="author_name">Ciro Baron Neto</strong> <code class="email"><a href="mailto:cbaron@informatik.uni-leipzig.de">cbaron@informatik.uni-leipzig.de</a></code><br><span class="affiliation">Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany</span></address><p class="keywords"><strong>Keywords</strong><ul class="list-inline"><li><code>Question Answering</code></li><li><code>Machine Translation</code></li><li><code>Neural Networks</code></li><li><code>Deep Learning</code></li><li><code>SPARQL</code></li><li><code>Linked Data</code></li></ul></p></header>
         <!-- Abstract -->
         <section role="doc-abstract">
             <h1>Abstract</h1>
@@ -111,19 +90,19 @@ Our preliminary results, restricted on selected DBpedia classes, show that Neura
             <p>
 Nowadays, the Web has been growing notably and producing an enormous amount of information every day. Meanwhile, the Linked Data Cloud has been structuring these billions of facts from the Web. 
 However, this enormous volume of data complicates the access of a given desired information. 
-Thus, becoming a hard task for lay users that are not familiar with formal query languages such as SPARQL<a href="#fn1"> </a> to search their interests. 
+Thus, becoming a hard task for lay users that are not familiar with formal query languages such as SPARQL<a href="#fn1"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_fn1" title="Footnote 1: http://www.w3.org/TR/rdf-sparql-query/">1</a></sup></a> to search their interests. 
 To this end, Question Answering (QA) systems provide users with friendly interfaces that hide the complexity of creating such queries. 
 These interfaces enable the users to perform questions using their natural language.
-Although the QA systems have shown great solutions for dealing with this huge amount of statements, QA still lacks good solutions for handling vocabulary mismatch and problems on graph patterns<a href="#fn2"> </a> <a href="#hoffner2016survey"> </a>. 
+Although the QA systems have shown great solutions for dealing with this huge amount of statements, QA still lacks good solutions for handling vocabulary mismatch and problems on graph patterns<a href="#fn2"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_fn2" title="Footnote 2: For a definition of graph patterns, please visit https://www.w3.org/TR/rdf-sparql-query/.">2</a></sup></a> <a href="#hoffner2016survey"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Hoffner K., Walter S., Marx E., Usbeck R., Lehmann J., Ngonga Ngomo A. (2016). Survey on challenges of Question Answering in the Semantic Web. Semantic Web.">[3]</span></a>. 
 Vocabulary mismatch occurs when the user types different terms of the ones contained in a Knowledge Base (KB) for querying a given information. 
-Several works tried to alleviate this problem, such as <a href="#shekarpour2017rquery"> </a><a href="#Dubey2016"> </a><a href="#lukovnikov2017www"> </a>.  
+Several works tried to alleviate this problem, such as <a href="#shekarpour2017rquery"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Shekarpour S., Marx E., Auer S., Sheth A. (2017). RQUERY: Rewriting Natural Language Queries on Knowledge Graphs to Alleviate the Vocabulary Mismatch Problem. AAAI.">[10]</span></a><a href="#Dubey2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.">[2]</span></a><a href="#lukovnikov2017www"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.">[7]</span></a>.  
 			</p>
             <p>
 Recent advances in Deep Learning applied to Natural Language Processing tasks have shown a promising possibility of parsing, understanding, and translating language sentences. 
 In addition, with the growth of embeddings-based techniques, the Machine Translation (MT) community brought back the application of Neural Networks (NN) within MT systems.
-The first Neural Machine Translation (NMT) approach was proposed by Kalchbrenner and Blunsom <a href="#kalchbrenner2013recurrent"> </a>. 
+The first Neural Machine Translation (NMT) approach was proposed by Kalchbrenner and Blunsom <a href="#kalchbrenner2013recurrent"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Kalchbrenner N., Blunsom P. (2013). Recurrent Continuous Translation Models. EMNLP.">[5]</span></a>. 
 This approach implemented Deep Neural Networks to build end-to-end encoder–decoder models using embeddings, i.e. vector spaces, within the language models. 
-NMT recently overcame the Phrased-based Machine Translation approach on the BLEU <a href="#papineni2002bleu"> </a> score, thus rising the interest on NN applied to translation problems <a href="#wu2016google"> </a>. 
+NMT recently overcame the Phrased-based Machine Translation approach on the BLEU <a href="#papineni2002bleu"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Papineni K., Roukos S., Ward T., Zhu W. (2002). BLEU: a method for automatic evaluation of machine translation. Proceedings of the 40th annual meeting on association for computational linguistics.">[9]</span></a> score, thus rising the interest on NN applied to translation problems <a href="#wu2016google"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Wu Y., Schuster M., Chen Z., Le Q., Norouzi M., Macherey W., Krikun M., Cao Y., Gao Q., Macherey K., others (2016). Google's neural machine translation system: Bridging the gap between human and machine translation. arXiv preprint arXiv:1609.08144.">[13]</span></a>. 
 In NMT, pairs of sequences are given as input to a NN model, which is left to learn the translation model.
 Based on this formal description, we have an insight to translate from Natural Language (NL) to SPARQL by using NMT models in order to address the aforementioned QA gaps. 
 Therefore, we propose Neural SPARQL Machine, an end-to-end learning model to translate any NL expression into a sequence of tokens which can reconstruct a SPARQL grammar. 
@@ -136,20 +115,20 @@ In addition, when evaluated on BLEU, our Neural SPARQL Machine achieved an accur
         <section id="sec_related_work">
             <h1>Related work</h1>
             <p>
-QA approaches commonly convert NL questions into formal SPARQL queries in order to retrieve the answer from a <i>triple store</i> <a href="#unger2012template"> </a><a href="#SINA_WebSemantic"> </a><a href="#Dubey2016"> </a>.
-Approaches are designed to answer only facts, fact-based QA <a href="#lukovnikov2017www"> </a>, multiple facts Basic Graph Patterns <a href="#SINA_WebSemantic"> </a><a href="#Zhang2016"> </a> or more complex queries <a href="#unger2012template"> </a><a href="#Dubey2016"> </a>.
-Most commonly, QA systems are based on a conjunction of previously-made rules derived from data analyses and observation <a href="#SINA_WebSemantic"> </a><a href="#Zhang2016"> </a><a href="#Dubey2016"> </a> or learned based on positive and negative samples <a href="#unger2012template"> </a><a href="#lukovnikov2017www"> </a><a href="#yih2015"> </a>.
+QA approaches commonly convert NL questions into formal SPARQL queries in order to retrieve the answer from a <i>triple store</i> <a href="#unger2012template"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.">[12]</span></a><a href="#SINA_WebSemantic"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.">[11]</span></a><a href="#Dubey2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.">[2]</span></a>.
+Approaches are designed to answer only facts, fact-based QA <a href="#lukovnikov2017www"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.">[7]</span></a>, multiple facts Basic Graph Patterns <a href="#SINA_WebSemantic"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.">[11]</span></a><a href="#Zhang2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 15: Zhang Y., He S., Liu K., Zhao J. (2016). A Joint Model for Question Answering over Multiple Knowledge Bases. Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence.">[15]</span></a> or more complex queries <a href="#unger2012template"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.">[12]</span></a><a href="#Dubey2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.">[2]</span></a>.
+Most commonly, QA systems are based on a conjunction of previously-made rules derived from data analyses and observation <a href="#SINA_WebSemantic"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.">[11]</span></a><a href="#Zhang2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 15: Zhang Y., He S., Liu K., Zhao J. (2016). A Joint Model for Question Answering over Multiple Knowledge Bases. Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence.">[15]</span></a><a href="#Dubey2016"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.">[2]</span></a> or learned based on positive and negative samples <a href="#unger2012template"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.">[12]</span></a><a href="#lukovnikov2017www"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.">[7]</span></a><a href="#yih2015"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 14: Yih W., Chang M., He X., Gao J. (2015). Semantic Parsing via Staged Query Graph Generation: Question Answering with Knowledge Base. 53rd Annual Meeting of the Association for Computational Linguistics (ACL 2015).">[14]</span></a>.
 Therefore, the strategy used to generate the SPARQL graph patterns and consequently the SPARQL query varies significantly.
 			</p>
             <p>
-<i>TBSL</i> <a href="#unger2012template"> </a> is a template-based QA system that relies on SPARQL query templates to generate queries with structures that resemble the semantic structure of the original query.
+<i>TBSL</i> <a href="#unger2012template"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.">[12]</span></a> is a template-based QA system that relies on SPARQL query templates to generate queries with structures that resemble the semantic structure of the original query.
 The template is detected based on learned positive and negative examples.
-The predicate and entity detection are performed by applying a <i>TF-IDF</i> function implemented in the <i>Lucene Apache Framework</i><a href="#fn4"> </a>. 
+The predicate and entity detection are performed by applying a <i>TF-IDF</i> function implemented in the <i>Lucene Apache Framework</i><a href="#fn4"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_fn4" title="Footnote 3: https://lucene.apache.org">3</a></sup></a>. 
 			</p>
             <p>
-<i>SINA</i> <a href="#SINA_WebSemantic"> </a> is a QA system that explores the knowledge base to formulate the SPARQL query by applying Jaccard similarity to evaluates possible resource matching candidates and Hidden Markov Models to choose the right answer among them. 
-In this conversion, queries are identified (query-type) based on pre-defined syntactic rules and resources are linked using DBpedia Spotlight <a href="#isem2013daiber"> </a>. 
-Recently, <a href="#lukovnikov2017www"> </a> proposed a fact retrieval approach based on a Recurrent Neural Network (RNN) encoding subject labels at character level and predicates and datatype values at both character and word levels.
+<i>SINA</i> <a href="#SINA_WebSemantic"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.">[11]</span></a> is a QA system that explores the knowledge base to formulate the SPARQL query by applying Jaccard similarity to evaluates possible resource matching candidates and Hidden Markov Models to choose the right answer among them. 
+In this conversion, queries are identified (query-type) based on pre-defined syntactic rules and resources are linked using DBpedia Spotlight <a href="#isem2013daiber"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Joachim Daiber, Max Jakob, Chris Hokamp, Pablo N. Mendes (2013). Improving Efficiency and Accuracy in Multilingual Entity Extraction. UNKNOWN.">[4]</span></a>. 
+Recently, <a href="#lukovnikov2017www"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.">[7]</span></a> proposed a fact retrieval approach based on a Recurrent Neural Network (RNN) encoding subject labels at character level and predicates and datatype values at both character and word levels.
 			</p>
 		</section>
 
@@ -157,15 +136,15 @@ Recently, <a href="#lukovnikov2017www"> </a> proposed a fact retrieval approach 
             <h1>Neural SPARQL Machine</h1>
             <p>
 We then propose a new paradigm for answering NL questions. Instead of using statistical and handcraft models, we shift the complete task of SPARQL query generation to Neural Simbolic Machines (NSM) which are a specific class of <i>seq2seq</i> models.
-NSMs aim at translating NL to a sequence of tokens defining a program by using a key-variable memory and reinforcement learning with weak supervision <a href="#liang2016neural"> </a>. 
-However, our approach for QA differs slightly from the one proposed by <a href="#liang2016neural"> </a>, as the authors 1) train a NN on query templates to avoid over-fitting and 2) use reinforcement learning to optimize the task reward of the problem.
-We instead use an end-to-end approach that translates an entire NL expression into a final query (see an example in <a href="#fig_example"> </a>).
+NSMs aim at translating NL to a sequence of tokens defining a program by using a key-variable memory and reinforcement learning with weak supervision <a href="#liang2016neural"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Liang C., Berant J., Le Q., Forbus K., Lao N. (2016). Neural symbolic machines: Learning semantic parsers on freebase with weak supervision. arXiv preprint arXiv:1611.00020.">[6]</span></a>. 
+However, our approach for QA differs slightly from the one proposed by <a href="#liang2016neural"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Liang C., Berant J., Le Q., Forbus K., Lao N. (2016). Neural symbolic machines: Learning semantic parsers on freebase with weak supervision. arXiv preprint arXiv:1611.00020.">[6]</span></a>, as the authors 1) train a NN on query templates to avoid over-fitting and 2) use reinforcement learning to optimize the task reward of the problem.
+We instead use an end-to-end approach that translates an entire NL expression into a final query (see an example in <a href="#fig_example"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>).
 			</p>
 			<figure id="fig_example">
 				<p>
-					<img src="img/seq2seq.svg" width="75%" alt="Example of seq2seq."/>
+					<img src="img/seq2seq.svg" alt="Example of seq2seq." width="75%">
 				</p>
-				<figcaption>LSTM architecture for sequence-to-sequence learning of a machine translator from natural language to SPARQL. The left side is the <i>encoder</i>, whereas the right side shows the <i>decoder</i>. The question <i>"Where is Hill 60 located in?"</i> is translated into the sequence of tokens: <code>select var_a where br_open dbr_Hill_60_(Ypres) dbo_location var_a br_close</code>.</figcaption>
+				<figcaption><strong class="cgen" data-rash-original-content="">Figure 1. </strong>LSTM architecture for sequence-to-sequence learning of a machine translator from natural language to SPARQL. The left side is the <i>encoder</i>, whereas the right side shows the <i>decoder</i>. The question <i>"Where is Hill 60 located in?"</i> is translated into the sequence of tokens: <code>select var_a where br_open dbr_Hill_60_(Ypres) dbo_location var_a br_close</code>.</figcaption>
 			</figure>
 	        <section id="sec_architecture">
 	            <h2>Architecture</h2>
@@ -178,23 +157,21 @@ The final structure is then reconstructed by the interpreter.
 				</p>
 				<figure id="fig_arch">
 					<p>
-						<img src="img/neural-sparql-machines.svg" width="50%" alt="Neural SPARQL Machines."/>
+						<img src="img/neural-sparql-machines.svg" alt="Neural SPARQL Machines." width="50%">
 					</p>
-					<figcaption>Architecture of a Neural SPARQL Machine at training phase (left) and prediction phase (right).</figcaption>
+					<figcaption><strong class="cgen" data-rash-original-content="">Figure 2. </strong>Architecture of a Neural SPARQL Machine at training phase (left) and prediction phase (right).</figcaption>
 				</figure>
 	            <p>
-An overview of the architecture can be seen in <a href="#fig_arch"> </a>, where we highlighted the differences between the training and the prediction phases of the machine-learning workflow.
+An overview of the architecture can be seen in <a href="#fig_arch"><span class="cgen" data-rash-original-content=" ">Figure 2</span></a>, where we highlighted the differences between the training and the prediction phases of the machine-learning workflow.
 Below are a few examples of query templates:
-<pre>
-where is &lt;A&gt; located in?
-  ->  select ?a where { &lt;A&gt; dbo:location ?a }
+</p><pre>where is &lt;A&gt; located in?
+  -&gt;  select ?a where { &lt;A&gt; dbo:location ?a }
 what are the &lt;A&gt; northernmost &lt;B&gt;?
-  ->  select ?a where { ?a rdf:type &lt;B&gt; . ?a geo:lat ?b }
+  -&gt;  select ?a where { ?a rdf:type &lt;B&gt; . ?a geo:lat ?b }
       order by desc(?b) limit &lt;A&gt;   
 was &lt;A&gt; finished before &lt;B&gt;?
-  ->  ask where { &lt;A&gt; dbp:complete ?a . FILTER(?a <= &lt;B&gt;) }
-</pre>
-				</p>
+  -&gt;  ask where { &lt;A&gt; dbp:complete ?a . FILTER(?a &lt;= &lt;B&gt;) }</pre>
+				<p></p>
 			</section>
 	        <section id="sec_sparql_modeling">
 	            <h2>SPARQL Modeling</h2>
@@ -306,9 +283,9 @@ Aim of the model is to maximize the generation probability of <i>Y</i> condition
 	<mo>.</mo>
 </mrow>
 </math>
-As seen in <a href="#fig_example"> </a>, the model is composed by a encoder and a decoder.
+As seen in <a href="#fig_example"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>, the model is composed by a encoder and a decoder.
 Using a RNN, an encoder <i>q</i> reads the input words into a vector:
-<figure id="formula_c">
+</p><figure id="formula_c">
 	<p>
 		<!-- (your LaTeX) $c=q(h_1, ..., h_T).$ -->
 		<math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -334,7 +311,7 @@ Using a RNN, an encoder <i>q</i> reads the input words into a vector:
 			<mo>.</mo>
 		</mrow>
 		</math>
-	</p>
+	<span class="cgen" data-rash-original-content=""> (1)</span></p>
 </figure>
 The hidden states at a time <i>t</i> of the NN are computed as follows:
 <figure id="formula_ht">
@@ -367,14 +344,14 @@ The hidden states at a time <i>t</i> of the NN are computed as follows:
 			</mrow>
 		</mrow>
 		</math>
-	</p>
+	<span class="cgen" data-rash-original-content=""> (2)</span></p>
 </figure>
-where </i>f</i> is a non-linear transformation performed by a LSTM using sigmoid function.
+where f is a non-linear transformation performed by a LSTM using sigmoid function.
 The same workflow applies specularly for the decoder, after which the output sequence <i>Y</i> is outputted.
-				</p>
+				<p></p>
 	            <p>
 The plain version of our learner learns word embeddings from the input corpus.
-However, as previously proposed in <a href="#liang2016neural"> </a>, word embeddings can also be imported from a pre-trained corpus of Word2Vec <a href="#mikolov2013distributed"> </a> vectors to help tackling known QA problems such as vocabulary mismatch.
+However, as previously proposed in <a href="#liang2016neural"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Liang C., Berant J., Le Q., Forbus K., Lao N. (2016). Neural symbolic machines: Learning semantic parsers on freebase with weak supervision. arXiv preprint arXiv:1611.00020.">[6]</span></a>, word embeddings can also be imported from a pre-trained corpus of Word2Vec <a href="#mikolov2013distributed"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: Mikolov T., Sutskever I., Chen K., Corrado G., Dean J. (2013). Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems.">[8]</span></a> vectors to help tackling known QA problems such as vocabulary mismatch.
 				</p>
 			</section>
 		</section>
@@ -399,13 +376,13 @@ We fixed the size of the validation and test sets to 100 examples.
 	        <section id="sec_experiments">
 	            <h2>Experiments</h2>
 	            <p>
-We carried out an evaluation of the BLEU accuracy <a href="#papineni2002bleu"> </a> for the NMT model. 
+We carried out an evaluation of the BLEU accuracy <a href="#papineni2002bleu"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Papineni K., Roukos S., Ward T., Zhu W. (2002). BLEU: a method for automatic evaluation of machine translation. Proceedings of the 40th annual meeting on association for computational linguistics.">[9]</span></a> for the NMT model. 
 BLEU uses a modified precision metric for comparing the MT output with the reference translation, in our case, SPARQL queries.
-As <a href="#tab_exp"> </a> shows, the first setting expects to have an average of 13.35 examples per instance, meaning that the model has &mdash; on average &mdash; around 13-14 times to learn that certain labels translate into a certain URI.
+As <a href="#tab_exp"><span class="cgen" data-rash-original-content=" ">Table 1</span></a> shows, the first setting expects to have an average of 13.35 examples per instance, meaning that the model has — on average — around 13-14 times to learn that certain labels translate into a certain URI.
 				</p>
 				<figure id="tab_exp">
 				    <table>
-				        <tr>
+				        <tbody><tr>
 				            <th>Dataset</th>
 				            <th>Examples per template</th>
 				            <th>Training size</th>
@@ -423,17 +400,17 @@ As <a href="#tab_exp"> </a> shows, the first setting expects to have an average 
 				            <td><p>14,588</p></td>
 				            <td><p>23.34</p></td>
 				        </tr>
-				    </table>
-				    <figcaption>Information about the experiments carried out on the datasets.</figcaption>
+				    </tbody></table>
+				    <figcaption><strong class="cgen" data-rash-original-content="">Table 1. </strong>Information about the experiments carried out on the datasets.</figcaption>
 				</figure>
 	            <p>
-The experiments were carried out on a 64-core CPU-only Ubuntu machine with 512 GB RAM.<a href="#fn3"> </a>
-We adopted the implementation of seq2seq in TensorFlow <a href="#abadi2016tensorflow"> </a> with embeddings of 128 dimensions, 2 hidden layers, and a dropout value of 0.2.
+The experiments were carried out on a 64-core CPU-only Ubuntu machine with 512 GB RAM.<a href="#fn3"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_fn3" title="Footnote 4: Source code and datasets available at http://w3id.org/neural-sparql-machines/code/.">4</a></sup></a>
+We adopted the implementation of seq2seq in TensorFlow <a href="#abadi2016tensorflow"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Abadi M., Agarwal A., Barham P., Brevdo E., Chen Z., Citro C., Corrado G., Davis A., Dean J., Devin M., others (2016). Tensorflow: Large-scale machine learning on heterogeneous distributed systems. arXiv preprint arXiv:1603.04467.">[1]</span></a> with embeddings of 128 dimensions, 2 hidden layers, and a dropout value of 0.2.
 We tested our NMT model at three different times, i.e. at the 12,000th, 36,000th, and 120,000th iteration.
 				</p>
 				<figure id="tab_results">
 				    <table>
-				        <tr>
+				        <tbody><tr>
 				            <th>Dataset</th>
 				            <th>Examples per template</th>
 				            <th>BLEU 12k epochs</th>
@@ -454,23 +431,23 @@ We tested our NMT model at three different times, i.e. at the 12,000th, 36,000th
 				            <td><p>0.803 (0:58:09)</p></td>
 				            <td><p>0.803 (3:11:44)</p></td>
 				        </tr>
-				    </table>
-				    <figcaption>BLEU accuracy after a given training time (expressed as H:MM:SS) for different number of examples per query template.</figcaption>
+				    </tbody></table>
+				    <figcaption><strong class="cgen" data-rash-original-content="">Table 2. </strong>BLEU accuracy after a given training time (expressed as H:MM:SS) for different number of examples per query template.</figcaption>
 				</figure>
 	            <p>
-The complete evaluation results are shown in <a href="#tab_results"> </a>.
+The complete evaluation results are shown in <a href="#tab_results"><span class="cgen" data-rash-original-content=" ">Table 2</span></a>.
 One of the main drawbacks of deep-learning architectures is the computational complexity and training time.
 As can be seen, the number of examples per template does not seem to affect the training time as much as the number of iterations.
 However, the BLEU accuracy achieved with <i>n=600</i> saw an increase of <i>+5%</i>, which can lead to think that more examples might further improve the translation.
-As <a href="#fig_bleu"> </a> shows, this value stabilizes after 10,000 epochs, which correspond to &#126;16 minutes of runtime.
+As <a href="#fig_bleu"><span class="cgen" data-rash-original-content=" ">Figure 3</span></a> shows, this value stabilizes after 10,000 epochs, which correspond to ~16 minutes of runtime.
 Minimizing the number of examples per instance, we estimate to learn a model on a large dataset as DBpedia in less than 20 days; GPU architectures can bring this value down to 5 days.
 Since the BLEU accuracy gives only an estimation of how the alignments are performed between the languages, we plan to use standard measures such as F-score to evaluate the final prediction of SPARQL queries.
 				</p>
 				<figure id="fig_bleu">
 					<p>
-						<img src="img/bleu.svg" width="50%" alt="BLEU accuracy over epochs."/>
+						<img src="img/bleu.svg" alt="BLEU accuracy over epochs." width="50%">
 					</p>
-					<figcaption>BLEU accuracy on the test set for the translations on dataset <code>dbo:Monument</code> with 600 examples per query template.</figcaption>
+					<figcaption><strong class="cgen" data-rash-original-content="">Figure 3. </strong>BLEU accuracy on the test set for the translations on dataset <code>dbo:Monument</code> with 600 examples per query template.</figcaption>
 				</figure>
 	            <p>
 To test compositionality, we inputted complex questions to our Neural SPARQL Machine.
@@ -486,7 +463,7 @@ This is an open challenge for our model.
             <h1>Conclusion and future work</h1>
             <p>
 In this work, we presented a neural approach for the translation of NL questions in SPARQL queries using a NN model.
-Preliminary results show an average BLEU accuracy of &#126;0.8 when trained on QA template model pairs, even when answering such questions requires the formulation of more complex queries. 
+Preliminary results show an average BLEU accuracy of ~0.8 when trained on QA template model pairs, even when answering such questions requires the formulation of more complex queries. 
 The current model is vocabulary-dependent and needs to be trained on samples derived from manually-created QA template pairs. 
 We plan to address current limitations by investigating how to generate domain-independent templates and minimize the burden on the end user.
 			</p>
@@ -496,80 +473,81 @@ We plan to address current limitations by investigating how to generate domain-i
         <section role="doc-bibliography">
             <h1>References</h1>
             <ul about="" rel="cito:cites">
-			<li id="mikolov2013distributed" about="mikolov2013distributed-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="mikolov2013distributed-work" role="doc-biblioentry">
-				<p about="mikolov2013distributed-expression" property="dcterms:bibliographicCitation">Mikolov T., Sutskever I., Chen K., Corrado G., Dean J. (2013). Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems.</p>
-			</li>
-			<li id="hoffner2016survey" about="hoffner2016survey-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="hoffner2016survey-work" role="doc-biblioentry">
-				<p about="hoffner2016survey-expression" property="dcterms:bibliographicCitation">Hoffner K., Walter S., Marx E., Usbeck R., Lehmann J., Ngonga Ngomo A. (2016). Survey on challenges of Question Answering in the Semantic Web. Semantic Web.</p>
-			</li>
-			<li id="shekarpour2017rquery" about="shekarpour2017rquery-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="shekarpour2017rquery-work" role="doc-biblioentry">
-				<p about="shekarpour2017rquery-expression" property="dcterms:bibliographicCitation">Shekarpour S., Marx E., Auer S., Sheth A. (2017). RQUERY: Rewriting Natural Language Queries on Knowledge Graphs to Alleviate the Vocabulary Mismatch Problem. AAAI.</p>
-			</li>
-			<li id="liang2016neural" about="liang2016neural-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="liang2016neural-work" role="doc-biblioentry">
-				<p about="liang2016neural-expression" property="dcterms:bibliographicCitation">Liang C., Berant J., Le Q., Forbus K., Lao N. (2016). Neural symbolic machines: Learning semantic parsers on freebase with weak supervision. arXiv preprint arXiv:1611.00020.</p>
-			</li>
-			<li id="Dubey2016" about="Dubey2016-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="Dubey2016-work" role="doc-biblioentry">
-				<p about="Dubey2016-expression" property="dcterms:bibliographicCitation">Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.</p>
-			</li>
-			<li id="Zhang2016" about="Zhang2016-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="Zhang2016-work" role="doc-biblioentry">
-				<p about="Zhang2016-expression" property="dcterms:bibliographicCitation">Zhang Y., He S., Liu K., Zhao J. (2016). A Joint Model for Question Answering over Multiple Knowledge Bases. Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence.</p>
-			</li>
-			<li id="unger2012template" about="unger2012template-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="unger2012template-work" role="doc-biblioentry">
-				<p about="unger2012template-expression" property="dcterms:bibliographicCitation">Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.</p>
-			</li>
-			<li id="SINA_WebSemantic" about="SINA_WebSemantic-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="SINA_WebSemantic-work" role="doc-biblioentry">
-				<p about="SINA_WebSemantic-expression" property="dcterms:bibliographicCitation">Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.</p>
-			</li>
-			<li id="lukovnikov2017www" about="lukovnikov2017www-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="lukovnikov2017www-work" role="doc-biblioentry">
-				<p about="lukovnikov2017www-expression" property="dcterms:bibliographicCitation">Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.</p>
-			</li>
-			<li id="isem2013daiber" about="isem2013daiber-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="isem2013daiber-work" role="doc-biblioentry">
-				<p about="isem2013daiber-expression" property="dcterms:bibliographicCitation">Joachim Daiber, Max Jakob, Chris Hokamp, Pablo N. Mendes (2013). Improving Efficiency and Accuracy in Multilingual Entity Extraction. UNKNOWN.</p>
-			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<!-- <li id="koehn2009statistical" about="koehn2009statistical-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="koehn2009statistical-work" role="doc-biblioentry">
 				<p about="koehn2009statistical-expression" property="dcterms:bibliographicCitation">Koehn P. (2009). Statistical machine translation. UNKNOWN.</p>
 			</li> -->
 			<!-- <li id="mikolov2010recurrent" about="mikolov2010recurrent-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="mikolov2010recurrent-work" role="doc-biblioentry">
 				<p about="mikolov2010recurrent-expression" property="dcterms:bibliographicCitation">Mikolov T., Karafiat M., Burget L., Cernocky J., Khudanpur S. (2010). Recurrent neural network based language model. Interspeech.</p>
 			</li> -->
-			<li id="kalchbrenner2013recurrent" about="kalchbrenner2013recurrent-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="kalchbrenner2013recurrent-work" role="doc-biblioentry">
-				<p about="kalchbrenner2013recurrent-expression" property="dcterms:bibliographicCitation">Kalchbrenner N., Blunsom P. (2013). Recurrent Continuous Translation Models. EMNLP.</p>
-			</li>
+			
 			<!-- <li id="bahdanau2014neural" about="bahdanau2014neural-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="bahdanau2014neural-work" role="doc-biblioentry">
 				<p about="bahdanau2014neural-expression" property="dcterms:bibliographicCitation">Bahdanau D., Cho K., Bengio Y. (2014). Neural machine translation by jointly learning to align and translate. arXiv preprint arXiv:1409.0473.</p>
 			</li> -->
-			<li id="wu2016google" about="wu2016google-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="wu2016google-work" role="doc-biblioentry">
-				<p about="wu2016google-expression" property="dcterms:bibliographicCitation">Wu Y., Schuster M., Chen Z., Le Q., Norouzi M., Macherey W., Krikun M., Cao Y., Gao Q., Macherey K., others (2016). Google's neural machine translation system: Bridging the gap between human and machine translation. arXiv preprint arXiv:1609.08144.</p>
-			</li>
+			
 			<!-- <li id="gehring2017convolutional" about="gehring2017convolutional-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="gehring2017convolutional-work" role="doc-biblioentry">
 				<p about="gehring2017convolutional-expression" property="dcterms:bibliographicCitation">Gehring J., Auli M., Grangier D., Yarats D., Dauphin Y. (2017). Convolutional Sequence to Sequence Learning. arXiv preprint arXiv:1705.03122.</p>
 			</li> -->
-			<li id="abadi2016tensorflow" about="abadi2016tensorflow-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="abadi2016tensorflow-work" role="doc-biblioentry">
+			
+			
+			
+            <li id="abadi2016tensorflow" about="abadi2016tensorflow-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="abadi2016tensorflow-work" role="doc-biblioentry">
 				<p about="abadi2016tensorflow-expression" property="dcterms:bibliographicCitation">Abadi M., Agarwal A., Barham P., Brevdo E., Chen Z., Citro C., Corrado G., Davis A., Dean J., Devin M., others (2016). Tensorflow: Large-scale machine learning on heterogeneous distributed systems. arXiv preprint arXiv:1603.04467.</p>
-			</li>
-			<li id="papineni2002bleu" about="papineni2002bleu-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="papineni2002bleu-work" role="doc-biblioentry">
+			</li><li id="Dubey2016" about="Dubey2016-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="Dubey2016-work" role="doc-biblioentry">
+				<p about="Dubey2016-expression" property="dcterms:bibliographicCitation">Dubey M., Dasgupta S., Sharma A., Hoffner K., Lehmann J. (2016). AskNow: A Framework for Natural Language Query Formalization in SPARQL. The Semantic Web. Latest Advances and New Domains: 13th International Conference, ESWC 2016, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Proceedings.</p>
+			</li><li id="hoffner2016survey" about="hoffner2016survey-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="hoffner2016survey-work" role="doc-biblioentry">
+				<p about="hoffner2016survey-expression" property="dcterms:bibliographicCitation">Hoffner K., Walter S., Marx E., Usbeck R., Lehmann J., Ngonga Ngomo A. (2016). Survey on challenges of Question Answering in the Semantic Web. Semantic Web.</p>
+			</li><li id="isem2013daiber" about="isem2013daiber-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="isem2013daiber-work" role="doc-biblioentry">
+				<p about="isem2013daiber-expression" property="dcterms:bibliographicCitation">Joachim Daiber, Max Jakob, Chris Hokamp, Pablo N. Mendes (2013). Improving Efficiency and Accuracy in Multilingual Entity Extraction. UNKNOWN.</p>
+			</li><li id="kalchbrenner2013recurrent" about="kalchbrenner2013recurrent-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="kalchbrenner2013recurrent-work" role="doc-biblioentry">
+				<p about="kalchbrenner2013recurrent-expression" property="dcterms:bibliographicCitation">Kalchbrenner N., Blunsom P. (2013). Recurrent Continuous Translation Models. EMNLP.</p>
+			</li><li id="liang2016neural" about="liang2016neural-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="liang2016neural-work" role="doc-biblioentry">
+				<p about="liang2016neural-expression" property="dcterms:bibliographicCitation">Liang C., Berant J., Le Q., Forbus K., Lao N. (2016). Neural symbolic machines: Learning semantic parsers on freebase with weak supervision. arXiv preprint arXiv:1611.00020.</p>
+			</li><li id="lukovnikov2017www" about="lukovnikov2017www-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="lukovnikov2017www-work" role="doc-biblioentry">
+				<p about="lukovnikov2017www-expression" property="dcterms:bibliographicCitation">Lukovnikov D., Fischer A., Auer S., Lehmann J. (2017). Neural Network-based Question Answering over Knowledge Graphs on Word and Character Level. Proceedings of the 26th international conference on World Wide Web.</p>
+			</li><li id="mikolov2013distributed" about="mikolov2013distributed-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="mikolov2013distributed-work" role="doc-biblioentry">
+				<p about="mikolov2013distributed-expression" property="dcterms:bibliographicCitation">Mikolov T., Sutskever I., Chen K., Corrado G., Dean J. (2013). Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems.</p>
+			</li><li id="papineni2002bleu" about="papineni2002bleu-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="papineni2002bleu-work" role="doc-biblioentry">
 				<p about="papineni2002bleu-expression" property="dcterms:bibliographicCitation">Papineni K., Roukos S., Ward T., Zhu W. (2002). BLEU: a method for automatic evaluation of machine translation. Proceedings of the 40th annual meeting on association for computational linguistics.</p>
-			</li>
-			<li id="yih2015" about="yih2015-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="yih2015-work" role="doc-biblioentry">
+			</li><li id="shekarpour2017rquery" about="shekarpour2017rquery-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="shekarpour2017rquery-work" role="doc-biblioentry">
+				<p about="shekarpour2017rquery-expression" property="dcterms:bibliographicCitation">Shekarpour S., Marx E., Auer S., Sheth A. (2017). RQUERY: Rewriting Natural Language Queries on Knowledge Graphs to Alleviate the Vocabulary Mismatch Problem. AAAI.</p>
+			</li><li id="SINA_WebSemantic" about="SINA_WebSemantic-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="SINA_WebSemantic-work" role="doc-biblioentry">
+				<p about="SINA_WebSemantic-expression" property="dcterms:bibliographicCitation">Shekarpour S., Marx E., Ngomo A., Auer S. (2015). {SINA}: Semantic Interpretation of User Queries for {Q}uestion {Answering} On Interlinked Data. Journal of Web Semantics.</p>
+			</li><li id="unger2012template" about="unger2012template-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="unger2012template-work" role="doc-biblioentry">
+				<p about="unger2012template-expression" property="dcterms:bibliographicCitation">Unger C., Buhmann L., Lehmann J., Ngonga Ngomo A., Gerber D., Cimiano P. (2012). Template-based Question Answering over RDF Data. Proceedings of the 21st International Conference on World Wide Web.</p>
+			</li><li id="wu2016google" about="wu2016google-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="wu2016google-work" role="doc-biblioentry">
+				<p about="wu2016google-expression" property="dcterms:bibliographicCitation">Wu Y., Schuster M., Chen Z., Le Q., Norouzi M., Macherey W., Krikun M., Cao Y., Gao Q., Macherey K., others (2016). Google's neural machine translation system: Bridging the gap between human and machine translation. arXiv preprint arXiv:1609.08144.</p>
+			</li><li id="yih2015" about="yih2015-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="yih2015-work" role="doc-biblioentry">
 				<p about="yih2015-expression" property="dcterms:bibliographicCitation">Yih W., Chang M., He X., Gao J. (2015). Semantic Parsing via Staged Query Graph Generation: Question Answering with Knowledge Base. 53rd Annual Meeting of the Association for Computational Linguistics (ACL 2015).</p>
-			</li>
-            </ul>
+			</li><li id="Zhang2016" about="Zhang2016-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="Zhang2016-work" role="doc-biblioentry">
+				<p about="Zhang2016-expression" property="dcterms:bibliographicCitation">Zhang Y., He S., Liu K., Zhao J. (2016). A Joint Model for Question Answering over Multiple Knowledge Bases. Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence.</p>
+			</li></ul>
         </section>
 
         <!-- Footnotes -->
-        <section role="doc-endnotes">
-            <section id="fn1" role="doc-endnote">
-                <p><a href="http://www.w3.org/TR/rdf-sparql-query/">http://www.w3.org/TR/rdf-sparql-query/</a></p>
-            </section>
-            <section id="fn2" role="doc-endnote">
-                <p>For a definition of graph patterns, please visit <a href="https://www.w3.org/TR/rdf-sparql-query/">https://www.w3.org/TR/rdf-sparql-query/</a>.</p>
-            </section>
-            <section id="fn3" role="doc-endnote">
-                <p>Source code and datasets available at <a href="http://w3id.org/neural-sparql-machines/code/">http://w3id.org/neural-sparql-machines/code/</a>.</p>
-            </section>
-            <section id="fn4" role="doc-endnote">
-                <p><a href="https://lucene.apache.org">https://lucene.apache.org</a></p>
-            </section>
-        </section>
-    </body>
-</html>
+        <section role="doc-endnotes"><h1>Footnotes</h1>
+            
+            
+            
+            
+        <section id="fn1" role="doc-endnote">
+                <p><a href="http://www.w3.org/TR/rdf-sparql-query/">http://www.w3.org/TR/rdf-sparql-query/</a><sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_fn1">[back]</a></sup></p>
+            </section><section id="fn2" role="doc-endnote">
+                <p>For a definition of graph patterns, please visit <a href="https://www.w3.org/TR/rdf-sparql-query/">https://www.w3.org/TR/rdf-sparql-query/</a>.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_fn2">[back]</a></sup></p>
+            </section><section id="fn4" role="doc-endnote">
+                <p><a href="https://lucene.apache.org">https://lucene.apache.org</a><sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_fn4">[back]</a></sup></p>
+            </section><section id="fn3" role="doc-endnote">
+                <p>Source code and datasets available at <a href="http://w3id.org/neural-sparql-machines/code/">http://w3id.org/neural-sparql-machines/code/</a>.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_fn3">[back]</a></sup></p>
+            </section></section>
+    
+
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 2763</span><span>Figures: 3</span><span>Tables: 2</span><span>Formulas: 2</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer></body>﷯</html>

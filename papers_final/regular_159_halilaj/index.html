@@ -1,0 +1,832 @@
+<!DOCTYPE HTML>
+<html prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="./css/rash.css" rel="stylesheet"/>
+  <title>
+   DemoEffTE: A Demonstrator of Dependency-aware Evaluation of Test Cases over Ontology
+  </title>
+  <meta content="University of Bonn / Fraunhofer IAIS, Germany" property="schema:name"/>
+  <meta content="Fraunhofer IAIS, Germany / Universidad Simon Bolivar, Venezuela" property="schema:name"/>
+  <meta content="Fraunhofer IAIS, Germany" property="schema:name"/>
+  <meta content="Technische Informationsbibliothek, Hannover, Germany" property="schema:name"/>
+  <meta content="Lavdim Halilaj" name="dc.creator" property="schema:name"/>
+  <meta content="halilaj@cs.uni-bonn.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Irlán Grangel-González" name="dc.creator" property="schema:name"/>
+  <meta content="grangel@cs.uni-bonn.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Maria-Esther Vidal" name="dc.creator" property="schema:name"/>
+  <meta content="vidal@cs.uni-bonn.de" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Steffen Lohmann" name="dc.creator" property="schema:name"/>
+  <meta content="steffen.lohmann@iais.fraunhofer.de" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Sören Auer" name="dc.creator" property="schema:name"/>
+  <meta content="soeren.auer@tib.eu" property="schema:email"/>
+  <link href="#affiliation-4" property="schema:affiliation"/>
+  <meta content="Ontology Engineering" property="prism:keyword"/>
+  <meta content="Test-Driven Ontology Development" property="prism:keyword"/>
+  <meta content="Test Cases" property="prism:keyword"/>
+  <meta content="Dependency Graph" property="prism:keyword"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    DemoEffTE: A Demonstrator of Dependency-aware Evaluation of Test Cases over Ontology
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Lavdim Halilaj
+    </strong>
+    <code class="email">
+     <a href="mailto:halilaj@cs.uni-bonn.de">
+      halilaj@cs.uni-bonn.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     University of Bonn / Fraunhofer IAIS, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Irlán Grangel-González
+    </strong>
+    <code class="email">
+     <a href="mailto:grangel@cs.uni-bonn.de">
+      grangel@cs.uni-bonn.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     University of Bonn / Fraunhofer IAIS, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Maria-Esther Vidal
+    </strong>
+    <code class="email">
+     <a href="mailto:vidal@cs.uni-bonn.de">
+      vidal@cs.uni-bonn.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Fraunhofer IAIS, Germany / Universidad Simon Bolivar, Venezuela
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Steffen Lohmann
+    </strong>
+    <code class="email">
+     <a href="mailto:steffen.lohmann@iais.fraunhofer.de">
+      steffen.lohmann@iais.fraunhofer.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Fraunhofer IAIS, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Sören Auer
+    </strong>
+    <code class="email">
+     <a href="mailto:soeren.auer@tib.eu">
+      soeren.auer@tib.eu
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Technische Informationsbibliothek, Hannover, Germany
+    </span>
+   </address>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       Ontology Engineering
+      </code>
+     </li>
+     <li>
+      <code>
+       Test-Driven Ontology Development
+      </code>
+     </li>
+     <li>
+      <code>
+       Test Cases
+      </code>
+     </li>
+     <li>
+      <code>
+       Dependency Graph
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    Traditional approaches, which follow a
+    <em>
+     test-driven development
+    </em>
+    technique, allow a set of test cases to be exhaustively evaluated ensuring that each modification of an ontology does not violate predefined requirements. However, the time required for the evaluation of test cases is high and usually represents a bottleneck in an ontology development process. The
+    <em>
+     EffTE
+    </em>
+    framework tackles this problem; it relies on a graph-based model of the dependencies between test cases to support users during an ontology development process. Traversing the dependency graph is realized using breadth-first search along with a mechanism that tracks
+    <em>
+     tabu
+    </em>
+    test cases, i.e., test cases that will be ignored for further evaluation due to faulty parent test cases. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for validating an ontology after each modification. We demonstrate the benefits of prioritization and selection of the test cases to be evaluated with
+    <em>
+     DemoEffTE
+    </em>
+    . Attendees will observe the behavior of both a naive approach and the
+    <em>
+     EffTE
+    </em>
+    framework on different configuration settings such as different: (1) ontology size; (2) topology of the dependency graph of the test cases; and (3) number of test cases. The demo is available at:
+    <a href="http://vocol.iais.fraunhofer.de/DemoEffTE">
+     http://vocol.iais.fraunhofer.de/DemoEffTE
+    </a>
+    .
+   </p>
+  </section>
+  <section>
+   <h1>
+    <strong>
+     Introduction
+    </strong>
+   </h1>
+   <p>
+    The development of domain-specific ontologies requires joint efforts among different groups of stakeholders, such as knowledge engineers and domain experts. Functional requirements can be expressed through Competency Questions, which are questions that the underlying ontology should be able to answer
+    <a href="#Uschold">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Uschold, M. &amp; Gruninger, M. (1996). Ontologies: principles, methods and applications. Knowledge Engineering Review, 11(2):93–136.">
+      [4]
+     </span>
+    </a>
+    . However, the concurrent definition of ontology concepts often results in a violation of the defined requirements, or creates design issues like duplicate entries or missing documentation. For example, in the large and monolithic DBpedia
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 1: http://wiki.dbpedia.org/services-resources/ontology/">
+      1
+     </a>
+    </sup>
+    ontology, version  2016-04 only 556 from a total of 2,849 properties have associated label descriptions or comments
+    <a href="#Mihindukulasooriya">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Mihindukulasooriya, N., Poveda-Villalón, M., García-Castro, R., &amp; Gómez-Pérez, A. (2016). Collaborative Ontology Evolution and Data Quality - An Empirical Analysis. In 13th OWL: Experiences and Directions Workshop.">
+      [3]
+     </span>
+    </a>
+    . To ensure that any ontology modification has only the expected effects, a set of test cases can be defined based on Competency Questions. This is similar to the test-driven software development principles, where test cases that represent requirements, are defined before the code is actually written
+    <a href="#Fraser">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Fraser, S. Beck, K., Caputo, B., Mackinnon, T., Newkirk, J., &amp; C. Poole. (2003). Test driven development (tdd). In 4th International Conference on Extreme Programming and Agile Processes in Software Engineering, pages 459–462. Springer-Verlag.">
+      [1]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    Commonly, the time demand for evaluating predefined test cases is high and represents a bottleneck in the ontology development process. Therefore, with a naive approach, test cases are exhaustively evaluated to identify any not intended modification or design issue introduced during the concurrent development of the ontology. Since much effort is invested in creating and extending ontologies for various domains, it is crucial to make ontology development and maintenance cost-effectively
+    <a href="#Mehrotra">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Mehrotra, M. (2002). Ontology analysis for the semantic web. In Ontologies and the Semantic Web: AAAI Workshop (Technical Report WS-02-11). AAAI Press.">
+      [2]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    On the other hand, modeling the relationship between test cases using a dependency graph enables prioritization and selection of test cases to be evaluated. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for ontology validation after each modification. In order to illustrate the benefits of a test cases dependency graph compared to the cases where such a graph is not used, we designed
+    <em>
+     DemoEffTE,
+    </em>
+    a naive and dependency-aware test cases evaluation demonstrator. Attendees will be able to choose various options related to the: (1) ontology size; (2) topology of dependency graphs; and (3) number of test cases and observe results like total evaluation time and number of evaluated test cases. The demo includes a set of test cases to be evaluated that provides a comparison of the performance between a naive approach and
+    <em>
+     EffTE
+    </em>
+    .
+   </p>
+  </section>
+  <section>
+   <h1>
+    <strong>
+     The DemoEffTE Architecture
+    </strong>
+   </h1>
+   <p>
+    The architecture of
+    <em>
+     DemoEffTE
+    </em>
+    is illustrated in
+    <a href="#_Ref490561090">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 1
+     </span>
+    </a>
+    and is composed of two main components: (1) the GUI; and (2)
+    <em>
+     Test Cases Processing (TCP)
+    </em>
+    . The GUI provides the possibility for the users to specify the approach to be tested; ontology size; number of test cases and the typology of the dependency graph. The
+    <em>
+     TCP
+    </em>
+    component receives as input the selections made by users. Next, according to the chosen options, the
+    <em>
+     TCP
+    </em>
+    component validates the ontology file against a set of test cases, which are defined by the user and stored in the
+    <em>
+     Test Cases DB
+    </em>
+    module. The
+    <em>
+     Test Case Selection
+    </em>
+    is responsible for prioritization and selection of the test cases to be evaluated. Each test case is evaluated in the
+    <em>
+     Test Case Evaluation
+    </em>
+    . The collected results are returned to the GUI, where can further be explored by attendees.
+   </p>
+   <figure id="_Ref490561090">
+    <p>
+     <img alt="The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output." src="./img/image1.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 1.
+     </strong>
+     The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output.
+    </figcaption>
+   </figure>
+   <figure id="_Ref490556646">
+    <p>
+     <img alt="A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated." src="./img/image2.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 2.
+     </strong>
+     A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated.
+    </figcaption>
+   </figure>
+   <p>
+    <em>
+     DemoEffTE
+    </em>
+    demonstrates the evaluation of a set of 15 test cases using the naive approach and the
+    <em>
+     EffTE
+    </em>
+    framework.
+    <a href="#_Ref490556646">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 2
+     </span>
+    </a>
+    illustrates that in different instances of time, the number of evaluated test cases after each ontology modification using a naive approach is always the same, i.e., 15 test cases. On the other hand, as shown in
+    <a href="#_Ref490556603">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 3
+     </span>
+    </a>
+    , the number of evaluated test cases in different instance of times is reduced. This comes as a result of considering the parent-child relationships between test cases modeled as a dependency graph, where a faulty parent indicates a set a faulty children test cases.
+   </p>
+   <figure id="_Ref490556603">
+    <p>
+     <img alt="The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases." src="./img/image3.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 3.
+     </strong>
+     The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases.
+    </figcaption>
+   </figure>
+   <p>
+    The results are visualized using D3.js library according to the selected options. Additionally,
+    <em>
+     DemoEffTE
+    </em>
+    illustrates traversals of a dependency graph according to a breadth-first search algorithm. This illustration is enabled in an animation view developed on Cytoscape.js
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn3" id="fn_pointer_ftn3" title="Footnote 2: http://js.cytoscape.org/">
+      2
+     </a>
+    </sup>
+    library. Bar charts that depict the results are designed using Highcharts.js
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn4" id="fn_pointer_ftn4" title="Footnote 3: https://www.highcharts.com/">
+      3
+     </a>
+    </sup>
+    . The
+    <em>
+     TCP
+    </em>
+    component is implemented using Java Apache Jena libraries version 3.0.1. The entire implementation of
+    <em>
+     DemoEffTE
+    </em>
+    is deployed on a virtual server with AMD Opteron 2.3 GHz CPU, 4 cores, 8 GB RAM operating in SUSE Linux Enterprise Server 12 SP1.
+   </p>
+  </section>
+  <section>
+   <h1>
+    <strong>
+     Demonstration of Scenarios
+    </strong>
+   </h1>
+   <p>
+    We design several scenarios to illustrate the efficiency of the
+    <em>
+     EffTE
+    </em>
+    approach.  Thus, attendees will be able to observe how a naive approach and the
+    <em>
+     EffTE
+    </em>
+    approach exhibit different behavior on the evaluation of a given set of test cases.
+    <em>
+     DemoEffTE
+    </em>
+    demonstrates the execution of both approaches in five instances of time.  In the first four time instances, various test cases are randomly chosen to fail. No faulty test cases are included in the instance number five, in order to show the behavior of both approaches on the same conditions. Two evaluation metrics will be shown: (1) evaluation time; and (2) number of evaluated test cases. The following scenarios are demonstrated:
+   </p>
+   <p>
+    <strong>
+     Effect of an Ontology Size
+    </strong>
+    . The impact of the ontology size will be observed on a set of test cases. We asses the efficiency of a naive approach and the
+    <em>
+     EffTE
+    </em>
+    framework on three different ontologies: (1)
+    <em>
+     FOAF
+    </em>
+    : an ontology used to describe persons, activities, and relationships between them and other objects; (2)
+    <em>
+     Schema.org
+    </em>
+    ontology describes entities, actions, and their relations to promote the usage of the structured data; and (3)
+    <em>
+     DBpedia
+    </em>
+    , a cross-domain ontology for describing the information extracted from Wikipedia infoboxes.
+    <a href="#_Ref490556687">
+     <span class="cgen" data-rash-original-content=" ">
+      Table 1
+     </span>
+    </a>
+    describes these ontologies in terms number of triples, different subjects, properties, and objects.
+   </p>
+   <figure id="_Ref490556687">
+    <table>
+     <tbody>
+      <tr>
+       <td>
+        <p>
+         <strong>
+          Ontology
+         </strong>
+        </p>
+       </td>
+       <td>
+        <p>
+         <strong>
+          # triples
+         </strong>
+        </p>
+       </td>
+       <td>
+        <p>
+         <strong>
+          # subjects
+         </strong>
+        </p>
+       </td>
+       <td>
+        <p>
+         <strong>
+          # properties
+         </strong>
+        </p>
+       </td>
+       <td>
+        <p>
+         <strong>
+          # objects
+         </strong>
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         FOAF
+        </p>
+       </td>
+       <td>
+        <p>
+         631
+        </p>
+       </td>
+       <td>
+        <p>
+         86
+        </p>
+       </td>
+       <td>
+        <p>
+         15
+        </p>
+       </td>
+       <td>
+        <p>
+         192
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         Schema.org
+        </p>
+       </td>
+       <td>
+        <p>
+         8,103
+        </p>
+       </td>
+       <td>
+        <p>
+         1,569
+        </p>
+       </td>
+       <td>
+        <p>
+         13
+        </p>
+       </td>
+       <td>
+        <p>
+         3,545
+        </p>
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <p>
+         DBpedia
+        </p>
+       </td>
+       <td>
+        <p>
+         30,793
+        </p>
+       </td>
+       <td>
+        <p>
+         3,986
+        </p>
+       </td>
+       <td>
+        <p>
+         23
+        </p>
+       </td>
+       <td>
+        <p>
+         16,807
+        </p>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Table 1.
+     </strong>
+     Description of Ontologies. Different ontology sizes in terms of number of triples, subjects, properties, and objects.
+    </figcaption>
+   </figure>
+   <p>
+    <strong>
+     Impact of the Topology of the Dependency Graph
+    </strong>
+    . The goal of this scenario is to show the impact of the topology of dependency graph in the evaluation of set of test cases.
+    <a href="#_Ref490563258">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 4
+     </span>
+    </a>
+    shows three topologies with 10 test cases each where test case has different dependencies between each other. The topologies are randomly generated using RStudio
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn5" id="fn_pointer_ftn5" title="Footnote 4: https://www.rstudio.com/">
+      4
+     </a>
+    </sup>
+    <em>
+     randomDag
+    </em>
+    <em>
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn6" id="fn_pointer_ftn6" title="Footnote 5: https://rdrr.io/rforge/pcalg/man/randomDAG.html">
+       5
+      </a>
+     </sup>
+    </em>
+    <em>
+    </em>
+    function. Attendees will be able to visualize the results from evaluation of a given set of test cases produced over a period of five instances of time.
+   </p>
+   <p>
+   </p>
+   <figure id="_Ref490563258">
+    <p>
+     <img alt="Test Cases. Three different topologies of dependency graphs between test cases ." src="./img/image4.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 4.
+     </strong>
+     Test Cases. Three different topologies of dependency graphs between test cases.
+    </figcaption>
+   </figure>
+   <p>
+   </p>
+   <p>
+    <strong>
+     Impact of the Number of the Test Cases.
+    </strong>
+    We demonstrate three different dependency graphs composed of 10, 20, and 30 test cases, respectively.
+    <a href="#_Ref49056325890">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 5
+     </span>
+    </a>
+    illustrates the dependency graphs randomly generated using RStudio
+    <em>
+     randomDag
+    </em>
+    function. Similar to other scenarios, for each set, a random number of test cases are chosen to fail using a
+    <em>
+     Random Distribution
+    </em>
+    function in RStudio. Attendees will be able to visualize the results produced over a period of time.
+   </p>
+   <figure id="_Ref49056325890">
+    <p>
+     <img alt="Test Cases. Three different topologies of dependency graphs between test cases ." src="./img/image5.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 5.
+     </strong>
+     Test Cases. Three different sets composed of 10, 20, and 30 test cases, respectively.
+    </figcaption>
+   </figure>
+   <p>
+   </p>
+  </section>
+  <section>
+   <h1>
+    <strong>
+     Conclusions
+    </strong>
+   </h1>
+   <p>
+    <em>
+     DemoEffTE
+    </em>
+    provides a visual comparison how modeling relationships between test cases using dependency graphs affects the performance of the overall evaluation time after each ontology change. Particularly,
+    <em>
+     DemoEffTE
+    </em>
+    shows a trade-off between a naive approach that exhaustively evaluates all test cases and the
+    <em>
+     EffTE
+    </em>
+    framework in three different scenarios. Attendees will be able to explore all the scenarios, understand why modeling relationship of test cases using dependency graphs play an important role in ontology development process. Furthermore, they will observe how this dependency graph modeling enables minimization of the test cases to be evaluated, thus reducing the time required for validating an ontology after each modification.
+   </p>
+  </section>
+  <section class="doc-acknowledgements">
+   <h1>
+    <strong>
+     Acknowledgements
+    </strong>
+   </h1>
+   <p>
+    This work has been supported by the European Union's Horizon 2020 programme for the project BigDataEurope (grant no. 644564), and the German Federal Ministry of Education and Research (BMBF) for the projects Industrial Data Space (grant no. 01IS15054) and SDI-X (grant no. 01IS15035C).
+   </p>
+  </section>
+  <section class="doc-bibliography" id="SectionReferences">
+   <h1>
+    References
+   </h1>
+   <ul>
+    <li class="doc-biblioentry" id="Fraser">
+     <p>
+      Fraser, S. Beck, K., Caputo, B., Mackinnon, T., Newkirk, J., &amp; C. Poole. (2003). Test driven development (tdd). In 4th International Conference on Extreme Programming and Agile Processes in Software Engineering, pages 459–462. Springer-Verlag.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="Mehrotra">
+     <p>
+      Mehrotra, M. (2002). Ontology analysis for the semantic web. In Ontologies and the Semantic Web: AAAI Workshop (Technical Report WS-02-11). AAAI Press.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="Mihindukulasooriya">
+     <p>
+      Mihindukulasooriya, N., Poveda-Villalón, M., García-Castro, R., &amp; Gómez-Pérez, A. (2016). Collaborative Ontology Evolution and Data Quality - An Empirical Analysis. In 13th OWL: Experiences and Directions Workshop.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="Uschold">
+     <p>
+      Uschold, M. &amp; Gruninger, M. (1996). Ontologies: principles, methods and applications. Knowledge Engineering Review, 11(2):93–136.
+     </p>
+    </li>
+   </ul>
+  </section>
+  <section class="doc-endnotes">
+   <h1>
+    Footnotes
+   </h1>
+   <section class="doc-endnote" id="ftn1">
+    <p>
+     http://wiki.dbpedia.org/services-resources/ontology/
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn1">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn3">
+    <p>
+     http://js.cytoscape.org/
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn3">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn4">
+    <p>
+     https://www.highcharts.com/
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn4">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn5">
+    <p>
+     https://www.rstudio.com/
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn5">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn6">
+    <p>
+     https://rdrr.io/rforge/pcalg/man/randomDAG.html
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn6">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+  </section>
+ </body>
+</html>

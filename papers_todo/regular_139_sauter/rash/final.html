@@ -1,50 +1,118 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
-      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
-      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="./css/rash.css"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">﷐<head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/rash.css">
       <script src="./js/jquery.min.js"> </script>
       <script src="./js/bootstrap.min.js"> </script>
       <script src="./js/rash.js"> </script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""> </script>
       <title>Linked Spatial Data for a Circular Economy -- Exploring its potential through a Textile Use Case</title>
-      <meta about="#affiliation-1"
-            property="schema:name"
-            content="MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands"/>
-      <meta about="#author-1"
-            name="dc.creator"
-            property="schema:name"
-            content="Elke M. Sauter"/>
-      <meta about="#author-1"
-            property="schema:email"
-            content="elke.m.sauter@gmail.com"/>
-      <link about="#author-1"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-2"
-            name="dc.creator"
-            property="schema:name"
-            content="Martijn Witjes"/>
-      <meta about="#author-2"
-            property="schema:email"
-            content="martijnwitjes@gmail.com"/>
-      <link about="#author-2"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta property="prism:keyword"
-            content="linked data, linked spatial data, circular economy, product passports, geographical information systems"/>
-   </head>
-   <body>
+      <meta about="#affiliation-1" property="schema:name" content="MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands">
+      <meta about="#author-1" name="dc.creator" property="schema:name" content="Elke M. Sauter">
+      <meta about="#author-1" property="schema:email" content="elke.m.sauter@gmail.com">
+      <link about="#author-1" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-2" name="dc.creator" property="schema:name" content="Martijn Witjes">
+      <meta about="#author-2" property="schema:email" content="martijnwitjes@gmail.com">
+      <link about="#author-2" property="schema:affiliation" href="#affiliation-1">
+      <meta property="prism:keyword" content="linked data, linked spatial data, circular economy, product passports, geographical information systems">
+   <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+   <body><div id="MathJax_Message" style="display: none;"></div><header class="page-header container cgen" data-rash-original-content=""><h1 class="title">Linked Spatial Data for a Circular Economy<br><small>Exploring its potential through a Textile Use Case</small></h1><address class="lead authors"><strong class="author_name">Elke M. Sauter</strong> <code class="email"><a href="mailto:elke.m.sauter@gmail.com">elke.m.sauter@gmail.com</a></code><br><span class="affiliation">MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands</span></address><address class="lead authors"><strong class="author_name">Martijn Witjes</strong> <code class="email"><a href="mailto:martijnwitjes@gmail.com">martijnwitjes@gmail.com</a></code><br><span class="affiliation">MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands</span></address><p class="keywords"><strong>Keywords</strong><ul class="list-inline"><li><code>linked data, linked spatial data, circular economy, product passports, geographical information systems</code></li></ul></p></header>
       <section role="doc-abstract">
          <h1>Abstract</h1>
          <p>This report investigates the potential of Linked Spatial Data to facilitate collaboration in a Circular Economy. It proposes using Linked Data as a common standard for connecting product passports, and creates an ontology that can integrate Circular Economy actors based on location and their material in- and outputs. The report presents three use cases, each centered on an exchange relationship between distinct economic actors. Products and actors will be related via creation- and post-use activities, which each have specific inputs and outputs. Spatial parameters are used to determine the feasibility of exchanges between actors. Expected results and conclusions are that Linked Data can function as an exchange medium for the Circular Economy driving the 'push and pull' between diverse industry resources.</p>
@@ -52,13 +120,13 @@
       <section>
          <h1>Introduction</h1>
          <p>The <strong>Circular Economy</strong> 
-            <strong>(CE)</strong> proposes a closed-loop system which aims at keeping materials in use, as long as possible while extracting their maximum value <a href="#_Ref490914294"> </a>, <a href="#_Ref490914304"> </a>.</p>
-         <p>Such a system incorporates services like take-back mechanisms and reverse flows <a href="#_Ref490914370"> </a>, <a href="#_Ref490914376"> </a> for product post-use activities (i.e. repair and reuse), which rely on route optimization for their effectiveness. Moreover, in situations of industrial symbiosis whereby resources and services are shared between industries, <q>a critical point is the spatial relationship, i.e. the distance between industries</q> 
-            <a href="#_Ref490914435"> </a>. Any new CE logistics structure therefore needs in its core a strong spatial awareness.</p>
+            <strong>(CE)</strong> proposes a closed-loop system which aims at keeping materials in use, as long as possible while extracting their maximum value <a href="#_Ref490914294"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Ghisellini, P., Cialani, C., &amp; Ulgiati, S. (2016). 4.A review on circular economy: the expected transition to a balanced interplay of environmental and economic systems. Journal of Cleaner Production, 114, 11–32. http://doi.org/10.1016/j.jclepro.2015.09.007">[5]</span></a>, <a href="#_Ref490914304"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Nasir, M. H. A., Genovese, A., Acquaye, A. A., Koh, S. C. L., &amp; Yamoah, F. (2017). 1.Comparing linear and circular supply chains: A case study from the construction industry. International Journal of Production Economics, 183, 443–457. http://doi.org/10.1016/j.ijpe.2016.06.008">[9]</span></a>.</p>
+         <p>Such a system incorporates services like take-back mechanisms and reverse flows <a href="#_Ref490914370"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 15: van Buren, N., Demmers, M., van der Heijden, R., &amp; Witlox, F. (2016). 7.Towards a Circular Economy: The Role of Dutch Logistics Industries and Governments. Sustainability, 8(7), 647. http://doi.org/10.3390/su8070647">[15]</span></a>, <a href="#_Ref490914376"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 14: Spring, M., &amp; Araujo, L. (2017). 4.Product biographies in servitization and the circular economy. Industrial Marketing Management, 60, 126–137. http://doi.org/10.1016/j.indmarman.2016.07.001">[14]</span></a> for product post-use activities (i.e. repair and reuse), which rely on route optimization for their effectiveness. Moreover, in situations of industrial symbiosis whereby resources and services are shared between industries, <q>a critical point is the spatial relationship, i.e. the distance between industries</q> 
+            <a href="#_Ref490914435"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 16: Winans, K., Kendall, A., &amp; Deng, H. (2017). 2.The history and current applications of the circular economy concept. Renewable and Sustainable Energy Reviews, 68, 825–833, citation p.826. http://doi.org/10.1016/j.rser.2016.09.123">[16]</span></a>. Any new CE logistics structure therefore needs in its core a strong spatial awareness.</p>
          <p>Furthermore, this system of cycling materials across different value streams requires close collaboration between diverse parties and disciplines. To facilitate exchange patterns between these parties, materials must be annotated and quantified with information regarding e.g. location, composition, condition, reuse potential, and dis-assembly instructions. This allows for informed decisions about the products' next usage steps.</p>
-         <p>One way to do this is through 'product passports', a concept that has been implemented with digital technologies like blockchain, Building Information Models (BIM), QR codes, and RFID tags <a href="#_Ref490914539"> </a>, <a href="#_Ref490914549"> </a>, <a href="#_Ref490914559"> </a>. Furthermore, the Internet of Things (IoT) shows potential for monitoring specific assets' availability, condition and location <a href="#_Ref490914619"> </a>. </p>
+         <p>One way to do this is through 'product passports', a concept that has been implemented with digital technologies like blockchain, Building Information Models (BIM), QR codes, and RFID tags <a href="#_Ref490914539"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Provenance Ltd. (2015). Blockchain: the solution for transparency in product supply chains. Retrieved May 12, 2017, from https://www.provenance.org/whitepaper">[12]</span></a>, <a href="#_Ref490914549"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: 3XN &amp; GXN Innovation. (2016). 7.Building A Circular Future. Retrieved from https://issuu.com/3xnarchitects/docs/buildingacircularfuture">[1]</span></a>, <a href="#_Ref490914559"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Remo. (2017). REMO | About. Retrieved June 28, 2017, from http://remokey.com/remo/">[13]</span></a>. Furthermore, the Internet of Things (IoT) shows potential for monitoring specific assets' availability, condition and location <a href="#_Ref490914619"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Ellen MacArthur Foundation. (2016). 5.Intelligent Assets: Unlocking The Circular Economy Potential. Retrieved from https://www.ellenmacarthurfoundation.org/assets/downloads/publications/EllenMacArthurFoundation_Intelligent_Assets_080216.pdf">[4]</span></a>. </p>
          <p>These current propositions focus exclusively on hosting product details, but none suggest connecting this data to a cross-industry information ecosystem to facilitate circular exchanges.</p>
-         <p>Linked Data (LD) is already used in supply chain applications <a href="#_Ref490914641"> </a>, <a href="#_Ref490914646"> </a> and has been suggested as a standard IoT applications <a href="#_Ref490914691"> </a>. This paper proposes and explores its potential as both a common linking standard for product passports and for facilitating smart CE exchanges.</p>
+         <p>Linked Data (LD) is already used in supply chain applications <a href="#_Ref490914641"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Pawełoszek, I., Grabińska, A., &amp; Turek, T. (2016). Linked Data in Supply Chain Management, (April), 21–22.">[10]</span></a>, <a href="#_Ref490914646"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: LUCID. (2016). Linked valUe ChaIn Data — LUCID. Retrieved May 14, 2017, from http://www.lucid-project.org/index.html">[7]</span></a> and has been suggested as a standard IoT applications <a href="#_Ref490914691"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Charpenay, V., Hund, J., Käbisch, S., &amp; Kamiya, T. (2017). WoT Current Practices. Retrieved May 14, 2017, from http://w3c.github.io/wot/current-practices/wot-practices.html">[2]</span></a>. This paper proposes and explores its potential as both a common linking standard for product passports and for facilitating smart CE exchanges.</p>
          <p>This proposed potential is based on the following aspects:</p>
          <ul>
             <li>
@@ -86,7 +154,7 @@
       </section>
       <section>
          <h1>Use Case Introduction and Motivation</h1>
-         <p>The following use case exemplifies how the Linked Data CE ecosystem works in a particular situation. This section gives the motivation of selection as well as a question relevant for this use case<a href="#ftn1"> </a>.</p>
+         <p>The following use case exemplifies how the Linked Data CE ecosystem works in a particular situation. This section gives the motivation of selection as well as a question relevant for this use case<a href="#ftn1"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn1" title="Footnote 1: Two more uses cases are developed as part of the authors’ master thesis research. The use cases deal with the buildings sector and the agriculture sector.">1</a></sup></a>.</p>
          <p>Consumers are also considered key participants of circular exchange patterns. The scenario entails a consumer who owns jeans and wants to make use of reverse logistics mechanisms to return her jeans to a factory for recycling. The use case will explore the combination of Linked Data and RFID tags or QR codes.</p>
          <p>
             <strong>Question:</strong> Anne, Jeans owner from Amsterdam, wants to know what recycling collection points are available for her used jeans within 10 kilometers from her house, with free reverse logistics services and that will go to a Fair Trade company. </p>
@@ -94,18 +162,18 @@
       <section>
          <h1>Circular Economy Conceptual Model</h1>
          <section>
-            <h1>Taxonomy</h1>
-            <p>A high-level taxonomy is constructed as a basis for understanding what processes, elements and activities are happening within the CE framework, see <a href="#_Ref488732938"> </a> (adapted from <a href="#_Ref490914724"> </a>, <a href="#_Ref490914729"> </a>). </p>
+            <h2>Taxonomy</h2>
+            <p>A high-level taxonomy is constructed as a basis for understanding what processes, elements and activities are happening within the CE framework, see <a href="#_Ref488732938"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a> (adapted from <a href="#_Ref490914724"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: MBDC. (2003). Cradle to Cradle Design Guidelines.">[8]</span></a>, <a href="#_Ref490914729"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Ellen MacArthur Foundation. (2013). Towards the Circular Economy: Economic and Business Rationale for an Accelerated Transition.">[3]</span></a>). </p>
             <figure id="_Ref488732938">
                <p>
-                  <img src="./img/image1.png" alt="Example Circular Economy Taxonomy"/>
+                  <img src="./img/image1.png" alt="Example Circular Economy Taxonomy">
                </p>
-               <figcaption>Example Circular Economy Taxonomy</figcaption>
+               <figcaption><strong class="cgen" data-rash-original-content="">Figure 1. </strong>Example Circular Economy Taxonomy</figcaption>
             </figure>
             <p>Resources and actors are key elements for the circular economy (grey).  Actors are the different companies or individuals. Resources are divided into two main CE categories: <strong>bio-based</strong> and <strong>technological</strong>. Resources are further broken down into a hierarchy of parts, starting with the whole part (<strong>product</strong>) ending with the smaller part (<strong>chemicals,</strong> out of research scope). Even though products may consist of components, sometimes components can be considered as products elsewhere in the supply chain. When resources finish their use cycles, they must undergo different <strong>post-use activities</strong> (yellow); there are some restrictions for the post-use activities’ input materials i.e. only bio-based materials can be composted. Further, each product is tracked through a product biography using <strong>RFID</strong> or <strong>IoT</strong> technologies (cyan). Finally, ‘collaboration’ is a process occurring between companies and individuals (pink). </p>
          </section>
          <section>
-            <h1>Ontologies</h1>
+            <h2>Ontologies</h2>
             <p>The Circular Economy ontology will be developed with products as the main focus unit, since product passports will account for the main data source. The passports should store information about the product provenance and the product qualities.</p>
             <ul>
                <li>
@@ -114,7 +182,7 @@
                </li>
                <li>
                   <p>
-                     <strong>Product Qualification: </strong>the characteristics related to the availability, condition and location of a product are stored <a href="#_Ref490914619"> </a>. This section will also annotate possible post-use activities for a product which will ultimately link to the post-use activities offered by companies.</p>
+                     <strong>Product Qualification: </strong>the characteristics related to the availability, condition and location of a product are stored <a href="#_Ref490914619"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Ellen MacArthur Foundation. (2016). 5.Intelligent Assets: Unlocking The Circular Economy Potential. Retrieved from https://www.ellenmacarthurfoundation.org/assets/downloads/publications/EllenMacArthurFoundation_Intelligent_Assets_080216.pdf">[4]</span></a>. This section will also annotate possible post-use activities for a product which will ultimately link to the post-use activities offered by companies.</p>
                </li>
             </ul>
             <p>The following <strong>competency questions </strong>incorporate the previous concepts and determine the scope of the ontology that will be developed:</p>
@@ -130,24 +198,24 @@
                </li>
             </ul>
             <p>
-               <a href="#_Ref490855958"> </a> shows a representation of the Circular Economy Ontology.  Actors and products will be related through the post use-activities, and the product provenance. Spatial features will be created for the actors’ and products’ locations, and the reverse logistics network.</p>
+               <a href="#_Ref490855958"><span class="cgen" data-rash-original-content=" ">Figure 2</span></a> shows a representation of the Circular Economy Ontology.  Actors and products will be related through the post use-activities, and the product provenance. Spatial features will be created for the actors’ and products’ locations, and the reverse logistics network.</p>
             <figure id="_Ref490855958">
                <p>
-                  <img src="./img/image2.png" alt="Circular Economy Ontology"/>
+                  <img src="./img/image2.png" alt="Circular Economy Ontology">
                </p>
-               <figcaption>Circular Economy Ontology</figcaption>
+               <figcaption><strong class="cgen" data-rash-original-content="">Figure 2. </strong>Circular Economy Ontology</figcaption>
             </figure>
-            <p>Extending the Good Relations <a href="#_Ref490914813"> </a> ontology will be considered by adding extra properties to the BusinessEntity (equivalent to actor) and ProductOrService (equivalent to product) classes. For ProductOrService, the extra properties encompass the qualities, provenance, composition and its post use activity. For BusinessEntitiy, the extra properties deal with the activities offered by the company and the reverse logistics. </p>
-            <p>Depending on how the ontology will be implemented, the CE taxonomy (<a href="#_Ref488732938"> </a>) could be converted to a dedicated ontology that works in combination with the GoodRelations extended ontology mentioned above; thus handling two separate ontologies like recommended by GoodRelations implementation. In this way, actors and their product exchanges will be kept on a more general level following the GoodRelations specifications. Whereas specific classes and instances for the post-use activity types and their corresponding inputs (bio-based or technological materials) would be encoded separately on an ontology exclusively for the CE materials and post-use activities. The advantage of this approach is that using the GoodRelations extended ontology makes use of functionalities already present in the existing ontology. Otherwise, the other approach would be to develop a complete CE ontology without extending the GoodRelations ontology. </p>
-            <p>Finally, in terms of spatial information, resources will be annotated using the GeoSPARQL ontology <a href="#_Ref490914834"> </a> for features and geometries. </p>
+            <p>Extending the Good Relations <a href="#_Ref490914813"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Hepp, M. (2008). GoodRelations: An Ontology for Describing Products and Services Offers on the Web. LNCS, 5268, 329–346. Retrieved from http://www.heppnetz.de/files/GoodRelationsEKAW2008-crc-final.pdf">[6]</span></a> ontology will be considered by adding extra properties to the BusinessEntity (equivalent to actor) and ProductOrService (equivalent to product) classes. For ProductOrService, the extra properties encompass the qualities, provenance, composition and its post use activity. For BusinessEntitiy, the extra properties deal with the activities offered by the company and the reverse logistics. </p>
+            <p>Depending on how the ontology will be implemented, the CE taxonomy (<a href="#_Ref488732938"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>) could be converted to a dedicated ontology that works in combination with the GoodRelations extended ontology mentioned above; thus handling two separate ontologies like recommended by GoodRelations implementation. In this way, actors and their product exchanges will be kept on a more general level following the GoodRelations specifications. Whereas specific classes and instances for the post-use activity types and their corresponding inputs (bio-based or technological materials) would be encoded separately on an ontology exclusively for the CE materials and post-use activities. The advantage of this approach is that using the GoodRelations extended ontology makes use of functionalities already present in the existing ontology. Otherwise, the other approach would be to develop a complete CE ontology without extending the GoodRelations ontology. </p>
+            <p>Finally, in terms of spatial information, resources will be annotated using the GeoSPARQL ontology <a href="#_Ref490914834"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Perry, M., &amp; Herring, J. (2011). GeoSPARQL - A Geographic Query Language for RDF Data | OGC. Retrieved from http://www.opengeospatial.org/standards/geosparql">[11]</span></a> for features and geometries. </p>
          </section>
       </section>
       <section>
          <h1>Preliminary Design-Textile Use Case</h1>
          <p>Data from existing fashion brands’ websites on recycling collection points is gathered and converted to RDF using OntoRefine by Ontotext.  Information is enriched with annotations about the company (fashion brand) and the recycling services they offer (reverse logistics). Further, the query will be posed to verify if it yields the desired answer posed by jeans owner Anne.  </p>
          <section>
-            <h1>Data</h1>
-            <p>Data for recycling points is obtained from the following sources, <a href="#_Ref490913683"> </a>.</p>
+            <h2>Data</h2>
+            <p>Data for recycling points is obtained from the following sources, <a href="#_Ref490913683"><span class="cgen" data-rash-original-content=" ">Figure 3</span></a>.</p>
             <ul>
                <li>
                   <p>Kings of Indigo and their partner Sympany with textile recycling containers.</p>
@@ -161,30 +229,29 @@
             </ul>
             <figure id="_Ref490913683">
                <p>
-                  <img src="./img/image3.png"
-                       alt="Example Data Sources-Recycling Collection Points"/>
+                  <img src="./img/image3.png" alt="Example Data Sources-Recycling Collection Points">
                </p>
-               <figcaption>Example Data Sources-Recycling Collection Points</figcaption>
+               <figcaption><strong class="cgen" data-rash-original-content="">Figure 3. </strong>Example Data Sources-Recycling Collection Points</figcaption>
             </figure>
          </section>
          <section>
-            <h1>SPARQL/GEOSPARQL query</h1>
-            <p>The question posed by jeans owner Anne, is converted to SPARQL/GEOSPARQL query language, <a href="#_Ref490912191"> </a>. </p>
+            <h2>SPARQL/GEOSPARQL query</h2>
+            <p>The question posed by jeans owner Anne, is converted to SPARQL/GEOSPARQL query language, <a href="#_Ref490912191"><span class="cgen" data-rash-original-content=" ">Figure 4</span></a>. </p>
             <figure id="_Ref490912191">
                <p>
-                  <img src="./img/image4.png" alt="Example Query Fashion Use Case"/>
+                  <img src="./img/image4.png" alt="Example Query Fashion Use Case">
                </p>
-               <figcaption>Example Query Fashion Use Case</figcaption>
+               <figcaption><strong class="cgen" data-rash-original-content="">Figure 4. </strong>Example Query Fashion Use Case</figcaption>
             </figure>
          </section>
          <section>
-            <h1>Graph Model </h1>
-            <p>A preliminary graph model that indicates how instantiated company data will take shape is shown on <a href="#_Ref488768927"> </a>. </p>
+            <h2>Graph Model </h2>
+            <p>A preliminary graph model that indicates how instantiated company data will take shape is shown on <a href="#_Ref488768927"><span class="cgen" data-rash-original-content=" ">Figure 5</span></a>. </p>
             <figure id="_Ref488768927">
                <p>
-                  <img src="./img/image5.png" alt="Fashion Graph Model"/>
+                  <img src="./img/image5.png" alt="Fashion Graph Model">
                </p>
-               <figcaption>Fashion Graph Model</figcaption>
+               <figcaption><strong class="cgen" data-rash-original-content="">Figure 5. </strong>Fashion Graph Model</figcaption>
             </figure>
          </section>
       </section>
@@ -283,10 +350,11 @@
             </li>
          </ol>
       </section>
-      <section role="doc-endnotes">
-         <section id="ftn1" role="doc-endnote">
-            <p> Two more uses cases are developed as part of the authors’ master thesis research. The use cases deal with the <a href="numbering.xml">buildings</a> sector and the <a href="styles.xml">agriculture</a> sector.</p>
-         </section>
-      </section>
-   </body>
-</html>
+      <section role="doc-endnotes"><h1>Footnotes</h1>
+         
+      <section id="ftn1" role="doc-endnote">
+            <p> Two more uses cases are developed as part of the authors’ master thesis research. The use cases deal with the <a href="numbering.xml">buildings</a> sector and the <a href="styles.xml">agriculture</a> sector.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn1">[back]</a></sup></p>
+         </section></section>
+   
+
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 2152</span><span>Figures: 5</span><span>Tables: 0</span><span>Formulas: 0</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer></body>﷯</html>

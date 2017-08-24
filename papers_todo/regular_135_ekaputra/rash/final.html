@@ -1,124 +1,158 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
-      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
-      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="./css/rash.css"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">﷐<head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/rash.css">
       <script src="./js/jquery.min.js"> </script>
       <script src="./js/bootstrap.min.js"> </script>
       <script src="./js/rash.js"> </script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""> </script>
       <title>Towards Open Data Mashups for Data Journalism</title>
-      <meta about="#affiliation-1"
-            property="schema:name"
-            content="Institute of Software Technology and Information Systems, TU Wien, Austria"/>
-      <meta about="#author-1"
-            name="dc.creator"
-            property="schema:name"
-            content="Fajar J. Ekaputra"/>
-      <meta about="#author-1"
-            property="schema:email"
-            content="fajar.ekaputra@tuwien.ac.at"/>
-      <link about="#author-1"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-2"
-            name="dc.creator"
-            property="schema:name"
-            content="Niina Maarit Novak"/>
-      <meta about="#author-2"
-            property="schema:email"
-            content="niina.novak@tuwien.ac.at"/>
-      <link about="#author-2"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-3"
-            name="dc.creator"
-            property="schema:name"
-            content="Elmar Kiesling"/>
-      <meta about="#author-3"
-            property="schema:email"
-            content="elmar.kiesling@tuwien.ac.at"/>
-      <link about="#author-3"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-4"
-            name="dc.creator"
-            property="schema:name"
-            content="Peb R. Aryan"/>
-      <meta about="#author-4"
-            property="schema:email"
-            content="peb.aryan@tuwien.ac.at"/>
-      <link about="#author-4"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-5"
-            name="dc.creator"
-            property="schema:name"
-            content="Ba-Lam Do"/>
-      <meta about="#author-5"
-            property="schema:email"
-            content="ba.do@tuwien.ac.at"/>
-      <link about="#author-5"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-6"
-            name="dc.creator"
-            property="schema:name"
-            content="Tuan-Dat Trinh"/>
-      <meta about="#author-6"
-            property="schema:email"
-            content="tuan.trinh@tuwien.ac.at"/>
-      <link about="#author-6"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-7"
-            name="dc.creator"
-            property="schema:name"
-            content="A Min Tjoa"/>
-      <meta about="#author-7"
-            property="schema:email"
-            content="a.tjoa@tuwien.ac.at"/>
-      <link about="#author-7"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta property="prism:keyword" content="Data Journalism"/>
-      <meta property="prism:keyword" content="Linked Data Mashup"/>
-      <meta property="prism:keyword" content="Open Data"/>
-   </head>
-   <body>
+      <meta about="#affiliation-1" property="schema:name" content="Institute of Software Technology and Information Systems, TU Wien, Austria">
+      <meta about="#author-1" name="dc.creator" property="schema:name" content="Fajar J. Ekaputra">
+      <meta about="#author-1" property="schema:email" content="fajar.ekaputra@tuwien.ac.at">
+      <link about="#author-1" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-2" name="dc.creator" property="schema:name" content="Niina Maarit Novak">
+      <meta about="#author-2" property="schema:email" content="niina.novak@tuwien.ac.at">
+      <link about="#author-2" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-3" name="dc.creator" property="schema:name" content="Elmar Kiesling">
+      <meta about="#author-3" property="schema:email" content="elmar.kiesling@tuwien.ac.at">
+      <link about="#author-3" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-4" name="dc.creator" property="schema:name" content="Peb R. Aryan">
+      <meta about="#author-4" property="schema:email" content="peb.aryan@tuwien.ac.at">
+      <link about="#author-4" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-5" name="dc.creator" property="schema:name" content="Ba-Lam Do">
+      <meta about="#author-5" property="schema:email" content="ba.do@tuwien.ac.at">
+      <link about="#author-5" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-6" name="dc.creator" property="schema:name" content="Tuan-Dat Trinh">
+      <meta about="#author-6" property="schema:email" content="tuan.trinh@tuwien.ac.at">
+      <link about="#author-6" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-7" name="dc.creator" property="schema:name" content="A Min Tjoa">
+      <meta about="#author-7" property="schema:email" content="a.tjoa@tuwien.ac.at">
+      <link about="#author-7" property="schema:affiliation" href="#affiliation-1">
+      <meta property="prism:keyword" content="Data Journalism">
+      <meta property="prism:keyword" content="Linked Data Mashup">
+      <meta property="prism:keyword" content="Open Data">
+   <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+   <body><div id="MathJax_Message" style="display: none;"></div><header class="page-header container cgen" data-rash-original-content=""><h1 class="title">Towards Open Data Mashups for Data Journalism</h1><address class="lead authors"><strong class="author_name">Fajar J. Ekaputra</strong> <code class="email"><a href="mailto:fajar.ekaputra@tuwien.ac.at">fajar.ekaputra@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">Niina Maarit Novak</strong> <code class="email"><a href="mailto:niina.novak@tuwien.ac.at">niina.novak@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">Elmar Kiesling</strong> <code class="email"><a href="mailto:elmar.kiesling@tuwien.ac.at">elmar.kiesling@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">Peb R. Aryan</strong> <code class="email"><a href="mailto:peb.aryan@tuwien.ac.at">peb.aryan@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">Ba-Lam Do</strong> <code class="email"><a href="mailto:ba.do@tuwien.ac.at">ba.do@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">Tuan-Dat Trinh</strong> <code class="email"><a href="mailto:tuan.trinh@tuwien.ac.at">tuan.trinh@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><address class="lead authors"><strong class="author_name">A Min Tjoa</strong> <code class="email"><a href="mailto:a.tjoa@tuwien.ac.at">a.tjoa@tuwien.ac.at</a></code><br><span class="affiliation">Institute of Software Technology and Information Systems, TU Wien, Austria</span></address><p class="keywords"><strong>Keywords</strong><ul class="list-inline"><li><code>Data Journalism</code></li><li><code>Linked Data Mashup</code></li><li><code>Open Data</code></li></ul></p></header>
       <section role="doc-abstract">
          <h1>Abstract</h1>
          <p>In line with a broad social and political movement in recent years, public and private sector actors have started to open up their data and to publish it on various portals. However, the actual use of the available open data sets is still rather limited in many sectors. Consequently, the potentials of available open data sets are not fully realized, which may discourage open data publishers. To encourage a broader adoption of open data and to contribute towards making democratic processes more transparent, critical data journalism is essential. In this demo paper, we propose an approach called Open Data Mashups for Data Journalism (ODMOJO) that aims to bridge open data publishers and their consumers, i.e., journalists and society at large, with Linked Data technologies. Specifically, our approach will facilitate the access, reuse, and integration of open data for General Data Journalism. We plan to evaluate our approach with potential journalism partners as well as open data publishers in Austria, to foster further adoption and utilization of open data through data journalism and Linked Data technologies.</p>
       </section>
       <section>
          <h1>Introduction</h1>
-         <p>The open data movement was initiated in the early 2000s and started to gain momentum worldwide in 2009, when U.S. president Obama in his first policy paper opened up thousands of government datasets to the public <a href="#_Ref490833618"> </a>. This movement had its early promises to bring accountability of data publishers (i.e., governments and organizations) and to foster innovation and civic participation <a href="#_Ref490833928"> </a>. </p>
-         <p>Despite its early promise, the growth of this movement has slowed down lately, thus a catalyst is needed to push the movement further forward. Journalism can act as an intermediary between open data publishers and data consumers and plays a critical role in promoting a broader adoption of open data. To this end, activists aim to cooperate with NGOs and professional journalists to foster the utilization of open data <a href="#_Ref490833618"> </a>. Nevertheless, journalists are not considered among the main targets of open data. This is evident, for instance, in Stoneman's observation <a href="#_Ref490833952"> </a> that none of the numerous manifestos and policy papers on open data mentions journalism.</p>
-         <p>Even with efforts from open data activists to introduce journalists to the concept of open data and a number of potential business models for open data in a journalistic context <a href="#_Ref490833966"> </a>, major practical adoption barriers remain. In particular, working with (open) data is still a difficult task for many journalists due to a lack of expertise and tools. The quality of open data <a href="#_Ref490833980"> </a> 
-            <a href="#_Ref490833994"> </a>, e.g., syntax and semantic heterogeneities and metadata mismatches add further challenges to open data utilization. Lowering this utilization barrier and raising awareness for the advantages of open data <a href="#_Ref490834005"> </a>, specifically on how to facilitate access, reuse, combination, and integration of open data within journalism workflows, are therefore key challenges. </p>
+         <p>The open data movement was initiated in the early 2000s and started to gain momentum worldwide in 2009, when U.S. president Obama in his first policy paper opened up thousands of government datasets to the public <a href="#_Ref490833618"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Baack, S.: Datafication and empowerment: How the open data movement re-articulates notions of democracy, participation, and journalism. Big Data &amp; Society 2(2) (2015).">[1]</span></a>. This movement had its early promises to bring accountability of data publishers (i.e., governments and organizations) and to foster innovation and civic participation <a href="#_Ref490833928"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Reggi, L., Dawes, S.: Open government data ecosystems: Linking transparency for innovation with transparency for participation and accountability. In: International Conference on Electronic Government and the Information Systems Perspective. pp. 74-86, Springer (2016).">[7]</span></a>. </p>
+         <p>Despite its early promise, the growth of this movement has slowed down lately, thus a catalyst is needed to push the movement further forward. Journalism can act as an intermediary between open data publishers and data consumers and plays a critical role in promoting a broader adoption of open data. To this end, activists aim to cooperate with NGOs and professional journalists to foster the utilization of open data <a href="#_Ref490833618"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Baack, S.: Datafication and empowerment: How the open data movement re-articulates notions of democracy, participation, and journalism. Big Data &amp; Society 2(2) (2015).">[1]</span></a>. Nevertheless, journalists are not considered among the main targets of open data. This is evident, for instance, in Stoneman's observation <a href="#_Ref490833952"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Stoneman, J.: Does open data need journalism? Reuters Institute for the Study of Journalism, University of Oxford (2015).">[4]</span></a> that none of the numerous manifestos and policy papers on open data mentions journalism.</p>
+         <p>Even with efforts from open data activists to introduce journalists to the concept of open data and a number of potential business models for open data in a journalistic context <a href="#_Ref490833966"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Janssen, M., Zuiderwijk, A.: Infomediary business models for connecting open data providers and users. Social Science Computer Review 32(5), pp.694-711 (2014).">[3]</span></a>, major practical adoption barriers remain. In particular, working with (open) data is still a difficult task for many journalists due to a lack of expertise and tools. The quality of open data <a href="#_Ref490833980"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Umbrich, J., Neumaier, S. and Polleres,A.: Quality assessment and evolution of open data portals. Future Internet of Things and Cloud (FiCloud), 2015 3rd International Conference on. IEEE (2015).">[10]</span></a> 
+            <a href="#_Ref490833994"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: Máchová, R. and Lnénicka, M.: Evaluating the Quality of Open Data Portals on the National Level. Journal of theoretical and applied electronic commerce research 12.1, pp. 21-41, (2017).">[11]</span></a>, e.g., syntax and semantic heterogeneities and metadata mismatches add further challenges to open data utilization. Lowering this utilization barrier and raising awareness for the advantages of open data <a href="#_Ref490834005"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Howard, A. B.: The Art and Science of Data-Driven Journalism. White Papers. Two Center for Digital Journalism, Columbia University (2014). https://doi.org/10.7916/D8Q531V1">[13]</span></a>, specifically on how to facilitate access, reuse, combination, and integration of open data within journalism workflows, are therefore key challenges. </p>
          <p>To address these challenges, in this demo paper we propose a semantic collaborative mashup environment for open data journalism. To this end, we develop a platform that facilitates efficient integration of open data within General Data Journalism practice using Linked Data technologies. We will explain related work, our platform and initial prototype development next.</p>
       </section>
       <section>
          <h1>Related Work</h1>
-         <p>A closer look on the tools used to assist today’s data journalists, reveals that a mix of well established, traditional tools and modern web-based technologies is currently being employed in Data Journalism <a href="#_Ref490834005"> </a>.</p>
-         <p>For cleaning, organizing and analysing data sets tools such as spreadsheets (e.g. Microsoft Excel), databases (e.g. Microsoft Access, MySQL), text-editors (e.g. TextMate, BBEdit) and statistical software (SPSS Statistics, R) are predominantly used. Web-based tools including Open Refine<a href="#ftn1"> </a> and Google Fusion Tables are used for publishing and connecting data with other services. Data visualization tools include Tableau<a href="#ftn2"> </a> and Google Fusion Tables for visualising maps. Moreover, arbitrary programming languages (e.g. Python, Ruby, JavaScript) are used. Notably data journalists prefer end user tools which require, none or very little assistance of developers to create content <a href="#_Ref490834005"> </a>.</p>
-         <p>To utilize open data in Data Journalism there are various ways, including single-purpose apps, interactive apps, information aggregators, comparison models, open data repositories and service platforms <a href="#_Ref490833966"> </a>. From these options, service platforms for open data, such as Junar<a href="#ftn3"> </a> or Engage<a href="#ftn4"> </a> are particularly interesting in journalistic applications due to their support for a broad range of open data sources acquisition and visualization. Other tools such as Sparqlines <a href="#_Ref490834073"> </a> focus on visualizations for displaying statistical open data as inline-charts. However, the currently available tools for open data have a number of limitations. First, they are not designed to allow ad-hoc integration of heterogeneous data from various sources. Second, they do not provide complete provenance information for data visualization results (related to trust issue). Finally, since they are not designed specifically for journalism, they lack integration with journalism article authoring tools.</p>
+         <p>A closer look on the tools used to assist today’s data journalists, reveals that a mix of well established, traditional tools and modern web-based technologies is currently being employed in Data Journalism <a href="#_Ref490834005"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Howard, A. B.: The Art and Science of Data-Driven Journalism. White Papers. Two Center for Digital Journalism, Columbia University (2014). https://doi.org/10.7916/D8Q531V1">[13]</span></a>.</p>
+         <p>For cleaning, organizing and analysing data sets tools such as spreadsheets (e.g. Microsoft Excel), databases (e.g. Microsoft Access, MySQL), text-editors (e.g. TextMate, BBEdit) and statistical software (SPSS Statistics, R) are predominantly used. Web-based tools including Open Refine<a href="#ftn1"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn1" title="Footnote 1: http://openrefine.org/">1</a></sup></a> and Google Fusion Tables are used for publishing and connecting data with other services. Data visualization tools include Tableau<a href="#ftn2"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn2" title="Footnote 2: http://www.tableau.com">2</a></sup></a> and Google Fusion Tables for visualising maps. Moreover, arbitrary programming languages (e.g. Python, Ruby, JavaScript) are used. Notably data journalists prefer end user tools which require, none or very little assistance of developers to create content <a href="#_Ref490834005"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Howard, A. B.: The Art and Science of Data-Driven Journalism. White Papers. Two Center for Digital Journalism, Columbia University (2014). https://doi.org/10.7916/D8Q531V1">[13]</span></a>.</p>
+         <p>To utilize open data in Data Journalism there are various ways, including single-purpose apps, interactive apps, information aggregators, comparison models, open data repositories and service platforms <a href="#_Ref490833966"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Janssen, M., Zuiderwijk, A.: Infomediary business models for connecting open data providers and users. Social Science Computer Review 32(5), pp.694-711 (2014).">[3]</span></a>. From these options, service platforms for open data, such as Junar<a href="#ftn3"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn3" title="Footnote 3: http://junar.com">3</a></sup></a> or Engage<a href="#ftn4"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn4" title="Footnote 4: http://engagedata.eu">4</a></sup></a> are particularly interesting in journalistic applications due to their support for a broad range of open data sources acquisition and visualization. Other tools such as Sparqlines <a href="#_Ref490834073"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 15: Capadisli, S.: Sparqlines: SPARQL to Sparkline. CEUR (Central Europe workshop proceedings): Proceedings of the 4th International Workshop on Semantic Statistics, Volume 1654, urn:nbn:de:0074-1654-1 (2016). http://csarven.ca/sparqlines-sparql-to-sparkline">[15]</span></a> focus on visualizations for displaying statistical open data as inline-charts. However, the currently available tools for open data have a number of limitations. First, they are not designed to allow ad-hoc integration of heterogeneous data from various sources. Second, they do not provide complete provenance information for data visualization results (related to trust issue). Finally, since they are not designed specifically for journalism, they lack integration with journalism article authoring tools.</p>
          <p>We observe that the existing tools and platforms for Data Journalism and open data consist of a variety of different tools for assisting parts of the data journalism process. There is, however, a lack for a comprehensive tool to assist data journalists throughout the process. To this extent, the ODMOJO approach aims at providing a novel tool for assisting data journalists to not only organise and analyse data, but above all to integrate and process data, as well as to publish and embed data in articles as interactive data visualisations with provenance information. </p>
       </section>
       <section>
          <h1>Open Data Mashups for Data Journalism</h1>
-         <p>Although Data Journalism only gained strong momentum in recent years in journalistic communities <a href="#_Ref490834090"> </a> 
-            <a href="#_Ref490834094"> </a>, analyzing quantitative data has been a professional subfield of computer-assisted reporting (CAR) since the late 1980s. In a broad sense of today’s data journalism, a descendant of CAR, involves any activity dealing with data in conjunction with journalistic activities, in particular obtaining, reporting on, curating and publishing data. Data journalists therefore require expertise in statistical analysis, computer science, visualisation tools and web design <a href="#_Ref490834117"> </a>. A recent publication categorizes Data Journalism into three categories <a href="#_Ref490834129"> </a>: </p>
+         <p>Although Data Journalism only gained strong momentum in recent years in journalistic communities <a href="#_Ref490834090"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Gray, J., Bounegru, L., Chambers, L.: The data journalism handbook. Oreilly and Associate Series, O'Reilly Media (2012).">[2]</span></a> 
+            <a href="#_Ref490834094"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: Rogers, S.: Facts are Sacred: The power of data. Faber &amp; Faber (2013).">[8]</span></a>, analyzing quantitative data has been a professional subfield of computer-assisted reporting (CAR) since the late 1980s. In a broad sense of today’s data journalism, a descendant of CAR, involves any activity dealing with data in conjunction with journalistic activities, in particular obtaining, reporting on, curating and publishing data. Data journalists therefore require expertise in statistical analysis, computer science, visualisation tools and web design <a href="#_Ref490834117"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 14: Coddington, M.: Clarifying Journalism’s Quantitative Turn. Digital Journalism, Volume 3, 2015 – Issue 3, pp.331-348 (2015). http://dx.doi.org/10.1080/21670811.2014.976400">[14]</span></a>. A recent publication categorizes Data Journalism into three categories <a href="#_Ref490834129"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Uskali, T.I., Kuutti, H.: Models and streams of data journalism. The Journal of Media Innovations 2(1), pp.77-88 (2015).">[6]</span></a>: </p>
          <ul>
             <li>
                <p>
@@ -133,12 +167,12 @@
                   <strong>Real-time Data Journalism (RDJ)</strong>, where journalism articles are (semi-) automatically generated from data. RDJ requires specific data skills and is typically based on real-time official press releases and emails.</p>
             </li>
          </ul>
-         <p>The Open Data Mashups for Data Journalism (ODMOJO) approach aims at bridging the gap between open data publishers and journalists. It will support Generic Data Journalism (GDJ) by lowering the barrier of open data utilization for journalists. An overview of the ODMOJO approach is shown in <a href="#_Ref490485635"> </a>. The approach is built on three main pillars: (i) flexible ad-hoc data integration, (ii) collaborative authoring, and (iii) reader engagement. Each of these core functionalities yield benefits for the tasks of Getting Data, Using Data and Delivering Data Stories of Data Journalism <a href="#_Ref490834090"> </a>, respectively.</p>
+         <p>The Open Data Mashups for Data Journalism (ODMOJO) approach aims at bridging the gap between open data publishers and journalists. It will support Generic Data Journalism (GDJ) by lowering the barrier of open data utilization for journalists. An overview of the ODMOJO approach is shown in <a href="#_Ref490485635"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>. The approach is built on three main pillars: (i) flexible ad-hoc data integration, (ii) collaborative authoring, and (iii) reader engagement. Each of these core functionalities yield benefits for the tasks of Getting Data, Using Data and Delivering Data Stories of Data Journalism <a href="#_Ref490834090"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Gray, J., Bounegru, L., Chambers, L.: The data journalism handbook. Oreilly and Associate Series, O'Reilly Media (2012).">[2]</span></a>, respectively.</p>
          <figure id="_Ref490485635">
             <p>
-               <img src="./img/image1.png" alt=" Open Data Mashups for Data Journalism"/>
+               <img src="./img/image1.png" alt=" Open Data Mashups for Data Journalism">
             </p>
-            <figcaption> Open Data Mashups for Data Journalism</figcaption>
+            <figcaption><strong class="cgen" data-rash-original-content="">Figure 1. </strong> Open Data Mashups for Data Journalism</figcaption>
          </figure>
          <ol>
             <li>
@@ -157,11 +191,11 @@
       </section>
       <section>
          <h1>Prototype: A Linked Widget Platform Extension</h1>
-         <p>We develop an initial prototype of the ODMOJO approach using Symphony framework<a href="#ftn5"> </a>
-            <sup> </sup>as an extension of the Linked Widget Platform (LWP) <a href="#_Ref490834161"> </a> 
-            <a href="#_Ref490834164"> </a>, a Linked Data-based mashup environment where end-users can assemble sets of Linked Widgets –an extension of standard web widgets with associated semantic models- as a mashup to address their data needs.</p>
-         <p>The LWP provides powerful mechanisms for users to acquire, process, integrate and visualise data, via different types of widgets: data/input widgets for data acquisitions, process/transformation widgets for data integration and processing, and output widgets for presentations or visualizations <a href="#_Ref490834164"> </a> 
-            <a href="#_Ref490834161"> </a>. We choose to build ODMOJO on LWP instead of other alternatives, such as LD-Reactor <a href="#_Ref490834032"> </a>, due to the LWP ability to provide an interactive and collaborative mechanism for (open) data integration and processing. Furthermore, the LWP is developed according to three fundamental principles, which make it suitable as the basis for a development of an ODMOJO prototype: </p>
+         <p>We develop an initial prototype of the ODMOJO approach using Symphony framework<a href="#ftn5"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn5" title="Footnote 5: https://symfony.com/">5</a></sup></a>
+            <sup> </sup>as an extension of the Linked Widget Platform (LWP) <a href="#_Ref490834161"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Trinh, T.D., Wetz, P., Do, B.L., Kiesling, E., Tjoa, A.M.: Distributed mashups: A collaborative approach to data integration. IJWIS 11(3), pp.370-396 (2015).">[5]</span></a> 
+            <a href="#_Ref490834164"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Anjomshoaa, A., Kiesling, E., Trinh, T., Do, B., Wetz, P., Tjoa, A.M.: Leveraging the web of data via linked widgets. JoSSR 6(1), pp.7-27 (2014). http://dx.doi.org/10.1007/s12927-014-0001-9">[9]</span></a>, a Linked Data-based mashup environment where end-users can assemble sets of Linked Widgets –an extension of standard web widgets with associated semantic models- as a mashup to address their data needs.</p>
+         <p>The LWP provides powerful mechanisms for users to acquire, process, integrate and visualise data, via different types of widgets: data/input widgets for data acquisitions, process/transformation widgets for data integration and processing, and output widgets for presentations or visualizations <a href="#_Ref490834164"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Anjomshoaa, A., Kiesling, E., Trinh, T., Do, B., Wetz, P., Tjoa, A.M.: Leveraging the web of data via linked widgets. JoSSR 6(1), pp.7-27 (2014). http://dx.doi.org/10.1007/s12927-014-0001-9">[9]</span></a> 
+            <a href="#_Ref490834161"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Trinh, T.D., Wetz, P., Do, B.L., Kiesling, E., Tjoa, A.M.: Distributed mashups: A collaborative approach to data integration. IJWIS 11(3), pp.370-396 (2015).">[5]</span></a>. We choose to build ODMOJO on LWP instead of other alternatives, such as LD-Reactor <a href="#_Ref490834032"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: Khalili, A., Loizou,A. and van Harmelen, F.: Adaptive linked data-driven web components: Building flexible and reusable semantic web interfaces. ESWC (Lecture Notes in Computer Science) 9678, pp.677-692 (2016).">[12]</span></a>, due to the LWP ability to provide an interactive and collaborative mechanism for (open) data integration and processing. Furthermore, the LWP is developed according to three fundamental principles, which make it suitable as the basis for a development of an ODMOJO prototype: </p>
          <ul>
             <li>
                <p>
@@ -178,12 +212,11 @@
          </ul>
          <figure id="_Ref490486042">
             <p>
-               <img src="./img/image2.jpeg"
-                    alt=" A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)"/>
+               <img src="./img/image2.jpeg" alt=" A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)">
             </p>
-            <figcaption> A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)</figcaption>
+            <figcaption><strong class="cgen" data-rash-original-content="">Figure 2. </strong> A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)</figcaption>
          </figure>
-         <p>An example of a simple geo-location Linked Widget mashup for air quality measurement in the city of Vienna and the respective ODMOJO authoring tool prototype for embedding the widget in an article is shown in <a href="#_Ref490486042"> </a>. In the prototype, journalists or data engineers can develop, fork or reuse open and non-open data mashups for articles in an LWP demo instance<a href="#ftn6"> </a>. The resulting mashups are then available for embedding in an authoring environment<a href="#ftn7"> </a>. Articles produced from the prototype allow users to interact, parameterize, and see the data processing flow in order to foster engagement. A video, demonstrating the initial ODMOJO prototype is available online<a href="#ftn8"> </a>. </p>
+         <p>An example of a simple geo-location Linked Widget mashup for air quality measurement in the city of Vienna and the respective ODMOJO authoring tool prototype for embedding the widget in an article is shown in <a href="#_Ref490486042"><span class="cgen" data-rash-original-content=" ">Figure 2</span></a>. In the prototype, journalists or data engineers can develop, fork or reuse open and non-open data mashups for articles in an LWP demo instance<a href="#ftn6"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn6" title="Footnote 6: http://linkedwidgets.org">6</a></sup></a>. The resulting mashups are then available for embedding in an authoring environment<a href="#ftn7"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn7" title="Footnote 7: http://odmojo.linkedwidgets.org">7</a></sup></a>. Articles produced from the prototype allow users to interact, parameterize, and see the data processing flow in order to foster engagement. A video, demonstrating the initial ODMOJO prototype is available online<a href="#ftn8"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn8" title="Footnote 8: http://youtu.be/KR0if_uCnJU">8</a></sup></a>. </p>
          <p>To fully support the ODMOJO approach, the following improvements are currently planned: </p>
          <ul>
             <li>
@@ -250,31 +283,32 @@
             </li>
          </ol>
       </section>
-      <section role="doc-endnotes">
-         <section id="ftn1" role="doc-endnote">
-            <p> http://openrefine.org/ </p>
-         </section>
-         <section id="ftn2" role="doc-endnote">
-            <p> http://www.tableau.com</p>
-         </section>
-         <section id="ftn3" role="doc-endnote">
-            <p> http://junar.com</p>
-         </section>
-         <section id="ftn4" role="doc-endnote">
-            <p> http://engagedata.eu</p>
-         </section>
-         <section id="ftn5" role="doc-endnote">
-            <p> https://symfony.com/</p>
-         </section>
-         <section id="ftn6" role="doc-endnote">
-            <p> http://linkedwidgets.org</p>
-         </section>
-         <section id="ftn7" role="doc-endnote">
-            <p> http://odmojo.linkedwidgets.org</p>
-         </section>
-         <section id="ftn8" role="doc-endnote">
-            <p> http://youtu.be/KR0if_uCnJU</p>
-         </section>
-      </section>
-   </body>
-</html>
+      <section role="doc-endnotes"><h1>Footnotes</h1>
+         
+         
+         
+         
+         
+         
+         
+         
+      <section id="ftn1" role="doc-endnote">
+            <p> http://openrefine.org/ <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn1">[back]</a></sup></p>
+         </section><section id="ftn2" role="doc-endnote">
+            <p> http://www.tableau.com<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn2">[back]</a></sup></p>
+         </section><section id="ftn3" role="doc-endnote">
+            <p> http://junar.com<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn3">[back]</a></sup></p>
+         </section><section id="ftn4" role="doc-endnote">
+            <p> http://engagedata.eu<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn4">[back]</a></sup></p>
+         </section><section id="ftn5" role="doc-endnote">
+            <p> https://symfony.com/<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn5">[back]</a></sup></p>
+         </section><section id="ftn6" role="doc-endnote">
+            <p> http://linkedwidgets.org<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn6">[back]</a></sup></p>
+         </section><section id="ftn7" role="doc-endnote">
+            <p> http://odmojo.linkedwidgets.org<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn7">[back]</a></sup></p>
+         </section><section id="ftn8" role="doc-endnote">
+            <p> http://youtu.be/KR0if_uCnJU<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn8">[back]</a></sup></p>
+         </section></section>
+   
+
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 2186</span><span>Figures: 2</span><span>Tables: 0</span><span>Formulas: 0</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer></body>﷯</html>

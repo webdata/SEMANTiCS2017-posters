@@ -1,98 +1,154 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
-      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
-      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="./css/rash.css"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">﷐<head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/rash.css">
       <script src="./js/jquery.min.js"> </script>
       <script src="./js/bootstrap.min.js"> </script>
       <script src="./js/rash.js"> </script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""> </script>
       <title>Instrumenting the UNWTO’s Thesaurus on Tourism &amp; Leisure Activities for seamless adoption in the Web of Data</title>
-      <meta about="#affiliation-1"
-            property="schema:name"
-            content="CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy"/>
-      <meta about="#author-1"
-            name="dc.creator"
-            property="schema:name"
-            content="Emanuela De Vita"/>
-      <meta about="#author-1" property="schema:email" content="emy@crs4.it"/>
-      <link about="#author-1"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-2"
-            name="dc.creator"
-            property="schema:name"
-            content="Stefano Salvatore Fadda"/>
-      <meta about="#author-2" property="schema:email" content="stefano@crs4.it"/>
-      <link about="#author-2"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-3"
-            name="dc.creator"
-            property="schema:name"
-            content="Alberto Farci"/>
-      <meta about="#author-3" property="schema:email" content="farci@crs4.it"/>
-      <link about="#author-3"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-4"
-            name="dc.creator"
-            property="schema:name"
-            content="Gianluca Malagnini"/>
-      <meta about="#author-4"
-            property="schema:email"
-            content="gianluca@crs4.it"/>
-      <link about="#author-4"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta about="#author-5"
-            name="dc.creator"
-            property="schema:name"
-            content="Ivan Marcialis"/>
-      <meta about="#author-5" property="schema:email" content="ivan@crs4.it"/>
-      <link about="#author-5"
-            property="schema:affiliation"
-            href="#affiliation-1"/>
-      <meta property="prism:keyword" content="Web of Data"/>
-      <meta property="prism:keyword" content="Ontology"/>
-      <meta property="prism:keyword" content="Thesaurus"/>
-      <meta property="prism:keyword" content="Tourism"/>
-   </head>
-   <body>
+      <meta about="#affiliation-1" property="schema:name" content="CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy">
+      <meta about="#author-1" name="dc.creator" property="schema:name" content="Emanuela De Vita">
+      <meta about="#author-1" property="schema:email" content="emy@crs4.it">
+      <link about="#author-1" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-2" name="dc.creator" property="schema:name" content="Stefano Salvatore Fadda">
+      <meta about="#author-2" property="schema:email" content="stefano@crs4.it">
+      <link about="#author-2" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-3" name="dc.creator" property="schema:name" content="Alberto Farci">
+      <meta about="#author-3" property="schema:email" content="farci@crs4.it">
+      <link about="#author-3" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-4" name="dc.creator" property="schema:name" content="Gianluca Malagnini">
+      <meta about="#author-4" property="schema:email" content="gianluca@crs4.it">
+      <link about="#author-4" property="schema:affiliation" href="#affiliation-1">
+      <meta about="#author-5" name="dc.creator" property="schema:name" content="Ivan Marcialis">
+      <meta about="#author-5" property="schema:email" content="ivan@crs4.it">
+      <link about="#author-5" property="schema:affiliation" href="#affiliation-1">
+      <meta property="prism:keyword" content="Web of Data">
+      <meta property="prism:keyword" content="Ontology">
+      <meta property="prism:keyword" content="Thesaurus">
+      <meta property="prism:keyword" content="Tourism">
+   <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+   <body><div id="MathJax_Message" style="display: none;"></div><header class="page-header container cgen" data-rash-original-content=""><h1 class="title">Instrumenting the UNWTO’s Thesaurus on Tourism &amp; Leisure Activities for seamless adoption in the Web of Data</h1><address class="lead authors"><strong class="author_name">Emanuela De Vita</strong> <code class="email"><a href="mailto:emy@crs4.it">emy@crs4.it</a></code><br><span class="affiliation">CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy</span></address><address class="lead authors"><strong class="author_name">Stefano Salvatore Fadda</strong> <code class="email"><a href="mailto:stefano@crs4.it">stefano@crs4.it</a></code><br><span class="affiliation">CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy</span></address><address class="lead authors"><strong class="author_name">Alberto Farci</strong> <code class="email"><a href="mailto:farci@crs4.it">farci@crs4.it</a></code><br><span class="affiliation">CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy</span></address><address class="lead authors"><strong class="author_name">Gianluca Malagnini</strong> <code class="email"><a href="mailto:gianluca@crs4.it">gianluca@crs4.it</a></code><br><span class="affiliation">CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy</span></address><address class="lead authors"><strong class="author_name">Ivan Marcialis</strong> <code class="email"><a href="mailto:ivan@crs4.it">ivan@crs4.it</a></code><br><span class="affiliation">CRS4 - Center for Advanced Studies, Research and Development in Sardinia Edificio 1, Parco Scientifico e Tecnologico, Località Piscina Manna 09010 Pula (CA) - Italy</span></address><p class="keywords"><strong>Keywords</strong><ul class="list-inline"><li><code>Web of Data</code></li><li><code>Ontology</code></li><li><code>Thesaurus</code></li><li><code>Tourism</code></li></ul></p></header>
       <section role="doc-abstract">
          <h1>Abstract</h1>
-         <p>In this paper, we describe our conversion of the “Thesaurus on Tourism and Leisure Activities"<a href="#ftn1"> </a> into SKOS. We propose well-formed and human-readable IRIs to identify every concept, and we connect most of these entities with the corresponding DBpedia entity. We also present an independent release of this thesaurus, it updates/removes the obsolete concepts, and supplements it with new ones. To manage these vocabularies, we developed a Web application that offers an API to query the model and the features to use and to share and, as a remarkable feature, allows users to improve the model by translating labels and descriptions in different languages and suggesting connections with different ontologies available in the Web of Data. </p>
+         <p>In this paper, we describe our conversion of the “Thesaurus on Tourism and Leisure Activities"<a href="#ftn1"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn1" title="Footnote 1: We stipulated a provisional agreement with UNWTO to reuse and republish their copyrighted thesaurus, hereinafter called TTLA.">1</a></sup></a> into SKOS. We propose well-formed and human-readable IRIs to identify every concept, and we connect most of these entities with the corresponding DBpedia entity. We also present an independent release of this thesaurus, it updates/removes the obsolete concepts, and supplements it with new ones. To manage these vocabularies, we developed a Web application that offers an API to query the model and the features to use and to share and, as a remarkable feature, allows users to improve the model by translating labels and descriptions in different languages and suggesting connections with different ontologies available in the Web of Data.&nbsp;</p>
       </section>
       <section>
          <h1>Introduction</h1>
-         <p>After almost two hundred years since the mass tourism was born,<a href="#ftn2"> </a> it arises as a huge network that reaches every corner of the earth and involves people from every social class, its influence thoroughly penetrates society, politics, culture and, above all, the economy: to design, produce and promote by using standards may become essential. In 2001, as response to this need, UNWTO<a href="#ftn3"> </a> published the multilingual “Thesaurus on Tourism and Leisure Activities" <a href="#_Ref364511122"> </a> as a guide to tourism terminology, as well as standardization and normalization of a common indexation and research language at an international level. This thesaurus, hereafter referred to as TTLA, is an important starting point in the field of information technologies applied to travel, tourism, and hospitality industry; and several scholars refer to it to specify their models for the e-tourism domain.</p>
-         <p>Although the UNWTO is still enhancing the thesaurus, the version published in 2001 remains the only one available and, after 15 years, brings to light some issues: a few concepts are outdated (EuropeanUnionCountries, USSR, Russia, CyberCafe, and others) and others are missing (InternetAccess, WiFi, HighSpeedConnections, and others); furthermore, thesaurus formats according to any standards provided by W3C for the Semantic Web obviously are missing too <a href="#_Ref364511146"> </a>.</p>
+         <p>After almost two hundred years since the mass tourism was born,<a href="#ftn2"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn2" title="Footnote 2: Mass tourism is conventionally considered to begin in 1840s and Thomas Cook is seen as the inventor.">2</a></sup></a> it arises as a huge network that reaches every corner of the earth and involves people from every social class, its influence thoroughly penetrates society, politics, culture and, above all, the economy: to design, produce and promote by using standards may become essential. In 2001, as response to this need, UNWTO<a href="#ftn3"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn3" title="Footnote 3: Stands for United Nations World Tourism Organization: the United Nations agency for the promotion of responsible, sustainable and universally accessible tourism.">3</a></sup></a> published the multilingual “Thesaurus on Tourism and Leisure Activities" <a href="#_Ref364511122"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: UNWTO, 2001. Thesaurus on Tourism &amp; Leisure Activities (Trilingual: English, French, Spanish). Retrieved from http://www.e-unwto.org/doi/book/10.18111/9789284404551">[1]</span></a> as a guide to tourism terminology, as well as standardization and normalization of a common indexation and research language at an international level. This thesaurus, hereafter referred to as TTLA, is an important starting point in the field of information technologies applied to travel, tourism, and hospitality industry; and several scholars refer to it to specify their models for the e-tourism domain.</p>
+         <p>Although the UNWTO is still enhancing the thesaurus, the version published in 2001 remains the only one available and, after 15 years, brings to light some issues: a few concepts are outdated (EuropeanUnionCountries, USSR, Russia, CyberCafe, and others) and others are missing (InternetAccess, WiFi, HighSpeedConnections, and others); furthermore, thesaurus formats according to any standards provided by W3C for the Semantic Web obviously are missing too <a href="#_Ref364511146"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Berners-Lee T., Hendler J., and Lassila O., 2001. The Semantic Web, Scientific American, 29-37.">[2]</span></a>.</p>
          <p>In this paper we propose our contribution to re-engine and instrument the TTLA. We start presenting prior works. In the third section we describe our conversion of the TTLA to SKOS, the IRIs we propose to identify entities, and the upgrades of the original thesaurus. The last section describes the Web interface to manage the vocabularies, and the REST API to access them. </p>
       </section>
       <section>
          <h1>Related Works</h1>
-         <p>As stated earlier, we based our work on standards of the Semantic Web that are the W3C’s vision of the Web of linked data and particularly on SKOS. We also followed the W3C’s best practices for publishing Linked Data <a href="#_Ref364511178"> </a>, specifically the fifth section <q>The Role of Good URIs for Linked Data</q>.</p>
-         <p>Concerning the SKOS conversion, we mainly referred to <a href="#_Ref364511215"> </a>; the authors present a structured method to convert thesauri to SKOS, able to guarantee interoperability and completeness. Like this one, also our work is based on <a href="#_Ref364511258"> </a>, it presents guidelines and case studies for generating RDF encodings of existing thesauri with both standard (ISO 2788) and non-standard structure using the SKOS Core Schema. We also studied the TTLA SKOS versions as proposed by Mondeca <a href="#_Ref364511313"> </a> and by Junta Académica del Tesauro Turístico Argentino <a href="#_Ref364511335"> </a> but these works show some issues: both of them did not pay the proper attention to IRIs: those that Mondeca proposed are not well-formed and out of reach, and those that the Tesauro Turístico Argentino published do not follow any W3C recommendation <a href="#_Ref364511363"> </a>; their SKOS versions are available only on their own Web sites, and there is no way to download, and therefore to efficiently use, the entire model; Mondeca does not provide any API to access its content; and the Tesauro Turístico Argentino provides labels only in Spanish.</p>
-         <p>Our Web application and REST API design draw liberally on <a href="#_Ref364511386"> </a>. We also followed the principles highlighted in SMIY <a href="#_Ref364511415"> </a> as well as in REST CookBook <a href="#_Ref364511429"> </a>.</p>
+         <p>As stated earlier, we based our work on standards of the Semantic Web that are the W3C’s vision of the Web of linked data and particularly on SKOS. We also followed the W3C’s best practices for publishing Linked Data <a href="#_Ref364511178"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: W3C, 2014. Best Practices for Publishing Linked Data. Retrieved from http://www.w3c.org/TR/ld-bp/">[3]</span></a>, specifically the fifth section <q>The Role of Good URIs for Linked Data</q>.</p>
+         <p>Concerning the SKOS conversion, we mainly referred to <a href="#_Ref364511215"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Van Assem M., et al., 2006. A Method to Convert Thesauri to SKOS. In Proceedings of the 3rd. European Semantic Web Conference (ESWC 2006). Springer, Heidelberg, 95-109.">[4]</span></a>; the authors present a structured method to convert thesauri to SKOS, able to guarantee interoperability and completeness. Like this one, also our work is based on <a href="#_Ref364511258"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Miles A. J., et al., 2004. Migrating thesauri to the semantic web - guidelines and case studies for generating RFD encodings of existing thesauri. Semantic Web Advanced Development for Europe project deliverable 8.">[5]</span></a>, it presents guidelines and case studies for generating RDF encodings of existing thesauri with both standard (ISO 2788) and non-standard structure using the SKOS Core Schema. We also studied the TTLA SKOS versions as proposed by Mondeca <a href="#_Ref364511313"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Mondeca Labs. Retrieved from http://labs.mondeca.com/skosReader/">[6]</span></a> and by Junta Académica del Tesauro Turístico Argentino <a href="#_Ref364511335"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Tesauro Turístico Argentino, Retrieved from http://www.tesauroturistico.gob.ar/tesauros/tesauro/index.php">[7]</span></a> but these works show some issues: both of them did not pay the proper attention to IRIs: those that Mondeca proposed are not well-formed and out of reach, and those that the Tesauro Turístico Argentino published do not follow any W3C recommendation <a href="#_Ref364511363"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: W3C, 2008. Cool URIs for the Semantic Web. Retrieved from http://www.w3.org/TR/cooluris">[8]</span></a>; their SKOS versions are available only on their own Web sites, and there is no way to download, and therefore to efficiently use, the entire model; Mondeca does not provide any API to access its content; and the Tesauro Turístico Argentino provides labels only in Spanish.</p>
+         <p>Our Web application and REST API design draw liberally on <a href="#_Ref364511386"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Pintus A., and Pinna F., 2016. The Web API Design Guidelines for Happy Developers, Leanpub book. DOI:http://leanpub.com/thewebapinntux">[9]</span></a>. We also followed the principles highlighted in SMIY <a href="#_Ref364511415"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: A generalisation of the Linked Data publishing guideline, Retrieved from goo.gl/ZWAlBU">[10]</span></a> as well as in REST CookBook <a href="#_Ref364511429"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 11: What is HATEOAS and why is it important for my REST API?, Retrieved from http://restcookbook.com/Basics/hateoas/">[11]</span></a>.</p>
       </section>
       <section>
          <h1>Reengineering UNWTO’s</h1>
          <p>In this chapter we present our conversion process of the TTLA thesaurus from its native format to SKOS with the aim of make the thesaurus available on the Web of Linked Data, providing a machine-readable format for sharing relevant information with a greater community.</p>
          <section>
-            <h1>Modeling the concepts IRIs</h1>
-            <p>In order to provide a secure and permanent URL to every entity available in TTLA, as <a href="#_Ref364511466"> </a> suggests, we are using <q>Permanent Identifiers for the Web</q> 
-               <a href="#_Ref364511490"> </a>, a software project that offers a re-direction service for Web applications that deal with Linked Data and that often need to specify and use very stable URLs. </p>
-            <p>So, according to this service, the URIs have an <em>https</em> protocol, start with <em>w3id.org</em>, and are followed by the prefix <em>ttla</em>. Every concept is represented by its descriptor in Camel case form. Below are some examples: </p>
+            <h2>Modeling the concepts IRIs</h2>
+            <p>In order to provide a secure and permanent URL to every entity available in TTLA, as <a href="#_Ref364511466"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 12: W3C, 2014. Best practices for publishing linked data. Retrieved from https://www.w3.org/TR/ld-bp/">[12]</span></a> suggests, we are using <q>Permanent Identifiers for the Web</q> 
+               <a href="#_Ref364511490"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 13: Permanent Identifiers for the Web, Retrieved from https://w3id.org/">[13]</span></a>, a software project that offers a re-direction service for Web applications that deal with Linked Data and that often need to specify and use very stable URLs. </p>
+            <p>So, according to this service, the URIs have an <em>https</em> protocol, start with <em>w3id.org</em>, and are followed by the prefix <em>ttla</em>. Every concept is represented by its descriptor in Camel case form. Below are&nbsp;some examples: </p>
             <p>
                <a href="https://w3id.org/ttla/CountriesAndCountryGroupings">
                   <em>https://w3id.org/ttla/CountriesAndCountryGroupings</em>
@@ -105,13 +161,13 @@
             </p>
          </section>
          <section>
-            <h1>Thesaurus conversion to SKOS</h1>
-            <p>The conversion process was split up into three steps <a href="#_Ref364511215"> </a>: firstly we analysed the thesaurus, evaluating all the concepts and its relationships; then we applied the mapping, as shown in <a href="#_Ref362181357"> </a>, between the TTLA data items and the SKOS classes and properties; finally we performed the conversion following the defined mapping.  </p>
-            <p>For the analysis we used the TTLA in PDF available in <a href="#_Ref364511122"> </a>. The thesaurus is modelled with the ISO 5964 and 2788 standards and includes 8185 terms distributed in 3 language versions (French, English and Spanish). A structured alphabetical list, a hierarchical list, a list of descriptor groups (micro-thesaurus) and a permuted list are available for each language. The TTLA is organized into 20 semantic fields with a maximum for 5 levels of hierarchy. A semantic field represents all descriptors belonging to the same conceptual family. Each field carries the name of the concept (descriptor) that has the broadest meaning within the subject family. A descriptor is an expression that is not ambiguous, is standardized in its spelling. When the descriptor is the synonym of a non-descriptor the relationship is expressed by UF (Used For). A non-descriptor is a term that cannot be used for indexation because it is the synonym of a designated descriptor. The relationship is expressed by USE. In addition to this semantic equivalence, the TTLA relates the terms through three more kinds of relation: (a) hierarchy is indicated by the symbol BT for a Broader Term which has a larger meaning, or by the symbol NT for the Narrower Term which has a more specific meaning than its broader term; (b) multi-hierarchy, for descriptors that may simultaneously have several broader terms; and (c) association, that establishes a link between descriptors and it is indicated by RT that stands for Related Term. The TTLA also uses SN, for a Scope Note, it explains succinctly the semantic field assigned to a descriptor when it may be ambiguous. Most of the descriptors also have a serial number so that the classification is the same in all the languages of the Thesaurus.</p>
-            <p>The second step concerns to map every TTLA data item into SKOS schema. In the <a href="#_Ref362181357"> </a> below we summarize the mapping process <a href="#_Ref364511215"> </a>.</p>
+            <h2>Thesaurus conversion to SKOS</h2>
+            <p>The conversion process was split up into three steps <a href="#_Ref364511215"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Van Assem M., et al., 2006. A Method to Convert Thesauri to SKOS. In Proceedings of the 3rd. European Semantic Web Conference (ESWC 2006). Springer, Heidelberg, 95-109.">[4]</span></a>: firstly we analysed the thesaurus, evaluating all the concepts and its relationships; then we applied the mapping, as shown in <a href="#_Ref362181357"><span class="cgen" data-rash-original-content=" ">Table 1</span></a>, between the TTLA data items and the SKOS classes and properties; finally we performed the conversion following the defined mapping.  </p>
+            <p>For the analysis we used the TTLA in PDF available in <a href="#_Ref364511122"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: UNWTO, 2001. Thesaurus on Tourism &amp; Leisure Activities (Trilingual: English, French, Spanish). Retrieved from http://www.e-unwto.org/doi/book/10.18111/9789284404551">[1]</span></a>. The thesaurus is modelled with the ISO 5964 and 2788 standards and includes 8185 terms distributed in 3 language versions (French, English and Spanish). A structured alphabetical list, a hierarchical list, a list of descriptor groups (micro-thesaurus) and a permuted list are available for each language. The TTLA is organized into 20 semantic fields with a maximum for 5 levels of hierarchy. A semantic field represents all descriptors belonging to the same conceptual family. Each field carries the name of the concept (descriptor) that has the broadest meaning within the subject family. A descriptor is an expression that is not ambiguous, is standardized in its spelling. When the descriptor is the synonym of a non-descriptor the relationship is expressed by UF (Used For). A non-descriptor is a term that cannot be used for indexation because it is the synonym of a designated descriptor. The relationship is expressed by USE. In addition to this semantic equivalence, the TTLA relates the terms through three more kinds of relation: (a) hierarchy is indicated by the symbol BT for a Broader Term which has a larger meaning, or by the symbol NT for the Narrower Term which has a more specific meaning than its broader term; (b) multi-hierarchy, for descriptors that may simultaneously have several broader terms; and (c) association, that establishes a link between descriptors and it is indicated by RT that stands for Related Term. The TTLA also uses SN, for a Scope Note, it explains succinctly the semantic field assigned to a descriptor when it may be ambiguous. Most of the descriptors also have a serial number so that the classification is the same in all the languages of the Thesaurus.</p>
+            <p>The second step concerns to map every TTLA data item into SKOS schema. In the <a href="#_Ref362181357"><span class="cgen" data-rash-original-content=" ">Table 1</span></a> below we summarize the mapping process <a href="#_Ref364511215"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Van Assem M., et al., 2006. A Method to Convert Thesauri to SKOS. In Proceedings of the 3rd. European Semantic Web Conference (ESWC 2006). Springer, Heidelberg, 95-109.">[4]</span></a>.</p>
             <figure id="_Ref362181357">
                <table>
-                  <tr>
+                  <tbody><tr>
                      <th>Data Item</th>
                      <th>Feature/function</th>
                      <th>Property/class</th>
@@ -224,20 +280,20 @@
                         <p>A <em>skos:hiddenLabel </em>01.23</p>
                      </td>
                   </tr>
-               </table>
-               <figcaption>Mapping of TTLA Data Items to features and SKOS property/classes</figcaption>
+               </tbody></table>
+               <figcaption><strong class="cgen" data-rash-original-content="">Table 1. </strong>Mapping of TTLA Data Items to features and SKOS property/classes</figcaption>
             </figure>
-            <p>Regarding the third step, we did not develop or use any specific software to automate the conversion process. Starting from the PDF version, we converted it into plain text and then, by means of a series of regular expressions, we replaced the identified patterns in the text document with the RDF elements and we used Protégé to manually verify every entity of the obtained SKOS document. Finally, we used the Web version of Skotify tool <a href="#_Ref364511568"> </a> to automatically improve, enrich and validate our TTLA conversion into a SKOS vocabulary.</p>
+            <p>Regarding the third step, we did not develop or use any specific software to automate the conversion process. Starting from the PDF version, we converted it into plain text and then, by means of a series of regular expressions, we replaced the identified patterns in the text document with the RDF elements and we used Protégé to manually verify every entity of the obtained SKOS document. Finally, we used the Web version of Skotify tool <a href="#_Ref364511568"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 14: Suominen O., and Hyvönen E., 2012. Improving the quality of SKOS vocabularies with Skosify. In Proceedings of International Conference on Knowledge Engineering and Knowledge Management. Springer, Berlin Heidelberg, 383-397.">[14]</span></a> to automatically improve, enrich and validate our TTLA conversion into a SKOS vocabulary.</p>
          </section>
          <section>
-            <h1>A revised TTLA version</h1>
+            <h2>A revised TTLA version</h2>
             <p>We provide two versions of TTLA. The first SKOS release keeps the original thesaurus unchanged and it is available at the URL:</p>
             <p>
                <a href="https://w3id.org/ttla/v1.0/">
                   <em>https://w3id.org/ttla/v1.0/</em>
                </a>
             </p>
-            <p>The second release includes all the concepts previously present on UNWTO’s work and improves the original model through new concepts and properties; this release is available at the URL:</p>
+            <p>The second release includes all the concepts previously present on UNWTO’s work and improves the original model through&nbsp;new concepts and properties; this release is available at the URL:</p>
             <p>
                <a href="https://w3id.org/ttla/v1.1/">
                   <em>https://w3id.org/ttla/v1.1/</em>
@@ -286,8 +342,8 @@
          </ul>
          <p>Users suggestions are immediately and fully available just for the user who suggested them and she/he will be able to use her/his own contributions via the API right away. Only after these suggestions are considered and approved, they will become an integral part of the model.</p>
          <section>
-            <h1>The Rest API</h1>
-            <p>In order to allow external applications to use our models, registered user can request an API key to access our basic Rest API <a href="#_Ref364511619"> </a>. In accord with <a href="#_Ref364511386"> </a> we thoroughly documented our API, providing examples, use cases, tips and guidelines on best practices, our API documentation is available at:</p>
+            <h2>The Rest API</h2>
+            <p>In order to allow external applications to use our models, registered user can request an API key to access our basic Rest API <a href="#_Ref364511619"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 15: Fielding R. T., 2000. Representational State Transfer (REST). Chapter 5 of Architectural Styles and the Design of Network-based Software Architectures. PhD Thesis. University of California, Irvine. Retrieved from http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">[15]</span></a>. In accord with <a href="#_Ref364511386"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Pintus A., and Pinna F., 2016. The Web API Design Guidelines for Happy Developers, Leanpub book. DOI:http://leanpub.com/thewebapinntux">[9]</span></a> we thoroughly documented our API, providing examples, use cases, tips and guidelines on best practices, our API documentation is available at:</p>
             <p>
                <a href="http://intuit.crs4.it/docs/api">
                   <em>http://intuit.crs4.it/docs/api</em>
@@ -349,13 +405,13 @@
                      <em>}</em> is the request resource identifier, it is optional.</p>
                </li>
             </ul>
-            <p>As <a href="#_Ref364511386"> </a> recommends, the format of the resource’s representation should be negotiated using the Accept header in client requests: actually we provide responses in JSON-LD; JSON; RDF/XML; Turtle; and Ntriples too.</p>
+            <p>As <a href="#_Ref364511386"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Pintus A., and Pinna F., 2016. The Web API Design Guidelines for Happy Developers, Leanpub book. DOI:http://leanpub.com/thewebapinntux">[9]</span></a> recommends, the format of the resource’s representation should be negotiated using the Accept header in client requests: actually we provide responses in JSON-LD; JSON; RDF/XML; Turtle; and Ntriples too.</p>
          </section>
       </section>
       <section>
          <h1>Conclusion and Future Works</h1>
          <p>In this paper, we presented our work to utilize in the Web of Data the UNWTO’s Thesaurus on Tourism and Leisure Activities. We studied the most accepted methods to convert a thesaurus from its native format to SKOS and tried to apply them to the TTLA. We pointed out and annotated the obsolete concepts, as some countries that not longer exist. When possible, setting the property <em>skos:exactMatch</em>, <em>skos:closeMatch</em>, and <em>skos:relatedMatch</em> with a DBpedia entity, we connected several concepts with the corresponding Wikipedia resource. We implemented a Web application to allow the scientific community to browse the thesaurus modelled in SKOS, and to permit registered users to improve the models translating labels and descriptions in different languages and connecting all the entities to different ontologies. We also published a Rest API, which makes the schemas available for third-party applications. We intend to carry on this work adding other connections with Dbpedia, and with different ontologies.</p>
-         <p>We would like to point out that this work is part of INTUIT project, funded mainly by Autonomous Region of Sardina <a href="#_Ref364588308"> </a> and developed thanks to the partnership between Space <a href="#_Ref364588328"> </a>, a company dedicated to enhance and promote the Italian cultural heritage, and CRS4 <a href="#_Ref364588343"> </a>, an interdisciplinary research centre. We intend to implement an exhaustive OWL 2 DL ontology to represent the whole field of tourism, we would want to propose a knowledge base focused on describing every content could suit in a tourist guide. This ontology will be further maintained and developed thanks by means of the same approach we described in this paper, we hope to involve a community for improving and test the ontology, we will offer Web applications and APIs for browsing and instrumenting our new ontology and enrich it with an exhaustive set of tourist contents related to our region, Sardinia.</p>
+         <p>We would like to point out that this work is part of INTUIT project, funded mainly by Autonomous Region of Sardina <a href="#_Ref364588308"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 16: Regione Autonoma della Sardegna, http://www.regione.sardegna.it/">[16]</span></a> and developed thanks to the partnership between Space <a href="#_Ref364588328"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 17: Space S.p.A., http://www.spacespa.it/">[17]</span></a>, a company dedicated to enhance and promote the Italian cultural heritage, and CRS4 <a href="#_Ref364588343"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 18: Center for Advanced Studies, Research and Development in Sardinia, http://www.crs4.it/">[18]</span></a>, an interdisciplinary research centre. We intend to implement an exhaustive OWL 2 DL ontology to represent the whole field of tourism, we would want to propose a knowledge base focused on describing every content could suit in a tourist guide. This ontology will be further maintained and developed thanks by means of the same approach we described in this paper, we hope to involve a community for improving and test the ontology, we will offer Web applications and APIs for browsing and instrumenting our new ontology and enrich it with an exhaustive set of tourist contents related to our region, Sardinia.</p>
       </section>
       <section role="doc-bibliography">
          <h1>References</h1>
@@ -429,16 +485,17 @@
             </li>
          </ol>
       </section>
-      <section role="doc-endnotes">
-         <section id="ftn1" role="doc-endnote">
-            <p> We stipulated a provisional agreement with UNWTO to reuse and republish their copyrighted thesaurus, hereinafter called TTLA.</p>
-         </section>
-         <section id="ftn2" role="doc-endnote">
-            <p> Mass tourism is conventionally considered to begin in 1840s and Thomas Cook is seen as the inventor.</p>
-         </section>
-         <section id="ftn3" role="doc-endnote">
-            <p> Stands for United Nations World Tourism Organization: the United Nations agency for the promotion of responsible, sustainable and universally accessible tourism.</p>
-         </section>
-      </section>
-   </body>
-</html>
+      <section role="doc-endnotes"><h1>Footnotes</h1>
+         
+         
+         
+      <section id="ftn1" role="doc-endnote">
+            <p> We stipulated a provisional agreement with UNWTO to reuse and republish their copyrighted thesaurus, hereinafter called TTLA.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn1">[back]</a></sup></p>
+         </section><section id="ftn2" role="doc-endnote">
+            <p> Mass tourism is conventionally considered to begin in 1840s and Thomas Cook is seen as the inventor.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn2">[back]</a></sup></p>
+         </section><section id="ftn3" role="doc-endnote">
+            <p> Stands for United Nations World Tourism Organization: the United Nations agency for the promotion of responsible, sustainable and universally accessible tourism.<sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn3">[back]</a></sup></p>
+         </section></section>
+   
+
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 2480</span><span>Figures: 0</span><span>Tables: 1</span><span>Formulas: 0</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer></body>﷯</html>
