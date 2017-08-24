@@ -42,7 +42,7 @@ def copyresourcefiles(path, out):
     '''
     put all resources in output folder
     '''
-    copytree(path, out, ignore=ignore_patterns('final.html', 'rash.css'))
+    copytree(path, out, ignore=ignore_patterns('final.html', 'rash.css', 'js'))
 
 def copyrashcss(path, out):
     
@@ -72,6 +72,20 @@ def nestedlinks(soup):
             
     return soup
     
+def unecessaryptag(soup):
+    '''
+    EXPERIMENTAL
+    trying to remove the </p> tag in the header
+    '''
+    header = soup.find('header')
+    for last in header:pass
+    if last:
+        string = str(last)
+        spl = string.split('</p>')
+        if spl and spl[1] == '':
+            last.replaceWith(spl[0])
+    return soup
+    
     
 def generatedSourceHtml():
     '''
@@ -98,10 +112,11 @@ def run(path, out):
     soup = removexmlns(soup)
     soup = metalink(soup)
     soup = nestedlinks(soup)
+    # soup = unecessaryptag(soup) # not working well
     
     if soup.find('footer'):
         soup.find('footer').decompose()
-        
+    
     # output
     copyresourcefiles(path, out)
     copyrashcss(path, out)
