@@ -1,30 +1,115 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
-      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
-      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
-      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
-      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
-      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="./css/rash.css"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">﷐<head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/rash.css">
       <script src="./js/jquery.min.js"> </script>
       <script src="./js/bootstrap.min.js"> </script>
       <script src="./js/rash.js"> </script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""> </script>
       <title>Semantic mining of respiratory health knowledge from scientific literature -- Sergio Consoli, Xiao Ming Zhou, Wei-Shun Bao, Declan P. Kelly, Vincent Lou - Philips Research, [name.surname]@philips.com</title>
-      <meta property="prism:keyword" content="Semantic Web"/>
-      <meta property="prism:keyword" content="Big data"/>
-      <meta property="prism:keyword" content="Respiratory Health"/>
-      <meta property="prism:keyword" content="Biomedical Ontologies"/>
-      <meta property="prism:keyword" content="Data interoperability"/>
-   </head>
-   <body>
+      <meta property="prism:keyword" content="Semantic Web">
+      <meta property="prism:keyword" content="Big data">
+      <meta property="prism:keyword" content="Respiratory Health">
+      <meta property="prism:keyword" content="Biomedical Ontologies">
+      <meta property="prism:keyword" content="Data interoperability">
+   <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+   <body><div id="MathJax_Message" style="display: none;"></div><header class="page-header container cgen" data-rash-original-content=""><h1 class="title">Semantic mining of respiratory health knowledge from scientific literature<br><small>Sergio Consoli, Xiao Ming Zhou, Wei-Shun Bao, Declan P. Kelly, Vincent Lou - Philips Research, [name.surname]@philips.com</small></h1><p class="keywords"><strong>Keywords</strong><ul class="list-inline"><li><code>Semantic Web</code></li><li><code>Big data</code></li><li><code>Respiratory Health</code></li><li><code>Biomedical Ontologies</code></li><li><code>Data interoperability</code></li></ul></p></header>
       <section role="doc-abstract">
          <h1>Abstract</h1>
          <p>In this short contribution we describe our currently ongoing work on a system which is able to automatically retrieve relevant content on respiratory health from scientific papers and standard guidelines, in order to feed and provide recommendations to a connected respiratory health device.</p>
@@ -32,18 +117,17 @@
       <section>
          <h1>Introduction</h1>
          <p>The availability of abundant computation and storage resources combined with the evolution of analytics has made affordable the adoption of Artificial Intelligence (AI) technology in healthcare, which is a sector particularly characterized by a vast amount of data coming from different sources (Dessí et al., 2017b). The idea is to use AI algorithms to improve healthcare by saving time, money and life. In particular, extracting information about medication and symptoms from clinical documents has proved beneficial in prediction and diagnosis of diseases (Champion et al., 2014). Despite clinical documents are being widely used for future analysis and diagnosis, it is challenging to extract useful information from within clinical documents. In this context, the use of Semantic Web technologies (Berners-Lee et al., 2001). allows abstraction and generalization of unstructured medical documents, enabling us to infer features that have a relevant role or meaning into a structured content. The application of Natural Language Processing (NLP), data mining, and advanced text analytics into advanced AI systems for healthcare can assist physicians in diagnosing and faster decision making. They can optimize, for example, patient selection for clinical trials through intelligent matching, assist in the creation of individualized treatment plans in oncology that enhance patient experience (Dessí et al., 2017b).</p>
-         <p>The underlying idea is that a machine can process more information than a physician and potentially discover links and patterns not immediately visible at a first glance or that would require a complete overview of all possible interventions. An example of this is Watson<a href="#ftn1"> </a>, the popular question-answering (Q&amp;A) machine by IBM, which has been recently employed to provide diagnosis and treatments to cancer patients, enabling faster and better care for patients<a href="#ftn2"> </a> (Dessí et al., 2017a; Gantenbein, 2014). It can analyse the meaning and context of structured and unstructured data coming from a variety of inputs including handwriting documents (Dessí et al., 2017a), and derive data from various sources including curated literature and rationales, as well as medical journals and textbooks<a href="#ftn3"> </a>. Watson derives high-level features such as concepts, emotions, entities, keywords, relations, etc. from unstructured data, and uses advanced machine learning algorithms to derive analytics, generate predictions and hypotheses, and address question answering tasks. A recent interesting use of IBM Watson in the medical domain can be found in the joint-venture between IBM and Anthem<a href="#ftn4"> </a>, known as WellPoint, which aims to improve patient care by using the power of IBM Watson into medical platforms for identifying the most likely diagnosis and treatment options for Anthem patients (Gantenbein, 2014).</p>
+         <p>The underlying idea is that a machine can process more information than a physician and potentially discover links and patterns not immediately visible at a first glance or that would require a complete overview of all possible interventions. An example of this is Watson<a href="#ftn1"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn1" title="Footnote 1: https://www.ibm.com/watson/">1</a></sup></a>, the popular question-answering (Q&amp;A) machine by IBM, which has been recently employed to provide diagnosis and treatments to cancer patients, enabling faster and better care for patients<a href="#ftn2"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn2" title="Footnote 2: http://pulse.embs.org/may-2017/cognitive-computing-and-the-future-of-health-care/">2</a></sup></a> (Dessí et al., 2017a; Gantenbein, 2014). It can analyse the meaning and context of structured and unstructured data coming from a variety of inputs including handwriting documents (Dessí et al., 2017a), and derive data from various sources including curated literature and rationales, as well as medical journals and textbooks<a href="#ftn3"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn3" title="Footnote 3: https://mihin.org/wp-content/uploads/2015/06/The-Impact-of-Cognitive-Computing-on-Healthcare-Final-Version-for-Handout.pdf">3</a></sup></a>. Watson derives high-level features such as concepts, emotions, entities, keywords, relations, etc. from unstructured data, and uses advanced machine learning algorithms to derive analytics, generate predictions and hypotheses, and address question answering tasks. A recent interesting use of IBM Watson in the medical domain can be found in the joint-venture between IBM and Anthem<a href="#ftn4"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn4" title="Footnote 4: https://www.antheminc.com/">4</a></sup></a>, known as WellPoint, which aims to improve patient care by using the power of IBM Watson into medical platforms for identifying the most likely diagnosis and treatment options for Anthem patients (Gantenbein, 2014).</p>
          <p>The respiratory health medical sector can leverage from this novel AI technologies as well. In this paper we show our currently on-going research work on the application of Semantic Web technologies on a curated repository of selected medical documents in order to be able to extract knowledge from these data and to build a thorough knowledge-base in the respiratory health domain.</p>
       </section>
       <section>
          <h1>Description of the system</h1>
-         <p>We are currently working on a system which is able to semantically mine information from scientific literature and clinical guidelines to extract new knowledge on respiratory health domain. The goal is to feed and control connected respiratory health devices according the gathered knowledge and provide intuitive visualization interfaces for user understanding. The schematic workflow of the system is illustrated in <a href="#_Ref483589901"> </a>. The system is able to parse, extract, transform and load the unstructured information coming as input from different clinical guidelines and scientific papers provided as input.</p>
+         <p>We are currently working on a system which is able to semantically mine information from scientific literature and clinical guidelines to extract new knowledge on respiratory health domain. The goal is to feed and control connected respiratory health devices according the gathered knowledge and provide intuitive visualization interfaces for user understanding. The schematic workflow of the system is illustrated in <a href="#_Ref483589901"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>. The system is able to parse, extract, transform and load the unstructured information coming as input from different clinical guidelines and scientific papers provided as input.</p>
          <figure id="_Ref483589901">
             <p>
-               <img src="./img/image1.png"
-                    alt="  Pipeline  illustrating  the  main elements of the  system ."/>
+               <img src="./img/image1.png" alt="  Pipeline  illustrating  the  main elements of the  system .">
             </p>
-            <figcaption>  Pipeline  illustrating  the  main elements of the  system .</figcaption>
+            <figcaption><strong class="cgen" data-rash-original-content="">Figure 1. </strong>  Pipeline  illustrating  the  main elements of the  system .</figcaption>
          </figure>
          <p>By using internal NLP tooling (Datla et al., 2016; Hasan et al., 2015), the system is able to structure the free-format text using machine reading from natural language processing for extracting RDF/OWL graphs that are linked to the Linked Open Data cloud and compliant to Semantic Web and Linked Data patterns (Mongiovì et al., 2016). In this way the information is translated into machine-readable semantic information in RDF/OWL format, which is a W3C standard for exchanging semantic data (Consoli et al., 2015). Machine reading is typically less accurate than human reading, but it can process massive amounts of text in reasonable time, detect regularities hardly noticeable by humans, and its results can be reused by machines for applied tasks. Our system is able to recognize and resolve named entities, to link them to the existing knowledge base, providing a baseline for different semantic reasoning tasks (Mongiovì et al., 2015; Mongiovì et al., 2016).</p>
          <p>In this way the system recognizes the main entities and concepts, and most importantly, it performs relation extraction to derive the main relationships among them (Presutti et al. 2016). The main focus indeed is to extract the relationships among the obtained conceptual entities and link air pollution exposure to symptoms exacerbations for at risk target groups. Using named entity recognition (NER) and resolution (a.k.a. entity linking) with standard biomedical ontologies in the respiratory health domain, the system makes sure to restrict the extraction of the structured information within the respiratory health domain of interest only. Biomedical ontologies ensure as well both syntactic and semantic interoperability among all heterogeneous data coming into the system (Gangemi et al., 2009).</p>
@@ -52,7 +136,7 @@
             </em>The following concepts and relations are extracted:</p>
          <figure>
             <table>
-               <tr>
+               <tbody><tr>
                   <th>subject</th>
                   <th>relation</th>
                   <th>object</th>
@@ -94,8 +178,8 @@
                      <p>"Asthma"</p>
                   </td>
                </tr>
-            </table>
-            <figcaption>  Concepts and relations  extracted for the example</figcaption>
+            </tbody></table>
+            <figcaption><strong class="cgen" data-rash-original-content="">Table 1. </strong>  Concepts and relations  extracted for the example</figcaption>
          </figure>
          <p>Each subject and object entry represents the label associated to, respectively, the related subject and object concepts from standard biomedical ontologies. In our example:</p>
          <p>
@@ -106,14 +190,13 @@
       </section>
       <section>
          <h1>Data access and consumption</h1>
-         <p>We are developing user-friendly access services to allow users to access the produced knowledge. Data and ontology are accessible by SPARQL queries through a dedicated Virtuoso triplestore. The SPARQL endpoint is also accessible as a REST web service, requiring as input a user-defined SPARQL query and producing as output the query result in <em>text/html, text/rdf +n3, application/xml, application/json</em>, or <em>application/rdf+xml</em>. Data are also accessible through content negotiation, either via a web browser (in this case the output type is always <em>text/html</em>), or by making HTTP REST requests specifying as input the object identifier. We also provide different user-oriented visualization tools to provide the description of elements of the ontology and to allow the user to explore the ontology and to customize the visualization. One possible visualization is via WebVOWL<a href="#ftn5"> </a> which provides as a force-directed graph layout. We also integrate LodLive<a href="#ftn6"> </a>, a navigator of RDF resources based on a graph layout. It is used for connecting RDF browser capabilities with the effectiveness of data graph representation. For instance it allows the user to expand automatically the relations of a selected resource, calculate inverse and <em>owl:sameAs</em> relations, store images during the navigation, and geo-localize the browsed data, if needed. <a href="#_Ref490605006"> </a>, on the left, shows for example the LodLive visualization of the relationships among the <q>Asthma</q> concept and some of the other concepts extracted from the input data sources related to the respiratory health domain of interest. </p>
-         <p>The relationships can be also explored by interactive chord diagrams for visualizations (Holten, 2006). A chord diagram is a graphical method of displaying the inter-relationships between data in a matrix. The data is arranged radially around a circle with the relationships between the points typically drawn as arcs connecting the data together. When a specific concept is selected interactively, only its relationships are visualized in the diagram, helping users to grasp and understand more intuitively the inter-relationships among the different entities. The format of chord diagrams is aesthetically pleasing, making it a popular choice in the world of data visualization (Holten, 2006). For example, <a href="#_Ref490605006"> </a>, on the right, shows the chord graph highlighting the relationships of the extracted concept <q>Dust</q>, i.e. concept <a href="http://purl.bioontology.org/ontology/MESH/D004391">http://purl.bioontology.org/ontology/MESH/D004391</a> from the <em>Medical Subject Headings </em>ontology, related to <q>Asthma</q>, with the other extracted concepts.</p>
+         <p>We are developing user-friendly access services to allow users to access the produced knowledge. Data and ontology are accessible by SPARQL queries through a dedicated Virtuoso triplestore. The SPARQL endpoint is also accessible as a REST web service, requiring as input a user-defined SPARQL query and producing as output the query result in <em>text/html, text/rdf +n3, application/xml, application/json</em>, or <em>application/rdf+xml</em>. Data are also accessible through content negotiation, either via a web browser (in this case the output type is always <em>text/html</em>), or by making HTTP REST requests specifying as input the object identifier. We also provide different user-oriented visualization tools to provide the description of elements of the ontology and to allow the user to explore the ontology and to customize the visualization. One possible visualization is via WebVOWL<a href="#ftn5"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn5" title="Footnote 5: WebVOWL: Web-based Visualization of Ontologies, Version 0.3, http://vowl.visualdataweb.org/webvowl.html">5</a></sup></a> which provides as a force-directed graph layout. We also integrate LodLive<a href="#ftn6"><sup class="fn cgen" data-rash-original-content=" "><a name="fn_pointer_ftn6" title="Footnote 6: LodLive: http://lodlive.it/">6</a></sup></a>, a navigator of RDF resources based on a graph layout. It is used for connecting RDF browser capabilities with the effectiveness of data graph representation. For instance it allows the user to expand automatically the relations of a selected resource, calculate inverse and <em>owl:sameAs</em> relations, store images during the navigation, and geo-localize the browsed data, if needed. <a href="#_Ref490605006"><span class="cgen" data-rash-original-content=" ">Figure 2</span></a>, on the left, shows for example the LodLive visualization of the relationships among the <q>Asthma</q> concept and some of the other concepts extracted from the input data sources related to the respiratory health domain of interest. </p>
+         <p>The relationships can be also explored by interactive chord diagrams for visualizations (Holten, 2006). A chord diagram is a graphical method of displaying the inter-relationships between data in a matrix. The data is arranged radially around a circle with the relationships between the points typically drawn as arcs connecting the data together. When a specific concept is selected interactively, only its relationships are visualized in the diagram, helping users to grasp and understand more intuitively the inter-relationships among the different entities. The format of chord diagrams is aesthetically pleasing, making it a popular choice in the world of data visualization (Holten, 2006). For example, <a href="#_Ref490605006"><span class="cgen" data-rash-original-content=" ">Figure 2</span></a>, on the right, shows the chord graph highlighting the relationships of the extracted concept <q>Dust</q>, i.e. concept <a href="http://purl.bioontology.org/ontology/MESH/D004391">http://purl.bioontology.org/ontology/MESH/D004391</a> from the <em>Medical Subject Headings </em>ontology, related to <q>Asthma</q>, with the other extracted concepts.</p>
          <figure id="_Ref490605006">
             <p>
-               <img src="./img/image2.png"
-                    alt="  Left: LodLive visualization of the relationships of the “Asthma” concept and other extracted concepts; Right: Chord graph showing the relationships of the concept “Dust” with the other extracted concepts."/>
+               <img src="./img/image2.png" alt="  Left: LodLive visualization of the relationships of the “Asthma” concept and other extracted concepts; Right: Chord graph showing the relationships of the concept “Dust” with the other extracted concepts.">
             </p>
-            <figcaption>  Left: LodLive visualization of the relationships of the “Asthma” concept and other extracted concepts; Right: Chord graph showing the relationships of the concept “Dust” with the other extracted concepts.</figcaption>
+            <figcaption><strong class="cgen" data-rash-original-content="">Figure 2. </strong>  Left: LodLive visualization of the relationships of the “Asthma” concept and other extracted concepts; Right: Chord graph showing the relationships of the concept “Dust” with the other extracted concepts.</figcaption>
          </figure>
       </section>
       <section>
@@ -137,35 +220,36 @@
          <p>Gangemi A., and Presutti V. (2009). Ontology Design Patterns. In S. Staab and R. Studer, editors, <em>Handbook on Ontologies</em>, 2nd Edition. Springer Verlag. </p>
          <p>Presutti, V., Nuzzolese, A.G., Consoli, S., Gangemi, A., and Reforgiato Recupero, D. (2016). From hyperlinks to Semantic Web properties using Open Knowledge Extraction. <em>Semantic Web Journal,</em> 7(4), 351-378</p>
       </section>
-      <section role="doc-endnotes">
-         <section id="ftn1" role="doc-endnote">
+      <section role="doc-endnotes"><h1>Footnotes</h1>
+         
+         
+         
+         
+         
+         
+      <section id="ftn1" role="doc-endnote">
             <p> 
                <a href="../customXml/item1.xml">https://www.ibm.com/watson/</a>
-            </p>
-         </section>
-         <section id="ftn2" role="doc-endnote">
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn1">[back]</a></sup></p>
+         </section><section id="ftn2" role="doc-endnote">
             <p> 
                <a href="numbering.xml">http://pulse.embs.org/may-2017/cognitive-computing-and-the-future-of-health-care/</a>
-            </p>
-         </section>
-         <section id="ftn3" role="doc-endnote">
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn2">[back]</a></sup></p>
+         </section><section id="ftn3" role="doc-endnote">
             <p> 
                <a href="styles.xml">https://mihin.org/wp-content/uploads/2015/06/The-Impact-of-Cognitive-Computing-on-Healthcare-Final-Version-for-Handout.pdf</a>
-            </p>
-         </section>
-         <section id="ftn4" role="doc-endnote">
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn3">[back]</a></sup></p>
+         </section><section id="ftn4" role="doc-endnote">
             <p> 
                <a href="settings.xml">https://www.antheminc.com/</a>
-            </p>
-         </section>
-         <section id="ftn5" role="doc-endnote">
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn4">[back]</a></sup></p>
+         </section><section id="ftn5" role="doc-endnote">
             <p> WebVOWL: Web-based Visualization of Ontologies, Version 0.3, <a href="webSettings.xml">http://vowl.visualdataweb.org/webvowl.html</a>
-            </p>
-         </section>
-         <section id="ftn6" role="doc-endnote">
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn5">[back]</a></sup></p>
+         </section><section id="ftn6" role="doc-endnote">
             <p> LodLive: <a href="footnotes.xml">http://lodlive.it/</a>
-            </p>
-         </section>
-      </section>
-   </body>
-</html>
+            <sup class="hidden-print cgen" data-rash-original-content=" "> <a href="#fn_pointer_ftn6">[back]</a></sup></p>
+         </section></section>
+   
+
+<footer class="footer hidden-print cgen" data-rash-original-content=""><p><span>Words: 2039</span><span>Figures: 2</span><span>Tables: 1</span><span>Formulas: 0</span><span>Listings: 0</span></p><div class="btn-group dropup"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" onclick="$(this).toggleCSS()">Layout: <span id="layoutselection">Web-based</span><span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="#rash_web_based_layout" onclick="$(this).changeCSS('#rash_web_based_layout')">Web-based</a></li><li><a href="#rash_lncs_layout" onclick="$(this).changeCSS('#rash_lncs_layout')">Springer LNCS</a></li></ul></div><p></p></footer></body>﷯</html>

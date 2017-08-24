@@ -45,15 +45,18 @@ def copyresourcefiles(path, out):
     copytree(path, out, ignore=ignore_patterns('final.html', 'rash.css'))
 
 def copyrashcss(path, out):
-    f = codecs.open(path+'/css/rash.css', "r", "utf-8")
     
-    replaced = f.read().replace('role=','class=')
+    try:
+        f = codecs.open(path+'/css/rash.css', "r", "utf-8")
+        
+        replaced = f.read().replace('role=','class=')
     
-    with open(out+'/css/rash.css', "w") as file:
-        #.encode('ascii', 'xmlcharrefreplace')
-        file.write(replaced.encode('utf-8'))
-    
-    
+        with open(out+'/css/rash.css', "w") as file:
+            #.encode('ascii', 'xmlcharrefreplace')
+            file.write(replaced.encode('utf-8'))
+    except IOError as e:
+        print '##########################\nWARNING NO CSS FILES FOUND\n##########################'
+        
 def nestedlinks(soup):
     '''
     removes nested links
@@ -96,8 +99,9 @@ def run(path, out):
     soup = metalink(soup)
     soup = nestedlinks(soup)
     
-    soup.find('footer').decompose()
-    
+    if soup.find('footer'):
+        soup.find('footer').decompose()
+        
     # output
     copyresourcefiles(path, out)
     copyrashcss(path, out)
