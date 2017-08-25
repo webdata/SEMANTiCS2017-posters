@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/rash.css"/>
+      <script src="js/jquery.min.js"> </script>
+      <script src="js/bootstrap.min.js"> </script>
+      <script src="js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>euBusinessGraph: Company and Economic Data for Innovative Products and Services</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="Ontotext Corp"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Vladimir Alexiev"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="vladimir.alexiev@ontotext.com"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Atanas Kiryakov"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="atanas.kiryakov@ontotext.com"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Plamen Tarkalanov"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="plamen.tarkalanov@ontotext.com"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta property="prism:keyword" content="euBusinessGraph"/>
+      <meta property="prism:keyword" content="firmographics"/>
+      <meta property="prism:keyword" content="company data"/>
+      <meta property="prism:keyword" content="public procurement"/>
+      <meta property="prism:keyword" content="linked data"/>
+      <meta property="prism:keyword" content="business graph"/>
+      <meta property="prism:keyword" content="economics"/>
+      <meta name="dcterms.subject" content="Resource Description Framework (RDF)"/>
+      <meta name="dcterms.subject" content="Ontologies"/>
+      <meta name="dcterms.subject" content="Enterprise applications"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>Corporate information, including basic company firmographics (e.g., name(s), incorporation data, registered addresses, ownership and related entities), financials (e.g., balance sheets, ratings), contextual data (e.g., addresses, economic activity classification, key officers, public tenders data, press mentions and events) are the foundation that many data value chains are built on. Furthermore, this type of information contributes to the transparency and accountability of enterprises, is instrumental input to the process of marketing and sales, and plays a key role in many business interactions. Collecting and aggregating data about a business entity from several public sources (be it private/public, official or non-official ones), and especially across country borders and languages is a tedious, time consuming, error prone, and expensive operation which renders many potential business models non-feasible.</p>
+         <p>The euBusinessGraph project integrates European company and economic data from various data providers, including OpenCorporates (the largest open database of company info crawled from official registers), Norway's Bronnoysund Register Center (official register data), SpazioDati (rich IT data from official registers, additional databases, web crawl of company sites, tender info, etc), EventRegistry events, GLEI, Panama Leaks, etc.</p>
+         <p>euBusinessGraph is intended to overcome these barriers and provision several important business cases, such as economic journalism (Deutsche Welle), publication of rich company data (BRC), tender information service (CERVED), business intelligence (EVRY), etc. It will also provide a marketplace of company data, with some free search and faceting, leading to information about richer Data Offerings by specific providers and their pricing.</p>
+         <p>We will present the work done on exploring relevant ontologies and vocabularies for describing companies, systems of identifiers, development of a unified data model, plans for data flows, data aggregation, matching and cross-linking, and the opportunities that lie ahead for the business cases and the data marketplace.</p>
+         <p>This session will demonstrate services like company popularity ranking, monitoring mentions of related entities in news and finding suspicious relation patterns in FactForge – a knowledge graph with more than 2 billion edges of POL (persons, organizations, locations) data interlinked with 1 million news articles. </p>
+         <p>An accompanying <a href="https://github.com/VladimirAlexiev/VladimirAlexiev.github.io/raw/master/pubs/euBusinessGraph-poster-Semantics2017.pdf">poster</a> and presentation are available.</p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>euBusinessGraph is a 30-month research project funded by the EU H2020 programme on Big Data integration and experimentation that started in January 2017. Its purpose is to integrate a large number of economics-related datasets such as companies, public procurement tenders, company events, etc; to provision 6 business cases using that data; and to establish a data marketplace for such data. The project partners comprise:</p>
+         <ol>
+            <li>
+               <p>
+                  <a href="https://www.sintef.no/en/">SINTEF</a>, Norway's largest research organization</p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://opencorporates.com/">OpenCorporates</a>, the largest aggregation of company data from official registers</p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://www.cerved.com/">Cerved</a>, an Italian leader in business information</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://www.spaziodati.eu/">SpazioDati</a>, an innovative provider of data about Italian companies (<a href="http://atoka.io/">Atoka</a>) </p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://www.evry.com/en/">EVRY</a>, Norway's largest IT services provider</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://www.dw.com/">Deutsche Welle</a> (DW), Germany's international broadcaster</p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://ontotext.com/">Ontotext</a>, a world leader in semantic technologies, databases and semantic cloud offerings </p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://www.brreg.no/home/">Brønnøysund Register Centre</a> (BRC), Norway's national business register agency (18 registers)</p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://www.ijs.si/">Institut "Jozef Stefan"</a> (IJS), creator of <a href="http://eventregistry.org/">EventRegistry</a> (6.5M world events extracted from 190M articles)</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://www.unimib.i/">University of Milano-Bicocca</a> (UNIMIB), specializing in data management and service science</p>
+            </li>
+         </ol>
+         <p>The project concept including data value chain and customer segmentation is shown below.</p>
+         <figure>
+            <p>
+               <img src="img/1000020100000497000002E2F043625FCAA4492F.png"
+                    alt="Project Concept"/>
+            </p>
+            <figcaption>Project Concept</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Business Cases and Lean Business Modeling</h1>
+         <p>The business cases addressed by the project include the following:</p>
+         <ol>
+            <li>
+               <p>OpenCorporates will enlarge its offering with a Corporate Events Data Service. It will increase the number of EU Government Gazettes ingested (see <a href="http://opengazettes.com/">OpenGazettes</a>) and add non-register sources of company events</p>
+            </li>
+            <li>
+               <p>Cerved will implement a Tender Discovery Service that will integrate data from various sources of public procurement info, and implement a recommendation component that can suggest relevant tenders to companies</p>
+            </li>
+            <li>
+               <p>SpazioDati will increase the reach of its <a href="http://atoka.io/">Atoka</a> company information service (Atoka+) by aggregating data about more countries</p>
+            </li>
+            <li>
+               <p>Deutsche Welle will implement a new Economic Journalism tool to save cost in the editorial department and increase public reach through improved story telling</p>
+            </li>
+            <li>
+               <p>EVRY will leverage the business graph to be developed by the project in a set of Customer Relationship Management (CRM) systems, increasing data reach and quality</p>
+            </li>
+            <li>
+               <p>BRC will publish the full spectrum of official register data in RDF and describe the data in a semantic way, increasing the value of Norwegian LOD</p>
+            </li>
+         </ol>
+         <p>Business case development proceeds in an agile fashion, using Lean Business Modeling and Minimum Viable Product approaches to ensure the developed products meet market demand. We use tools such as Product Vision Statement, Lean Business Model Canvas, Value Proposition Canvas, GO product roadmap, Test card, and Learning card as adopted by SINTEF's innovation department. Below is an example of a lean Business Model Canvas <a href="#_Ref491191527"> </a> for Atoka+</p>
+         <figure>
+            <p>
+               <img src="img/1000020100000587000003BF364A10B37D5D07AF.png"
+                    alt="Example Business Model Canvas"/>
+            </p>
+            <figcaption>Example Business Model Canvas</figcaption>
+         </figure>
+         <p>Various monetization models are considered by the partners, including free, freemium and paid (for premium data). Describing such dataset offerings is an important function of the project.</p>
+         <figure>
+            <p>
+               <img src="img/10000000000006E1000002CB60A462E360BF762E.png"
+                    alt="Example Monetization Models"/>
+            </p>
+            <figcaption>Example Monetization Models</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Company Datasets and Ontologies</h1>
+         <p>The project studied numerous ontologies and datasets that represent company and related economic data, and which were taken into account when creating the project's data model. Amongst them are:</p>
+         <ol>
+            <li>
+               <p>Global Legal Entity Identifier (GLEI) <a href="#_Ref491193712"> </a>
+               </p>
+            </li>
+            <li>
+               <p>Business Registers Interconnection System (BRIS) <a href="#_Ref491193639"> </a> 
+                  <a href="#_Ref491194142"> </a>
+               </p>
+            </li>
+            <li>
+               <p>Financial Industry Business Ontology (FIBO) <a href="#_Ref491193410"> </a>
+               </p>
+            </li>
+            <li>
+               <p>OpenCorporates schema <a href="#_Ref491194336"> </a>
+               </p>
+            </li>
+            <li>
+               <p>Bulgarian Trade Register schema <a href="#__RefNumPara__603_1597909725"> </a>
+               </p>
+            </li>
+            <li>
+               <p>W3C Organization ontology <a href="#_Ref491194417"> </a>
+               </p>
+            </li>
+            <li>
+               <p>W3C Registered Organization ontology <a href="#__RefNumPara__857_1597909725"> </a>
+               </p>
+            </li>
+            <li>
+               <p>W3C Location ontology <a href="#_Ref491194659"> </a>
+               </p>
+            </li>
+            <li>
+               <p>Dun &amp; Bradstreet company data</p>
+            </li>
+            <li>
+               <p>Panama Papers offshore company dataset <a href="#_Ref491193106"> </a> and its RDF representation Linked Leaks <a href="#_Ref491193118"> </a>
+               </p>
+            </li>
+            <li>
+               <p>Wikidata properties for describing companies, especially company identifiers in various registers</p>
+            </li>
+            <li>
+               <p>A number of related and subsidiary ontologies and code lists, such as Schema.org, Dublin Core, IANA language tags, NUTS and LAU (EU administrative regions), NACE (EU economic activities), etc.</p>
+            </li>
+         </ol>
+         <p>
+            <a href="#_Ref491191838"> </a> presents some of these data artefacts, and relates each of them to the "5V" of big data (Variety, Volume, Velocity, Veracity, leading up to Value). Many of these data sources are not in semantic format, therefore mapping and conversions are required if they are to be integrated semantically. Below is an example of such mapping: the GLEI XML schema to the FIBO ontology and a custom GLEI Ontology (GLEIO) <a href="#_Ref491193086"> </a>.</p>
+         <figure>
+            <p>
+               <img src="img/10000000000007EF000004DB01B7ECB38C2017BA.png"
+                    alt="Mapping of GLEI to FIBO and GLEIO"/>
+            </p>
+            <figcaption>Mapping of GLEI to FIBO and GLEIO</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Semantic Data Model</h1>
+         <p>The euBusinessGraph semantic data model <a href="#__RefNumPara__7184_1562275339"> </a> is a synthesis of the various data artefacts that we studied, fulfilling the data needs of the project. It includes detailed treatment of classes, properties, values, scope notes, data provider rules, URL conventions, etc. It reuses ontologies such as: W3C Org, RegOrg, Locn, ADMS; DC, DCT, schema.org, SKOS, SIOC. It reuses datasets such as NACE (economic classification), NUTS+LAU (EU regions), GLEI RAL (registration authority list). </p>
+         <p>This initial draft covers companies, company type, status, addresses, NUTS+LAU regions, NACE classification of economic activity, registrations (identifiers). We will shortly add detailed information about registers: dataset offerings, what level of detail they cover, per-company URL templates, MIME types. Future versions will add information about officers (directors, executives), provenance (who contributed which data). We used rdfpuml <a href="#_Ref491195157"> </a> to generate semantic model diagrams (see <a href="#refFigure4"> </a>) and Object-Role Modeling through the Norma tool <a href="#_Ref491195242"> </a> (see <a href="#refFigure5"> </a>) to generate an RDF representation.</p>
+         <figure id="refFigure4">
+            <p>
+               <img src="img/100000000000048C00000419A8A0F6AE07037D76.png"
+                    alt="euBusiness Graph Semantic Model Diagram"/>
+            </p>
+            <figcaption>euBusiness Graph Semantic Model Diagram</figcaption>
+         </figure>
+         <p/>
+         <figure id="refFigure5">
+            <p>
+               <img src="img/1000000000000363000003489B0EF6FD49C98359.png"
+                    alt="Object-Role Diagram of Part of the Semantic Model"/>
+            </p>
+            <figcaption>Object-Role Diagram of Part of the Semantic Model</figcaption>
+         </figure>
+      </section>
+      <section>
+         <h1>Technologies Used</h1>
+         <p>In addition to partner datasets, the project may use some of the following technologies and tools.</p>
+         <ul>
+            <li>
+               <p>The <a href="http://graphdb.ontotext.com/">Ontotext GraphDB</a> (formerly OWLIM) semantic database <a href="#_Ref491415452"> </a>
+               </p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://ontotext.com/products/cognitive-cloud/">Ontotext Cognitive Cloud</a> (successor of the <a href="http://s4.ontotext.com/">Self-service semantic system</a>) provides on-demand access to text analytics, semantic graph databases and Linked Data technology in the cloud (Amazon Web Services). A user can start building Smart Data prototypes without the need for licensing, provisioning, installation and maintenance. In the project, the Cognitive Cloud will be used as platform for developing, running and hosting the euBusinessGraph Marketplace and Services. </p>
+            </li>
+         </ul>
+         <figure>
+            <p>
+               <img src="img/100002010000040A0000026EC21D7062070F7BE7.png"
+                    alt="Ontotext Cognitive Cloud Architecture"/>
+            </p>
+            <figcaption>Ontotext Cognitive Cloud Architecture</figcaption>
+         </figure>
+         <ul>
+            <li>
+               <p>
+                  <a href="https://datagraft.net/">DataGraft</a> 
+                  <a href="#__RefNumPara__7260_1562275339"> </a> 
+                  <a href="#_Ref491437414"> </a> "One stop shop for hosted data management" is a tool to interactively build, modify and share data transformations. Reuse transformations to repeatably clean and transform spreadsheet data, and finally host and share datasets in a semantic way. </p>
+            </li>
+            <li>
+               <p>RDF by Example <a href="#_Ref491195157"> </a> is an Ontotext tool for semantic modeling and R2RML Generation</p>
+            </li>
+            <li>
+               <p>
+                  <a href="https://dandelion.eu/">Dandelion </a>
+                  <a href="https://dandelion.eu/">API</a> is a semantic text analysis tool used by SpazioDati.</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://wikifier.org/">Wikifier</a> is a semantic annotation tool for 100s of languages used by JSI for EventRegistry</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://abstat.disco.unimib.it/">ABSTAT</a> is a tool for Linked Data Summarization with ABstraction and STATistics by UNIMIB.</p>
+            </li>
+         </ul>
+         <p>Other semantic conversion tools that may potentially be used include:</p>
+         <ul>
+            <li>
+               <p>
+                  <a href="https://tarql.github.io/">TARQL</a> is a command-line tool for converting CSV files to RDF using SPARQL 1.1 syntax.</p>
+            </li>
+            <li>
+               <p>
+                  <a href="http://xsparql.deri.org/">XSPARQL</a> 
+                  <a href="#__RefNumPara__8272_1562275339"> </a> is <a href="http://xsparql.deri.org/spec.html">W3C submission</a> for a query language that melds XQuery <a href="#__RefNumPara__7336_1562275339"> </a> and SPARQL <a href="#__RefNumPara__859_1597909725"> </a>, and the respective tool that implements it. It transformations of XML, JSON and relational data (RDB2RDF) to RDF (lifting), SPARQL querying and conversions to other formats (lowering), the full power of XQuery for control flow and sequence processing, and scripting for Web data integration in general.</p>
+            </li>
+         </ul>
+      </section>
+      <section>
+         <h1>Demonstration with FactForge</h1>
+         <p>As part of our presentation, we demonstrate services such as company popularity ranking, monitoring mentions of related entities in news, and finding suspicious relation patterns. We use data from <a href="http://factforge.net/">FactForge</a> 
+            <a href="#__RefNumPara__3722_1458423281"> </a>, a knowledge graph of about 2 billion triples. It represents a hub of open data and news about persons, organizations and locations (POL data):</p>
+         <ol>
+            <li>
+               <p>Popular LOD datasets: DBPedia, Geonames, WorldFacts and Wordnet</p>
+            </li>
+            <li>
+               <p>POL data: Panama Papers, GLEI, Trump World. People and organizations from these datasets are mapped to DBPedia. The schemata of these datasets and DBPedia are partially mapped to FIBO classes and relationships, to allow for unified querying and analytics across the different datasets. </p>
+            </li>
+            <li>
+               <p>A live stream of news metadata, linking the articles to entities and concepts: about 2000 news per day tagged with the <a href="http://now.ontotext.com/">News On the Web</a> (NOW) semantic news demonstrator.</p>
+            </li>
+         </ol>
+         <p>FactForge allows one to play with the data through GraphDB’s Visual Graph Explorer – a customizable interactive exploration tool (see below). See <a href="#__RefNumPara__861_1597909725"> </a> for a detailed report on visualization capabilities.</p>
+         <figure>
+            <p>
+               <img src="img/10000000000004C6000003CAC18C2FE88D2DB2C9.jpg"
+                    alt="GraphDB Workbench Visual Graph"/>
+            </p>
+            <figcaption>GraphDB Workbench Visual Graph</figcaption>
+         </figure>
+         <p>Sample queries in FactForge demonstrate media monitoring, tracing company control, industry trends and statistics. One of them is a SPARQL query, which detects the following pattern: a company that controls another company in the same country, through a company registered in an offshore zone.</p>
+         <p>Finally, <a href="http://rank.ontotext.com/">Rank</a> is a demonstration service for news popularity ranking of companies. It supports ranking with consolidation of mentions of subsidiaries and is based on FactForge.</p>
+         <figure>
+            <p>
+               <img src="img/100000000000059F000003895E1D5B579C4B90E8.png"
+                    alt="Global Ranking of Automotive Companies"/>
+            </p>
+            <figcaption>Global Ranking of Automotive Companies</figcaption>
+         </figure>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>euBusinessGraph has received funding from the EU H2020 research and innovation programme "Big Data PPP: cross-sectorial and cross-lingual data integration and experimentation" under grant agreement No 732003.</p>
+      </section>
+      <section role="doc-bibliography">
+         <h1>References</h1>
+         <ol>
+            <li id="_Ref491191527" role="doc-biblioentry">
+               <p>Alexander Osterwalder, Yves Pigneur. <a href="https://strategyzer.com/books/business-model-generation">Business Model Generation</a>, 2010.</p>
+            </li>
+            <li id="_Ref491194659" role="doc-biblioentry">
+               <p>Andrea Perego, Michael Lutz. <a href="https://www.w3.org/ns/locn">ISA Programme Location Core Vocabulary</a>. Second version, 2015-03-23</p>
+            </li>
+            <li id="_Ref491415452" role="doc-biblioentry">
+               <p>Barry Bishop, Atanas Kiryakov, Damyan Ognyanoff, Ivan Peikov, Zdravko Tashev, Ruslan Velkov. <a href="http://www.semantic-web-journal.net/sites/default/files/swj97_1.pdf">OWLIM: A Family of Scalable Semantic Repositories.</a> Semantic Web Journal, Volume 2, Number 1. May 2011.</p>
+            </li>
+            <li id="__RefNumPara__8272_1562275339" role="doc-biblioentry">
+               <p>Daniele Dell’Aglio, Axel Polleres, Nuno Lopes, and Stefan Bischof. <a href="http://ceur-ws.org/Vol-1268/paper19.pdf">Querying the Web of Data with XSPARQL 1.1</a>. ISWC Developers Workshop, 2014</p>
+            </li>
+            <li id="_Ref491194417" role="doc-biblioentry">
+               <p>Dave Reynolds. <a href="http://www.w3.org/TR/vocab-org/">The Organization Ontology</a>, W3C Recommendation, 16 January 2014</p>
+            </li>
+            <li id="__RefNumPara__7260_1562275339" role="doc-biblioentry">
+               <p>Dumitru Roman, Marin Dimitrov, Nikolay Nikolov, Antoine Putlier, Brian Elvesæter, Alex Simov, Yavor Petkov. <a href="https://ontotext.com/documents/publications/2016/DataGraft-Demo-SemDev2016.pdf">DataGraft: a Platform for Open Data Publishing</a>. Semantic Development, 2016</p>
+            </li>
+            <li id="_Ref491437414" role="doc-biblioentry">
+               <p>Dumitru Roman, Nikolay Nikolov, Antoine Pultier, Dina Sukhobok, Brian Elvesæter, Arne Berre, Xianglin Ye, Marin Dimitrov, Alex Simov, Momchill Zarev, Rick Moynihan, Bill Roberts, Ivan Berlocher, Seon-Ho Kim, Tony Lee, Amanda Smith, Tom Heath. <a href="http://www.semantic-web-journal.net/content/datagraft-one-stop-shop-open-data-management-0">DataGraft: One-Stop-Shop for Open Data Management</a>. Semantic Web Journal, 2016</p>
+            </li>
+            <li id="_Ref491193410" role="doc-biblioentry">
+               <p>Enterprise Data Management Council. <a href="https://spec.edmcouncil.org/fibo/">Financial Industry Business Ontology</a>. 2017</p>
+            </li>
+            <li id="_Ref491193639" role="doc-biblioentry">
+               <p>EU CEF Digital. <a href="https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=46992657">Business Registers Interconnection System</a>. 2017</p>
+            </li>
+            <li id="_Ref491194142" role="doc-biblioentry">
+               <p>EU DG Justice. <a href="https://e-justice.europa.eu/content_business_registers_at_european_level-105-en.do">Interconnection of EU Business Registers</a>, Jun 2017.</p>
+            </li>
+            <li id="_Ref491193106" role="doc-biblioentry">
+               <p>International Consortium of Investigative Journalists. <a href="https://panamapapers.icij.org/">The Panama Papers</a>: Politicians, Criminals and the Rogue Industry That Hides Their Cash, 2016.</p>
+            </li>
+            <li id="__RefNumPara__7336_1562275339" role="doc-biblioentry">
+               <p>Jonathan Robie, Michael Dyck, Josh Spiegel. <a href="https://www.w3.org/TR/xquery-31/">XQuery 3.1: An XML Query Language</a>. W3C Recommendation, 21 March 2017 </p>
+            </li>
+            <li id="_Ref491193712" role="doc-biblioentry">
+               <p>LEI Foundation. <a href="https://www.gleif.org/en/about-lei/introducing-the-legal-entity-identifier-lei">Introducing the Legal Entity Identifier (LEI)</a>. 2016</p>
+            </li>
+            <li id="__RefNumPara__3722_1458423281" role="doc-biblioentry">
+               <p>Mariana Damova, Kiril Simov, Zdravko Tashev, Atanas Kiryakov. <a href="https://www.researchgate.net/publication/262354875_FactForge_Data_Service_or_the_Diversity_of_Inferred_Knowledge_over_LOD">FactForge: Data Service or Diversity through Inferred Knowledge over LOD</a>. In Proceedings of AIMSA’2012 Varna, Bulgaria. DOI: <a href="http://link.springer.com/chapter/10.1007/978-3-642-33185-5_16">10.1007/978-3-642-33185-5_16</a>
+               </p>
+            </li>
+            <li id="_Ref491195242" role="doc-biblioentry">
+               <p>
+                  <a href="https://www.ormfoundation.org/files/folders/norma_the_software/default.aspx">NORMA - The Software!</a> The ORM Foundation, accessed 6 August 2017</p>
+            </li>
+            <li id="_Ref491193086" role="doc-biblioentry">
+               <p>Ontotext Corp. <a href="https://github.com/Ontotext-AD/GLEI">GLEI Mapping to RDF</a>. <a href="https://github.com/Ontotext-AD/GLEI/blob/master/leio.ttl">LEIO Ontology</a>. Jan 2017, last updated Jun 2017.</p>
+            </li>
+            <li id="_Ref491193118" role="doc-biblioentry">
+               <p>Ontotext Corp. <a href="https://github.com/Ontotext-AD/GLEI">Offshore Leaks as LOD</a>, <a href="https://github.com/Ontotext-AD/leaks#26-data-model">Data model</a>, <a href="ftp://ftp.ontotext.com/pub/leaks/rdf/">RDF download</a>, <a href="http://data.ontotext.com/linkedleaks">SPARQL queries</a>, <a href="https://github.com/Ontotext-AD/leaks/blob/master/leak-ontology.ttl">Ontology</a>, <a href="http://ontorule-project.eu/parrot/parrot?documentUri%3Dhttps://raw.githubusercontent.com/Ontotext-AD/leaks/master/leak-ontology.rdf&amp;mimetype%3Dapplication/rdf%252bxml&amp;profile%3Dtechnical&amp;language%3Den&amp;customizeCssUrl">Ontology documentation</a>, May 2016.</p>
+            </li>
+            <li id="__RefNumPara__603_1597909725" role="doc-biblioentry">
+               <p>Open Data Bulgaria. <a href="http://opendata.government.bg/dataset/tbprobckn-pernctbp">Bulgarian Trade Register open data</a>. Created Apr 2016, updated Jul 2017.</p>
+            </li>
+            <li id="_Ref491194336" role="doc-biblioentry">
+               <p>OpenCorporates. <a href="https://api.opencorporates.com/documentation/API-Reference">API Reference: version 0.4.6</a>. 2017 </p>
+            </li>
+            <li id="__RefNumPara__857_1597909725" role="doc-biblioentry">
+               <p>Phil Archer, Marios Meimaris, Agisilaos Papantoniou. <a href="https://www.w3.org/TR/vocab-regorg/">Registered Organization Vocabulary</a>. W3C Working Group Note, 01 August 2013</p>
+            </li>
+            <li id="__RefNumPara__859_1597909725" role="doc-biblioentry">
+               <p>Steve Harris, Andy Seaborne. <a href="https://www.w3.org/TR/sparql11-query/">SPARQL 1.1 Query Language</a>. W3C Recommendation, 21 March 2013</p>
+            </li>
+            <li id="__RefNumPara__861_1597909725" role="doc-biblioentry">
+               <p>Vladimir Alexiev, <a href="https://docs.google.com/document/d/1guwFHi9p4-ujFkrHF6dwMUZndzCmlX_gPyiBi6JlPTs/pub">Data Visualization with GraphDB and Workbench</a>. Technical report, Ontotext Corp, June 2017. <a href="https://docs.google.com/presentation/d/1Udah3b8nc1oxjpi8XHtGX4nxIF6tlyrvo29QJkFKfgo/edit">Slides</a>, <a href="https://ontotext.com/knowledgehub/webinars/building-knowledge-data-visualization/">Video</a>
+               </p>
+            </li>
+            <li id="_Ref491191838" role="doc-biblioentry">
+               <p>Vladimir Alexiev, <a href="https://docs.google.com/presentation/d/1s-mQwj_0cpbLFVmhZPUrzB_M5mISkZQug0Wiui6H218/pub">Organization Datasets and Ontologies</a>, Presentation at euBusinessGraph Project Kickoff, Oslo, Norway, Jan 2017.</p>
+            </li>
+            <li id="__RefNumPara__7184_1562275339" role="doc-biblioentry">
+               <p>Vladimir Alexiev, Tatiana Tarasova, Fredrik Seehusen, David Norheim. <a href="https://docs.google.com/document/d/1dhMOTlIOC6dOK_jksJRX0CB-GIRoiYY6fWtCnZArUhU/edit">euBusinessGraph Semantic Data Model</a>. Working draft 0.9, 7 Aug 2017. </p>
+            </li>
+            <li id="_Ref491195157" role="doc-biblioentry">
+               <p>Vladimir Alexiev. <a href="http://vladimiralexiev.github.io/pres/20161128-rdfpuml-rdf2rml/">RDF by Example: rdfpuml for True RDF Diagrams, rdf2rml for R2RML Generation</a>. In Semantic Web in Libraries 2016 (SWIB 16), Bonn, Germany, November 2016. <a href="http://vladimiralexiev.github.io/pres/20161128-rdfpuml-rdf2rml/index-full.html">HTML</a>, <a href="http://vladimiralexiev.github.io/pres/20161128-rdfpuml-rdf2rml/RDF_by_Example.pdf">PDF</a>, <a href="https://youtu.be/4WoYlaGF6DE">Video</a>
+               </p>
+            </li>
+         </ol>
+      </section>
+   </body>
+</html>
