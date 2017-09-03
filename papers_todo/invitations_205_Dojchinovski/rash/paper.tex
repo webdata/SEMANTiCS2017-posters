@@ -1,0 +1,54 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{Linked Web APIs Dataset: Web APIs meet Linked Data}
+\titlerunning{Linked Web APIs Dataset}
+\author{Milan Dojchinovski\inst{1} \and
+Tomas Vitvar\inst{1}}
+
+\institute{Web Intelligence Research Group, Faculty of Information Technology, Czech Technical University in Prague\\
+\email{milan.dojchinovski@fit.cvut.cz, 
+tomas.vitvar@fit.cvut.cz}}
+\maketitle
+
+\begin{abstract}
+Web APIs enjoy a significant increase in popularity and usage in the last decade. They have become the core technology for exposing functionalities and data. Nevertheless, due to the lack of semantic Web API descriptions their discovery, sharing, integration, and assessment of their quality and consumption is limited. In this paper, we present the Linked Web APIs dataset, an RDF dataset with semantic descriptions about Web APIs. It provides semantic descriptions for 11,339 Web APIs, 7,415 mashups and 7,717 developer profiles, which make it the largest available dataset from the Web APIs domain. The dataset captures the provenance, temporal, technical, functional, and non-functional aspects. In addition, we describe the Linked Web APIs Ontology, a minimal model which builds on top of several well-known ontologies. The dataset has been interlinked and published according to the Linked Data principles. Finally, we describe several possible usage scenarios for the dataset and show its potential.
+
+\keywords{Linked Data, Linked Web APIs, Web APIs, Web services, ontology}
+\end{abstract}
+
+\end{document}

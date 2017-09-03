@@ -1,0 +1,63 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{The debates of the European Parliament as Linked Open Data}
+\titlerunning{The debates of the European Parliament }
+\author{Astrid van Aggelen\inst{1} \and
+Laura Hollink\inst{2} \and
+Max Kemman\inst{3} \and
+Martijn Kleppe\inst{4} \and
+Henri Beunders\inst{4}}
+\authorrunning{Astrid van Aggelen et al.}
+\institute{Dept. of Computer Science, VU University Amsterdam, NL\and
+Center for Mathematics and Computer Science (CWI), Amsterdam, The Netherlands\and
+Department of History, University of Luxembourg, Luxembourg\and
+Department of History, Erasmus University Rotterdam, The Netherlands\\
+\email{a.e.van.aggelen@gmail.com, 
+l.hollink@cwi.nl, 
+max.kemman@uni.lu, 
+kleppe@eshcc.eur.nl, 
+beunders@eshcc.eur.nl}}
+\maketitle
+
+\begin{abstract}
+The European Parliament represents the citizens of the member states of the European Union (EU). The accounts of its meetings and related documents are open data, promoting transparency and accountability, and are used as source data by researchers. However, the official portal of these documents provides limited search facilities. This paper presents LinkedEP, a Linked Open Data translation of the verbatim reports of the plenary meetings of the European Parliament. These data are integrated with a database of political affiliations of the Members of Parliament, and enriched with detected topics from the EU's topic hierarchy and links to three other Linked Open Datasets. The results of this work are available through a SPARQL endpoint as well as a user interface with extensive browse and search facilities. It is now possible to combine in one query the time and topic of the debate, the spoken words - in any available translation - and information about the speaker uttering these, such as affiliations to countries, parties and committees. This paper discusses the design and creation of the vocabulary, data and links, as well as known use of the data.
+
+\keywords{European Parliament, Linked Open Data, RDF, data modeling, multilingual data, open government data}
+\end{abstract}
+
+\end{document}

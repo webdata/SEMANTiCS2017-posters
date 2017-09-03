@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+      xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+      xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
+      xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+      xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+      prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="./css/rash.css"/>
+      <script src="./js/jquery.min.js"> </script>
+      <script src="./js/bootstrap.min.js"> </script>
+      <script src="./js/rash.js"> </script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+      <title>OpenBudgets.eu: A Distributed Open-Platform for Managing Heterogeneous Budget Data</title>
+      <meta about="#affiliation-1"
+            property="schema:name"
+            content="University of Bonn, Germany"/>
+      <meta about="#affiliation-2"
+            property="schema:name"
+            content="Fraunhofer IAIS, Germany"/>
+      <meta about="#affiliation-3"
+            property="schema:name"
+            content="University of Bonn / Fraunhofer IAIS, Germany"/>
+      <meta about="#author-1"
+            name="dc.creator"
+            property="schema:name"
+            content="Fathoni A. Musyaffa"/>
+      <meta about="#author-1"
+            property="schema:email"
+            content="musyaffa@cs.uni-bonn.de"/>
+      <link about="#author-1"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-2"
+            name="dc.creator"
+            property="schema:name"
+            content="Fabrizio Orlandi"/>
+      <meta about="#author-2"
+            property="schema:email"
+            content="fabrizio.orlandi@iais.fraunhofer.de"/>
+      <link about="#author-2"
+            property="schema:affiliation"
+            href="#affiliation-2"/>
+      <meta about="#author-3"
+            name="dc.creator"
+            property="schema:name"
+            content="Tiansi Dong"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="tdong@uni-bonn.de"/>
+      <link about="#author-3"
+            property="schema:affiliation"
+            href="#affiliation-1"/>
+      <meta about="#author-4"
+            name="dc.creator"
+            property="schema:name"
+            content="Lavdim Halilaj"/>
+      <meta about="#author-4"
+            property="schema:email"
+            content="halilaj@cs.uni-bonn.de"/>
+      <link about="#author-4"
+            property="schema:affiliation"
+            href="#affiliation-3"/>
+      <meta property="prism:keyword" content="Budget and spending data"/>
+      <meta property="prism:keyword" content="Open data"/>
+      <meta property="prism:keyword" content="Semantic budgeting data platform"/>
+   </head>
+   <body>
+      <section role="doc-abstract">
+         <h1>Abstract</h1>
+         <p>OpenBudgets.eu (OBEU) provides an open-source software framework and accompanying Software-As-A-Service (SAAS) platform for supporting financial transparency, thus enhancing accountability within public sectors as well as influencing corruption prevention. To this end, a scalable framework for multi-stakeholders is developed, with the aim of maximizing flexibility and ease of use. The core features of the OBEU platform are: (1) A semantic data model used to integrate heterogenous budget data, giving a pre-defined structure to the input data; (2) a library of visualisation tools with a user-friendly interface, which enables stakeholders to visualise available data in different granularity and modality; (3) a library of data mining and comparative analysis tools, which enables the aggregation of existing data in order to obtain new outcomes and discover recent trends and patterns, and potentially forecasting budget measures; and (4) an interface for feedback and citizen engagement which enables users to evaluate, discuss and give feedback on the provided data. A demonstration of the OBEU platform and portal is available at <a href="http://apps.openbudgets.eu/">http://apps.openbudgets.eu/</a> and can be easily embedded into municipalities’ websites. </p>
+      </section>
+      <section>
+         <h1>Introduction</h1>
+         <p>Corruption is a global issue that seriously harms the economy and society, affecting people’s lives and often infringing fundamental human rights. The European Commission Anti-Corruption Report estimates that corruption can be estimated to cost the European Union economy 120 billion Euro per year <a href="#report"> </a>. One possible solution against corruption is to increase financial transparency. The OpenBudgets.eu project is a research project funded by the EU H2020 framework no. 645833 from May 2015 to October 2017. The OBEU platform and the corresponding open-source technology aim to support financial transparency, government efficiency, and citizen engagement, by developing an integrated platform as illustrated in <a href="#_Ref490850318"> </a>. </p>
+         <figure id="_Ref490850318">
+            <p>
+               <img src="./img/image1.png" alt="Overview of the OBEU platform."/>
+            </p>
+            <figcaption>Overview of the OBEU platform.</figcaption>
+         </figure>
+         <p>Several challenges are encountered for developing OBEU platform: </p>
+          <ul>
+           <li> <em>Heterogeneous budget data</em>. Budget data by different municipalities have their own format, language, structure, terminologies, and abbreviations.   
+           </li><li> 
+            <em>Complex visualization of budget data</em>.  The second challenge is to find attractive and unified ways to visualize heterogeneous and multi-dimensional data.
+           </li><li> 
+            <em>Analysis of budget data</em>. Different municipalities may use their own accounting methods, comparison among semantically heterogeneous budget data. Therefore, identifying effective ways to analyze and compare this data is another big challenge. 
+           </li><li>
+            <em>Software-As-A-Service infrastructure</em>. The fourth challenge is to identify an easy solution to integrate the developed system into the platform of different stakeholders. </li>
+		
+		</ul>
+         <p>As a solution to these challenges, we developed a platform using Semantic Web technologies and a distributed container networking model based on the Docker platform<a href="#ftn1"> </a>. In the following sections, more details about the data model, the software architecture and the developed components are provided. </p>
+      </section>
+      <section>
+         <h1>Managing Heterogeneous Budget Data</h1>
+         <p>Our solution to the data heterogeneity challenge is first to define and develop a standard budget data vocabulary and data model. Second, to develop with fully automatic and computer-aided tools, which transform heterogeneous budget data into the standardized data model.</p>
+         <section>
+            <h1>OBEU Data Model</h1>
+            <p>OpenBudgets.eu (OBEU) data model<a href="#ftn2"> </a> is developed to represent budget datasets across different levels and public administrations, based on the Data Cube Vocabulary (DCV)<a href="#ftn3"> </a>, a W3C Recommendation. </p>
+            <p>In DCV, every dataset is required to have a <em>Data Structure Definition </em>(DSD), which provides information regarding measures, dimensions, or attributes available on the datasets. <em>Measure</em> determines the type of value in the datasets. <em>Dimension</em> determines possible dimension used to explain the observed measure. When combined, dimensions uniquely determine an observation. <em>Attribute</em> determines additional characteristics in an observation, but not a part of the component, which would uniquely define an observation <a href="#klimek"> </a>. </p>
+            <p>In the OBEU platform, the processed data are specific on spending and budget datasets. DCV vocabulary is adapted to represent the datasets in the OBEU, by extending additional dimension properties, attribute properties, optional properties and measure properties. The full reference of this data model is available in the OBEU data model documentation <a href="#dudas"> </a>.</p>
+            <p>Budget and spending datasets are transformed according to this RDF data model. This transformation unifies the previously heterogeneous formats provided by public administrations. Depending on the structure of the dataset, the transformation can be done either using automatic transformation tools or manually developing RDF transformation (ETL) pipelines, which allow users to define specific mapping rules between the dataset and the OBEU data model.</p>
+         </section>
+         <section>
+            <h1>Automatic Transformation to RDF</h1>
+            <p>Automatic transformation can be done only if the format and the structure of the dataset is supported by the OBEU platform. The automatic transformation tools, which have been developed as part of the project, consist of three main components: (i) OpenSpending Packager<a href="#ftn4"> </a>, (ii) LinkedPipes<a href="#ftn5"> </a>, and (iii) FDP2RDF<a href="#ftn6"> </a> transformation pipeline. </p>
+            <p>The OpenSpending Packager is a tool for transforming raw datasets from the CSV (Comma Separated Values) tabular format into a format called Fiscal Data Package (FDP)<a href="#ftn7"> </a>. The tool presents a user-friendly interface guiding users through the transformation process. FDP is a JSON-based format, which consists of the original CSV data augmented with additional metadata. The metadata incorporates available dimensions, attributes, measures, as well as descriptive metadata. FDP is a widely used format for representing budget and spending data which was developed by the OpenSpending project and the Open Knowledge International<a href="#ftn8"> </a>. The content of each FDP JSON file can be used as a basis (as a contextual and controlled source) for the automatic transformation into RDF. This transformation is performed by the FDP2RDF pipeline.</p>
+            <p>The FDP2RDF transformation pipeline itself is built using LinkedPipes. LinkedPipes is a tool to convert the datasets to RDF by developing ETL (Extract Transform Load) data transformation pipelines. For this specific purpose of FDP to RDF transformation, the custom and reusable FDP2RDF pipeline has been developed. </p>
+            <p>For budget and spending datasets in other formats, we need to transform them into CSV files, as OpenSpending Packager only supports CSV datasets with the labeling dimensions provided within the datasets. For XML files, we developed an automatic CSV extractor package, which is publicly available on GitHub<a href="#ftn9"> </a>. </p>
+         </section>
+         <section>
+            <h1>Customised ETL Pipelines</h1>
+            <p>Manually developed pipelines provides a flexibility to transform datasets, which have their unique structure not compatible with any standard and/or the OBEU data model. The users are required to understand the content of their datasets and the basics of RDF and SPARQL queries. The users should also develop the DSD for their data set. Despite the technical complexity, developing the pipeline manually decrease the risk of errors that can occur during an automatic transformation process.</p>
+         </section>
+         <section>
+            <h1>Interlinking Budget Data</h1>
+            <p>One of the benefits of using semantic technologies is to enable seamless integration of heterogeneous datasets. To realize this integration, interlinking efforts between different classifications should be performed. In the budget and spending data context, classification is denoted by pre-defined notations, including labels and descriptions. For example, functional classification denotes functional usage of funding; administrative classification denotes how public offices manage their funds. Within OpenBudgets.eu, the interlinking across different classifications enables comparative analysis across different semantic datasets. Classifications generated by this interlinking process are publicly available<a href="#ftn10"> </a> <a href="#ioannidis"> </a>. </p>
+         </section>
+      </section>
+      <section>
+         <h1>OBEU Architecture</h1>
+         <p>Components of the Openbudgets.eu platform are illustrated in <a href="#_Ref490850449"> </a>. The OpenSpending project contributed, as part of OpenBudgets.eu, with some components included in the architecture. Specifically, the Packager and the Viewer, which have been adapted to the OBEU infrastructure.</p>
+         <figure id="_Ref490850449">
+            <p>
+               <img src="./img/image2.png"
+                    alt="Software architecture of the OBEU platform."/>
+            </p>
+            <figcaption>Software architecture of the OBEU platform.</figcaption>
+         </figure>
+         <p>
+            <strong>LP-ETL</strong>: FDP datasets can be transformed into RDF by triggering the aforementioned FDP2RDF pipeline based on the LinkedPipes ETL tool (LP-ETL in Figure 2). Users can also manually perform such transformations using LinkedPipes. The result of this transformation is stored into the Virtuoso triple store. RDF dump files are also produced as backup. </p>
+         <p>
+            <strong>Alignment UI:</strong> a tool which enables users to align (or interlink) two different classifications. The resulting alignment is also stored in the Virtuoso triple store. </p>
+         <p>
+            <strong>Rudolf: </strong>a backend API that serves data requests from different OpenBudgets components, mainly Data Analytics and Mining (DAM) components and GUI components. </p>
+         <p>
+            <strong>DAM (Data Analysis and Mining):</strong> the central component for managing data-mining analysis, allocating data-mining tasks at different servers. Currently, tasks include outlier detection, rule mining, descriptive statistics, time-series and key performance indicator analysis. </p>
+         <p>While the previous components were mainly target experts or administrators, the following components involve also the end users. </p>
+         <p>
+            <strong>Packager:</strong> a tool for representing and transforming raw tabular data and providing metadata by mapping the columns in the raw datasets. The Packager guides users in producing the raw dataset enriched with additional JSON metadata in a format called Fiscal Data Package (FDP).</p>
+         <p>
+            <strong>Viewer:</strong> a tool to visualize datasets in FDP and OBEU RDF format. There are several visualization possibilities available within the Viewer, and users can filter the datasets according to different dimensions using a graphical user interface.</p>
+         <p>
+            <strong>RDF Browser: </strong>a GUI to browse the structure of RDF triples available on the OBEU Virtuoso server.</p>
+         <p>
+            <strong>Microsite</strong>: a configurable website containing OBEU Viewer visualizations that can be embedded on external web pages.</p>
+         <p>
+            <strong>Indigo: </strong>a GUI that allows browsing/searching of datasets and performing analytical features of them.</p>
+         <p>
+            <strong>Participatory Budgeting: </strong>a web portal leveraging participatory budgeting for public administrations and citizens.</p>
+         <section>
+            <h1>Distributed Data Analysis and Mining </h1>
+            <p>Data analysis and mining modules of the OBEU platform can be distributed at any places currently are located in three places: (1) UEP server<a href="#ftn11"> </a>, (2) OKFGR server<a href="#ftn12"> </a>, (3) Fraunhofer server<a href="#ftn13"> </a>. The central control component of Data Analysis and Mining (DAM)<sup> </sup>provides a unified functional entry point to process users’ requests. The DAM is implemented using Python Flask and utilizes available technologies such as EasyMiner, R and Open CPU for data mining algorithms. The DAM architecture and the functional communication with other modules is illustrated in <a href="#_Ref490850510"> </a>.</p>
+            <figure id="_Ref490850510">
+               <p>
+                  <img src="./img/image3.png"
+                       alt="DAM and its functional communication with other modules."/>
+               </p>
+               <figcaption>DAM and its functional communication with other modules.</figcaption>
+            </figure>
+            <p>   </p>
+         </section>
+         <section>
+            <h1>Visualizations for Budget Data</h1>
+            <p>OBEU Viewer is the main front-end for visualization of the OBEU datasets (Figure 4). After selecting the dataset from the Indigo’s dataset browser, the user is redirected to OBEU Viewer<a href="#ftn14"> </a>, which is a customization of the OpenSpending Viewer<a href="#ftn15"> </a>. The main functionality is to visualize aggregated values of the particular dataset. </p>
+            <p>After users select a visualization, the OBEU Viewer will read the dataset’s DSD and present available dimensions in the left pane of the Viewer. Users can filter dimensions, search particular notation/classification, and sort data, which are useful for table-like visualizations. The available visualizations are Bar chart, Line chart, Treemap, Geomap, Pie chart, Pivot table, Radar chart. Figure 4 illustrates Bonn Budget 2019 treemap.</p>
+            <figure>
+               <p>
+                  <img src="./img/image4.png"
+                       alt="A treemap visualization of Bonn Budget 2019."/>
+               </p>
+               <figcaption>A treemap visualization of Bonn Budget 2019.</figcaption>
+            </figure>
+         </section>
+         <section>
+            <h1>Microsite as a SAAS</h1>
+            <p>The OBEU Microsite<a href="#ftn16"> </a> is an independent software, which can be typically embedded into municipality’s website, so that users can view, and comment on budget data (Figure 6). Data and visualization software does not need to be hosted by the municipality, rather displayed on the fly using a remote OBEU server instance. The Microsite is configurable in terms of colors, language, datasets, and arrangement of the views.</p>
+         </section>
+         <section>
+            <h1>Participatory Budgeting</h1>
+            <p>The OpenBudgets Participatory Budgeting (OBEU-PB)<a href="#ftn17"> </a> is an independent open-source software developed by CIVIO<a href="#ftn18"> </a> to enable citizens to influence budget allocation. It provides a voting process where citizens can vote for their preferred proposals. The city council administrators will set up a mechanism for their citizens to participate in the budget voting. Each participant is assigned a number, which represents the public budgets that she/he can allocate to the preferred project. Citizens can learn to use this tool, understand the budget cycle, influence the budget allocation, and monitor the usage of the budget. A demo of OBEU-PB depicted in <a href="#_Ref490853791"> </a> is available online<a href="#ftn19"> </a>.</p>
+            <figure id="_Ref490853791">
+               <p>
+                  <img src="./img/image5.png"
+                       alt="Citizens vote for their favorite budgeting proposals."/>
+               </p>
+               <figcaption>Citizens vote for their favorite budgeting proposals.</figcaption>
+            </figure>
+            <p> </p>
+         </section>
+      </section>
+      <section>
+         <h1>Conclusions</h1>
+         <p>We presented OpenBudgets.eu, an EU H2020 project supporting financial transparency, enhancing accountability within public sectors as well as influencing corruption prevention. A platform to manage fiscal data, such as budget and spending datasets, has been developed and it is currently undergoing its final testing and dissemination phase. The platform integrates semantic technologies, data mining and analytics as well as visualizations to improve the consumption and analysis of open budget and spending data. The tools described in this paper are fully open-source and available online. Three different municipalities (Paris, Bonn and Thessaloniki) with real datasets are currently testing the platform. This will improve the final version of the platform and validate the project use-case scenarios. </p>
+      </section>
+      <section role="doc-acknowledgements">
+         <h1>Acknowledgements</h1>
+         <p>EU H2020 funds OpenBudgets with no. 645833 (OpenBudgets.eu). The first author is supported by DAAD.</p>
+      </section>
+      <section id="SectionReferences" role="doc-bibliography">
+         <h1>References</h1>
+      
+		 <ul>
+        <li id="report" role="doc-biblioentry">
+          <p>Report From the Commission To The Council And The European Parliament (2014): EU Anti-Corruption Report, Brussels, 32.2014 COM, 38 final.</p>
+        </li>
+		 <li id="klimek" role="doc-biblioentry">
+          <p>Klímek J., Kučera J., Mynarz J., Sedmihradská L., Zbranek J. (2015): OpenBudgets.eu - Deliverable D1.2 - Design of data structure definition for public budget data, <a href="http://openbudgets.eu/assets/deliverables/D1.2.pdf">http://openbudgets.eu/assets/deliverables/D1.2.pdf</a></p>
+        </li>
+		 <li id="dudas" role="doc-biblioentry">
+          <p>Dudas M., Klímek J., Kučera J.,  Mynarz J., Sedmihradská L., Zbranek J. (2016): OpenBudgets.eu - Deliverable D1.5 - Final release of data definitions for public finance data, <a href="http://openbudgets.eu/assets/deliverables/D1.5.pdf">http://openbudgets.eu/assets/deliverables/D1.5.pdf</a></p>
+        </li>
+		 <li id="ioannidis" role="doc-biblioentry">
+          <p>Ioannidis L., Klímek J., Musyaffa F., Mynarz J., Sedmihradská L., Zbranek J. (2016): Deliverable 1.9 - Linking code lists to external datasets, <a href="http://openbudgets.eu/assets/deliverables/D1.9.pdf">http://openbudgets.eu/assets/deliverables/D1.9.pdf</a> </p>
+        </li>
+		</ul>
+      </section>
+      <section role="doc-endnotes">
+         <section id="ftn1" role="doc-endnote">
+            <p> 
+               <a href="../customXml/item1.xml">https://www.docker.com/</a>
+            </p>
+         </section>
+         <section id="ftn2" role="doc-endnote">
+            <p> 
+               <a href="numbering.xml">https://github.com/openbudgets/data-model</a>
+            </p>
+         </section>
+         <section id="ftn3" role="doc-endnote">
+            <p> 
+               <a href="styles.xml">http://www.w3.org/TR/2014/REC-vocab-data-cube-20140116/</a>
+            </p>
+         </section>
+         <section id="ftn4" role="doc-endnote">
+            <p> 
+               <a href="settings.xml">https://github.com/openspending/os-packager</a>
+            </p>
+         </section>
+         <section id="ftn5" role="doc-endnote">
+            <p> 
+               <a href="webSettings.xml">https://etl.linkedpipes.com/</a>
+            </p>
+         </section>
+         <section id="ftn6" role="doc-endnote">
+            <p> 
+               <a href="footnotes.xml">https://github.com/openbudgets/pipeline-fragments/tree/master/FDPtoRDF</a>
+            </p>
+         </section>
+         <section id="ftn7" role="doc-endnote">
+            <p> 
+               <a href="endnotes.xml">http://specs.frictionlessdata.io/fiscal-data-package/</a>
+            </p>
+         </section>
+         <section id="ftn8" role="doc-endnote">
+            <p> 
+               <a href="http://apps.openbudgets.eu/">https://openspending.org/</a>
+            </p>
+         </section>
+         <section id="ftn9" role="doc-endnote">
+            <p> 
+               <a href="media/image1.png">https://github.com/openbudgets/xml2csv</a>
+            </p>
+         </section>
+         <section id="ftn10" role="doc-endnote">
+            <p> 
+               <a href="media/image2.png">https://github.com/openbudgets/linksets</a>
+            </p>
+         </section>
+         <section id="ftn11" role="doc-endnote">
+            <p> 
+               <a href="media/image3.png">https://github.com/kizi/easyminer</a>
+            </p>
+         </section>
+         <section id="ftn12" role="doc-endnote">
+            <p> 
+               <a href="media/image4.png">http://okfnrg.math.auth.gr/ocpu/test/</a>
+            </p>
+         </section>
+         <section id="ftn13" role="doc-endnote">
+            <p> 
+               <a href="media/image5.png">http://dam-obeu.iais.fraunhofer.de/</a>
+            </p>
+         </section>
+         <section id="ftn14" role="doc-endnote">
+            <p> 
+               <a href="http://openbudgets.eu/assets/deliverables/D1.2.pdf">http://apps.openbudgets.eu/viewer/</a>
+            </p>
+         </section>
+         <section id="ftn15" role="doc-endnote">
+            <p> 
+               <a href="http://openbudgets.eu/assets/deliverables/D1.5.pdf">http://docs.openspending.org/en/latest/developers/viewer/</a>
+            </p>
+         </section>
+         <section id="ftn16" role="doc-endnote">
+            <p> 
+               <a href="http://openbudgets.eu/assets/deliverables/D1.9.pdf">http://microsite-obeu.iais.fraunhofer.de/vizmanager/1/</a>
+            </p>
+         </section>
+         <section id="ftn17" role="doc-endnote">
+            <p> 
+               <a href="footer1.xml">https://github.com/openbudgets/participatory-budgeting</a>
+            </p>
+         </section>
+         <section id="ftn18" role="doc-endnote">
+            <p> 
+               <a href="fontTable.xml">http://www.civio.es/</a>
+            </p>
+         </section>
+         <section id="ftn19" role="doc-endnote">
+            <p> 
+               <a href="theme/theme1.xml">http://openbudgets-monitoring-sample.herokuapp.com/</a>
+            </p>
+         </section>
+      </section>
+   </body>
+</html>

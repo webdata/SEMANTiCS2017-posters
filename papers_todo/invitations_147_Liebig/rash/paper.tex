@@ -1,0 +1,54 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{Uncovering the Hidden in Large Size Knowledge Graphs}
+\titlerunning{Uncovering the Hidden in Large Size Kno}
+\author{Thorsten Liebig\inst{1}}
+
+\institute{derivo GmbH\\
+\email{liebig@derivo.de}}
+\maketitle
+
+\begin{abstract}
+Discovering hidden facts in steadily growing and complex knowledge graphs is challenging. It`s not that a proper SPARQL query can`t retrieve valuable information. A mission critical task often is to get an idea of those queries and the graph. This becomes even more challenging when the underlying data or schema is not well known. For instance, in case of an empty SPARQL result, either the query is misspelt, whose detection needs full schema awareness or some schema research, or there is simply no such data.
+
+We will introduce SemSpect, which enables even non-SPARQL users to build sophisticated queries by interacting with a visual representation of the data. Since querying and exploring with SemSpect is data and schema driven users are guided throughout their analysis not suffering foregoing problems. The talk will motivate the approach with the help of use cases and provides practical insight to the task of exploring and visually analyzing complex and large knowledge graphs such as the Panama Papers. This is supported by industry use cases and live demoing during the presentation.
+
+\keywords{OWL, RDF, data exploration, data visualization, visual querying}
+\end{abstract}
+
+\end{document}

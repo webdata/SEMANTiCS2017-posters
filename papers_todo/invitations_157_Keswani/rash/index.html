@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!--
+Basic RASH template - Version 1.1, December 31, 2016
+by Silvio Peroni
+
+This work is licensed under a Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/).
+You are free to:
+* Share - copy and redistribute the material in any medium or format
+* Adapt - remix, transform, and build upon the material
+for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+* Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+-->
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    prefix="
+        schema: http://schema.org/
+        prism: http://prismstandard.org/namespaces/basic/2.0/">
+    <head>
+        <!-- Visualisation requirements (mandatory for optimal reading) -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/rash.css"/>
+
+        <script src="js/jquery.min.js"> </script>
+        <script src="js/bootstrap.min.js"> </script>
+        <script src="js/rash.js"> </script>
+
+        <!-- MathJax for multi-browser support of LaTeX formulas and MathML -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"> </script>
+        <!-- /END Visualisation requirements (mandatory for optimal reading) -->
+
+        <!-- Metadata -->
+        <title property="dcterms:title">The LITMUS Test: Benchmarking RDF and Graph Data Management Systems</title>
+
+        <!-- Author's data (one or more) -->
+
+        <meta about="#author-1" name="dc.creator" content="Yashwant Keswani"/>
+        <meta about="#author-1" property="schema:email" content="201301047@daiict.ac.in"/>
+        <link about="#author-1" property="schema:affiliation" href="#organization-2"/>
+
+        <meta about="#author-2" name="dc.creator" content="Harsh Thakkar"/>
+        <meta about="#author-2" property="schema:email" content="thakkar@cs.uni-bonn.de"/>
+        <link about="#author-2" property="schema:affiliation" href="#organization-1"/>
+
+        <meta about="#author-3" name="dc.creator" content="Mohnish Dubey"/>
+        <meta about="#author-3" property="schema:email" content="dubey@cs.uni-bonn.de"/>
+        <link about="#author-3" property="schema:affiliation" href="#organization-1"/>
+
+
+        <meta about="#author-4" name="dc.creator" content="Jens Lehmann"/>
+        <meta about="#author-4" property="schema:email" content="jens.Lehmann@cs.uni-bonn.de"/>
+        <link about="#author-4" property="schema:affiliation" href="#organization-1"/>
+
+        <meta about="#author-5" name="dc.creator" content="Sören Auer"/>
+        <meta about="#author-5" property="schema:email" content="auer@cs.uni-bonn.de"/>
+        <link about="#author-5" property="schema:affiliation" href="#organization-1"/>
+
+        <!-- Affiliations -->
+
+        <meta about="#organization-1" property="schema:name" content="University of Bonn, Germany"/>
+        <meta about="#organization-2" property="schema:name" content="DA-IICT, India"/>
+
+        <!-- Paper keywords (one or more) -->
+        <meta property="prism:keyword" content="Benchmarking"/>
+        <meta property="prism:keyword" content="Linked Data"/>
+        <meta property="prism:keyword" content="Performance Analysis"/>
+        <meta property="prism:keyword" content="RDF Stores"/>
+        <meta property="prism:keyword" content="Graph Stores"/>
+        <meta property="prism:keyword" content="Automated Framework"/>
+        <!-- ACM category (one or more) -->
+        <!-- <meta name="dcterms.subject" content="Applied computing,Document management and text processing,Document preparation,Markup languages"/> -->
+        <!-- <meta name="dcterms.subject" content="Applied computing,Document management and text processing,Document preparation,Annotation"/> -->
+        <!-- /END Metadata -->
+    </head>
+    <body>
+        <!-- Abstract -->
+        <section role="doc-abstract">
+            <h1>Abstract</h1>
+            <p>In this paper we demonstrate the working of proposed LITMUS benchmark suite. Benchmarking is an extremely tedious task demanding repetitive manual effort, therefore it is advantageous to automate the whole process. LITMUS, is an automated benchmarking framework which supports benchmarking and comparing diverse DMSs for both RDF and property graph DMS. It also provides custom visualization (i.e. plots) support for the benchmarked DMSs against a wide range of CPU and memory-specific evaluation parameters.</p>
+        </section>
+
+        <!-- Sections -->
+        <section id="first_section">
+            <h1>Introduction</h1>
+            <p>In order to cope up with the consumption of Open, Linked and Big Data over the last few years, there has been exponential growth in development of various Data Management Systems. These existing DMSs can be broadly divided into two categories depending on the data model they address. 1.) Triple Stores, which employ the RDF Graph data model and 2.) Graph Databases, which frequently use the Property Graph data model.
+			</p>
+            <p>Benchmarking is conducted to assess the performance of these DMSs with respect to a variety of scenarios, in order to decide their suitability for a given task. Benchmarking is a difficult and tedious process which involves many repetitive subtasks such as data loading, query loading, query execution, clearing the cache, etc for each participating DMS. There exist many benchmarks (a full list and description of these can be found in the related work section of the full paper <a href="#litmussemantics17"></a> for task-specific application, some of which are bundled with their custom data generators [<a href="#BSBM"></a>, <a href="#WATDIV"></a>, <a href="#DBPSB"></a> etc] (i.e. synthetic dataset generators). However, to the best of our knowledge, there is a lack of a benchmarking framework which:
+				<ol>
+					<li>promotes reusability via providing a unied open extensible architecture for orchestrating user-driven benchmarks </li>
+					<li>provides a list of comprehensive CPU and memory-based metrics and parameters for performance evaluation </li>
+					<li>offers full automation of the underlying tedious sub-tasks, and </li>
+					<li>support a comprehensive post-benchmark performance reporting via custom visualization using tables and plots </li>
+
+
+				</ol>
+			</p>
+
+            <p>
+            In the first working prototype of LITMUS, we only offer a limited number of benchmarking tasks, such as:
+			<ol>
+				<li>Time taken to load a dataset in the memory (linked dataset for RDF based DMS and property graph for Graph based DMS). </li>
+				<li>Time taken to execute a query (SPARQL query for RDF based DMS and Gremlin query for Graph based DMS). </li>
+			</ol>
+            </p>
+        </section>
+
+
+		<section id="lit Framework">
+			<h1>LITMUS Framework</h1>
+			The framework consists of various plug-n-play modules as shown in Figure 1. We now summarize the function of LITMUS components. However, a detailed description of the utility of each module can be obtained from <a href="#litmuseswc17"></a>,<a href="#litmussemantics17"></a>.
+        	<ol>
+        		<li><strong>Dataset Module</strong>: The dataset module provides utilities to convert a RDF based dataset to a property graph. It also consists of scripts for loading a dataset in the DMSs selected by the user. </li>
+        		<li> <strong>DMS Modules </strong>: There are separate modules for each DMS which can be benchmarked using the LITMUS framework. Each module has scripts which are used to initialize the DMS using the configurations provided and make the DMS ready for the benchmarking process. </li>
+        		<li> <strong> Query Module </strong>: The query module is responsible for providing SPARQL queries and the corresponding Gremlin queries for the dataset. At the moment, we are providing limited SPARQL queries and their Gremlin translations. </li>
+        		<li> <strong> Controller and Tester Module </strong> : The controller and tester modules is responsible for preparing the DMSs in the warm cache/cold cache configuration (specified by the user) and executing the corresponding scripts on the DMSs. </li>
+        		<li> <strong> Analysis and Visualization Module </strong>: The analysis and visualization module collects the data from all the log files, generated during the benchmarking process, conducts the statistical analysis and prepares visualization in terms box-plots and custom charts. </li>
+        		<li> <strong> GUI Module </strong>: The GUI module is built to allow the user to allow an easy configuration to the benchmark which needs to be executed. It allows the user to select integrated DMS, datasets, queries, and save, import, and export configurations. </li>
+        	</ol>
+        	<figure id = "architecture">
+        		<p>
+        			<img src="./LITMUS_prototype_HD-page-001.jpg"> </img>
+
+        		</p>
+        		<figcaption>Figure 1: The architecture of the first working prototype of LITMUS Benchmark Suite.</figcaption>
+        	</figure>
+        	The complete source code for the LITMUS framework is available here <a href="#fn2"></a>. We have released the first working prototype of LITMUS benchmark suite (v0.1) on docker hub<a href="#fn1"></a> for encouraging first hand experience and user feedback.
+        </section>
+
+        <section id="litmus env">
+        	<h1>LITMUS Environment</h1>
+        	<p>In this paper we demonstrate the working of LITMUS (v0.1) using the environment setup described below.</p>
+	        <section id="integrated dataset">
+	        <h2>Integrated Dataset</h2>
+	        <p>The framework provides tools to convert the following datasets from RDF to Property Graphs, to ensure a uniform and fair benchmarking process : BSBM <a href="#BSBM"></a>, WatDiv <a href="#WATDIV"></a>, Northwind <a href="#fn3"></a> and DBpedia <a href="#DBPEDIA"></a>.
+	        </p>
+	        <p>
+			In the current version of LITMUS, we do not consider the semantics of blank nodes (as in DBpedia and Wikidata) during the conversion of RDF graphs to PGs.
+			</p>
+	        </section>
+	        <section id="Integrated DMS">
+	        	<h2>Integrated DMS</h2>
+	        	<p>LITMUS currently allows benchmarking eight DMSs ( four RDF based and four Graph based) currently, which are Openlink Virtuoso <a href="#openlink"></a>, gh-rdf-3x <a href="#rdf3x"></a>, Apache Jena <a href="#jena"></a>, 4store <a href="#4store"></a>, Sparksee (formerly known as DEX Graph) <a href="#sparksee"></a>, Neo4j <a href="#neo4j"></a>, OrientDB <a href="#orient"></a> and Apache Tinkerpop <a href="#tinkerpop"></a>.
+	        	</p>
+	        </section>
+
+	        <section id="supported queries">
+	        <h2>Supported Queries</h2>
+	        <p>A total of 30 SPARQL queries were created and their Gremlin translations were also created manually. The queries can be executed in the warm cache and the cold cache (cache is cleared after every run) configuration. The cache is cleared using the UNIX command <code>echo 3 > /proc/sys/vm/drop_caches </code>. Executing the queries in two configurations allow the users to study the correlation between performance of the DMSs with respect to query, dataset-specific characteristics, the order in which they are run. The influence of factors like the query length, query size, Graph patterns on the performance of the system can be seen when run in the queries are run in warm cache configuration.
+	        </p>
+	        </section>
+	        <section id="exec env">
+	        	<h2>Execution Environment</h2>
+	        	The following set of rules are followed by the framework to ensure that no DMS gets an advantage when it is being benchmarked.
+				<ol>
+					<li> Each query task is carried out individually, in complete isolation and is run several times to nullify the effect of anomalies. </li>
+					<li> Each dataset task loading process takes in a new location to ensure no run is getting an undue advantage of already existing files. </li>
+				</ol>
+			</section>
+
+        </section>
+
+
+        <section id="Performance evaluation">
+        <p>A variety of parameters and metrics are used to evaluate the performance of every DMS after the benchmarking process. The full descriptions of the catered evaluation parameters and metrics can be obtained from <a href="#litmussemantics17"></a>. The following parameters are measured using the perf utility tool. <em>Cycles, Instructions, Cache References, Cache Misses, Bus Cycles, L1 data cache loads, L1 data cache load misses, L1 data cache stores, dTLB loads, dTLB load misses, LLC loads, LLC load misses, LLC stores, Branches, Branch Misses, Context Switches, CPU migrations, Page Faults</em>.
+
+		</p>
+		<p>
+		LITMUS also supports calculation of various statistical metrics such as arithmetic, geometric, harmonic means, median, mode, standard deviation, minimum, and maximum of each of the measured parameters. Furthermore, LITMUS allows the users to export the results in form of CSV files and Latex tables. Boxplots are generated using the matplotlib for each parameter which is measured during the benchmarking process.
+		</p>
+
+        </section>
+
+        <section id="LIA">
+        	<h1>A Hands On Experience With LITMUS</h1>
+        	<p>
+        		We now present the benchmarking results produced for a set of selected queries using LITMUS (v0.1). The experiments were conducted on the following setting:
+        	</p>
+        	<p>
+        	<strong>CPU</strong>: Intel(R) Core(TM) i5-4200M CPU @ 2.50GHz; <strong>RAM</strong>: 8 GB DDR3; <strong>L1d and L1i Caches</strong>: 32 KB; <strong>L2 Cache</strong>: 256 KB; <strong>L3 Cache </strong>: 3072 KB; <strong>RDF DMSs</strong>: Openlink Virtuoso [7.2.5], Apache Jena TDB [3.2.0] , 4store [1.1.5], gh-RDF3X; <strong>Graph DMSs</strong>: Apache TinkerPop [3.2.4], Neo4J [1.9.6], Sparksee [5.1], OrientDB [2.1.3]
+        	</p>
+        	<section id="illu1">
+        		<h2>Illustration 1</h2>
+                <p>The cold and warm cache query execution performance example.</p>
+                <p> Gremlin Query : <code>g.V().has("categoryName").categoryName</code></p>
+                <p> SPARQL Query : <code>select ?b where {?a &lt;http://www.w3.org/2000/01/rdf-schema#label&gt; "category" . </br>
+                ?a &lt;http://northwind.com/model/categoryName&gt; ?b .}</code> </p>
+                <figure id="table_2">
+                <table>
+                    <tr>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1">4store</th>
+                        <th rowspan="1" colspan="1">Jena</th>
+                        <th rowspan="1" colspan="1">Neo4j</th>
+                        <th rowspan="1" colspan="1">Orient</th>
+                        <th rowspan="1" colspan="1">RDF3x</th>
+                        <th rowspan="1" colspan="1">Sparksee</th>
+                        <th rowspan="1" colspan="1">Tinker</th>
+                        <th rowspan="1" colspan="1">Virtuoso</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1">Cold Cache</th>
+                        <td rowspan="1" colspan="1">4.289</td>
+                        <td rowspan="1" colspan="1">0.16510</td>
+                        <td rowspan="1" colspan="1">0.02865</td>
+                        <td rowspan="1" colspan="1">0.0489</td>
+                        <td rowspan="1" colspan="1">0.546</td>
+                        <td rowspan="1" colspan="1">0.0417</td>
+                        <td rowspan="1" colspan="1">0.190</td>
+                        <td rowspan="1" colspan="1">0.001</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1">Warm Cache</th>
+                        <td rowspan="1" colspan="1">0.0245</td>
+                        <td rowspan="1" colspan="1">0.15870</td>
+                        <td rowspan="1" colspan="1">0.02505</td>
+                        <td rowspan="1" colspan="1">0.029</td>
+                        <td rowspan="1" colspan="1">0.0002</td>
+                        <td rowspan="1" colspan="1">0.0255</td>
+                        <td rowspan="1" colspan="1">0.205</td>
+                        <td rowspan="1" colspan="1">0.0008</td>
+                    </tr>
+
+
+                </table>
+                <figcaption>Table summarising the execution time (in seconds) of the query for all the DMSs for warm cache and cold cache configurations.</figcaption>
+                </figure>
+                <p>
+                Along with measuring the execution time of the various queries, the LITMUS framework also measures a variety of system parameters which are responsible for the performance. These parameters are very handy to analyze the performance. An example in this illustration would be the cache-misses for the different DMSs. The performance of cold cache suffers in comparison to that of the warm cache configuration. We observe that the cache misses for the cold cache configurations are higher when compared to the warm cache configurations. <a href="#plot0"> </a> and <a href="#plot1"></a> are plots of a the system based parameters.
+                </p>
+
+
+
+                <figure id="table_3">
+                <table>
+                    <tr>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1">4store</th>
+                        <th rowspan="1" colspan="1">Jena</th>
+                        <th rowspan="1" colspan="1">Neo4j</th>
+                        <th rowspan="1" colspan="1">Orient</th>
+                        <th rowspan="1" colspan="1">RDF3x</th>
+                        <th rowspan="1" colspan="1">Sparksee</th>
+                        <th rowspan="1" colspan="1">Tinker</th>
+                        <th rowspan="1" colspan="1">Virtuoso</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1">Cold Cache</th>
+                        <td rowspan="1" colspan="1">6.93e+7</td>
+                        <td rowspan="1" colspan="1">1.45e+8</td>
+                        <td rowspan="1" colspan="1">4.20e+8</td>
+                        <td rowspan="1" colspan="1">7.02e+8</td>
+                        <td rowspan="1" colspan="1">9.52e+6</td>
+                        <td rowspan="1" colspan="1">5.25e+8</td>
+                        <td rowspan="1" colspan="1">2.08e+9</td>
+                        <td rowspan="1" colspan="1">5.27e+6</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" colspan="1">Warm Cache</th>
+                        <td rowspan="1" colspan="1">4.38e+6</td>
+                        <td rowspan="1" colspan="1">1.42e+8</td>
+                        <td rowspan="1" colspan="1">3.66e+8</td>
+                        <td rowspan="1" colspan="1">4.67e+8</td>
+                        <td rowspan="1" colspan="1">8.02e+5</td>
+                        <td rowspan="1" colspan="1">2.57e+8</td>
+                        <td rowspan="1" colspan="1">1.92e+9</td>
+                        <td rowspan="1" colspan="1">9.64e+5</td>
+                    </tr>
+
+
+                </table>
+                <figcaption>Table summarising the average cache misses for query for the cold cache and warm cache configurations.</figcaption>
+                </figure>
+                <figure id="plot0">
+                <p>
+                    <img src="./cold_cache.png"/>
+                </p>
+                <figcaption>Time taken (in seconds) to execute the query on the Northwind Dataset in a cold cache configuration.</figcaption>
+                </figure>
+
+                <figure id="plot1">
+                <p>
+                    <img src="./instr_cc.png"/>
+                </p>
+                <figcaption>The instructions taken to run the query by Graph based DMS in Cold Cache Configuration.</figcaption>
+                </figure>
+        	</section>
+            <section id="Illustration 2">
+                <h2>Illustration 2</h2>
+                <p>The dataset loading performance of supported RDF and Graph DMSs.
+				In this illustration we load the Northwind dataset in the memory for all the DMS. <a href="#table_3"></a> summarizes the time taken in seconds to load the dataset by the different DMSs.</p>
+
+				<figure id="table_3">
+                <table>
+                    <tr>
+                        <th rowspan="1" colspan="1">4store</th>
+                        <th rowspan="1" colspan="1">Jena</th>
+                        <th rowspan="1" colspan="1">Neo4j</th>
+                        <th rowspan="1" colspan="1">Orient</th>
+                        <th rowspan="1" colspan="1">RDF3x</th>
+                        <th rowspan="1" colspan="1">Sparksee</th>
+                        <th rowspan="1" colspan="1">Tinker</th>
+                        <th rowspan="1" colspan="1">Virtuoso</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1">0.977</td>
+                        <td rowspan="1" colspan="1">8.226</td>
+                        <td rowspan="1" colspan="1">1.493</td>
+                        <td rowspan="1" colspan="1">3.5374</td>
+                        <td rowspan="1" colspan="1">0.6962</td>
+                        <td rowspan="1" colspan="1">0.7252</td>
+                        <td rowspan="1" colspan="1">0.6257</td>
+                        <td rowspan="1" colspan="1">0.279</td>
+                    </tr>
+                 </table>
+                 <figcaption>
+                 Table summarising the time taken (in seconds) for loading the DMS.
+                 </figcaption>
+                </figure>
+
+				<figure id="plot2">
+                <p>
+                    <img src="./load_time.png"/>
+                </p>
+                <figcaption>Time taken (in seconds) to load the Northwind Dataset.</figcaption>
+                </figure>
+
+                <figure id="table_4">
+                <table>
+                    <tr>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1">4store</th>
+                        <th rowspan="1" colspan="1">Jena</th>
+                        <th rowspan="1" colspan="1">Neo4j</th>
+                        <th rowspan="1" colspan="1">Orient</th>
+                        <th rowspan="1" colspan="1">RDF3x</th>
+                        <th rowspan="1" colspan="1">Sparksee</th>
+                        <th rowspan="1" colspan="1">Tinker</th>
+                        <th rowspan="1" colspan="1">Virtuoso</th>
+                    </tr>
+                    <tr>
+                    	<th rowspan="1" colspan="1">Instructions</th>
+                        <td rowspan="1" colspan="1">1.31e+9</td>
+                        <td rowspan="1" colspan="1">1.85e+10</td>
+                        <td rowspan="1" colspan="1">1.75e+10</td>
+                        <td rowspan="1" colspan="1">4.33e+10</td>
+                        <td rowspan="1" colspan="1">1.40e+9</td>
+                        <td rowspan="1" colspan="1">1.08e+10</td>
+                        <td rowspan="1" colspan="1">5.02e+10</td>
+                        <td rowspan="1" colspan="1">1.48e+9</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="1" colspan="1">Cache Misses</th>
+                        <td rowspan="1" colspan="1">2.11e+7</td>
+                        <td rowspan="1" colspan="1">6.50e+8</td>
+                        <td rowspan="1" colspan="1">6.44e+8</td>
+                        <td rowspan="1" colspan="1">1.73e+9</td>
+                        <td rowspan="1" colspan="1">1.77e+7</td>
+                        <td rowspan="1" colspan="1">3.93e+8</td>
+                        <td rowspan="1" colspan="1">2.05e+9</td>
+                        <td rowspan="1" colspan="1">2.78e+7</td>
+                    </tr>
+                    <tr>
+                    	<th rowspan="1" colspan="1">dTLB Misses</th>
+                        <td rowspan="1" colspan="1">2.81e+6</td>
+                        <td rowspan="1" colspan="1">1.15e+8</td>
+                        <td rowspan="1" colspan="1">1.25e+8</td>
+                        <td rowspan="1" colspan="1">3.28e+8</td>
+                        <td rowspan="1" colspan="1">1.55e+6</td>
+                        <td rowspan="1" colspan="1">7.63e+7</td>
+                        <td rowspan="1" colspan="1">3.51e+8</td>
+                        <td rowspan="1" colspan="1">6.05e+6</td>
+                    </tr>
+                 </table>
+                 <figcaption>
+                 Table summarising the average values of various parameters for loading the DMS.
+                 </figcaption>
+                </figure>
+                <p>
+                A lot of factors contribute to the performance of a DMS. In <a href="#table_4"></a>, it can be observed that the performance of the Jena and the Orient DMSs can be attributed to the high number of branch misses and dTLB misses.
+                </p>
+            </section>
+		All the results and plots which were generated as a part of the result can be found here<a href="#results"></a>.
+		</section>
+
+        <section id="Future Work">
+            <h1>Conclusion and Future Work</h1>
+            <p>In this paper we presented a demonstration of the proposed LITMUS benchmark suite <a href="#litmussemantics17"></a>. To the best of our knowledge, LITMUS is the first of its kind open, extensible and fully automated benchmarking framework which allows user-driven benchmarking and result visualization of various RDF and Graph DMSs.
+			The planned future work is as follows:
+
+                <ol>
+                	<li>At present, LITMUS supports eight DMSs. We want to extend the support to a larger number of DMSs and include them in the next version.</li>
+                    <li>We also plan to include task graph computing specific queries such as BFS, DFS in the future.</li>
+                    <li>Furthermore, we plan to provide an on-the-fly SPARQL to Gremlin query translation tool “Gremlinator” for ensuring benchmarking fairness. This will enable constructing gremlin graph pattern matching traversals from corresponding SPARQL queries using the proposed mapping in <a href="#graphalgebrathakkar17"></a></li>
+                    <li>LITMUS currently supports the conversion of a few datasets to Property Graphs. In the next version, we plan to propose a more robust and generalized RDF to Property Graph convertor which can work for custom datasets.</li>
+                    <li>Lastly, we also eye for developing a synthetic dataset generator which will enable LITMUS to become a standalone end-to-end benchmarking framework, without any external dependence for datasets.
+					 </li>
+                </ol>
+            </p>
+        </section>
+
+
+        <!-- Acknowledgements -->
+        <section role="doc-acknowledgements">
+            <h1>Acknowledgments</h1>
+            <p>This work is supported by the funding received from EU-H2020 WDAqua ITN (GA. 642795)</p>
+        </section>
+
+        <!-- References -->
+        <section id="bibreflist" role="doc-bibliography">
+            <h1>References</h1>
+            <ol>
+            	<li id="litmuseswc17" role="doc-biblioentry"><p>Harsh Thakkar.  Towards an Open Extensible Framework for Empirical Benchmarking of Data Management Solutions: LITMUS. In The Semantic Web - 14th International Conference, ESWC 2017, Portorož, Slovenia, May 28 - June 1, 2017, Proceedings, Part II . 256–266. (2017).</p></li>
+            	<li id="litmussemantics17" role="doc-biblioentry"><p>Harsh Thakkar, Yashwant Keswani, Mohnish Dubey, Jens Lehmann, and Sören Auer. Trying Not to Die Benchmarking – Orchestrating RDF and Graph Data Management Solution Benchmarks Using LITMUS . In Proceedings of SEMANTiCS 2017, Amsterdam, Netherlands. (2017).</p></li>
+              <li id="BSBM" role="doc-biblioentry"><p>Christian Bizer and Andreas Schultz. The berlin sparql benchmark. (2009).</p></li>
+            	<li id="WATDIV" role="doc-biblioentry"><p>Güneş Aluç, Olaf Hartig, M Tamer Özsu, and Khuzaima Daudjee. Diversified stress testing of RDF data management systems. In International Semantic Web Conference, Springer, 197-212. (2014).</p></li>
+            	<li id="DBPSB" role="doc-biblioentry"><p>Mohamed Morsey, Jens Lehmann, Sören Auer, and others. DBpedia SPARQL Benchmark – Performance Assessment with Real Queries on Real Data. Springer Berlin Heidelberg, 454–469. (2011).</p></li>
+            	<li id="DBPEDIA" role="doc-biblioentry"><p>Sören Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard Cyganiak, and Zachary Ives.  Dbpedia:  A nucleus for a web of open data.  In The semantic web . Springer, 722–735. (2007).</p></li>
+              <li id="graphalgebrathakkar17" role="doc-biblioentry"><p>Harsh Thakkar, Dharmen Punjani, Maria-Esther Vidal, and Sören Auer. Towards an Integrated Graph Algebra for Graph Pattern Matching with Gremlin. In Proceedings of the 28th International Conference, DEXA 2017, Lyon, France, August 28-31, 2017, Proceedings, Part I . Springer, 81–91. (2017).</p></li>
+                <!-- <li id="Per2014" role="doc-biblioentry"><p>Peroni, S. (2014). Research Articles in Simplified HTML (RASH). <a href="https://rawgit.com/essepuntato/rash/master/grammar/rash.rng">https://rawgit.com/essepuntato/rash/master/grammar/rash.rng</a></p></li> -->
+                <!-- <li id="ParagraphWikipedia" role="doc-biblioentry"><p>Wikipedia entry <q>Paragraph</q>. <a href="https://en.wikipedia.org/wiki/Paragraph">https://en.wikipedia.org/wiki/Paragraph</a> (last visited, December 17, 2014).</p></li> -->
+            </ol>
+        </section>
+
+        <!-- Footnotes -->
+        <section id="fnlist" role="doc-endnotes">
+            <section id="fn1" role="doc-endnote">
+                <p><a href="https://hub.docker.com/r/litmusbenchmarksuite/litmus/">Litmus Benchmark Suite - Dockerhub</a></p>
+            </section>
+            <section id="fn2" role="doc-endnote">
+                <p><a href="https://github.com/LITMUS-Benchmark-Suite/">LITMUS Benchmark Suite - Github/</a></p>
+            </section>
+            <section id="fn3" role="doc-endnote">
+                <p><a href="https://northwinddatabase.codeplex.com/">Northwind Dataset</a></p>
+            </section>
+
+            <section id="openlink" role="doc-endnote">
+            	<p><a href="https://virtuoso.openlinksw.com/">Openlink Virtuoso</a></p>
+            </section>
+
+            <section id="rdf3x" role="doc-endnote">
+            	<p> <a href="https://github.com/gh-rdf3x/gh-rdf3x"> RDF3X</a></p>
+            </section>
+
+            <section id="jena" role="doc-endnote">
+            	<p> <a href="https://Jena.apache.org/">Apache Jena</a></p>
+            </section>
+
+            <section id="4store" role="doc-endnote">
+            	<p> <a href="http://www.4store.com/">4store</a></p>
+            </section>
+
+            <section id="sparksee" role="doc-endnote">
+            	<p> <a href="http://www.sparsity-technologies.com/"> Sparksee </a> </p>
+            </section>
+
+            <section id="neo4j" role="doc-endnote">
+            	<p> <a href="https://neo4j.com/"> Neo4J </a> </p>
+            </section>
+
+            <section id="orient" role="doc-endnote">
+            	<p> <a href="http://orientdb.com/">OrientDB </a> </p>
+            </section>
+
+            <section id="tinkerpop" role="doc-endnote">
+            	<p> <a href="http://tinkerpop.apache.org/"> Apache Tinkerpop</a></p>
+            </section>
+
+			<section id="results" role="doc-endnote">
+				<p> <a href="https://goo.gl/BKcbQE"> Experiment Results </a> </p>
+			</section>
+        </section>
+    </body>
+</html>

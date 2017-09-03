@@ -1,0 +1,56 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{Semantic Annotation for Enhancing Collaborative Ideation}
+\titlerunning{Semantic Annotation for Enhancing Colla}
+\author{Abderrahmane Khiat\inst{1} \and
+Maximilian Mackeprang\inst{1} \and
+Claudia Muller-Birn\inst{1}}
+\authorrunning{Abderrahmane Khiat et al.}
+\institute{Human-Centered Computing Freie Universität Berlin\\
+\email{abderrahmane.khiat@fu-berlin.de, 
+maximilian.mackeprang@fu-berlin.de, 
+clmb@inf.fu-berlin.de}}
+\maketitle
+
+\begin{abstract}
+One of the main processes in innovation is the generation of ideas for new applications of technologies. Research has shown that new ideas can be greatly enhanced through seeing ideas of collaborating individuals (contrary to the „lone inventor`` myth). Online crowd platforms provide a promising approach for supporting such collaborative ideation process due to the heterogeneity of the crowd (each person brings unique knowledge and points of views). To leverage online crowds to generate even more creative ideas, research has explored different ways such as presenting diverse ideas as inspiration or employing expert facilitation. One challenge of collaborative ideation is the amount and the model of delivery of ideas: Large numbers of ideas make it infeasible to check every idea manually. Furthermore, users of crowd ideation submit their ideas in the form of short full text descriptions making it challenging to automatically assess the similarity between ideas and detect clusters. To overcome this challenge, our research aims to obtain insights about the meaning of ideas by the use of semantic technologies, more specifically annotating concepts used in the ideas, and linking them to external knowledge-bases. Then applying conceptual similarity measures to assess the semantic distance (similarity/diversity) between ideas. Furthermore, the semantic distance between all ideas allows to build a two-dimensional representation of the ideas, the so called `solution map'. This solution map can be used to get a quick overview over group efforts, find inspiration, and detect idea clusters.
+
+\keywords{Collaborative Ideation, Crowd Ideation, Ontology, Ontology Matching, Semantic Annotation, Solution Space}
+\end{abstract}
+
+\end{document}
