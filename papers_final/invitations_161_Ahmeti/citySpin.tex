@@ -1,0 +1,116 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{fixltx2e}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage[hyphens]{url}
+\usepackage{upquote,textcomp}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily, upquote=true}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth#1{\ifdim\Gin@nat@width>#1 #1\else\Gin@nat@width\fi}
+\makeatother
+
+\usepackage{amsmath}
+\usepackage{pmml-new}
+
+\usepackage{color,graphics,array,csscolor}
+
+\usepackage{fontspec,unicode-math}
+\usepackage[Latin,Greek]{ucharclasses}
+\setTransitionsForGreek{\fontspec{Times New Roman}}{}
+
+\usepackage{subscript}
+\lstset{breaklines=true, basicstyle=\scriptsize\ttfamily}
+
+\begin{document}
+\mainmatter
+
+\title{CitySPIN: Cyber-Physical Social Systems for City-wide Infrastructures}
+\titlerunning{CitySPIN}
+\author{Aljbin Ahmeti\inst{1} \and
+Saimir Bala\inst{2} \and
+Stefan Belk\inst{1} \and
+Fajar J. Ekaputra\inst{3} \and
+Javier D. Fernández\inst{4} \and
+Elmar Kiesling\inst{3} \and
+Andreas Koller\inst{1} \and
+Jan Mendling\inst{2} \and
+Angelika Musil\inst{5} \and
+Juergen Musil\inst{3} \and
+Axel Polleres\inst{4} \and
+Peb R. Aryan\inst{3} \and
+Marta Sabou\inst{3} \and
+Andreas Solti\inst{2}}
+\authorrunning{Aljbin Ahmeti et al.}
+\institute{Semantic Web Company, Vienna, Austria\and
+Vienna University of Economics and Busines, Vienna, Austria\and
+Vienna University of Technology, Vienna, Austria\and
+Vienna University of Economics and Business & Complexity Science Hub, Vienna, Austria\and
+Vienna University of Technology, Vienna, Austria & Katholieke Universiteit Leuven, Leuven, Belgium\\
+\email{albin.ahmeti@semantic-web.com, 
+saimir.bala@wu.ac.at, 
+stefan.belk@semantic-web.com, 
+fajar.ekaputra@tuwien.ac.at, 
+jfernand@wu.ac.at, 
+elmar.kiesling@tuwien.ac.at, 
+a.koller@semantic-web.at, 
+jan.mendling@wu.ac.at, 
+angelika@computer.org, 
+jmusil@computer.org, 
+axel.polleres@wu.ac.at, 
+peb.aryan@tuwien.ac.at, 
+marta.sabou@ifs.tuwien.ac.at, 
+solti@ai.wu.ac.at}}
+\maketitle
+
+\begin{abstract}
+CitySpin is an Austrian research project funded by the Austrian Federal Ministry of Transport, Innovation and Technology (BMVIT) and the Austrian Research Promotion Agency (FFG) under the program ``ICT of the Future''. The CitySPIN project aims to create a platform for cyber-physical social systems in order to facilitate innovative Smart City infrastructure services. The project is at the forefront of cyber-physical systems research and aims to extend those systems with a social dimension (i.e., cyber-physical social systems).
+
+\keywords{Cyber-physical social systems, Linked Data, Smart City}
+\end{abstract}
+
+
+\section{Motivation}
+
+Large-scale public infrastructures such as transportation and energy networks are vital arteries of urban environments. Citizens expect such city-wide systems to function effectively, efficiently, user-friendly, and in an environmentally friendly manner. In order to ensure such operation, infrastructure providers need a real-time view on the operational status of the infrastructure to effectively control it. To this end, infrastructure providers make great strides towards building cyber-physical systems (CPS)  \cite{__RefHeading__217_247691834} that have the potential to transform their services. 
+
+An emerging trend is the growing recognition of the importance of the social dimension of such CPSs and of the need to evolve them into cyber-physical social systems (CPSS)  \cite{__RefHeading__219_247691834}. Such systems consist not only of software and raw sensing and actuating hardware, but are fundamentally grounded in the behaviour of human actors who both generate data and make informed decisions based on data. This raises new research challenges due to additional complexity introduced by social systems in terms of (i) unpredictability due to social dynamics, (ii) privacy concerns associated with the processing of sensitive social data, and (iii) the number and heterogeneity of data sources that need to be integrated.
+
+\section{Project goals}
+
+The project's main goals are to (i) advance the understanding of CPSSs and their design principles; (ii) provide a platform that addresses the data integration challenges in CPSSs, and (iii) validate the project findings by means of real-world use cases. To that end, the project follows a multidisciplinary approach that brings together research on CPS, Collective Intelligence Systems, Software Engineering, Linked Data, Security and Privacy, and Process Mining. 
+
+The project goals will materialize in a number of concrete, innovative results including (i) a CPSS Blueprint that will foster the understanding of CPSSs and provide a taxonomy of CPSSs and a catalogue of suitable architectural patterns; (ii) a CPSS Sandbox, i.e., a visual environment that eases CPSS design by allowing stakeholders to experiment with data processing pipelines constructed from intelligent building blocks for data acquisition, integration, and analytics; (iii) a technology stack that provides a scalable, privacy-aware data integration framework based on Linked Data technologies; and (iv) demonstrators that apply the developed methods and components to implement two use cases in the energy and transportation domain. 
+
+These goals will be achieved through theoretical and conceptual developments as well as a set of innovative technological components - illustrated in Fig.~\ref{refIllustration0} - that support the CPSS design process in a uniform platform for key stakeholders including decision makers, project managers, software architects, and software engineers.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\maxwidth{\textwidth}]{img/1000000000000FB40000076B2DAB8DA9.jpg}
+\cprotect\caption{CitySPIN conceptual components and their connections}
+\label{refIllustration0}
+\end{figure}
+
+
+\subsubsection*{Acknowledgements.}Supported by the Austrian Federal Ministry of Transport, Innovation and Technology (BMVIT) and the Austrian Research Promotion Agency (FFG) under the program ``ICT of the Future''.
+
+
+\begin{thebibliography}{4}
+
+\bibitem{__RefHeading__217_247691834} Guo, W., Zhang, Y., \& Li, L. (2015). The integration of CPS, CPSS, and ITS: A focus on data. Tsinghua Science and Technology, 20(4), 327--335. \url{http://doi.org/10.1109/TST.2015.7173449}
+\bibitem{__RefHeading__219_247691834} Wang, F.-Y. (2010). The Emergence of Intelligent Enterprises: From CPS to CPSS. IEEE Intelligent Systems, 25(4), 85--88. http://doi.org/10.1109/MIS.2010.104
+
+\end{thebibliography}
+
+\end{document}

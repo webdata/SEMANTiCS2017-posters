@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/rash.css" rel="stylesheet"/>
+  <title>
+   CitySPIN: Cyber-Physical Social Systems for City-wide Infrastructures
+  </title>
+  <meta content="Semantic Web Company, Vienna, Austria" property="schema:name"/>
+  <meta content="Vienna University of Economics and Busines, Vienna, Austria" property="schema:name"/>
+  <meta content="Vienna University of Technology, Vienna, Austria" property="schema:name"/>
+  <meta content="Vienna University of Economics and Business &amp; Complexity Science Hub, Vienna, Austria" property="schema:name"/>
+  <meta content="Vienna University of Technology, Vienna, Austria &amp; Katholieke Universiteit Leuven, Leuven, Belgium" property="schema:name"/>
+  <meta content="Aljbin Ahmeti" name="dc.creator" property="schema:name"/>
+  <meta content="albin.ahmeti@semantic-web.com" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Saimir Bala" name="dc.creator" property="schema:name"/>
+  <meta content="saimir.bala@wu.ac.at" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Stefan Belk" name="dc.creator" property="schema:name"/>
+  <meta content="stefan.belk@semantic-web.com" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Fajar J. Ekaputra" name="dc.creator" property="schema:name"/>
+  <meta content="fajar.ekaputra@tuwien.ac.at" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Javier D. Fernández" name="dc.creator" property="schema:name"/>
+  <meta content="jfernand@wu.ac.at" property="schema:email"/>
+  <link href="#affiliation-4" property="schema:affiliation"/>
+  <meta content="Elmar Kiesling" name="dc.creator" property="schema:name"/>
+  <meta content="elmar.kiesling@tuwien.ac.at" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Andreas Koller" name="dc.creator" property="schema:name"/>
+  <meta content="a.koller@semantic-web.at" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Jan Mendling" name="dc.creator" property="schema:name"/>
+  <meta content="jan.mendling@wu.ac.at" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Angelika Musil" name="dc.creator" property="schema:name"/>
+  <meta content="angelika@computer.org" property="schema:email"/>
+  <link href="#affiliation-5" property="schema:affiliation"/>
+  <meta content="Juergen Musil" name="dc.creator" property="schema:name"/>
+  <meta content="jmusil@computer.org" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Axel Polleres" name="dc.creator" property="schema:name"/>
+  <meta content="axel.polleres@wu.ac.at" property="schema:email"/>
+  <link href="#affiliation-4" property="schema:affiliation"/>
+  <meta content="Peb R. Aryan" name="dc.creator" property="schema:name"/>
+  <meta content="peb.aryan@tuwien.ac.at" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Marta Sabou" name="dc.creator" property="schema:name"/>
+  <meta content="marta.sabou@ifs.tuwien.ac.at" property="schema:email"/>
+  <link href="#affiliation-3" property="schema:affiliation"/>
+  <meta content="Andreas Solti" name="dc.creator" property="schema:name"/>
+  <meta content="solti@ai.wu.ac.at" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Linked Data" property="prism:keyword"/>
+  <meta content="Cyber-physical social systems" property="prism:keyword"/>
+  <meta content="Smart City" property="prism:keyword"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    CitySPIN: Cyber-Physical Social Systems for City-wide Infrastructures
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Aljbin Ahmeti
+    </strong>
+    <code class="email">
+     <a href="mailto:albin.ahmeti@semantic-web.com">
+      albin.ahmeti@semantic-web.com
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Semantic Web Company, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Saimir Bala
+    </strong>
+    <code class="email">
+     <a href="mailto:saimir.bala@wu.ac.at">
+      saimir.bala@wu.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Economics and Busines, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Stefan Belk
+    </strong>
+    <code class="email">
+     <a href="mailto:stefan.belk@semantic-web.com">
+      stefan.belk@semantic-web.com
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Semantic Web Company, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Fajar J. Ekaputra
+    </strong>
+    <code class="email">
+     <a href="mailto:fajar.ekaputra@tuwien.ac.at">
+      fajar.ekaputra@tuwien.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Javier D. Fernández
+    </strong>
+    <code class="email">
+     <a href="mailto:jfernand@wu.ac.at">
+      jfernand@wu.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Economics and Business &amp; Complexity Science Hub, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Elmar Kiesling
+    </strong>
+    <code class="email">
+     <a href="mailto:elmar.kiesling@tuwien.ac.at">
+      elmar.kiesling@tuwien.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Andreas Koller
+    </strong>
+    <code class="email">
+     <a href="mailto:a.koller@semantic-web.at">
+      a.koller@semantic-web.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Semantic Web Company, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Jan Mendling
+    </strong>
+    <code class="email">
+     <a href="mailto:jan.mendling@wu.ac.at">
+      jan.mendling@wu.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Economics and Busines, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Angelika Musil
+    </strong>
+    <code class="email">
+     <a href="mailto:angelika@computer.org">
+      angelika@computer.org
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria &amp; Katholieke Universiteit Leuven, Leuven, Belgium
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Juergen Musil
+    </strong>
+    <code class="email">
+     <a href="mailto:jmusil@computer.org">
+      jmusil@computer.org
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Axel Polleres
+    </strong>
+    <code class="email">
+     <a href="mailto:axel.polleres@wu.ac.at">
+      axel.polleres@wu.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Economics and Business &amp; Complexity Science Hub, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Peb R. Aryan
+    </strong>
+    <code class="email">
+     <a href="mailto:peb.aryan@tuwien.ac.at">
+      peb.aryan@tuwien.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Marta Sabou
+    </strong>
+    <code class="email">
+     <a href="mailto:marta.sabou@ifs.tuwien.ac.at">
+      marta.sabou@ifs.tuwien.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Technology, Vienna, Austria
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Andreas Solti
+    </strong>
+    <code class="email">
+     <a href="mailto:solti@ai.wu.ac.at">
+      solti@ai.wu.ac.at
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Vienna University of Economics and Busines, Vienna, Austria
+    </span>
+   </address>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       Linked Data
+      </code>
+     </li>
+     <li>
+      <code>
+       Cyber-physical social systems
+      </code>
+     </li>
+     <li>
+      <code>
+       Smart City
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    CitySpin is an Austrian research project funded by the Austrian Federal Ministry of Transport, Innovation and Technology (BMVIT) and the Austrian Research Promotion Agency (FFG) under the program
+    <q>
+     ICT of the Future
+    </q>
+    . The CitySPIN project aims to create a platform for cyber-physical social systems in order to facilitate innovative Smart City infrastructure services. The project is at the forefront of cyber-physical systems research and aims to extend those systems with a social dimension (i.e., cyber-physical social systems).
+   </p>
+  </section>
+  <section>
+   <h1>
+    Motivation
+   </h1>
+   <p>
+    Large-scale public infrastructures such as transportation and energy networks are vital arteries of urban environments. Citizens expect such city-wide systems to function effectively, efficiently, user-friendly, and in an environmentally friendly manner. In order to ensure such operation, infrastructure providers need a real-time view on the operational status of the infrastructure to effectively control it. To this end, infrastructure providers make great strides towards building cyber-physical systems (CPS)
+    <a href="#__RefHeading__217_247691834">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Guo, W., Zhang, Y., &amp; Li, L. (2015). The integration of CPS, CPSS, and ITS: A focus on data. Tsinghua Science and Technology, 20(4), 327–335. http://doi.org/10.1109/TST.2015.7173449">
+      [1]
+     </span>
+    </a>
+    that have the potential to transform their services.
+   </p>
+   <p>
+    An emerging trend is the growing recognition of the importance of the social dimension of such CPSs and of the need to evolve them into cyber-physical social systems (CPSS)
+    <a href="#__RefHeading__219_247691834">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Wang, F.-Y. (2010). The Emergence of Intelligent Enterprises: From CPS to CPSS. IEEE Intelligent Systems, 25(4), 85–88. http://doi.org/10.1109/MIS.2010.104">
+      [2]
+     </span>
+    </a>
+    . Such systems consist not only of software and raw sensing and actuating hardware, but are fundamentally grounded in the behaviour of human actors who both generate data and make informed decisions based on data. This raises new research challenges due to additional complexity introduced by social systems in terms of (i) unpredictability due to social dynamics, (ii) privacy concerns associated with the processing of sensitive social data, and (iii) the number and heterogeneity of data sources that need to be integrated.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Project goals
+   </h1>
+   <p>
+    The project’s main goals are to (i) advance the understanding of CPSSs and their design principles; (ii) provide a platform that addresses the data integration challenges in CPSSs, and (iii) validate the project findings by means of real-world use cases. To that end, the project follows a multidisciplinary approach that brings together research on CPS, Collective Intelligence Systems, Software Engineering, Linked Data, Security and Privacy, and Process Mining.
+   </p>
+   <p>
+    The project goals will materialize in a number of concrete, innovative results including (i) a CPSS Blueprint that will foster the understanding of CPSSs and provide a taxonomy of CPSSs and a catalogue of suitable architectural patterns; (ii) a CPSS Sandbox, i.e., a visual environment that eases CPSS design by allowing stakeholders to experiment with data processing pipelines constructed from intelligent building blocks for data acquisition, integration, and analytics; (iii) a technology stack that provides a scalable, privacy-aware data integration framework based on Linked Data technologies; and (iv) demonstrators that apply the developed methods and components to implement two use cases in the energy and transportation domain.
+   </p>
+   <p>
+    These goals will be achieved through theoretical and conceptual developments as well as a set of innovative technological components - illustrated in
+    <a href="#refIllustration0">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 1
+     </span>
+    </a>
+    - that support the CPSS design process in a uniform platform for key stakeholders including decision makers, project managers, software architects, and software engineers.
+   </p>
+   <p>
+   </p>
+   <figure id="refIllustration0">
+    <p>
+     <img alt="CitySPIN conceptual components and their connections" src="img/1000000000000FB40000076B2DAB8DA9.jpg"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 1.
+     </strong>
+     CitySPIN conceptual components and their connections
+    </figcaption>
+   </figure>
+  </section>
+  <section class="doc-acknowledgements">
+   <h1>
+    Acknowledgements
+   </h1>
+   <p>
+    Supported by the Austrian Federal Ministry of Transport, Innovation and Technology (BMVIT) and the Austrian Research Promotion Agency (FFG) under the program
+    <q>
+     ICT of the Future
+    </q>
+    .
+   </p>
+  </section>
+  <section class="doc-bibliography">
+   <h1>
+    References
+   </h1>
+   <ol>
+    <li class="doc-biblioentry" id="__RefHeading__217_247691834">
+     <p>
+      Guo, W., Zhang, Y., &amp; Li, L. (2015). The integration of CPS, CPSS, and ITS: A focus on data. Tsinghua Science and Technology, 20(4), 327–335.
+      <a href="http://doi.org/10.1109/TST.2015.7173449">
+       http://doi.org/10.1109/TST.2015.7173449
+      </a>
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefHeading__219_247691834">
+     <p>
+      Wang, F.-Y. (2010). The Emergence of Intelligent Enterprises: From CPS to CPSS. IEEE Intelligent Systems, 25(4), 85–88. http://doi.org/10.1109/MIS.2010.104
+     </p>
+    </li>
+   </ol>
+  </section>
+ </body>
+</html>
