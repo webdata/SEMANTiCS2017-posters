@@ -1,0 +1,216 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2552"^^xsd:nonNegativeInteger ;
+    nif:isString """TOMMASO SORU              tsoru@informatik.uni-leipzig.de             Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany  EDGARD MARX              edgard.marx@htwk-leipzig.de             Faculty of Computer Science Mathematics and Natural Sciences, Leipzig University of Applied Sciences, Germany  DIEGO MOUSSALLEM              moussallem@informatik.uni-leipzig.de             Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany  GUSTAVO PUBLIO              gustavo.publio@informatik.uni-leipzig.de             Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany  ANDRÉ VALDESTILHAS              valdestilhas@informatik.uni-leipzig.de             Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany  DIEGO ESTEVES              esteves@cs.uni-bonn.de             Smart Data Analytics, University of Bonn, Germany  CIRO BARON NETO              cbaron@informatik.uni-leipzig.de             Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany  KEYWORDS  -           Question Answering        -           Machine Translation        -           Neural Networks        -           Deep Learning        -           SPARQL        -           Linked Data           ABSTRACT   Recently, the Linked Data Cloud has achieved a size of more than 100 billion facts pertaining to a multitude of domains. However, accessing this information has been significantly challenging for lay users. Approaches to problems such as Question Answering on Linked Data and Link Discovery have notably played a role in increasing information access. These approaches are often based on handcrafted and/or statistical models derived from data observation. Recently, Deep Learning architectures based on Neural Networks called seq2seq have shown to achieve the state-of-the-art results at translating sequences into sequences. In this direction, we propose Neural SPARQL Machines, end-to-end deep architectures to translate any natural language expression into sentences encoding SPARQL queries. Our preliminary results, restricted on selected DBpedia classes, show that Neural SPARQL Machines are a promising approach for Question Answering on Linked Data, as they can deal with known problems such as vocabulary mismatch and perform graph pattern composition.  NOTES: Accepted at SEMANTiCS 2017 Posters
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_102_114>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "102"^^xsd:nonNegativeInteger ;
+    nif:endIndex "114"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1144_1156>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "1144"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1156"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1203_1210>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "1203"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1210"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9799287416799589 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1388_1394>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1388"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1394"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1414_1425>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1414"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1425"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1461_1472>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1461"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1472"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_161_168>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "161"^^xsd:nonNegativeInteger ;
+    nif:endIndex "168"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9799287416799589 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_1707_1718>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1707"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1718"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_2111_2117>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "2111"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2117"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_2227_2233>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "2227"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2233"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_2325_2331>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "2325"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2331"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_2392_2403>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "2392"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2403"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_306_324>
+    nif:anchorOf "Leipzig University" ;
+    nif:beginIndex "306"^^xsd:nonNegativeInteger ;
+    nif:endIndex "324"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_466_478>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "466"^^xsd:nonNegativeInteger ;
+    nif:endIndex "478"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_525_532>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "525"^^xsd:nonNegativeInteger ;
+    nif:endIndex "532"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9799287416799589 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_656_668>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "656"^^xsd:nonNegativeInteger ;
+    nif:endIndex "668"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_715_722>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "715"^^xsd:nonNegativeInteger ;
+    nif:endIndex "722"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9799287416799589 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_848_860>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "848"^^xsd:nonNegativeInteger ;
+    nif:endIndex "860"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_907_914>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "907"^^xsd:nonNegativeInteger ;
+    nif:endIndex "914"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/140_soru/nif.ttl/#offset_0_2552> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9799287416799589 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+

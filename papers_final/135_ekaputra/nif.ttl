@@ -1,0 +1,289 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13357"^^xsd:nonNegativeInteger ;
+    nif:isString """FAJAR J. EKAPUTRA              fajar.ekaputra@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  NIINA MAARIT NOVAK              niina.novak@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  ELMAR KIESLING              elmar.kiesling@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  PEB R. ARYAN              peb.aryan@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  BA-LAM DO              ba.do@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  TUAN-DAT TRINH              tuan.trinh@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  A MIN TJOA              a.tjoa@tuwien.ac.at             Institute of Software Technology and Information Systems, TU Wien, Austria  KEYWORDS  -           Data Journalism        -           Linked Data Mashup        -           Open Data           ABSTRACT   In line with a broad social and political movement in recent years, public and private sector actors have started to open up their data and to publish it on various portals. However, the actual use of the available open data sets is still rather limited in many sectors. Consequently, the potentials of available open data sets are not fully realized, which may discourage open data publishers. To encourage a broader adoption of open data and to contribute towards making democratic processes more transparent, critical data journalism is essential. In this demo paper, we propose an approach called Open Data Mashups for Data Journalism (ODMOJO) that aims to bridge open data publishers and their consumers, i.e., journalists and society at large, with Linked Data technologies. Specifically, our approach will facilitate the access, reuse, and integration of open data for General Data Journalism. We plan to evaluate our approach with potential journalism partners as well as open data publishers in Austria, to foster further adoption and utilization of open data through data journalism and Linked Data technologies.    INTRODUCTION   The open data movement was initiated in the early 2000s and started to gain momentum worldwide in 2009, when U.S. president Obama in his first policy paper opened up thousands of government datasets to the public [1] . This movement had its early promises to bring accountability of data publishers (i.e., governments and organizations) and to foster innovation and civic participation [7] .  Despite its early promise, the growth of this movement has slowed down lately, thus a catalyst is needed to push the movement further forward. Journalism can act as an intermediary between open data publishers and data consumers and plays a critical role in promoting a broader adoption of open data. To this end, activists aim to cooperate with NGOs and professional journalists to foster the utilization of open data [1] . Nevertheless, journalists are not considered among the main targets of open data. This is evident, for instance, in Stoneman's observation [4] that none of the numerous manifestos and policy papers on open data mentions journalism.  Even with efforts from open data activists to introduce journalists to the concept of open data and a number of potential business models for open data in a journalistic context [3] , major practical adoption barriers remain. In particular, working with (open) data is still a difficult task for many journalists due to a lack of expertise and tools. The quality of open data [10] [11] , e.g., syntax and semantic heterogeneities and metadata mismatches add further challenges to open data utilization. Lowering this utilization barrier and raising awareness for the advantages of open data [13] , specifically on how to facilitate access, reuse, combination, and integration of open data within journalism workflows, are therefore key challenges.  To address these challenges, in this demo paper we propose a semantic collaborative mashup environment for open data journalism. To this end, we develop a platform that facilitates efficient integration of open data within General Data Journalism practice using Linked Data technologies. We will explain related work, our platform and initial prototype development next.    RELATED WORK   A closer look on the tools used to assist today’s data journalists, reveals that a mix of well established, traditional tools and modern web-based technologies is currently being employed in Data Journalism [13] .  For cleaning, organizing and analysing data sets tools such as spreadsheets (e.g. Microsoft Excel), databases (e.g. Microsoft Access, MySQL), text-editors (e.g. TextMate, BBEdit) and statistical software (SPSS Statistics, R) are predominantly used. Web-based tools including Open Refine ¹ and Google Fusion Tables are used for publishing and connecting data with other services. Data visualization tools include Tableau ² and Google Fusion Tables for visualising maps. Moreover, arbitrary programming languages (e.g. Python, Ruby, JavaScript) are used. Notably data journalists prefer end user tools which require, none or very little assistance of developers to create content [13] .  To utilize open data in Data Journalism there are various ways, including single-purpose apps, interactive apps, information aggregators, comparison models, open data repositories and service platforms [3] . From these options, service platforms for open data, such as Junar ³ or Engage ⁴ are particularly interesting in journalistic applications due to their support for a broad range of open data sources acquisition and visualization. Other tools such as Sparqlines [15] focus on visualizations for displaying statistical open data as inline-charts. However, the currently available tools for open data have a number of limitations. First, they are not designed to allow ad-hoc integration of heterogeneous data from various sources. Second, they do not provide complete provenance information for data visualization results (related to trust issue). Finally, since they are not designed specifically for journalism, they lack integration with journalism article authoring tools.  We observe that the existing tools and platforms for Data Journalism and open data consist of a variety of different tools for assisting parts of the data journalism process. There is, however, a lack for a comprehensive tool to assist data journalists throughout the process. To this extent, the ODMOJO approach aims at providing a novel tool for assisting data journalists to not only organise and analyse data, but above all to integrate and process data, as well as to publish and embed data in articles as interactive data visualisations with provenance information.    OPEN DATA MASHUPS FOR DATA JOURNALISM   Although Data Journalism only gained strong momentum in recent years in journalistic communities [2] [8] , analyzing quantitative data has been a professional subfield of computer-assisted reporting (CAR) since the late 1980s. In a broad sense of today’s data journalism, a descendant of CAR, involves any activity dealing with data in conjunction with journalistic activities, in particular obtaining, reporting on, curating and publishing data. Data journalists therefore require expertise in statistical analysis, computer science, visualisation tools and web design [14] . A recent publication categorizes Data Journalism into three categories [6] :  -   INVESTIGATIVE DATA JOURNALISM (IDJ) , where journalists spend     considerable time (up to several years) to prepare data stories,     typically based on large and heterogeneous data. Investigation     requires considerable efforts and advanced data and coding skills as     these stories are typically focused on unofficial, confidential     and/or data leaks.  -   GENERIC DATA JOURNALISM (GDJ) , where journalists have limited time     (few hours to several days) and data skills. They typically focus on     data stories involving public and open access data.  -   REAL-TIME DATA JOURNALISM (RDJ) , where journalism articles     are (semi-) automatically generated from data. RDJ requires specific     data skills and is typically based on real-time official press     releases and emails.  The Open Data Mashups for Data Journalism (ODMOJO) approach aims at bridging the gap between open data publishers and journalists. It will support Generic Data Journalism (GDJ) by lowering the barrier of open data utilization for journalists. An overview of the ODMOJO approach is shown in Figure 1 . The approach is built on three main pillars: (i) flexible ad-hoc data integration, (ii) collaborative authoring, and (iii) reader engagement. Each of these core functionalities yield benefits for the tasks of Getting Data, Using Data and Delivering Data Stories of Data Journalism [2] , respectively.  [ Open Data Mashups for Data Journalism]  FIGURE 1. Open Data Mashups for Data Journalism 1.  FLEXIBLE AD-HOC DATA INTEGRATION of open and non-open data from     heterogeneous sources leverages semantic representations as a data     integration enabler. Apart from open data, it is also possible to     integrate data from other sources, such as social media, the linked     data cloud or internal data of news organizations.  2.  COLLABORATIVE AUTHORING provides an infrastructure that helps     journalists and data engineers -a typical role in current news     organizations- to work together in creating data stories. This     concept allows data engineers to provide data collections as     individual widgets that can be reused and combined with other     widgets as necessary. ODMOJO also facilitates integration with     advanced analytic tools and local data storage as part of a     tool chain.  3.  READER ENGAGEMENT . The ODMOJO approach aims at increasing reader     engagement through a set of features such as interactive     visualizations (e.g., data parameterization), the provision of     provenance information (i.e., data tracing), sharing functions     (e.g., to social media), and embedding tools (e.g., iframe for     web blog). PROTOTYPE: A LINKED WIDGET PLATFORM EXTENSION   We develop an initial prototype of the ODMOJO approach using Symphony framework ⁵ as an extension of the Linked Widget Platform (LWP) [5] [9] , a Linked Data-based mashup environment where end-users can assemble sets of Linked Widgets –an extension of standard web widgets with associated semantic models- as a mashup to address their data needs.  The LWP provides powerful mechanisms for users to acquire, process, integrate and visualise data, via different types of widgets: data/input widgets for data acquisitions, process/transformation widgets for data integration and processing, and output widgets for presentations or visualizations [9] [5] . We choose to build ODMOJO on LWP instead of other alternatives, such as LD-Reactor [12] , due to the LWP ability to provide an interactive and collaborative mechanism for (open) data integration and processing. Furthermore, the LWP is developed according to three fundamental principles, which make it suitable as the basis for a development of an ODMOJO prototype:  -   OPENNESS - developers can implement and add their Linked Widgets to     the Linked Widget Platform.  -   CONNECTEDNESS - users can integrate Linked Widgets from various     developers by connecting them in a Linked Widget Mashup, and  -   REUSABILITY - facilitating users to share and adapt both Linked     Widgets and Linked Widget Mashups.  [ A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right)]  FIGURE 2. A Linked Widget mashup for air quality data in Vienna (left); An article with an embedded mashup in the ODMOJO authoring tool prototype (right) An example of a simple geo-location Linked Widget mashup for air quality measurement in the city of Vienna and the respective ODMOJO authoring tool prototype for embedding the widget in an article is shown in Figure 2 . In the prototype, journalists or data engineers can develop, fork or reuse open and non-open data mashups for articles in an LWP demo instance ⁶ . The resulting mashups are then available for embedding in an authoring environment ⁷ . Articles produced from the prototype allow users to interact, parameterize, and see the data processing flow in order to foster engagement. A video, demonstrating the initial ODMOJO prototype is available online ⁸ .  To fully support the ODMOJO approach, the following improvements are currently planned:  -   SCALABLE SYSTEM ARCHITECTURE - the Linked Widget server needs to be     scalable in order to handle a large number of reader interactions.  -   DATA SECURITY AND PRIVACY - sensitive data may need to be secured     and/or anonymized before publication.  -   LINKED WIDGETS FOR JOURNALISM - to address specific journalistic     requirements with respect to access, processing, and visualization     of data, a set of appropriate widgets should be developed.    REFERENCES   1.        Baack, S.: Datafication and empowerment: How the open data movement     re-articulates notions of democracy, participation, and journalism.     Big Data
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_1032_1043>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1032"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1043"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_11705_11711>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "11705"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11711"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999997534451117 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_11861_11867>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "11861"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11867"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999997534451117 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_12058_12064>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "12058"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12064"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999997534451117 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_12239_12243>
+    nif:anchorOf "fork" ;
+    nif:beginIndex "12239"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12243"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Fork_(software_development)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_138_145>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "138"^^xsd:nonNegativeInteger ;
+    nif:endIndex "145"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_1856_1867>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1856"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1867"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_2105_2112>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "2105"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2112"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_2198_2209>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "2198"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2209"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_283_290>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "283"^^xsd:nonNegativeInteger ;
+    nif:endIndex "290"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_427_434>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "427"^^xsd:nonNegativeInteger ;
+    nif:endIndex "434"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4304_4315>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "4304"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4315"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4728_4737>
+    nif:anchorOf "Microsoft" ;
+    nif:beginIndex "4728"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4737"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9996219050959314 ;
+    itsrdf:taIdentRef dbpedia:Microsoft_SQL_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4738_4743>
+    nif:anchorOf "Excel" ;
+    nif:beginIndex "4738"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4743"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Microsoft_Excel .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4762_4771>
+    nif:anchorOf "Microsoft" ;
+    nif:beginIndex "4762"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4771"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9996219050959314 ;
+    itsrdf:taIdentRef dbpedia:Microsoft_SQL_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4780_4785>
+    nif:anchorOf "MySQL" ;
+    nif:beginIndex "4780"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4785"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:MySQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4817_4823>
+    nif:anchorOf "BBEdit" ;
+    nif:beginIndex "4817"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4823"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:BBEdit .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4851_4855>
+    nif:anchorOf "SPSS" ;
+    nif:beginIndex "4851"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4855"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPSS .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_4939_4959>
+    nif:anchorOf "Google Fusion Tables" ;
+    nif:beginIndex "4939"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4959"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Website, dbo:Work, schema:CreativeWork, schema:WebPage ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Google_Fusion_Tables .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_5072_5092>
+    nif:anchorOf "Google Fusion Tables" ;
+    nif:beginIndex "5072"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5092"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Website, dbo:Work, schema:CreativeWork, schema:WebPage ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Google_Fusion_Tables .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_564_571>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "564"^^xsd:nonNegativeInteger ;
+    nif:endIndex "571"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_694_701>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "694"^^xsd:nonNegativeInteger ;
+    nif:endIndex "701"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_7940_7950>
+    nif:anchorOf "data leaks" ;
+    nif:beginIndex "7940"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7950"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9998859171260505 ;
+    itsrdf:taIdentRef dbpedia:Data_breach .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_834_841>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "834"^^xsd:nonNegativeInteger ;
+    nif:endIndex "841"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_966_973>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "966"^^xsd:nonNegativeInteger ;
+    nif:endIndex "973"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/135_ekaputra/nif.ttl/#offset_0_13357> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999971061548457 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+

@@ -1,0 +1,74 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "719"^^xsd:nonNegativeInteger ;
+    nif:isString """ERWIN FOLMER              e.j.a.folmer@utwente.nl             University of Twente  WOUTER BEEK              w.g.j.beek@vu.nl             Dept. of Computer Science, VU University Amsterdam, NL  KEYWORDS  -           Linked Data        -           Application        -           Use Case        -           Architecture           ABSTRACT   The poster will describe the architecture of one of the largest linked data implementations in the Netherlands, at the Kadaster. At Kadaster several key registers of the Netherlands,such as buildings and addresses, topographic maps, are published as linked data, and updated frequently. The demo will showcase interesting possibilities with this data, in so called data stories.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_165_188>
+    nif:anchorOf "VU University Amsterdam" ;
+    nif:beginIndex "165"^^xsd:nonNegativeInteger ;
+    nif:endIndex "188"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Vrije_Universiteit .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_216_227>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "216"^^xsd:nonNegativeInteger ;
+    nif:endIndex "227"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_439_450>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "439"^^xsd:nonNegativeInteger ;
+    nif:endIndex "450"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999997243761338 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_510_521>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "510"^^xsd:nonNegativeInteger ;
+    nif:endIndex "521"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999997243761338 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_76_82>
+    nif:anchorOf "Twente" ;
+    nif:beginIndex "76"^^xsd:nonNegativeInteger ;
+    nif:endIndex "82"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/142_Folmer/nif.ttl/#offset_0_719> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9894872628185581 ;
+    itsrdf:taIdentRef dbpedia:Twente .
+

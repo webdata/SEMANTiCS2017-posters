@@ -1,0 +1,103 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1257"^^xsd:nonNegativeInteger ;
+    nif:isString """CHARBEL EL KAED              charbel.kaed@outlook.com             Schneider Electric  ANDRE PONNOURADJANE              charbel.kaed@gmail.com             Schneider Electric  KEYWORDS  -           Internet of Things        -           Ontology        -           Model Driven Engineering        -           IoT development           ABSTRACT   The Internet of Things promises several exciting opportunities and added value services in several industrial contexts. Such opportunities are enabled by the interconnectivity and cooperation between various things. However, these promises are still facing the interoperability challenge. Semantic technology and linked data are well positioned to tackle the heterogeneity problem. Several efforts contributed to the development of ontology editors and tools for storing and querying linked data. However, despite the potential and the promises, semantic technology remains in the hands of the few, a minority of experts. In this paper, we propose a model driven methodology and a software module (OLGA) that completes existing ontology development libraries and frameworks in order to accelerate the adoption of ontology-based IoT application development. We validated our approach using the ETSI SAREF ontology.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_1071_1079>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1071"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1079"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999366764 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_1236_1240>
+    nif:anchorOf "ETSI" ;
+    nif:beginIndex "1236"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1240"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Telecommunications_Standards_Institute .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_1247_1255>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1247"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1255"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999366764 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_154_172>
+    nif:anchorOf "Schneider Electric" ;
+    nif:beginIndex "154"^^xsd:nonNegativeInteger ;
+    nif:endIndex "172"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Schneider_Electric .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_262_286>
+    nif:anchorOf "Model Driven Engineering" ;
+    nif:beginIndex "262"^^xsd:nonNegativeInteger ;
+    nif:endIndex "286"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Model-driven_engineering .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_42_53>
+    nif:anchorOf "outlook.com" ;
+    nif:beginIndex "42"^^xsd:nonNegativeInteger ;
+    nif:endIndex "53"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Website, dbo:Work, schema:CreativeWork, schema:WebPage ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Outlook.com> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_66_84>
+    nif:anchorOf "Schneider Electric" ;
+    nif:beginIndex "66"^^xsd:nonNegativeInteger ;
+    nif:endIndex "84"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Schneider_Electric .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_775_783>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "775"^^xsd:nonNegativeInteger ;
+    nif:endIndex "783"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/145_El_Kaed/nif.ttl/#offset_0_1257> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999366764 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+

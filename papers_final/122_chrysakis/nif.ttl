@@ -1,0 +1,444 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14867"^^xsd:nonNegativeInteger ;
+    nif:isString """IOANNIS CHRYSAKIS              hrysakis@ics.forth.gr             Foundation for Research and Technology Hellas, Institute of Computer Science  EMMANOUIL DERMITZAKIS              dermitz@ics.forth.gr             Foundation for Research and Technology Hellas, Institute of Computer Science  GIORGOS FLOURIS              fgeo@ics.forth.gr             Foundation for Research and Technology Hellas, Institute of Computer Science  THEODORE PATKOS              patkos@ics.forth.gr             Foundation for Research and Technology Hellas, Institute of Computer Science  DIMITRIS PLEXOUSAKIS              dp@ics.forth.gr             Foundation for Research and Technology Hellas, Institute of Computer Science  KEYWORDS  -           web semantics        -           linked data        -           digital libraries        -           publication systems        -           ontology management           ABSTRACT   Publication management systems can be instrumental in disseminating research results across academia and industry, by providing facilities for uploading, editing and searching for publications. Usually, these systems can be used by individuals to assist them in their research or by organizations to help them classify and promote their publication items. In this paper, we present PRESS, an open-source publication system that exploits semantic technologies in order to cover the needs of both individuals and organizations. Thus, it supports fast data entry, advanced query capabilities and integration with other systems or datasets.    INTRODUCTION   Technological and science evolution frequently leads to innovative research results that can be exploited to improve our life through new techniques, products and services. Typically, research results are recorded in publications in order to keep academia and industry always informed. Thus, scientists and developers can be assisted to extend and evolve their work or to be inspired towards new discoveries. Moreover, inside a lab or a large organization there is a need to store publications into an open repository, which should be easily accessible to the public for the purposes of dissemination, or for reasons related to internal document classification. In fact, we can find systems that automatically aggregate or index publications like Google Scholar and DBLP.  Therefore, it is valuable to deploy systems that can store and organize the different types of publications for easy browsing and exploration. This is the aim of publication management systems, which provide facilities for both ingestion and searching in a corpus of publications. Although a variety of commercial systems exists, this paper provides an advanced, open-source solution, which facilitates flexible customization, independence and integration. Most other open-source approaches offer limited search capabilities, because they rely on rigid relational schemes and could not exploit semantics.  We employ semantic technologies to provide more advanced search capabilities and full classification of publications on a system that follows a loosely-coupled architecture. More precisely, we use a custom ontology that covers the proposed classification scheme and is compatible with the CERIF model [1] a standard that the EU recommends to its member states for recording information about research activity. To validate our approach, we load a dataset to the repository that contains actual publications and has been originally expressed in CERIF XML format.    RELATED WORK   Publication systems are part of the wider class of integrated library systems (ILS). Focusing on those that provide functionalities for both inserting and searching for publications we can distinguish between commercial and open-source solutions.  Commercial solutions are designed mainly for expert users, such as librarians, and offer automation on traditional librarian tasks, such as digitizing, cataloguing and storing publications. The Ex Libris by ProQuest ¹ has gained status as the largest technology provider to academic libraries [2] offering APIs, platforms and discovery services. Similarly OCLC ² and Bibliotheca ³ provide a variety of commercial apps (i.e. cloudLibrary, Worldshare Management Services) that can satisfy the end user in terms of ingesting or browsing publication content. Although these solutions are robust, they are not public and extensible (some of them do not even provide a web interface), and cannot address specialized needs.  Open-source solutions include Dspace ⁴ , Koha ⁵ and Fedora ⁶ . Dspace and Koha have the advantage of providing a web interface, which facilitates the use of a typical publication system by academic or research institutes. Fedora is an open source repository system, but lacks an interface for the related features. The main limitation of these systems is their difficulty in expressing complex queries beyond the typical text search as this presupposed knowledge of the underlying relational database schemas. Another approach is to employ a content management system (CMS), like Drupal, and its supported publications modules (e.g. Biblio). The limitation of this solution is that the system can become so bound to the CMS and to its respective relational database, thereby reducing query capabilities. Bibbase ⁷ dynamically renders an up-to-date HTML page enabling a web based solution with easy setup and integration, based on bib files which are processed centrally by the BibBase server.  OpenAIRE ⁸ is a participatory European open access infrastructure that acts as aggregator of scientific publications and associated material via repository networks like Zenodo ⁹ . It does not actually stores publications but exposes them using Dublin Core model ¹⁰ through respective LOD services, while offering guidelines to support CERIF-XML semantics. Finally, Folio ¹¹ is a recent community-based approach that represents a partnership between libraries and vendors aiming to create an open source library services platform and a \"plug-and-play\" application that will function as a cohesive experience in a single user interface.    METHODOLOGY   Semantics Semantic Web technology enables more sophisticated knowledge management, by applying evolving and refactoring schemas, metadata and relationships between them [3] . The flexibility of semantically enriched data gives rise to the implementation of efficient semantics-aware applications that can facilitate data integration, support knowledge enrichment and advanced query capabilities by searching between multiple patterns across the metadata.  Our system leverages such technologies by developing a basic ontology in OWL (called Press Ontology) which is CERIF compatible and captures the core schema containing basic entities that are related with each publication, and their respective properties and relationships. The ontology (see Figure 1 ) consists of 6 top classes, 4 main (Publication, Person, Laboratory and Project) and 2 complementary ones (List, List_Slot). The latter are used for keeping the sequence on items following the approach of [4] . Classes are connected through 7 object properties that denote their relationships. We use 47 data properties to cover all attributes of a publication.  [The PRESS Ontology]  FIGURE 1. The PRESS Ontology The Publication class contains 4 direct subclasses and various indirect ones, representing different publication types (e.g., Book, Conference/Workshop etc). Different properties are used to connect publications to their authors (a property to the Person Class), authors’ affiliations (property to Organization) and projects that funded the work (property to Project Class). We use the FOAF ontology ¹² for Person entities. Finally, the PRESS ontology provides features like keeping the order of authors, distinguishing peer reviewed from non-peer reviewed publications, better query evaluation based on indirect classes classification and a small but comprehensive schema. For each publication we store metadata information as RDF triples to the Blazegraph ¹³ repository which is an ultra-scalable, open-sourced, high-performance graph database which can store up to 50B triples/quads. It is a plug and play cross-platform software, which also provides a REST API with an embedded endpoint for enabling SPARQL query functionalities.   Architecture  For the basic functionalities of PRESS we chose Drupal ¹⁴ , a robust CMS with a large established community that enables scalable development of web modules. PRESS can be conceptually divided into four main groups for the installed modules plus one for our developed module (see Figure 2 ). All modules communicate with each other independently of their conceptual group since they are built with the same Web Programming technologies. The first group deals with the _User Authentication_ containing modules for leveraging security to the system. The second group ( _UI Modules_ ) is related with modules necessary for the User Interface development. The third group consists of _Back-End modules_ which are necessary for the unique identification and storing of each publication, enabling search engine optimization and sharing of external libraries. The core drupal functionalities are provided by the default _Core Modules_ group. Finally, the drupal module that we implemented (named _Publication Module_ ) creates one page per publication, and displays all the relevant information that can be edited later by each author.  [The PRESS Architecture]  FIGURE 2. The PRESS Architecture Also, we developed a library ( _PRESS library_ ) that deals with the basic user interfaces for inserting, editing or searching for any publication exploiting the core UI modules and the publication module. Finally, the actual document of publication is stored as a pdf file in the file system of the webserver, exploiting the core modules of Drupal. Our architecture is loosely-coupled. Thus, we can replace existing modules (e.g., user authentication), interfaces (e.g. search interface), or even the ontology schema with alternative implementations without jeopardizing data consistency. All data is accessible through a public SPARQL endpoint.   Features and Innovation  The core innovative feature of PRESS is its advanced query capabilities. For example, it supports full free text queries by using the extended RDF predicate _bds:search_ of SPARQL, as it has been implemented in Blazegraph. Moreover, with SPARQL, we can make complex and expressive queries upon RDF/OWL metadata, such as cross snapshot queries, range queries on dates etc. The use of Blazegraph Repository ensures scalability and stability [5] for the storing of all semantic information. Another advantage of PRESS is that it is open-source, cross platform, web-based and requires low resources to run [8] . It is extensible and currently integrated with Drupal CMS. In addition, a core design decision was for the system to be usable by all kinds of users, and not just experienced ones (i.e. librarians). Towards this end, we support a responsive and user-friendly interface, a basic security policy, import/export facilities (using DOI) and search engine optimization techniques. To the best of our knowledge there is no other semantic-aware open-source publication system that can provide all the above functionalities.    IMPLEMENTATION   The Press System  We will now present briefly two basic user interfaces of PRESS that implemented using the bootstrap library ¹⁵ . The authenticated user has two options: to add a publication manually via a webform, or to enter the respective DOI [6] (see Figure 3 ). In the first option the user has to select a category and a subcategory and in turn to fill in the dynamic fields of the form. The second option helps users to automatically fill in all the fields by extracting information of the imported DOI embedding the CrossrefOpen URL resolver functionality. PRESS can automatically add an author, which is authorized (via LDAP module) or can manually add a new one. Also, it can change the order via drag and drop functionality. Furthermore, user-defined tags could be added per publication for extra classification purposes.  The search interface gives three options of searching (see Figure 4 ): full-text search, advanced search and browsing by category. The full text search capability provides fast retrieving information of a keyword or a phrase that is contained in at least one attribute of a publication. The advanced search offers query templates that can be enabled dynamically according to user options and under specified concepts (i.e peer reviewed publications). These templates can be configured to support any kind of linked concept (semantically any class or property). Finally, the browsing by category gives a supervisory look of the current status of the publication repository focusing on the classification of the publications. In each top category the user can browse the related articles by clicking on the name of the category or open up the dynamic panel for more specific categories.  [The Add UI]  FIGURE 3. The Add UI [The Search UI]  FIGURE 4. The Search UI   Use Case – The VRE4EIC Project  The VRE4EIC is an ongoing EU project that aims at providing a Europe-wide interoperable Virtual Research Environment (VRE) to empower multidisciplinary research communities. The project will result in a reference architecture for VREs, along with software components that exploit metadata from publications, persons, organizations and projects following the CERIF model. We used the 3M tool [7] to create the appropriate mappings, in order to align our ontology schema and to make the data fully compatible with the project’s approach. For demonstration purposes, we further loaded the synthetic datasets of publications that come from EKT repository referring to 1.76M Triples and finally deployed an installation of PRESS [8] . This use case shows in practice that the system can be simply adapted to the different needs of research institutes and can be scalable enough with semantic linked data that are located in the semantic repository.    FUTURE WORK   We are currently working on improving user’s search and import experience by adding some extra features to PRESS like providing more elaborate statistics per year, author, project etc. Finally, our desire is to support more import and export utilities by exploiting bib files.    ACKNOWLEDGEMENTS   This work has been partially funded from the EU H2020 VRE4EIC project under grant agreement No. 676247.    REFERENCES   1.        The CERIF Model:      http://www.eurocris.org/cerif/main-features-cerif  2.        Library Systems Report (2017). American Libraries Magazine. 1 May,     2017.     https://americanlibrariesmagazine.org/2017/05/01/library-systems-report-2017/  3.        Tim Berners-Lee, James Hendler
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10046_10054>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "10046"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10054"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10174_10180>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10174"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10180"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10391_10397>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10391"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10397"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10456_10462>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10456"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10462"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10873_10879>
+    nif:anchorOf "Drupal" ;
+    nif:beginIndex "10873"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10879"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_10900_10911>
+    nif:anchorOf "core design" ;
+    nif:beginIndex "10900"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10911"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Core_Design .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_11162_11188>
+    nif:anchorOf "search engine optimization" ;
+    nif:beginIndex "11162"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11188"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Search_engine_optimization .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_11992_11996>
+    nif:anchorOf "LDAP" ;
+    nif:beginIndex "11992"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11996"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Lightweight_Directory_Access_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_13551_13556>
+    nif:anchorOf "CERIF" ;
+    nif:beginIndex "13551"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13556"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_13576_13578>
+    nif:anchorOf "3M" ;
+    nif:beginIndex "13576"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13578"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/3M> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_13646_13654>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "13646"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13654"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_14587_14592>
+    nif:anchorOf "CERIF" ;
+    nif:beginIndex "14587"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14592"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_14629_14634>
+    nif:anchorOf "cerif" ;
+    nif:beginIndex "14629"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14634"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_14836_14851>
+    nif:anchorOf "Tim Berners-Lee" ;
+    nif:beginIndex "14836"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14851"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Person, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Tim_Berners-Lee .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_14853_14866>
+    nif:anchorOf "James Hendler" ;
+    nif:beginIndex "14853"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14866"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Person, dbo:Scientist, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:James_Hendler .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_3148_3156>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3148"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3156"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_3231_3236>
+    nif:anchorOf "CERIF" ;
+    nif:beginIndex "3231"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3236"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_3486_3491>
+    nif:anchorOf "CERIF" ;
+    nif:beginIndex "3486"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3491"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_3492_3495>
+    nif:anchorOf "XML" ;
+    nif:beginIndex "3492"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3495"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:XML .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_3960_3966>
+    nif:anchorOf "The Ex" ;
+    nif:beginIndex "3960"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3966"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Band, dbo:Organisation, schema:MusicGroup, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/The_Ex_(band)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_4126_4130>
+    nif:anchorOf "OCLC" ;
+    nif:beginIndex "4126"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4130"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:OCLC .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_4518_4524>
+    nif:anchorOf "Dspace" ;
+    nif:beginIndex "4518"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4524"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:DSpace .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_4551_4557>
+    nif:anchorOf "Dspace" ;
+    nif:beginIndex "4551"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4557"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:DSpace .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_5030_5061>
+    nif:anchorOf "content management system (CMS)" ;
+    nif:beginIndex "5030"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5061"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Content_management_system .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_5068_5074>
+    nif:anchorOf "Drupal" ;
+    nif:beginIndex "5068"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5074"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_5727_5733>
+    nif:anchorOf "Dublin" ;
+    nif:beginIndex "5727"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5733"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999941646399021 ;
+    itsrdf:taIdentRef dbpedia:Dublin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_6145_6157>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "6145"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6157"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_6652_6660>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6652"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6660"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_6701_6706>
+    nif:anchorOf "CERIF" ;
+    nif:beginIndex "6701"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6706"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:CERIF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_6868_6876>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6868"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6876"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_7448_7457>
+    nif:anchorOf "/Workshop" ;
+    nif:beginIndex "7448"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7457"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Workshop .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_7692_7696>
+    nif:anchorOf "FOAF" ;
+    nif:beginIndex "7692"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7696"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/FOAF_(software)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_7697_7705>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7697"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7705"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_7749_7757>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7749"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7757"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_8310_8316>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8310"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8316"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_8404_8410>
+    nif:anchorOf "Drupal" ;
+    nif:beginIndex "8404"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8410"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_867_886>
+    nif:anchorOf "ontology management" ;
+    nif:beginIndex "867"^^xsd:nonNegativeInteger ;
+    nif:endIndex "886"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_9146_9172>
+    nif:anchorOf "search engine optimization" ;
+    nif:beginIndex "9146"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9172"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Search_engine_optimization .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_9217_9223>
+    nif:anchorOf "drupal" ;
+    nif:beginIndex "9217"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9223"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_9303_9309>
+    nif:anchorOf "drupal" ;
+    nif:beginIndex "9303"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9309"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_9886_9892>
+    nif:anchorOf "Drupal" ;
+    nif:beginIndex "9886"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9892"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/122_chrysakis/nif.ttl/#offset_0_14867> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Drupal .
+

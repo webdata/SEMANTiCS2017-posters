@@ -1,0 +1,172 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "560"^^xsd:nonNegativeInteger ;
+    nif:isString """ALJBIN AHMETI              albin.ahmeti@semantic-web.com             Semantic Web Company, Vienna, Austria  SAIMIR BALA              saimir.bala@wu.ac.at             Vienna University of Economics and Busines, Vienna, Austria  STEFAN BELK              stefan.belk@semantic-web.com             Semantic Web Company, Vienna, Austria  FAJAR J. EKAPUTRA              fajar.ekaputra@tuwien.ac.at             Vienna University of Technology, Vienna, Austria  JAVIER D. FERNÁNDEZ              jfernand@wu.ac.at             Vienna University of Economics and Business
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_166_172>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "166"^^xsd:nonNegativeInteger ;
+    nif:endIndex "172"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9956354115797588 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_210_216>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "210"^^xsd:nonNegativeInteger ;
+    nif:endIndex "216"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.99563540931804 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_218_225>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "218"^^xsd:nonNegativeInteger ;
+    nif:endIndex "225"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9988416363197806 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_234_238>
+    nif:anchorOf "BELK" ;
+    nif:beginIndex "234"^^xsd:nonNegativeInteger ;
+    nif:endIndex "238"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999546280765392 ;
+    itsrdf:taIdentRef dbpedia:Belk .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_293_305>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "293"^^xsd:nonNegativeInteger ;
+    nif:endIndex "305"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9974422393782453 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_315_321>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "315"^^xsd:nonNegativeInteger ;
+    nif:endIndex "321"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.99563540931804 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_323_330>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "323"^^xsd:nonNegativeInteger ;
+    nif:endIndex "330"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9988416363197806 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_403_409>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "403"^^xsd:nonNegativeInteger ;
+    nif:endIndex "409"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9956354115797588 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_436_442>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "436"^^xsd:nonNegativeInteger ;
+    nif:endIndex "442"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.99563540931804 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_444_451>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "444"^^xsd:nonNegativeInteger ;
+    nif:endIndex "451"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9988416363197806 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_516_522>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "516"^^xsd:nonNegativeInteger ;
+    nif:endIndex "522"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9956354115797588 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_69_81>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "69"^^xsd:nonNegativeInteger ;
+    nif:endIndex "81"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9974422393782453 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_91_97>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "91"^^xsd:nonNegativeInteger ;
+    nif:endIndex "97"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.99563540931804 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_99_106>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "99"^^xsd:nonNegativeInteger ;
+    nif:endIndex "106"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/161_Ahmeti/nif.ttl/#offset_0_560> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9988416363197806 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+

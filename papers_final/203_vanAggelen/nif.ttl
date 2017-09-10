@@ -1,0 +1,172 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2038"^^xsd:nonNegativeInteger ;
+    nif:isString """ASTRID VAN AGGELEN              a.e.van.aggelen@gmail.com             Dept. of Computer Science, VU University Amsterdam, NL  LAURA HOLLINK              l.hollink@cwi.nl             Center for Mathematics and Computer Science (CWI), Amsterdam, The Netherlands  MAX KEMMAN              max.kemman@uni.lu             Department of History, University of Luxembourg, Luxembourg  MARTIJN KLEPPE              kleppe@eshcc.eur.nl             Department of History, Erasmus University Rotterdam, The Netherlands  HENRI BEUNDERS              beunders@eshcc.eur.nl             Department of History, Erasmus University Rotterdam, The Netherlands  KEYWORDS  -           Linked Open Data        -           European Parliament        -           open government data        -           RDF        -           data modeling        -           multilingual data           ABSTRACT   The European Parliament represents the citizens of the member states of the European Union (EU). The accounts of its meetings and related documents are open data, promoting transparency and accountability, and are used as source data by researchers. However, the official portal of these documents provides limited search facilities. This paper presents LinkedEP, a Linked Open Data translation of the verbatim reports of the plenary meetings of the European Parliament. These data are integrated with a database of political affiliations of the Members of Parliament, and enriched with detected topics from the EU’s topic hierarchy and links to three other Linked Open Datasets. The results of this work are available through a SPARQL endpoint as well as a user interface with extensive browse and search facilities. It is now possible to combine in one query the time and topic of the debate, the spoken words - in any available translation - and information about the speaker uttering these, such as affiliations to countries, parties and committees. This paper discusses the design and creation of the vocabulary, data and links, as well as known use of the data.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_1320_1339>
+    nif:anchorOf "European Parliament" ;
+    nif:beginIndex "1320"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1339"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Legislature, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999998485623224 ;
+    itsrdf:taIdentRef dbpedia:European_Parliament .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_1599_1605>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1599"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1605"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_233_242>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "233"^^xsd:nonNegativeInteger ;
+    nif:endIndex "242"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999995725375 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_248_259>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "248"^^xsd:nonNegativeInteger ;
+    nif:endIndex "259"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999999770353 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_352_362>
+    nif:anchorOf "Luxembourg" ;
+    nif:beginIndex "352"^^xsd:nonNegativeInteger ;
+    nif:endIndex "362"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9960486355826964 ;
+    itsrdf:taIdentRef dbpedia:Luxembourg .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_364_374>
+    nif:anchorOf "Luxembourg" ;
+    nif:beginIndex "364"^^xsd:nonNegativeInteger ;
+    nif:endIndex "374"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9960486355826964 ;
+    itsrdf:taIdentRef dbpedia:Luxembourg .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_459_487>
+    nif:anchorOf "Erasmus University Rotterdam" ;
+    nif:beginIndex "459"^^xsd:nonNegativeInteger ;
+    nif:endIndex "487"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erasmus_University_Rotterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_493_504>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "493"^^xsd:nonNegativeInteger ;
+    nif:endIndex "504"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999999770353 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_591_619>
+    nif:anchorOf "Erasmus University Rotterdam" ;
+    nif:beginIndex "591"^^xsd:nonNegativeInteger ;
+    nif:endIndex "619"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erasmus_University_Rotterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_625_636>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "625"^^xsd:nonNegativeInteger ;
+    nif:endIndex "636"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999999770353 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_696_715>
+    nif:anchorOf "European Parliament" ;
+    nif:beginIndex "696"^^xsd:nonNegativeInteger ;
+    nif:endIndex "715"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Legislature, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999998485623224 ;
+    itsrdf:taIdentRef dbpedia:European_Parliament .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_874_893>
+    nif:anchorOf "European Parliament" ;
+    nif:beginIndex "874"^^xsd:nonNegativeInteger ;
+    nif:endIndex "893"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Legislature, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999998485623224 ;
+    itsrdf:taIdentRef dbpedia:European_Parliament .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_946_960>
+    nif:anchorOf "European Union" ;
+    nif:beginIndex "946"^^xsd:nonNegativeInteger ;
+    nif:endIndex "960"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999996532713485 ;
+    itsrdf:taIdentRef dbpedia:European_Union .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_97_120>
+    nif:anchorOf "VU University Amsterdam" ;
+    nif:beginIndex "97"^^xsd:nonNegativeInteger ;
+    nif:endIndex "120"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/203_vanAggelen/nif.ttl/#offset_0_2038> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Vrije_Universiteit .
+

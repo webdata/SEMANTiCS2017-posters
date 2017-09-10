@@ -1,0 +1,136 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2100"^^xsd:nonNegativeInteger ;
+    nif:isString """KRIS MCGLINN              kmcglinn@gmail.com             TCD-Adapt  CHRISTOPHE DEBRUYNE              christophe.debruyne@gmail.com             Trinity College Dublin  LORRAINE MCNERNEY              lorraine.mcnerney@osi.ie             Ordnance Survey Ireland  DECLAN O'SULLIVAN              Declan.O'Sullivan@scss.tcd.ie             Trinity College Dublin  KEYWORDS  -           Linked Data        -           Interlinking        -           Information Modelling        -           Geographic Information System        -           Ordnance Survey Ireland           ABSTRACT   Building Information Modelling (BIM) is a key enabler to support integration of building data not only within the buildings life cycle (BLC) and is an important aspect to support a wide range of use cases, related to building navigation, control, sustainability, etc.. Open BIM faces several challenges related to standardization, data interdependency, data access, and security. In addition to these technical challenges, there remains the barrier among BIM developers who wish to protect their intellectual property, as full 3D BIM development requires expertise and effort. This means that there is often limited availability of BIM models. In Ireland, the Ordnance Survey Ireland (OSi) has a substantial dataset, called Prime2, which includes not only GIS data (polygon footprint, geodetic coordinate), but also additional building specific data (form and function). In this paper we demonstrate the use of an applied and tested methodology for uplifting GIS data (SQL tabular data) into RDF (Geo-SPARQL and OSi ontology) and demonstrate how this data is used for interlinking to other building data with an initial, simple exploratory example, taken from DBpedia. By interlinking building data in this way and making it available, new insights and knowledge about buildings in Ireland can be made, currently not possible due to lack of availability of data. This is an important step towards the iterative integration of ever more complex BIM models into the wider web of data to support the aforementioned use cases.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_1224_1231>
+    nif:anchorOf "Ireland" ;
+    nif:beginIndex "1224"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1231"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Island, dbo:Place, dbo:PopulatedPlace, schema:Place ;
+    itsrdf:taConfidence 0.9749854343804965 ;
+    itsrdf:taIdentRef dbpedia:Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_1237_1260>
+    nif:anchorOf "Ordnance Survey Ireland" ;
+    nif:beginIndex "1237"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1260"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Ordnance_Survey_Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_143_165>
+    nif:anchorOf "Trinity College Dublin" ;
+    nif:beginIndex "143"^^xsd:nonNegativeInteger ;
+    nif:endIndex "165"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.999999999953161 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Trinity_College,_Dublin> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_1546_1549>
+    nif:anchorOf "SQL" ;
+    nif:beginIndex "1546"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1549"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ProgrammingLanguage, dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9999999999943157 ;
+    itsrdf:taIdentRef dbpedia:SQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_1593_1601>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1593"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1601"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_1859_1866>
+    nif:anchorOf "Ireland" ;
+    nif:beginIndex "1859"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1866"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Island, dbo:Place, dbo:PopulatedPlace, schema:Place ;
+    itsrdf:taConfidence 0.9749854343804965 ;
+    itsrdf:taIdentRef dbpedia:Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_235_258>
+    nif:anchorOf "Ordnance Survey Ireland" ;
+    nif:beginIndex "235"^^xsd:nonNegativeInteger ;
+    nif:endIndex "258"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Ordnance_Survey_Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_260_277>
+    nif:anchorOf "DECLAN O'SULLIVAN" ;
+    nif:beginIndex "260"^^xsd:nonNegativeInteger ;
+    nif:endIndex "277"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Athlete, dbo:GaelicGamesPlayer, dbo:Person, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Declan_O'Sullivan> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_333_355>
+    nif:anchorOf "Trinity College Dublin" ;
+    nif:beginIndex "333"^^xsd:nonNegativeInteger ;
+    nif:endIndex "355"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.999999999953161 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Trinity_College,_Dublin> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_379_390>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "379"^^xsd:nonNegativeInteger ;
+    nif:endIndex "390"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_532_555>
+    nif:anchorOf "Ordnance Survey Ireland" ;
+    nif:beginIndex "532"^^xsd:nonNegativeInteger ;
+    nif:endIndex "555"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/153_McGlinn/nif.ttl/#offset_0_2100> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Ordnance_Survey_Ireland .
+

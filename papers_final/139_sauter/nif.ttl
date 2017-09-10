@@ -1,0 +1,592 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13198"^^xsd:nonNegativeInteger ;
+    nif:isString """ELKE M. SAUTER              elke.m.sauter@gmail.com             MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands  MARTIJN WITJES              martijnwitjes@gmail.com             MSc. Geographical Information Management and Applications - Universities of Utrecht, Wageningen, Delft, and Twente, The Netherlands  KEYWORDS  -           linked data, linked spatial data, circular economy, product passports, geographical information systems           ABSTRACT   This report investigates the potential of Linked Spatial Data to facilitate collaboration in a Circular Economy. It proposes using Linked Data as a common standard for connecting product passports, and creates an ontology that can integrate Circular Economy actors based on location and their material in- and outputs. The report presents three use cases, each centered on an exchange relationship between distinct economic actors. Products and actors will be related via creation- and post-use activities, which each have specific inputs and outputs. Spatial parameters are used to determine the feasibility of exchanges between actors. Expected results and conclusions are that Linked Data can function as an exchange medium for the Circular Economy driving the 'push and pull' between diverse industry resources.    INTRODUCTION   The CIRCULAR ECONOMY (CE) proposes a closed-loop system which aims at keeping materials in use, as long as possible while extracting their maximum value [5] , [9] .  Such a system incorporates services like take-back mechanisms and reverse flows [15] , [14] for product post-use activities (i.e. repair and reuse), which rely on route optimization for their effectiveness. Moreover, in situations of industrial symbiosis whereby resources and services are shared between industries, “a critical point is the spatial relationship, i.e. the distance between industries” [16] . Any new CE logistics structure therefore needs in its core a strong spatial awareness.  Furthermore, this system of cycling materials across different value streams requires close collaboration between diverse parties and disciplines. To facilitate exchange patterns between these parties, materials must be annotated and quantified with information regarding e.g. location, composition, condition, reuse potential, and dis-assembly instructions. This allows for informed decisions about the products' next usage steps.  One way to do this is through 'product passports', a concept that has been implemented with digital technologies like blockchain, Building Information Models (BIM), QR codes, and RFID tags [12] , [1] , [13] . Furthermore, the Internet of Things (IoT) shows potential for monitoring specific assets' availability, condition and location [4] .  These current propositions focus exclusively on hosting product details, but none suggest connecting this data to a cross-industry information ecosystem to facilitate circular exchanges.  Linked Data (LD) is already used in supply chain applications [10] , [7] and has been suggested as a standard IoT applications [2] . This paper proposes and explores its potential as both a common linking standard for product passports and for facilitating smart CE exchanges.  This proposed potential is based on the following aspects:  -   INTEROPERABILITY : A LD platform can provide resource users with a     standardized way to interlink their independently maintained     data-sets into a CE resources data graph, facilitating     cross-sector connectivity. An LD-based Web of Things could easily be     interlinked with this graph.  -   POWERFUL QUERIES: Tools like GeoSPARQL enable spatial, federated     queries in the resource/asset data graph that traverse data silos.  -   SCALABILITY: Incorporating many diverse companies, materials, and     products requires a versatile technology that can handle     unstructured information.  The contributions of this paper are:  1.  The development of an ontology for the Circular Economy  2.  A proof of concept to test the feasibility of the use of Linked Data     to connect independent industry datasets to increase collaboration     in the CE    USE CASE INTRODUCTION AND MOTIVATION   The following use case exemplifies how the Linked Data CE ecosystem works in a particular situation. This section gives the motivation of selection as well as a question relevant for this use case ¹ .  Consumers are also considered key participants of circular exchange patterns. The scenario entails a consumer who owns jeans and wants to make use of reverse logistics mechanisms to return her jeans to a factory for recycling. The use case will explore the combination of Linked Data and RFID tags or QR codes.  QUESTION: Anne, Jeans owner from Amsterdam, wants to know what recycling collection points are available for her used jeans within 10 kilometers from her house, with free reverse logistics services and that will go to a Fair Trade company.    CIRCULAR ECONOMY CONCEPTUAL MODEL   Taxonomy  A high-level taxonomy is constructed as a basis for understanding what processes, elements and activities are happening within the CE framework, see Figure 1 (adapted from [8] , [3] ).  [Example Circular Economy Taxonomy]  FIGURE 1. Example Circular Economy Taxonomy Resources and actors are key elements for the circular economy (grey). Actors are the different companies or individuals. Resources are divided into two main CE categories: BIO-BASED and TECHNOLOGICAL . Resources are further broken down into a hierarchy of parts, starting with the whole part ( PRODUCT ) ending with the smaller part ( CHEMICALS, out of research scope). Even though products may consist of components, sometimes components can be considered as products elsewhere in the supply chain. When resources finish their use cycles, they must undergo different POST-USE ACTIVITIES (yellow); there are some restrictions for the post-use activities’ input materials i.e. only bio-based materials can be composted. Further, each product is tracked through a product biography using RFID or IOT technologies (cyan). Finally, ‘collaboration’ is a process occurring between companies and individuals (pink).   Ontologies  The Circular Economy ontology will be developed with products as the main focus unit, since product passports will account for the main data source. The passports should store information about the product provenance and the product qualities.  -   PRODUCT PROVENANCE: a supply chain sequence that details the     companies or individuals involved in the product’s creation. This     will link to the company’s profile which annotates the company’s     location, inputs, outputs, certifications (i.e. Fair Trade) and     post-use activities (along with the reverse logistics mechanisms)     offered by the company. Moreover, for the product’s use stage, the     owner will be annotated for the different use cycles.  -   PRODUCT QUALIFICATION: the characteristics related to the     availability, condition and location of a product are stored [4]  .     This section will also annotate possible post-use activities for a     product which will ultimately link to the post-use activities     offered by companies.  The following COMPETENCY QUESTIONS incorporate the previous concepts and determine the scope of the ontology that will be developed:  -   Which companies produce a jeans (product) composed of recycled denim     (material)?  -   Which companies generate outputs (blue dyed water) that can be used     as input by Mud Jeans (company) for repairing (activity) jeans     (product)?  -   Which products (jeans) are in good state (condition) and are     available for reuse (post-use activity) on a specific city     (Utrecht)?   Figure 2 shows a representation of the Circular Economy Ontology. Actors and products will be related through the post use-activities, and the product provenance. Spatial features will be created for the actors’ and products’ locations, and the reverse logistics network.  [Circular Economy Ontology]  FIGURE 2. Circular Economy Ontology Extending the Good Relations [6] ontology will be considered by adding extra properties to the BusinessEntity (equivalent to actor) and ProductOrService (equivalent to product) classes. For ProductOrService, the extra properties encompass the qualities, provenance, composition and its post use activity. For BusinessEntitiy, the extra properties deal with the activities offered by the company and the reverse logistics.  Depending on how the ontology will be implemented, the CE taxonomy ( Figure 1 ) could be converted to a dedicated ontology that works in combination with the GoodRelations extended ontology mentioned above; thus handling two separate ontologies like recommended by GoodRelations implementation. In this way, actors and their product exchanges will be kept on a more general level following the GoodRelations specifications. Whereas specific classes and instances for the post-use activity types and their corresponding inputs (bio-based or technological materials) would be encoded separately on an ontology exclusively for the CE materials and post-use activities. The advantage of this approach is that using the GoodRelations extended ontology makes use of functionalities already present in the existing ontology. Otherwise, the other approach would be to develop a complete CE ontology without extending the GoodRelations ontology.  Finally, in terms of spatial information, resources will be annotated using the GeoSPARQL ontology [11] for features and geometries.    PRELIMINARY DESIGN-TEXTILE USE CASE   Data from existing fashion brands’ websites on recycling collection points is gathered and converted to RDF using OntoRefine by Ontotext. Information is enriched with annotations about the company (fashion brand) and the recycling services they offer (reverse logistics). Further, the query will be posed to verify if it yields the desired answer posed by jeans owner Anne.   Data  Data for recycling points is obtained from the following sources, Figure 3 .  -   Kings of Indigo and their partner Sympany with textile     recycling containers.  -   Zara's retail shops part of the Clothing Collection Program.  -   Mud Jeans and their partner DPD with pick up locations for returning     used jeans.  [Example Data Sources-Recycling Collection Points]  FIGURE 3. Example Data Sources-Recycling Collection Points   SPARQL/GEOSPARQL query  The question posed by jeans owner Anne, is converted to SPARQL/GEOSPARQL query language, Figure 4 .  [Example Query Fashion Use Case]  FIGURE 4. Example Query Fashion Use Case   Graph Model  A preliminary graph model that indicates how instantiated company data will take shape is shown on Figure 5 .  [Fashion Graph Model]  FIGURE 5. Fashion Graph Model    DISCUSSION   Intended adopters of this ontology are umbrella organizations and/or governments that can lead companies and individuals in creating a Circular Economy. Under these conditions a rich, cross-industry, multi-product data environment can be created and facilitated by Linked Data.  The heterogeneous dataset integration benefits exhibited by Linked Data make it a promising technology for meeting potential stakeholders’ needs. Independent industries should maintain their own datasets as this proposition only contemplates linking and enriching them.  Although there are relevant concerns about privacy and sensitive industry information that could be visible in this environment, this research will only handle data that is available to the public via open product passports. Control over personal information and information secrecy between economic interests are out of scope of this research and should be addressed in future works.  The current status of the semantic technologies could present a knowledge gap for intended users such as small ‘circular’ businesses. Further research is needed to determine what type of user interface will be most suitable for CE actors.    FUTURE WORK   The following section details the necessary steps to continue with this research.  1.  Ontology: encode and implement the CE ontology.  2.  Design and build: complete the textile use case with     industry datasets. This involves getting material passport data,     conversion to RDF format, enriching and linking the datasets. Later     the creation of SPARQL/GeoSPARQL queries will be addressed.  3.  Visualization of results: create a web-platform that best represents     connections between people, companies, locations and things.  4.  Validate the results: does this way of storing and connecting data     improve collaboration when comparing it to the existing     alternatives?  5.  Beyond this research:      -   Continue to find other use case applications.      -   Research on reverse logistics and route network optimization;         possible integration with GIS; incorporate         spatio-temporal querying.      -   Research on industrial symbiosis and spatial clustering;         possible integration with GIS suitability analyses.      -   Research on privacy and sensitive industry information.    REFERENCES   1.        3XN
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10006_10011>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "10006"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10011"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10344_10349>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "10344"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10349"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10465_10471>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10465"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10471"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10472_10481>
+    nif:anchorOf "GEOSPARQL" ;
+    nif:beginIndex "10472"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10481"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:GeoSPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10511_10516>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "10511"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10516"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10545_10551>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10545"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10551"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10552_10561>
+    nif:anchorOf "GEOSPARQL" ;
+    nif:beginIndex "10552"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10561"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:GeoSPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_10886_10894>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "10886"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10894"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_11125_11136>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "11125"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11136"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_11199_11210>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "11199"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11210"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_12177_12185>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12177"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12185"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_1221_1232>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1221"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1232"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_12406_12412>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "12406"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12412"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_13194_13197>
+    nif:anchorOf "3XN" ;
+    nif:beginIndex "13194"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13197"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/3XN> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_140_147>
+    nif:anchorOf "Utrecht" ;
+    nif:beginIndex "140"^^xsd:nonNegativeInteger ;
+    nif:endIndex "147"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999958821147832 ;
+    itsrdf:taIdentRef dbpedia:Utrecht .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_149_159>
+    nif:anchorOf "Wageningen" ;
+    nif:beginIndex "149"^^xsd:nonNegativeInteger ;
+    nif:endIndex "159"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef dbpedia:Wageningen_University_and_Research_Centre .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_161_166>
+    nif:anchorOf "Delft" ;
+    nif:beginIndex "161"^^xsd:nonNegativeInteger ;
+    nif:endIndex "166"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999999999672582 ;
+    itsrdf:taIdentRef dbpedia:Delft_University_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_172_178>
+    nif:anchorOf "Twente" ;
+    nif:beginIndex "172"^^xsd:nonNegativeInteger ;
+    nif:endIndex "178"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999992023731 ;
+    itsrdf:taIdentRef dbpedia:Twente .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_184_195>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "184"^^xsd:nonNegativeInteger ;
+    nif:endIndex "195"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_2650_2654>
+    nif:anchorOf "RFID" ;
+    nif:beginIndex "2650"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2654"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Radio-frequency_identification .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_3002_3013>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "3002"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3013"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_337_344>
+    nif:anchorOf "Utrecht" ;
+    nif:beginIndex "337"^^xsd:nonNegativeInteger ;
+    nif:endIndex "344"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999958821147832 ;
+    itsrdf:taIdentRef dbpedia:Utrecht .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_346_356>
+    nif:anchorOf "Wageningen" ;
+    nif:beginIndex "346"^^xsd:nonNegativeInteger ;
+    nif:endIndex "356"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef dbpedia:Wageningen_University_and_Research_Centre .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_358_363>
+    nif:anchorOf "Delft" ;
+    nif:beginIndex "358"^^xsd:nonNegativeInteger ;
+    nif:endIndex "363"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999999999672582 ;
+    itsrdf:taIdentRef dbpedia:Delft_University_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_369_375>
+    nif:anchorOf "Twente" ;
+    nif:beginIndex "369"^^xsd:nonNegativeInteger ;
+    nif:endIndex "375"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999992023731 ;
+    itsrdf:taIdentRef dbpedia:Twente .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_381_392>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "381"^^xsd:nonNegativeInteger ;
+    nif:endIndex "392"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4009_4017>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "4009"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4017"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4105_4116>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "4105"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4116"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4287_4298>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "4287"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4298"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_450_466>
+    nif:anchorOf "circular economy" ;
+    nif:beginIndex "450"^^xsd:nonNegativeInteger ;
+    nif:endIndex "466"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Circular_economy .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4565_4570>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "4565"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4570"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4639_4644>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "4639"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4644"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4718_4729>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "4718"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4729"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4734_4738>
+    nif:anchorOf "RFID" ;
+    nif:beginIndex "4734"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4738"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Radio-frequency_identification .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4791_4800>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "4791"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4800"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_4876_4881>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "4876"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4881"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_5360_5376>
+    nif:anchorOf "circular economy" ;
+    nif:beginIndex "5360"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5376"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Circular_economy .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_6101_6105>
+    nif:anchorOf "RFID" ;
+    nif:beginIndex "6101"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6105"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Radio-frequency_identification .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_6259_6267>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6259"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6267"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_672_683>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "672"^^xsd:nonNegativeInteger ;
+    nif:endIndex "683"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_7353_7361>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7353"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7361"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_7417_7422>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "7417"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7422"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_754_762>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "754"^^xsd:nonNegativeInteger ;
+    nif:endIndex "762"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_7610_7615>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "7610"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7615"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_7652_7657>
+    nif:anchorOf "jeans" ;
+    nif:beginIndex "7652"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7657"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Jeans .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_7765_7772>
+    nif:anchorOf "Utrecht" ;
+    nif:beginIndex "7765"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7772"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999958821147832 ;
+    itsrdf:taIdentRef dbpedia:Utrecht .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_8148_8156>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "8148"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8156"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_8559_8567>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "8559"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8567"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_8652_8660>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "8652"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8660"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_8719_8727>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "8719"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8727"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9137_9145>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9137"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9145"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9276_9284>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9276"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9284"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9346_9354>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9346"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9354"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9420_9428>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9420"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9428"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9465_9473>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9465"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9473"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_9566_9574>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9566"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9574"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/139_sauter/nif.ttl/#offset_0_13198> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+

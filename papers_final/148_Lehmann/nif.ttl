@@ -1,0 +1,83 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1195"^^xsd:nonNegativeInteger ;
+    nif:isString """JOS LEHMANN              jos.lehmann@bauhaus-luftfahrt.net             Bauhaus Luftfahrt e.V.  MICHAEL SHAMIYEH              michael.shamiyeh@bauhaus-luftfahrt.net             Bauhaus Luftfahrt e.V.  SVEN ZIEMER              sven.ziemer@bauhaus-luftfahrt.net             Bauhaus Luftfahrt  KEYWORDS  -           Knowledge Integration and Language Technologies Terminology        -           Thesaurus and Ontology Management        -           Industry and Engineering        -           Web Ontology Language        -           Aviation        -           Industrie 4.0        -           Linked Data           ABSTRACT   Ontology-based applications can support the reuse of corporate-knowledge in engineering environments. In order to streamline the harnessing of semantics, problems of integration and of coverage assessment of ontologies need to be addressed. This paper provides examples of such problems when applying semantic technology in the aviation sector and outlines a strategy towards their solution. The paper also provides a preliminary discussion of how knowledge management architectures such as the one presented may be positioned in the wider research area of Industrie 4.0.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_176_183>
+    nif:anchorOf "Bauhaus" ;
+    nif:beginIndex "176"^^xsd:nonNegativeInteger ;
+    nif:endIndex "183"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:WorldHeritageSite, schema:Place ;
+    itsrdf:taConfidence 0.9998866177359704 ;
+    itsrdf:taIdentRef dbpedia:Bauhaus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_271_278>
+    nif:anchorOf "Bauhaus" ;
+    nif:beginIndex "271"^^xsd:nonNegativeInteger ;
+    nif:endIndex "278"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:WorldHeritageSite, schema:Place ;
+    itsrdf:taConfidence 0.9998866177359704 ;
+    itsrdf:taIdentRef dbpedia:Bauhaus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_312_333>
+    nif:anchorOf "Knowledge Integration" ;
+    nif:beginIndex "312"^^xsd:nonNegativeInteger ;
+    nif:endIndex "333"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999924307825243 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Integration .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_488_509>
+    nif:anchorOf "Web Ontology Language" ;
+    nif:beginIndex "488"^^xsd:nonNegativeInteger ;
+    nif:endIndex "509"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Web_Ontology_Language .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_590_601>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "590"^^xsd:nonNegativeInteger ;
+    nif:endIndex "601"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_71_78>
+    nif:anchorOf "Bauhaus" ;
+    nif:beginIndex "71"^^xsd:nonNegativeInteger ;
+    nif:endIndex "78"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/148_Lehmann/nif.ttl/#offset_0_1195> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:WorldHeritageSite, schema:Place ;
+    itsrdf:taConfidence 0.9998866177359704 ;
+    itsrdf:taIdentRef dbpedia:Bauhaus .
+

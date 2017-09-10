@@ -1,0 +1,84 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1737"^^xsd:nonNegativeInteger ;
+    nif:isString """ALEX OLIEMAN              alex@olieman.net             University of Amsterdam  KASPAR BEELEN              kasparvonbeelen@gmail.com             University of Amsterdam  JAAP KAMPS              kamps@uva.nl             University of Amsterdam  MILAN VAN LANGE              m.van.lange@niod.knaw.nl             NIOD  KEYWORDS  -           Entity Linking        -           Real-World Applications        -           Semantically-Enhanced Search        -           Interactive Information Retrieval        -           Corpus Selection        -           Digital Humanities           ABSTRACT   Over the last decade we have made great progress in entity linking (EL) systems, but performance may vary depending on the context and, arguably, there are even principled limitations preventing a “perfect” EL system. This also suggests that there may be applications for which current “imperfect” EL is already very useful, and makes finding the “right” application as important as building the “right” EL system. We investigate the Digital Humanities use case, where scholars spend a considerable amount of time selecting relevant source texts. We developed WideNet; a semantically-enhanced search tool which leverages the strengths of (imperfect) EL without getting in the way of its expert users. We evaluate this tool in two historical case-studies aiming to collect a set of references to historical periods in parliamentary debates from the last two decades; the first targeted the Dutch Golden Age, and the second World War II. The case-studies conclude with a critical reflection on the utility of WideNet for this kind of research, after which we outline how such a real-world application can help to improve EL technology in general.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_1481_1497>
+    nif:anchorOf "Dutch Golden Age" ;
+    nif:beginIndex "1481"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1497"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9551093401251532 ;
+    itsrdf:taIdentRef dbpedia:Dutch_Golden_Age .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_1514_1526>
+    nif:anchorOf "World War II" ;
+    nif:beginIndex "1514"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1526"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999696460695 ;
+    itsrdf:taIdentRef dbpedia:World_War_II .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_159_168>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "159"^^xsd:nonNegativeInteger ;
+    nif:endIndex "168"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999990084234 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_233_242>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "233"^^xsd:nonNegativeInteger ;
+    nif:endIndex "242"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999990084234 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_244_249>
+    nif:anchorOf "MILAN" ;
+    nif:beginIndex "244"^^xsd:nonNegativeInteger ;
+    nif:endIndex "249"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Device, dbo:Weapon, schema:Product ;
+    itsrdf:taConfidence 0.9999999826477507 ;
+    itsrdf:taIdentRef dbpedia:MILAN .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_69_78>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "69"^^xsd:nonNegativeInteger ;
+    nif:endIndex "78"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/141_Olieman/nif.ttl/#offset_0_1737> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999990084234 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+

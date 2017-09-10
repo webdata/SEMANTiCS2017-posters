@@ -1,0 +1,568 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12402"^^xsd:nonNegativeInteger ;
+    nif:isString """JAN RÖRDEN              jan.roerden@ait.ac.at             Digital Insight Lab, Austrian Institute of Technology, Vienna, Austria ARTEM REVENKO              Artem.Revenko@semantic-web.com             Semantic Web Company, Vienna, Austria BERNHARD HASLHOFER              Bernhard.Haslhofer@ait.ac.at             Digital Insight Lab, Austrian Institute of Technology, Vienna, Austria ANDREAS BLUMAUER              Andreas.Blumauer@semantic-web.com             Semantic Web Company, Austria, Vienna    ABSTRACT   Knowledge graphs have become increasingly important in information retrieval tasks. However, if semantically interlinked concepts do not reflect the semantics of a document corpus, users might be confronted with non-relevant query results. In this work, we propose a network-metrics based method that allows assessment of knowledge graph quality within the context of a domain-specific document corpus. Preliminary results show that our methodology is able to point out structural and semantic issues in the knowledge graph, as well as provide information on the overall semantic fit of knowledge graph and domain specific corpora.    INTRODUCTION   A knowledge graph represents entities and their relations. Those entities - both abstract and concrete - can be grouped into classes according to their semantics, and should ideally cover every aspect that is important for a certain domain [Ehrlinger and Wöß, 2016]. Generally speaking, there are two different categories of knowledge graphs, generic and specific. Examples for generic graphs are DBpedia [Auer et al., 2007], the Google Knowledge Graph [Singhal, 2012] or Wikidata ¹ , which all cover a broad range of topics and domains. Specific knowledge graphs are tailored towards a specific domain, organization, or enterprise context.  Knowledge graphs often integrate data from various heterogeneous sources, provide a human-interpretable representation as well as a formalized, machine-readable basis for information retrieval tasks such as (latent) semantic indexing which relies on formalized and identifiable representation of real-world concepts [Deerwester et al., 1990], classification tasks and search engines or recommendation systems.  The effectiveness of those tasks heavily relies on the quality of the employed knowledge graph. Missing labeling and documentation issues can lead to misinterpretation, structural issues such as missing relationships between concepts might lead to incomplete or misleading interpretations of domain descriptions [Mader et al., 2012].  Related work in the area of knowledge graph quality (c.f., [Paulheim, 2017] for a survey), error detection and improvement studies has focused on the following issues: [Paulheim and Bizer, 2014] use statistical distributions of properties and types in RDF knowledge bases to compute their correctness; [Mader et al., 2012] and [Suominen and Mader, 2014] focus on SKOS vocabulary quality (e.g. missing/incomplete labels, orphan concepts, disconnected components) etc. Those and other methods rely on the knowledge graph itself. To our knowledge, there is no established research that uses a combined approach taking into account both a knowledge graph and a domain specific thesaurus (which is done for knowledge graph completion - but not for quality assessment).  In our work, we focus on knowledge graph quality issues that arise when the quality of a knowledge graph or thesaurus needs to be quantified in the context of a given document corpus, which is specific to a certain domain (e.g., medicine, economics). This requirement often arises when knowledge graph engineers or taxonomists take a document corpus as a basis for knowledge graph design or when existing graphs should be adapted to related application domains. Within this context, our contribution can be summarized as follows:  -   We investigated the applicability of network metrics for measuring     the quality of a given thesaurus in the context of a given,     domain-specific document corpus.  -   We propose a method to quantify the semantic fit between thesaurus     and document corpus.  Our proposed quality quantification methods should help taxonomists and domain experts, who are in charge of designing and managing a knowledge graph, to identify possible quality issues in their design and make informed decisions. Our poster will introduce this approach and accompanying demo will give visitors the opportunity to gain hands-on experience.    APPROACH   Our network-based knowledge graph assessment approach consists of three subsequent steps: first, we apply a knowledge graph only perspective and compute network-based metrics to learn about the importance and structural relevance of concepts. Second, we focus on the document corpus and extract concepts and relationships using co-occurrence analysis techniques. Finally, we combine those two perspectives and provide metrics to assess the quality of a knowledge graph in the context of a document corpus.   Knowledge Graph Perspective  In a first step, we extract a network representation from given knowledge graphs expressed in SKOS by extracting skos:Concepts and a configurable set of SKOS ² and non-SKOS relations.  By applying network clustering algorithms, we can identify unconnected components or concepts, which could be an indicator for missing relationships. We also compute the _diameter_ of the knowledge graph, which might be an indicator for genericity or specificity of a knowledge graph. Figure 1 shows a network representation of the “All about Cocktails” thesaurus ³ , with one concept being disconnected from the others. We will use this thesaurus as an example for the following metrics. Knowing which concepts occur both in the thesaurus and the corpus, we can also remove all concepts (vertices) from the thesaurus that are not mentioned in the corpus. The resulting graph can be quite different; so we use both the CG (corpus graph) and the TG (thesaurus graph) for further analysis.  [Network representation of a thesaurus]  FIGURE 1. Network representation of a thesaurus On a concept-level, we compute the _degree_ (number of incoming and outgoing edges) and _PageRank_ of concepts, which can serve as indicators for the importance of a concept. Table 1 shows the _degree_ , Table 2 the _PageRank_ .   -------------------------------------- --------------------------------------  | Concept label                        | degree                               |  ====================================== ======================================  | „Martini glass“                      | 34                                   |  -------------------------------------- --------------------------------------  | „Contemporary Classics“              | 31                                   |  -------------------------------------- --------------------------------------  | „The Unforgettables“                 | 30                                   |  -------------------------------------- --------------------------------------  | „Gin“                                | 24                                   |  -------------------------------------- --------------------------------------  | „Shooters“                           | 22                                   |  -------------------------------------- --------------------------------------   TABLE 1. Concept degree  -------------------------------------- --------------------------------------  | Concept label                        | PageRank                             |  ====================================== ======================================  | „Martini glass“                      | 0.0169                               |  -------------------------------------- --------------------------------------  | „Old Tom Gin“                        | 0.0121                               |  -------------------------------------- --------------------------------------  | „Gin“                                | 0.0114                               |  -------------------------------------- --------------------------------------  | „Old Fashioned glass“                | 0.0110                               |  -------------------------------------- --------------------------------------  | „Vodka Citron“                       | 0.0109                               |  -------------------------------------- --------------------------------------   TABLE 2. Concept PageRank By computing _closeness_ (mean number of steps to access every other vertex) and _betweenness_ (number of shortest paths going through a concept) of concepts, we can provide insight into the structural importance of concepts. Removing a concept with high _betweenness_ , for example, could split a knowledge graph into several disconnected components.   -------------------------------------- --------------------------------------  | Concept label                        | closeness                            |  ====================================== ======================================  | „IBA official cocktails“             | 0.00854                              |  -------------------------------------- --------------------------------------  | „Beverages“                          | 0.00504                              |  -------------------------------------- --------------------------------------  | „Contemporary Classics“              | 0.00499                              |  -------------------------------------- --------------------------------------  | „The Unforgettables“                 | 0.00462                              |  -------------------------------------- --------------------------------------  | „Alcoholic beverages“                | 0.00437                              |  -------------------------------------- --------------------------------------   TABLE 3. Concept closeness  -------------------------------------- --------------------------------------  | Concept label                        | betweenness                          |  ====================================== ======================================  | „Distilled beverages“                | 0.00161                              |  -------------------------------------- --------------------------------------  | „Liquer“                             | 0.00124                              |  -------------------------------------- --------------------------------------  | „Alcoholic beverages“                | 0.00088                              |  -------------------------------------- --------------------------------------  | „Contemporary Classics“              | 0.00082                              |  -------------------------------------- --------------------------------------  | „Vermouth“                           | 0.00074                              |  -------------------------------------- --------------------------------------   TABLE 4. Concept betweenness   Combined Knowledge Graph and Corpus Perspective  The intuition behind this step is that a knowledge graph, which is a tailored to a specific domain, defines concepts and semantic relations, which should also appear in a document corpus taken from that domain.  As shown in Figure 2, possible discrepancies can already be observed by mapping corpus concepts onto a thesaurus network. This example shows a coverage of 81� green vertices (concepts) show up in both the thesaurus and the corpus.  [Thesaurus and corpus]  FIGURE 2. Thesaurus and corpus For the second part of our analysis, we go beyond simple coverage rate. Ideally, a thesaurus and a corpus share the same concepts ⁴ and relations. The basic metrics are: number of distinct concepts; total concept occurrences; concept coverage (how many concepts of the thesaurus show up in the corpus?).  Having gathered this information, we attempt to judge on how well a thesaurus fits a given corpus (or vice versa), going beyond simple concept coverage rate. For this, we calculated Pearson correlation coefficients between _document frequency_ (df) of concepts on the one hand, and _PageRank_ , _closeness_ and _betweenness_ on the other hand (Table 5).   -------------------------- -------------------------- --------------------------  | Correlation              | Pearson correlation      | p-value                  |  ========================== ========================== ==========================  | df
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_1017_1032>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "1017"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1032"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_10949_10964>
+    nif:anchorOf "Knowledge Graph" ;
+    nif:beginIndex "10949"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10964"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_1096_1111>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "1096"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1111"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11030_11045>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "11030"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11045"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11169_11175>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11169"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11175"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11281_11287>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11281"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11287"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_113_119>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "113"^^xsd:nonNegativeInteger ;
+    nif:endIndex "119"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999888759704 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11424_11430>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11424"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11430"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11448_11454>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11448"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11454"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11481_11487>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11481"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11487"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11587_11593>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11587"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11593"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_1161_1176>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "1161"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1176"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11782_11788>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11782"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11788"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_11884_11890>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "11884"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11890"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_121_128>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "121"^^xsd:nonNegativeInteger ;
+    nif:endIndex "128"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_1589_1611>
+    nif:anchorOf "Google Knowledge Graph" ;
+    nif:beginIndex "1589"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1611"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_199_211>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "199"^^xsd:nonNegativeInteger ;
+    nif:endIndex "211"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_221_227>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "221"^^xsd:nonNegativeInteger ;
+    nif:endIndex "227"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999888759704 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_2291_2306>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "2291"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2306"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_229_236>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "229"^^xsd:nonNegativeInteger ;
+    nif:endIndex "236"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_2575_2590>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "2575"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2590"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3050_3065>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3050"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3065"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3182_3197>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3182"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3197"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3249_3264>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3249"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3264"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3337_3352>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3337"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3352"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3401_3416>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3401"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3416"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3488_3494>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "3488"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3494"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3598_3613>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3598"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3613"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3655_3661>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "3655"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3661"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_365_371>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "365"^^xsd:nonNegativeInteger ;
+    nif:endIndex "371"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999888759704 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_3677_3692>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "3677"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3692"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_373_380>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "373"^^xsd:nonNegativeInteger ;
+    nif:endIndex "380"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4007_4013>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "4007"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4013"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4104_4110>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "4104"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4110"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4247_4262>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "4247"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4262"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4503_4518>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "4503"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4518"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_457_469>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "457"^^xsd:nonNegativeInteger ;
+    nif:endIndex "469"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4593_4608>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "4593"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4608"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4761_4767>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "4761"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4767"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_479_486>
+    nif:anchorOf "Austria" ;
+    nif:beginIndex "479"^^xsd:nonNegativeInteger ;
+    nif:endIndex "486"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Austria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_488_494>
+    nif:anchorOf "Vienna" ;
+    nif:beginIndex "488"^^xsd:nonNegativeInteger ;
+    nif:endIndex "494"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999888759704 ;
+    itsrdf:taIdentRef dbpedia:Vienna .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4938_4953>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "4938"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4953"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4983_4989>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "4983"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4989"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_4993_5008>
+    nif:anchorOf "Knowledge Graph" ;
+    nif:beginIndex "4993"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5008"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_5395_5410>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "5395"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5410"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_5475_5490>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "5475"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5490"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_5755_5761>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "5755"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5761"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_5855_5861>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "5855"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5861"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_5930_5936>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "5930"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5936"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_682_688>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "682"^^xsd:nonNegativeInteger ;
+    nif:endIndex "688"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_831_846>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "831"^^xsd:nonNegativeInteger ;
+    nif:endIndex "846"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_8745_8760>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "8745"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8760"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_9043_9065>
+    nif:anchorOf "IBA official cocktails" ;
+    nif:beginIndex "9043"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9065"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:IBA_Official_Cocktail .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_904_910>
+    nif:anchorOf "corpus" ;
+    nif:beginIndex "904"^^xsd:nonNegativeInteger ;
+    nif:endIndex "910"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/126_roerden/nif.ttl/#offset_0_12402> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999908910017 ;
+    itsrdf:taIdentRef dbpedia:Corpus_linguistics .
+

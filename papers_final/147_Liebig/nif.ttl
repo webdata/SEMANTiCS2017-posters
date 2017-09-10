@@ -1,0 +1,51 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_0_1348> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_0_1348>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1348"^^xsd:nonNegativeInteger ;
+    nif:isString """THORSTEN LIEBIG              liebig@derivo.de             derivo GmbH  KEYWORDS  -           data visualization        -           OWL        -           RDF        -           visual querying        -           data exploration           ABSTRACT   Discovering hidden facts in steadily growing and complex knowledge graphs is challenging. It‘s not that a proper SPARQL query can‘t retrieve valuable information. A mission critical task often is to get an idea of those queries and the graph. This becomes even more challenging when the underlying data or schema is not well known. For instance, in case of an empty SPARQL result, either the query is misspelt, whose detection needs full schema awareness or some schema research, or there is simply no such data.  We will introduce SemSpect, which enables even non-SPARQL users to build sophisticated queries by interacting with a visual representation of the data. Since querying and exploring with SemSpect is data and schema driven users are guided throughout their analysis not suffering foregoing problems. The talk will motivate the approach with the help of use cases and provides practical insight to the task of exploring and visually analyzing complex and large knowledge graphs such as the Panama Papers. This is supported by industry use cases and live demoing during the presentation.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_1251_1257>
+    nif:anchorOf "Panama" ;
+    nif:beginIndex "1251"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1257"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_0_1348> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9991549672036288 ;
+    itsrdf:taIdentRef dbpedia:Panama .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_363_369>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "363"^^xsd:nonNegativeInteger ;
+    nif:endIndex "369"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_0_1348> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_616_622>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "616"^^xsd:nonNegativeInteger ;
+    nif:endIndex "622"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/147_Liebig/nif.ttl/#offset_0_1348> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+

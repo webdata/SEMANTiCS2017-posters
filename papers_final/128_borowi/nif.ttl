@@ -1,0 +1,513 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14940"^^xsd:nonNegativeInteger ;
+    nif:isString """ALEXANDER BOROWI              aborowi@techfak.uni-bielefeld.de             CITEC, Bielefeld University, Germany  HENDRIK TER HORST              hterhors@cit-ec.uni-bielefeld.de             CITEC, Bielefeld University, Germany  MATTHIAS HARTUNG              mhartung@cit-ec.uni-bielefeld.de             CITEC, Bielefeld University, Germany  VERONICA ESTRADA              veronica.estrada@uni-duesseldorf.de             Neurology, HHU Düsseldorf, Germany  NICOLE BRAZDA              nicole.brazda@uni-duesseldorf.de             Neurology, HHU Düsseldorf, Germany  HANS WERNER MÜLLER              hanswerner.mueller@uni-duesseldorf.de             Neurology, HHU Düsseldorf, Germany  PHILIPP CIMIANO              cimiano@cit-ec.uni-bielefeld.de             CITEC, Bielefeld University, Germany  KEYWORDS  -           Visual Data Analytics        -           Open Research Data        -           Linked Data        -           Ontology-based Access        -           Spinal Cord Injury           ABSTRACT   We present SCIExplorer ¹ , an interactive web application for browsing research data represented in RDF format. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the potentially high entrance barriers faced by human domain experts interested in investigating research results at a glance without the need to formulate complex queries. In contrast, SCIExplorer provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually. We demonstrate that the tool can be effectively used to answer relevant competency questions in the domain of spinal cord injury, thus providing intuitive access to the results of preclinical studies which are represented in RDF. In particular, SCIExplorer offers drill-downs to individual preclinical results in order to visualize their core parameters at an interpretable level of abstraction that is guided by an underlying domain ontology.    INTRODUCTION   The amount of openly available research data in machine-readable formats such as RDF is constantly growing, due to the rise of open research portals, on the one hand, and successively more powerful natural language processing tools offering the capability of transforming unstructured data into structured form, on the other. Being tailored to automated processing by machines and services, these data sources are often hard to access by human researchers, as research data in various domains are inherently highly complex, and the data representation formalisms impose high barriers to human domain experts regarding their ability to interact with the data source. Against this background, the need for low-level, intuitive access to research data in RDF or derived formalisms becomes more important than ever. Current approaches towards browsing linked data such as LODmilla [4] , Yuzu [1] , Disco [3] or Tabulator [2] closely follow the RDF data model. In case of complex knowledge structures as they are ubiquitous in research data, this may result in obfuscation due to a multitude of triples which need to be browsed.  In this work, we present SCIExplorer, an interactive web application for investigating the results of preclinical studies in the spinal cord injury (SCI) domain that are represented in RDF. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the aforementioned problems, thus enabling domain experts without profound technical knowledge to formulate complex queries that are meaningful from a research perspective. In particular, the tool provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually, and offers drill-downs to individual preclinical results in order to visualize their results and core parameters at a glance. We demonstrate that SCIExplorer can be effectively used to answer relevant domain-specific competency questions provided by experts.    BACKGROUND: AUTOMATICALLY POPULATING A SPINAL CORD INJURY KNOWLEDGE BASE FROM PRECLINICAL STUDIES   Our motivation to develop an exploration tool for efficiently browsing RDF research data arose in the context of the PSINK project ² , that aims at ontology-based information extraction from large amounts of preclinical studies in the SCI domain. The main project goal is to create the first comprehensive SCI knowledge base in order to foster translation from preclinicial research into therapeutic concepts that are likely to be effective in human patients. The resulting knowledge structures, i.e., the results of preclinical studies, are represented in an RDF database that can be queried via SPARQL. Both the information extraction process and the data representation scheme underlying the SCIExplorer are guided by the Spinal Cord Injury Ontology (SCIO) that is specifically developed in this project [5] . Currently, SCIO contains over 500 entities and relations describing a preclinical study in a very fine-grained and well-structured way.    SCIEXPLORER   This tool was developed to explore the complex structures of preclinical studies that follow the conceptualization provided by the Spinal Cord Injury Ontology. The interface is generated semi-automatically given the specifications of an ontology and a configuration file. The latter is used to enable different views to the data, thus focusing on different aspects of SCIO.  TECHNICAL DETAILS. SCIExplorer is a stand-alone framework written in Java, HTML and PHP. ³ It is accessible though common web-browsers. The graphical interfaces relies on the JavaEE standard JavaServer Faces – Framework (JSF) that is based on Servlets and JavaServer Pages (JSP). The content management is realized with PrimeFaces.  SYSTEM ARCHITECTURE. Figure 1 shows the overall system architecture. This work focuses on the SCIExplorer (grey box) that is divided into three main parts:  [System Architecture]  FIGURE 1. System Architecture 1.  The _Exploration Interface_ serves as an entry point. It is aligned     to the ontology and modified by a configuration file that specifies     different views to the data. The data exploration is driven by     various filter strategies that are automatically extracted from     the ontology.  2.  The _Query Generator_ automatically transforms set filters (based on     concepts and properties provided by SCIO) into SPARQL statements.  3.  The extracted data is prepared and visualized in the _Data     Presentation_ module. The configuration file specifies the parts of     the data that should be viewed.  In the following, all parts are described in more detail.   Exploration Interface  A major motivation of researchers working in the SCI domain is on gaining a deeper, comparative understanding of therapeutic approaches that have been investigated in previous preclinical studies and the core parameters involved in their successful or ineffective application. Our exploration interface adapts to this focus by offering the choice of a treatment (optionally including subtypes) as an entry point via an interactive search field (cf. Figure 2 ).  [Entry point of the system. A treatment can be selected from an interactive search field.]  FIGURE 2. Entry point of the system. A treatment can be selected from an interactive search field. [Different filter.]  FIGURE 3. Different filter. A drop-down menu provides a list of common treatments that are covered by the ontology, e.g., pharmaceutical compounds, hypothermic treatments, or rehabilitative trainings. Based on the selected treatment, further filters can be applied subsequently.  Main aspects of a preclinical SCI study as covered by SCIExplorer are _Treatment_ , _AnimalModel_ , _InjuryType_ _and_ _InvestigationMethod_ .  Possible filters are automatically extracted from the ontology and grouped by their ontological role (i.e., subtype relations, object-type properties and data-type properties). Addressing these roles, we differentiate between two types of filters (cf. Figure 3 ):  1.  BOOLEAN FILTER. Users can set constraints by specifying a rdf:type     constraints to make sure that only results for a certain type are     retrieved (e.g. _RatModel_ or _Male_ ).  2.  REGEX FILTER. For data-type properties, users can set constrains by     limiting the values of the object position to a certain range.  All properties, sub-properties and sub-class relations are flattened under each main aspect in order to reduce the complexity of the data. We argue that the exact hierarchical structure below these main aspects can be discarded without losing any important information.   Filter-driven Dynamic Generation of SPARQL Queries  The dynamic generation of SPARQL queries takes all previously set filters into account and translates them into a set of SPARQL statements. Each filter that was set by the user in the GUI is translated into a basic graph pattern (BGP) in the SPARQL query. BGPs can be typing statements using        rdf:type       or triples involving an object property or data-type property. For instance, the filter specifying that the user is interested in trials in rats (cf. Figure 3 ) imposes an        rdf:type       constraint on the possible subtypes of the _AnimalModel_ class in SCIO, which would be translated as follows:      ?OrganismModel rdfs:type scio:RatModel.  LISTING 1. Translation of type constraint into query statement Analogously, SPARQL statements capturing filters over object properties (e.g.,        scio:hasGender       ) are translated as follows:      ?OrganismModel scio:hasGender scio:Male.  LISTING 2. Translation of object-type property constraint into query statement An example of a filter involving a data-type property is the specification of an interval of animals’ weights, which is translated into SPARQL using a        FILTER       statement:      ?OrganismModel scio:hasWeight ?Weight.     ?Weight scio-data:hasValue ?WeightValue.            FILTER regex(?WeightValue, \"300-400 gramm\", \"I\")  LISTING 3. Translation of data-type property constraint into query statement In order to generate a complete SPARQL query, statements on classes with a common parent (e.g., _RatModel_ and _MouseModel_ with parent _Animal_ _Model_ ) are disjunctively combined using the        UNION       keyword. All other statements are combined into a conjunction.   Data Presentation  Retrieved results are presented in bar diagrams (one per main aspect) capturing the success rate of the respective treatments, divided into positive, negative, and neutral outcome. By default, the four main aspects and all properties of the selected treatment are shown in one dashboard. An example of a bar diagram displaying the observed outcomes of a particular treatment for different dosages is shown in Figure 4 .  [Bar diagram for different dosages]  FIGURE 4. Bar diagram for different dosages If all desired filters are set, the user can switch to a drill-down view in which the retrieved results are arranged in a table (each column representing a main aspect of a study, each row representing a result). In the interest of presenting an entire study at a glance, aspect-related columns are grouped together. Figure 6 shows an example drill-down.    USE CASES IN THE SPINAL CORD INJURY DOMAIN   Common requirements proposed by researchers in the SCI domain involve _answering competency questions_ aiming at comparative views of individual studies with a focus on certain key parameters, or _treatment analytics_ at different levels of depth and granularity (e.g., detecting clusters of equivalent treatment concepts, predicting their prospective success in different model organisms, among others). Definitive answers to such information needs may require statistical analyses and meta studies. Yet, SCIExplorer in its current state is already capable of delivering valuable information regarding comparative views on treatments or the generation of new hypotheses or explanations about the observed (in-)efficacy of therapeutic concepts.  [Exemplary dashboard for answering competency questions]  FIGURE 5. Exemplary dashboard for answering competency questions Consider the following competency question:  In which lesion models being tested in male rats or mice have no negative effects of erythropoietin been observed so far?  Answering this question requires the specification of three filters ( _MouseModel_ , _RatModel_ , _Male_ ). As a result, the answer can be inferred from investigating the _InjuryType_ pane on the dashboard (cf. Figure 5 ): The current data pool contains two different injury models treated with erythropoietin, viz., compressions and contusions. So far, negative outcomes have only been reported for compressions.  Additionally, inspection of the _Dosage_ pane shows that the negative result is tied to a particular dosage of 0.01 ml/kg of erythropoietin; however, the same dosage has also led to positive and neutral outcomes. In order to explore this finding in more detail, a drill-down can be generated by adding an additional constraint for the specific dosage. The resulting table, presenting all individual results from the RDF data pool which satisfy the current set of ontological constraints at a glance, is displayed in Figure 6 .  As can be seen from the table, the difference in outcomes (positive vs. negative/neutral) is due to different time points of the measurement of the observation (four weeks vs. six weeks after treatment). Apparently, all other parameters being equal, erythropoietin in mice tends to induce early effects towards functional recovery after compression which are not sustainable over time, though.  [Comparative drill-down to study results based on previously specified constraints]  FIGURE 6. Comparative drill-down to study results based on previously specified constraints    DISCUSSION   We have presented SCIExplorer as a tool that enables visual analytics over research data represented in RDF, based on an intuitive access layer that is guided by an underlying domain ontology. With a focus on the spinal cord injury domain, we have demonstrated that SCIExplorer is capable to highlight meaningful and interpretable information for domain experts, without the need for specifying complex queries in a formal language such as SPARQL. SCIExplorer is automatically derived from a data-describing ontology, assuming a particular view on the underlying RDF data pool. We envisage two main directions for further development of SCIExplorer: first, adapting the tool to different research domains; second, increasing the degrees of freedom in the exploration process (e.g., by providing alternative entry points), while keeping the complexity faced by the user at a tractable level.    ACKNOWLEDGEMENTS   This work has been funded by the Federal Ministry of Education and Research (BMBF, Germany) in the PSINK projects (031L0028A
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_10166_10172>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10166"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10172"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_1213_1221>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1213"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1221"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_12333_12347>
+    nif:anchorOf "erythropoietin" ;
+    nif:beginIndex "12333"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12347"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Biomolecule, dbo:Protein ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erythropoietin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_12666_12680>
+    nif:anchorOf "erythropoietin" ;
+    nif:beginIndex "12666"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12680"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Biomolecule, dbo:Protein ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erythropoietin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_12911_12925>
+    nif:anchorOf "erythropoietin" ;
+    nif:beginIndex "12911"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12925"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Biomolecule, dbo:Protein ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erythropoietin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_13564_13578>
+    nif:anchorOf "erythropoietin" ;
+    nif:beginIndex "13564"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13578"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Biomolecule, dbo:Protein ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Erythropoietin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_14085_14093>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "14085"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14093"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_14342_14348>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "14342"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14348"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_14410_14418>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "14410"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14418"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_1502_1508>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1502"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1508"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_196_216>
+    nif:anchorOf "Bielefeld University" ;
+    nif:beginIndex "196"^^xsd:nonNegativeInteger ;
+    nif:endIndex "216"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bielefeld_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_1994_2002>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1994"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2002"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_2220_2247>
+    nif:anchorOf "natural language processing" ;
+    nif:beginIndex "2220"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2247"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Natural_language_processing .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_309_329>
+    nif:anchorOf "Bielefeld University" ;
+    nif:beginIndex "309"^^xsd:nonNegativeInteger ;
+    nif:endIndex "329"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bielefeld_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_3434_3442>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3434"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3442"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_3722_3728>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "3722"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3728"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_433_443>
+    nif:anchorOf "Düsseldorf" ;
+    nif:beginIndex "433"^^xsd:nonNegativeInteger ;
+    nif:endIndex "443"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Düsseldorf .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_4702_4714>
+    nif:anchorOf "RDF database" ;
+    nif:beginIndex "4702"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4714"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Triplestore .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_4739_4745>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "4739"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4745"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_5345_5353>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "5345"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5353"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_541_551>
+    nif:anchorOf "Düsseldorf" ;
+    nif:beginIndex "541"^^xsd:nonNegativeInteger ;
+    nif:endIndex "551"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Düsseldorf .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_5552_5556>
+    nif:anchorOf "Java" ;
+    nif:beginIndex "5552"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5556"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ProgrammingLanguage, dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Java_(programming_language)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_5567_5570>
+    nif:anchorOf "PHP" ;
+    nif:beginIndex "5567"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5570"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ProgrammingLanguage, dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:PHP .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_5658_5664>
+    nif:anchorOf "JavaEE" ;
+    nif:beginIndex "5658"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5664"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Java_Platform,_Enterprise_Edition> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_5674_5690>
+    nif:anchorOf "JavaServer Faces" ;
+    nif:beginIndex "5674"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5690"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:JavaServer_Faces .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_567_580>
+    nif:anchorOf "WERNER MÜLLER" ;
+    nif:beginIndex "567"^^xsd:nonNegativeInteger ;
+    nif:endIndex "580"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9926282736175019 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Werner_Müller_(musician)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_6109_6117>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6109"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6117"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_6313_6321>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6313"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6321"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_6448_6454>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6448"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6454"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_659_669>
+    nif:anchorOf "Düsseldorf" ;
+    nif:beginIndex "659"^^xsd:nonNegativeInteger ;
+    nif:endIndex "669"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Düsseldorf .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_688_695>
+    nif:anchorOf "CIMIANO" ;
+    nif:beginIndex "688"^^xsd:nonNegativeInteger ;
+    nif:endIndex "695"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999754518288 ;
+    itsrdf:taIdentRef dbpedia:Cimiano .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_709_716>
+    nif:anchorOf "cimiano" ;
+    nif:beginIndex "709"^^xsd:nonNegativeInteger ;
+    nif:endIndex "716"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999754518288 ;
+    itsrdf:taIdentRef dbpedia:Cimiano .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_7503_7511>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7503"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7511"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_760_780>
+    nif:anchorOf "Bielefeld University" ;
+    nif:beginIndex "760"^^xsd:nonNegativeInteger ;
+    nif:endIndex "780"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bielefeld_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_7875_7883>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7875"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7883"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999972715 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8148_8151>
+    nif:anchorOf "rdf" ;
+    nif:beginIndex "8148"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8151"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Resource_Description_Framework .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_82_102>
+    nif:anchorOf "Bielefeld University" ;
+    nif:beginIndex "82"^^xsd:nonNegativeInteger ;
+    nif:endIndex "102"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bielefeld_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8720_8726>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8720"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8726"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8762_8768>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8762"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8768"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8857_8863>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8857"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8863"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8920_8923>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "8920"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8923"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_892_903>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "892"^^xsd:nonNegativeInteger ;
+    nif:endIndex "903"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_8978_8984>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8978"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8984"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_9035_9038>
+    nif:anchorOf "rdf" ;
+    nif:beginIndex "9035"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9038"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Resource_Description_Framework .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_9229_9232>
+    nif:anchorOf "rdf" ;
+    nif:beginIndex "9229"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9232"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Resource_Description_Framework .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_9374_9378>
+    nif:anchorOf "rdfs" ;
+    nif:beginIndex "9374"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9378"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:RDF_Schema .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_9476_9482>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "9476"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9482"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_9861_9867>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "9861"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9867"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/128_borowi/nif.ttl/#offset_0_14940> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+

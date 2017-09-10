@@ -1,0 +1,126 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2818"^^xsd:nonNegativeInteger ;
+    nif:isString """ELIE ABI-LAHOUD              elie.abilahoud@ucd.ie             School of Business, University College Dublin, Ireland  PAUL-EMMANUEL RAOUL              paul-emmanuel.raoul@ucd.ie             School of Business, University College Dublin, Ireland  CAL MUCKLEY              cal.muckley@ucd.ie             School of Business, University College Dublin, Ireland  KEYWORDS  -           Financial technology        -           Knowledge representation        -           Design science research        -           Fintech        -           Regtech        -           Semantic web        -           Linked open data        -           Ontology        -           RDF graph        -           SPARQL        -           Data visualisation           ABSTRACT   The fintech ecosystem is a highly dynamic environment. Venture investment in fintech grew by 11�o $17.4 billion in 2016 according to Forbes and Pitchbook . Having a clear picture of this ecosystem at a given point in time is much needed to inform policy activities as evidenced by the European Commission call for tenders SMART 2016/0042. This paper describes our approach to integrating, enriching and presenting data about the fintech ecosystem. It presents _FintechBrowser_ , a demonstrator of an integrated set of dashboards and a graph explorative-browsing tool.    INTRODUCTION   Over the past decade we have witnessed technology-driven innovations that disrupted the financial services industry and continue to do so. In consumer payments, nascent start-ups are able to bring to market affordable and flexible cross-border payment solutions outperforming some of the largest traditional financial institutions. In the funding space, the rise of crowd-funding democratised access-to-capital creating a whole new market segment. In investment management, robo-advisors renewed the faith of many in the applications of Artificial Agents while providing satisfying results at competitive costs. Disruption caught-up even with currencies - one of the oldest concepts in the financial industry - with the proliferation of crypto-currencies using blockchain technologies.  Having a clear picture of this ecosystem at a given point in time is much needed to inform policy activities as evidenced by the European Commission call for tenders SMART 2016/0042. Our research is focussed on exploring the fintech ecosystem using ontological modelling. It seeks, inter alia, to improve our understanding of this ecosystem, which is a critically important environment from which solutions to operational risks at financial institutions frequently arise. We combine novel knowledge representation and data modelling techniques to reveal links between concepts represented in the data which otherwise are not accessible. We use semantic web standards to free data from tables
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_1038_1057>
+    nif:anchorOf "European Commission" ;
+    nif:beginIndex "1038"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1057"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Commission .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_110_117>
+    nif:anchorOf "Ireland" ;
+    nif:beginIndex "110"^^xsd:nonNegativeInteger ;
+    nif:endIndex "117"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9067713575806781 ;
+    itsrdf:taIdentRef dbpedia:Republic_of_Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_211_236>
+    nif:anchorOf "University College Dublin" ;
+    nif:beginIndex "211"^^xsd:nonNegativeInteger ;
+    nif:endIndex "236"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999998968830877 ;
+    itsrdf:taIdentRef dbpedia:University_College_Dublin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_2255_2274>
+    nif:anchorOf "European Commission" ;
+    nif:beginIndex "2255"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2274"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Commission .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_238_245>
+    nif:anchorOf "Ireland" ;
+    nif:beginIndex "238"^^xsd:nonNegativeInteger ;
+    nif:endIndex "245"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9067713575806781 ;
+    itsrdf:taIdentRef dbpedia:Republic_of_Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_2770_2782>
+    nif:anchorOf "semantic web" ;
+    nif:beginIndex "2770"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2782"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_323_348>
+    nif:anchorOf "University College Dublin" ;
+    nif:beginIndex "323"^^xsd:nonNegativeInteger ;
+    nif:endIndex "348"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999998968830877 ;
+    itsrdf:taIdentRef dbpedia:University_College_Dublin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_350_357>
+    nif:anchorOf "Ireland" ;
+    nif:beginIndex "350"^^xsd:nonNegativeInteger ;
+    nif:endIndex "357"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9067713575806781 ;
+    itsrdf:taIdentRef dbpedia:Republic_of_Ireland .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_687_693>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "687"^^xsd:nonNegativeInteger ;
+    nif:endIndex "693"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_83_108>
+    nif:anchorOf "University College Dublin" ;
+    nif:beginIndex "83"^^xsd:nonNegativeInteger ;
+    nif:endIndex "108"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/138_abi_lahoud/nif.ttl/#offset_0_2818> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999998968830877 ;
+    itsrdf:taIdentRef dbpedia:University_College_Dublin .
+

@@ -1,0 +1,564 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16350"^^xsd:nonNegativeInteger ;
+    nif:isString """YASHWANT KESWANI              201301047@daiict.ac.in             DA-IICT, India  HARSH THAKKAR              thakkar@cs.uni-bonn.de             University of Bonn, Germany  MOHNISH DUBEY              dubey@cs.uni-bonn.de             University of Bonn, Germany  JENS LEHMANN              jens.Lehmann@cs.uni-bonn.de             University of Bonn, Germany  SÖREN AUER              auer@cs.uni-bonn.de             University of Bonn, Germany  KEYWORDS  -           Benchmarking        -           Linked Data        -           Performance Analysis        -           RDF Stores        -           Graph Stores        -           Automated Framework           ABSTRACT   In this paper we demonstrate the working of proposed LITMUS benchmark suite. Benchmarking is an extremely tedious task demanding repetitive manual effort, therefore it is advantageous to automate the whole process. LITMUS, is an automated benchmarking framework which supports benchmarking and comparing diverse DMSs for both RDF and property graph DMS. It also provides custom visualization (i.e. plots) support for the benchmarked DMSs against a wide range of CPU and memory-specific evaluation parameters.    INTRODUCTION   In order to cope up with the consumption of Open, Linked and Big Data over the last few years, there has been exponential growth in development of various Data Management Systems. These existing DMSs can be broadly divided into two categories depending on the data model they address. 1.) Triple Stores, which employ the RDF Graph data model and 2.) Graph Databases, which frequently use the Property Graph data model.  Benchmarking is conducted to assess the performance of these DMSs with respect to a variety of scenarios, in order to decide their suitability for a given task. Benchmarking is a difficult and tedious process which involves many repetitive subtasks such as data loading, query loading, query execution, clearing the cache, etc for each participating DMS. There exist many benchmarks (a full list and description of these can be found in the related work section of the full paper [2] for task-specific application, some of which are bundled with their custom data generators [ [3] , [4] , [5] etc] (i.e. synthetic dataset generators). However, to the best of our knowledge, there is a lack of a benchmarking framework which:  1.  promotes reusability via providing a unied open extensible     architecture for orchestrating user-driven benchmarks 2.  provides a list of comprehensive CPU and memory-based metrics and     parameters for performance evaluation 3.  offers full automation of the underlying tedious sub-tasks, and 4.  support a comprehensive post-benchmark performance reporting via     custom visualization using tables and plots  In the first working prototype of LITMUS, we only offer a limited number of benchmarking tasks, such as:  1.  Time taken to load a dataset in the memory (linked dataset for RDF     based DMS and property graph for Graph based DMS). 2.  Time taken to execute a query (SPARQL query for RDF based DMS and     Gremlin query for Graph based DMS).    LITMUS FRAMEWORK   The framework consists of various plug-n-play modules as shown in Figure 1. We now summarize the function of LITMUS components. However, a detailed description of the utility of each module can be obtained from [1] , [2] . 1.  DATASET MODULE : The dataset module provides utilities to convert a     RDF based dataset to a property graph. It also consists of scripts     for loading a dataset in the DMSs selected by the user. 2.  DMS MODULES : There are separate modules for each DMS which can be     benchmarked using the LITMUS framework. Each module has scripts     which are used to initialize the DMS using the configurations     provided and make the DMS ready for the benchmarking process. 3.  QUERY MODULE : The query module is responsible for providing SPARQL     queries and the corresponding Gremlin queries for the dataset. At     the moment, we are providing limited SPARQL queries and their     Gremlin translations. 4.  CONTROLLER AND TESTER MODULE : The controller and tester modules is     responsible for preparing the DMSs in the warm cache/cold cache     configuration (specified by the user) and executing the     corresponding scripts on the DMSs. 5.  ANALYSIS AND VISUALIZATION MODULE : The analysis and visualization     module collects the data from all the log files, generated during     the benchmarking process, conducts the statistical analysis and     prepares visualization in terms box-plots and custom charts. 6.  GUI MODULE : The GUI module is built to allow the user to allow an     easy configuration to the benchmark which needs to be executed. It     allows the user to select integrated DMS, datasets, queries, and     save, import, and export configurations.  []  FIGURE 1. Figure 1: The architecture of the first working prototype of LITMUS Benchmark Suite. The complete source code for the LITMUS framework is available here ¹ . We have released the first working prototype of LITMUS benchmark suite (v0.1) on docker hub ² for encouraging first hand experience and user feedback.    LITMUS ENVIRONMENT   In this paper we demonstrate the working of LITMUS (v0.1) using the environment setup described below.   Integrated Dataset  The framework provides tools to convert the following datasets from RDF to Property Graphs, to ensure a uniform and fair benchmarking process : BSBM [3] , WatDiv [4] , Northwind ³ and DBpedia [6] .  In the current version of LITMUS, we do not consider the semantics of blank nodes (as in DBpedia and Wikidata) during the conversion of RDF graphs to PGs.   Integrated DMS  LITMUS currently allows benchmarking eight DMSs ( four RDF based and four Graph based) currently, which are Openlink Virtuoso ⁴ , gh-rdf-3x ⁵ , Apache Jena ⁶ , 4store ⁷ , Sparksee (formerly known as DEX Graph) ⁸ , Neo4j ⁹ , OrientDB ¹⁰ and Apache Tinkerpop ¹¹ .   Supported Queries  A total of 30 SPARQL queries were created and their Gremlin translations were also created manually. The queries can be executed in the warm cache and the cold cache (cache is cleared after every run) configuration. The cache is cleared using the UNIX command        echo 3 > /proc/sys/vm/drop_caches       . Executing the queries in two configurations allow the users to study the correlation between performance of the DMSs with respect to query, dataset-specific characteristics, the order in which they are run. The influence of factors like the query length, query size, Graph patterns on the performance of the system can be seen when run in the queries are run in warm cache configuration.   Execution Environment  The following set of rules are followed by the framework to ensure that no DMS gets an advantage when it is being benchmarked. 1.  Each query task is carried out individually, in complete isolation     and is run several times to nullify the effect of anomalies. 2.  Each dataset task loading process takes in a new location to ensure     no run is getting an undue advantage of already existing files.  A variety of parameters and metrics are used to evaluate the performance of every DMS after the benchmarking process. The full descriptions of the catered evaluation parameters and metrics can be obtained from [2] . The following parameters are measured using the perf utility tool. _Cycles, Instructions, Cache References, Cache Misses, Bus Cycles, L1 data cache loads, L1 data cache load misses, L1 data cache stores, dTLB loads, dTLB load misses, LLC loads, LLC load misses, LLC stores, Branches, Branch Misses, Context Switches, CPU migrations, Page Faults_ .  LITMUS also supports calculation of various statistical metrics such as arithmetic, geometric, harmonic means, median, mode, standard deviation, minimum, and maximum of each of the measured parameters. Furthermore, LITMUS allows the users to export the results in form of CSV files and Latex tables. Boxplots are generated using the matplotlib for each parameter which is measured during the benchmarking process.    A HANDS ON EXPERIENCE WITH LITMUS   We now present the benchmarking results produced for a set of selected queries using LITMUS (v0.1). The experiments were conducted on the following setting:  CPU : Intel(R) Core(TM) i5-4200M CPU @ 2.50GHz; RAM : 8 GB DDR3; L1D AND L1I CACHES : 32 KB; L2 CACHE : 256 KB; L3 CACHE : 3072 KB; RDF DMSS : Openlink Virtuoso [7.2.5], Apache Jena TDB [3.2.0] , 4store [1.1.5], gh-RDF3X; GRAPH DMSS : Apache TinkerPop [3.2.4], Neo4J [1.9.6], Sparksee [5.1], OrientDB [2.1.3]   Illustration 1  The cold and warm cache query execution performance example.  Gremlin Query :        g.V().has(\"categoryName\").categoryName        SPARQL Query :        select ?b where {?a
+\"category\" .              ?a
+?b .}          --------------------------------------------------------------------------------            4store   Jena     Neo4j    Orient   RDF3x    Sparksee Tinker   Virtuoso   -------- -------- -------- -------- -------- -------- -------- -------- --------   Cold     4.289    0.16510  0.02865  0.0489   0.546    0.0417   0.190    0.001   Cache                                                                       Warm     0.0245   0.15870  0.02505  0.029    0.0002   0.0255   0.205    0.0008   Cache                                                                      --------------------------------------------------------------------------------  TABLE 1. Table summarising the execution time (in seconds) of the query for all the DMSs for warm cache and cold cache configurations. Along with measuring the execution time of the various queries, the LITMUS framework also measures a variety of system parameters which are responsible for the performance. These parameters are very handy to analyze the performance. An example in this illustration would be the cache-misses for the different DMSs. The performance of cold cache suffers in comparison to that of the warm cache configuration. We observe that the cache misses for the cold cache configurations are higher when compared to the warm cache configurations. Figure 2 and Figure 3 are plots of a the system based parameters.    --------------------------------------------------------------------------------            4store   Jena     Neo4j    Orient   RDF3x    Sparksee Tinker   Virtuoso   -------- -------- -------- -------- -------- -------- -------- -------- --------   Cold     6.93e 7  1.45e 8  4.20e 8  7.02e 8  9.52e 6  5.25e 8  2.08e 9  5.27e 6   Cache                                                                       Warm     4.38e 6  1.42e 8  3.66e 8  4.67e 8  8.02e 5  2.57e 8  1.92e 9  9.64e 5   Cache                                                                      --------------------------------------------------------------------------------  TABLE 2. Table summarising the average cache misses for query for the cold cache and warm cache configurations. []  FIGURE 2. Time taken (in seconds) to execute the query on the Northwind Dataset in a cold cache configuration. []  FIGURE 3. The instructions taken to run the query by Graph based DMS in Cold Cache Configuration.   Illustration 2  The dataset loading performance of supported RDF and Graph DMSs. In this illustration we load the Northwind dataset in the memory for all the DMS. Table 2 summarizes the time taken in seconds to load the dataset by the different DMSs.    4store   Jena    Neo4j   Orient   RDF3x    Sparksee   Tinker   Virtuoso   -------- ------- ------- -------- -------- ---------- -------- ----------   0.977    8.226   1.493   3.5374   0.6962   0.7252     0.6257   0.279  TABLE 3. Table summarising the time taken (in seconds) for loading the DMS. []  FIGURE 4. Time taken (in seconds) to load the Northwind Dataset.   --------------------------------------------------------------------------------            4store   Jena     Neo4j    Orient   RDF3x    Sparksee Tinker   Virtuoso   -------- -------- -------- -------- -------- -------- -------- -------- --------   Instruct 1.31e 9  1.85e 10 1.75e 10 4.33e 10 1.40e 9  1.08e 10 5.02e 10 1.48e 9   ions                                                                        Cache    2.11e 7 6.50e 8  6.44e 8  1.73e 9  1.77e 7  3.93e 8  2.05e 9  2.78e 7   Misses                                                                      dTLB     2.81e 6  1.15e 8  1.25e 8  3.28e 8  1.55e 6  7.63e 7  3.51e 8  6.05e 6   Misses                                                                     --------------------------------------------------------------------------------  TABLE 4. Table summarising the average values of various parameters for loading the DMS. A lot of factors contribute to the performance of a DMS. In Table 4 , it can be observed that the performance of the Jena and the Orient DMSs can be attributed to the high number of branch misses and dTLB misses.  All the results and plots which were generated as a part of the result can be found here ¹² .    CONCLUSION AND FUTURE WORK   In this paper we presented a demonstration of the proposed LITMUS benchmark suite [2] . To the best of our knowledge, LITMUS is the first of its kind open, extensible and fully automated benchmarking framework which allows user-driven benchmarking and result visualization of various RDF and Graph DMSs. The planned future work is as follows:  1.  At present, LITMUS supports eight DMSs. We want to extend the     support to a larger number of DMSs and include them in the     next version. 2.  We also plan to include task graph computing specific queries such     as BFS, DFS in the future. 3.  Furthermore, we plan to provide an on-the-fly SPARQL to Gremlin     query translation tool “Gremlinator” for ensuring     benchmarking fairness. This will enable constructing gremlin graph     pattern matching traversals from corresponding SPARQL queries using     the proposed mapping in [7] 4.  LITMUS currently supports the conversion of a few datasets to     Property Graphs. In the next version, we plan to propose a more     robust and generalized RDF to Property Graph convertor which can     work for custom datasets. 5.  Lastly, we also eye for developing a synthetic dataset generator     which will enable LITMUS to become a standalone end-to-end     benchmarking framework, without any external dependence     for datasets.    ACKNOWLEDGMENTS   This work is supported by the funding received from EU-H2020 WDAqua ITN (GA. 642795)    REFERENCES   1.        Harsh Thakkar. Towards an Open Extensible Framework for Empirical     Benchmarking of Data Management Solutions: LITMUS. In The Semantic     Web - 14th International Conference, ESWC 2017, Portorož, Slovenia,     May 28 - June 1, 2017, Proceedings, Part II . 256–266. (2017).  2.        Harsh Thakkar, Yashwant Keswani, Mohnish Dubey, Jens Lehmann, and     Sören Auer. Trying Not to Die Benchmarking – Orchestrating RDF and     Graph Data Management Solution Benchmarks Using LITMUS . In     Proceedings of SEMANTiCS 2017, Amsterdam, Netherlands. (2017).  3.        Christian Bizer and Andreas Schultz. The berlin sparql benchmark.     (2009).  4.        Güneş Aluç, Olaf Hartig, M Tamer Özsu, and Khuzaima Daudjee.     Diversified stress testing of RDF data management systems. In     International Semantic Web Conference, Springer, 197-212. (2014).  5.        Mohamed Morsey, Jens Lehmann, Sören Auer, and others. DBpedia SPARQL     Benchmark – Performance Assessment with Real Queries on Real Data.     Springer Berlin Heidelberg, 454–469. (2011).  6.        Sören Auer, Christian Bizer, Georgi Kobilarov, Jens Lehmann, Richard     Cyganiak, and Zachary Ives. Dbpedia: A nucleus for a web of     open data. In The semantic web . Springer, 722–735. (2007).  7.        Harsh Thakkar, Dharmen Punjani, Maria-Esther Vidal, and Sören Auer.     Towards an Integrated Graph Algebra for Graph Pattern Matching     with Gremlin. In Proceedings of the 28th International Conference,     DEXA 2017, Lyon, France, August 28-31, 2017, Proceedings, Part I .     Springer, 81–91. (2017).    FOOTNOTES   LITMUS Benchmark Suite - Github/ [back]  Litmus Benchmark Suite - Dockerhub [back]  Northwind Dataset [back]  Openlink Virtuoso [back]  RDF3X [back]  Apache Jena [back]  4store [back]  Sparksee [back]  Neo4J [back]  OrientDB [back]  Apache Tinkerpop [back]  Experiment Results [back]
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_10280_10284>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "10280"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10284"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_11419_11423>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "11419"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11423"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_11878_11882>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "11878"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11882"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_12108_12112>
+    nif:anchorOf "ions" ;
+    nif:beginIndex "12108"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12112"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999914236190645 ;
+    itsrdf:taIdentRef dbpedia:Ion .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_12786_12790>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "12786"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12790"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_13652_13658>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "13652"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13658"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_13846_13852>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "13846"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13852"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_14663_14671>
+    nif:anchorOf "Portorož" ;
+    nif:beginIndex "14663"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14671"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999998072999191 ;
+    itsrdf:taIdentRef dbpedia:Portorož .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_14673_14681>
+    nif:anchorOf "Slovenia" ;
+    nif:beginIndex "14673"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14681"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999999990905 ;
+    itsrdf:taIdentRef dbpedia:Slovenia .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_14809_14821>
+    nif:anchorOf "Jens Lehmann" ;
+    nif:beginIndex "14809"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14821"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Athlete, dbo:Person, dbo:SoccerPlayer, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 0.9999999999718057 ;
+    itsrdf:taIdentRef dbpedia:Jens_Lehmann .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_14997_15006>
+    nif:anchorOf "Amsterdam" ;
+    nif:beginIndex "14997"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15006"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Amsterdam .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15008_15019>
+    nif:anchorOf "Netherlands" ;
+    nif:beginIndex "15008"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15019"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Netherlands .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15060_15075>
+    nif:anchorOf "Andreas Schultz" ;
+    nif:beginIndex "15060"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15075"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Andreas_Schultz .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15081_15087>
+    nif:anchorOf "berlin" ;
+    nif:beginIndex "15081"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15087"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.999999999996362 ;
+    itsrdf:taIdentRef dbpedia:Berlin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15088_15094>
+    nif:anchorOf "sparql" ;
+    nif:beginIndex "15088"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15094"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15274_15286>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "15274"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15286"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15353_15365>
+    nif:anchorOf "Jens Lehmann" ;
+    nif:beginIndex "15353"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15365"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Athlete, dbo:Person, dbo:SoccerPlayer, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 0.9999999999718057 ;
+    itsrdf:taIdentRef dbpedia:Jens_Lehmann .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15399_15405>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "15399"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15405"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15490_15496>
+    nif:anchorOf "Berlin" ;
+    nif:beginIndex "15490"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15496"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.999999999996362 ;
+    itsrdf:taIdentRef dbpedia:Berlin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15497_15507>
+    nif:anchorOf "Heidelberg" ;
+    nif:beginIndex "15497"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15507"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, dbo:Town, schema:Place ;
+    itsrdf:taConfidence 0.9999743914491181 ;
+    itsrdf:taIdentRef dbpedia:Heidelberg .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15584_15596>
+    nif:anchorOf "Jens Lehmann" ;
+    nif:beginIndex "15584"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15596"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Athlete, dbo:Person, dbo:SoccerPlayer, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 0.9999999999718057 ;
+    itsrdf:taIdentRef dbpedia:Jens_Lehmann .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15638_15645>
+    nif:anchorOf "Dbpedia" ;
+    nif:beginIndex "15638"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15645"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:DBpedia .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15692_15704>
+    nif:anchorOf "semantic web" ;
+    nif:beginIndex "15692"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15704"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_157_161>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "157"^^xsd:nonNegativeInteger ;
+    nif:endIndex "161"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999973016929313 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15839_15852>
+    nif:anchorOf "Graph Algebra" ;
+    nif:beginIndex "15839"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15852"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999886700039242 ;
+    itsrdf:taIdentRef dbpedia:Graph_algebra .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_15966_15970>
+    nif:anchorOf "Lyon" ;
+    nif:beginIndex "15966"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15970"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Lyon .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_16216_16222>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "16216"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16222"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_16223_16227>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "16223"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16227"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_16299_16305>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "16299"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16305"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_246_250>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "246"^^xsd:nonNegativeInteger ;
+    nif:endIndex "250"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999973016929313 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_261_273>
+    nif:anchorOf "JENS LEHMANN" ;
+    nif:beginIndex "261"^^xsd:nonNegativeInteger ;
+    nif:endIndex "273"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Athlete, dbo:Person, dbo:SoccerPlayer, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 0.9999999999718057 ;
+    itsrdf:taIdentRef dbpedia:Jens_Lehmann .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_3028_3034>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "3028"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3034"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_341_345>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "341"^^xsd:nonNegativeInteger ;
+    nif:endIndex "345"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999973016929313 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_3887_3893>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "3887"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3893"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_4005_4011>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "4005"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4011"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_426_430>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "426"^^xsd:nonNegativeInteger ;
+    nif:endIndex "430"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999973016929313 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_4573_4576>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "4573"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4576"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_4590_4593>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "4590"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4593"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_495_506>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "495"^^xsd:nonNegativeInteger ;
+    nif:endIndex "506"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_5813_5819>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "5813"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5819"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_5820_5824>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "5820"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5824"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_5909_5915>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "5909"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5915"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_5966_5972>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "5966"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5972"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_65_72>
+    nif:anchorOf "DA-IICT" ;
+    nif:beginIndex "65"^^xsd:nonNegativeInteger ;
+    nif:endIndex "72"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9999994771534605 ;
+    itsrdf:taIdentRef dbpedia:Dhirubhai_Ambani_Institute_of_Information_and_Communication_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8260_8265>
+    nif:anchorOf "Intel" ;
+    nif:beginIndex "8260"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8265"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9993188849505951 ;
+    itsrdf:taIdentRef dbpedia:Intel .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8302_8305>
+    nif:anchorOf "RAM" ;
+    nif:beginIndex "8302"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8305"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999801526014946 ;
+    itsrdf:taIdentRef dbpedia:Random-access_memory .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8424_8430>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "8424"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8430"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8431_8435>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "8431"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8435"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8489_8495>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "8489"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8495"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8712_8718>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8712"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8718"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_8899_8903>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "8899"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8903"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/157_Keswani/nif.ttl/#offset_0_16350> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9456914871508147 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Jena_(framework)> .
+

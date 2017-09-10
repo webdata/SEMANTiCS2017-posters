@@ -1,0 +1,371 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7149"^^xsd:nonNegativeInteger ;
+    nif:isString """VLADIMIR ALEXIEV              vladimir.alexiev@ontotext.com             Ontotext Corp  ATANAS KIRYAKOV              atanas.kiryakov@ontotext.com             Ontotext Corp  PLAMEN TARKALANOV              plamen.tarkalanov@ontotext.com             Ontotext Corp  ACM SUBJECT CATEGORIES       Resource Description Framework (RDF)            Ontologies            Enterprise applications       KEYWORDS  -           euBusinessGraph        -           firmographics        -           company data        -           public procurement        -           linked data        -           business graph        -           economics           ABSTRACT   Corporate information, including basic company firmographics (e.g., name(s), incorporation data, registered addresses, ownership and related entities), financials (e.g., balance sheets, ratings) and contextual data (e.g., addresses, economic activity classification, key officers, public tenders data, press mentions and events) are the foundation that many data value chains are built on. Furthermore, this type of information contributes to the transparency and accountability of enterprises, is instrumental when input to the process of marketing and sales, and plays a key role in many business interactions. Collecting and aggregating data about a business entity from several public sources (be it private/public, official or non-official ones), and especially across country borders and languages is a tedious, time consuming, error prone, and expensive operation which renders many potential business models non-feasible.  The euBusinessGraph project integrates European company and economic data from various data providers, including OpenCorporates (the largest open database of company info crawled from official registers), Norway's Bronnoysund Register Center (official register data), SpazioDati (rich IT data from official registers, additional databases, web crawl of company sites, tender info, etc.), EventRegistry events, GLEI, Panama Leaks, etc.  euBusinessGraph is intended to overcome these barriers and provision several important business cases, such as economic journalism (Deutsche Welle), publication of rich company data (BRC), tender information service (CERVED), business intelligence (EVRY), etc. It will also provide a marketplace of company data, with some free search and faceting, leading to information about richer Data Offerings by specific providers and their pricing.  We will present the work done on exploring relevant ontologies and vocabularies for describing companies, systems of identifiers, development of a unified data model, plans for data flows, data aggregation, matching and cross-linking, and the opportunities that lie ahead for the business cases and the data marketplace.  This session will demonstrate services like company popularity ranking, monitoring mentions of related entities in news and finding suspicious relation patterns in FactForge – a knowledge graph with more than 2 billion edges of POL (persons, organizations, locations) data interlinked with 1 million news articles.  An accompanying poster and presentation are available.    INTRODUCTION   euBusinessGraph is a 30-month research project funded by the EU H2020 programme on Big Data integration and experimentation that started in January 2017. Its purpose is to integrate a large number of economics-related datasets such as companies, public procurement tenders, company events, etc.; to provision 6 business cases using that data; and to establish a data marketplace for such data. The project partners comprise:  1.  SINTEF , Norway's largest research organization;  2.  OpenCorporates , the largest aggregation of company data from     official registers;  3.  Cerved , an Italian leader in business information;  4.  SpazioDati , an innovative provider of data about Italian companies     ( Atoka );  5.  EVRY , Norway's largest IT services provider;  6.  Deutsche Welle (DW), Germany's international broadcaster;  7.  Ontotext , a world leader in semantic technologies, databases and     semantic cloud offerings;  8.  Brønnøysund Register Centre (BRC), Norway's national business     register agency (18 registers);  9.  Institut \"Jozef Stefan\" (IJS), creator of EventRegistry (6.5M world     events extracted from 190M articles);  10. University of Milano-Bicocca (UNIMIB), specializing in data     management and service science.  The project concept including data value chain and customer segmentation, is shown below.  [Project Concept]  FIGURE 1. Project Concept    BUSINESS CASES AND LEAN BUSINESS MODELING   The business cases addressed by the project include the following:  -   OpenCorporates will enlarge its offering with a Corporate Events     Data Service. It will increase the number of EU Government Gazettes     ingested (see OpenGazettes ) and add non-register sources of     company events.  -   Cerved will implement a Tender Discovery Service that will integrate     data from various sources of public procurement info and implement a     recommendation component that can suggest relevant tenders     to companies.  -   SpazioDati will increase the reach of its Atoka company information     service (Atoka ) by aggregating data about more countries.  -   Deutsche Welle will implement a new Economic Journalism tool to save     cost in the editorial department and increase public reach through     improved story telling.  -   EVRY will leverage the business graph to be developed by the project     in a set of Customer Relationship Management (CRM) systems,     increasing data reach and quality.  -   BRC will publish the full spectrum of official register data in RDF     and describe the data in a semantic way, increasing the value of     Norwegian LOD.  Business case development proceeds in an agile fashion, using Lean Business Modeling and Minimum Viable Product approaches to ensure the developed products meet market demand. We use tools such as Product Vision Statement, Lean Business Model Canvas, Value Proposition Canvas, GO product roadmap, Test card, and Learning card as adopted by SINTEF's innovation department. Below is an example of a lean Business Model Canvas [1] for Atoka   [Example Business Model Canvas]  FIGURE 2. Example Business Model Canvas Various monetization models are considered by the partners, including free, freemium and paid (for premium data). Describing such dataset offerings is an important function of the project.  [Example Monetization Models]  FIGURE 3. Example Monetization Models    COMPANY DATASETS AND ONTOLOGIES   The project studied numerous ontologies and datasets that represent company and related economic data, and which were taken into account when creating the project's data model. Amongst them are:  1.  Global Legal Entity Identifier (GLEI) [13] ;  2.  Business Registers Interconnection System (BRIS) [9] [10] ;  3.  Financial Industry Business Ontology (FIBO) [8] ;  4.  OpenCorporates schema [19] ;  5.  Bulgarian Trade Register schema [18] ;  6.  W3C Organization ontology [5] ;  7.  W3C Registered Organization ontology [20] ;  8.  W3C Location ontology [2] ;  9.  Dun
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_1782_1788>
+    nif:anchorOf "Norway" ;
+    nif:beginIndex "1782"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1788"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Norway .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_1862_1864>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "1862"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1864"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_1993_1999>
+    nif:anchorOf "Panama" ;
+    nif:beginIndex "1993"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1999"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999989173435501 ;
+    itsrdf:taIdentRef dbpedia:Panama .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_2145_2159>
+    nif:anchorOf "Deutsche Welle" ;
+    nif:beginIndex "2145"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2159"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:BroadcastNetwork, dbo:Broadcaster, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Deutsche_Welle .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_2262_2266>
+    nif:anchorOf "EVRY" ;
+    nif:beginIndex "2262"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2266"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Evry .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_290_320>
+    nif:anchorOf "Resource Description Framework" ;
+    nif:beginIndex "290"^^xsd:nonNegativeInteger ;
+    nif:endIndex "320"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Resource_Description_Framework .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_2955_2970>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "2955"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2970"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3596_3602>
+    nif:anchorOf "SINTEF" ;
+    nif:beginIndex "3596"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3602"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SINTEF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3605_3611>
+    nif:anchorOf "Norway" ;
+    nif:beginIndex "3605"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3611"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Norway .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3872_3877>
+    nif:anchorOf "Atoka" ;
+    nif:beginIndex "3872"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3877"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9988527020772663 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Atoka,_Oklahoma> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3886_3890>
+    nif:anchorOf "EVRY" ;
+    nif:beginIndex "3886"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3890"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Evry .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3893_3899>
+    nif:anchorOf "Norway" ;
+    nif:beginIndex "3893"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3899"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Norway .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3910_3912>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "3910"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3912"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_3937_3951>
+    nif:anchorOf "Deutsche Welle" ;
+    nif:beginIndex "3937"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3951"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:BroadcastNetwork, dbo:Broadcaster, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Deutsche_Welle .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_4101_4128>
+    nif:anchorOf "Brønnøysund Register Centre" ;
+    nif:beginIndex "4101"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4128"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Brønnøysund_Register_Centre .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_4136_4142>
+    nif:anchorOf "Norway" ;
+    nif:beginIndex "4136"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4142"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Norway .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5168_5173>
+    nif:anchorOf "Atoka" ;
+    nif:beginIndex "5168"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5173"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9988527020772663 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Atoka,_Oklahoma> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5207_5212>
+    nif:anchorOf "Atoka" ;
+    nif:beginIndex "5207"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5212"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9988527020772663 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Atoka,_Oklahoma> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5262_5276>
+    nif:anchorOf "Deutsche Welle" ;
+    nif:beginIndex "5262"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5276"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:BroadcastNetwork, dbo:Broadcaster, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Deutsche_Welle .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5357_5367>
+    nif:anchorOf "department" ;
+    nif:beginIndex "5357"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5367"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_(government_department)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5435_5439>
+    nif:anchorOf "EVRY" ;
+    nif:beginIndex "5435"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5439"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Evry .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_5520_5558>
+    nif:anchorOf "Customer Relationship Management (CRM)" ;
+    nif:beginIndex "5520"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5558"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Customer_relationship_management .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_6109_6115>
+    nif:anchorOf "SINTEF" ;
+    nif:beginIndex "6109"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6115"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SINTEF .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_6129_6139>
+    nif:anchorOf "department" ;
+    nif:beginIndex "6129"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6139"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_(government_department)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_6201_6206>
+    nif:anchorOf "Atoka" ;
+    nif:beginIndex "6201"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6206"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9988527020772663 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Atoka,_Oklahoma> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_6358_6366>
+    nif:anchorOf "freemium" ;
+    nif:beginIndex "6358"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6366"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Freemium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_6982_6991>
+    nif:anchorOf "Bulgarian" ;
+    nif:beginIndex "6982"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6991"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999949586709 ;
+    itsrdf:taIdentRef dbpedia:Bulgaria .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7026_7029>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "7026"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7029"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7043_7051>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7043"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7051"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7063_7066>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "7063"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7066"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7091_7099>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7091"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7099"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7112_7115>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "7112"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7115"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_7125_7133>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7125"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7133"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/163_Alexiev/nif.ttl/#offset_0_7149> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
