@@ -1,0 +1,778 @@
+<!DOCTYPE HTML>
+<html prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/rash.css" rel="stylesheet"/>
+  <title>
+   Is semantic markup really helping websites improve their online visibility?
+  </title>
+  <meta content="WordLift Srl" property="schema:name"/>
+  <meta content="Andrea Volpini" name="dc.creator" property="schema:name"/>
+  <meta content="andrea@wordlift.io" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Gennaro Cuofano" name="dc.creator" property="schema:name"/>
+  <meta content="gennaro@wordlift.io" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="David Riccitelli" name="dc.creator" property="schema:name"/>
+  <meta content="david@wordlift.io" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Maria Silvia Sanna" name="dc.creator" property="schema:name"/>
+  <meta content="silvia@wordlift.io" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="WordLift" property="prism:keyword"/>
+  <meta content="Semantic annotations" property="prism:keyword"/>
+  <meta content="Blogging" property="prism:keyword"/>
+  <meta content="Search Engines Optimization" property="prism:keyword"/>
+  <meta content="Linked Open Data" property="prism:keyword"/>
+  <meta content="schema.org" property="prism:keyword"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    Is semantic markup really helping websites improve their online
+ visibility?
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Andrea Volpini
+    </strong>
+    <code class="email">
+     <a href="mailto:andrea@wordlift.io">
+      andrea@wordlift.io
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     WordLift Srl
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Gennaro Cuofano
+    </strong>
+    <code class="email">
+     <a href="mailto:gennaro@wordlift.io">
+      gennaro@wordlift.io
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     WordLift Srl
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     David Riccitelli
+    </strong>
+    <code class="email">
+     <a href="mailto:david@wordlift.io">
+      david@wordlift.io
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     WordLift Srl
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Maria Silvia Sanna
+    </strong>
+    <code class="email">
+     <a href="mailto:silvia@wordlift.io">
+      silvia@wordlift.io
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     WordLift Srl
+    </span>
+   </address>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       WordLift
+      </code>
+     </li>
+     <li>
+      <code>
+       Semantic annotations
+      </code>
+     </li>
+     <li>
+      <code>
+       Blogging
+      </code>
+     </li>
+     <li>
+      <code>
+       Search Engines Optimization
+      </code>
+     </li>
+     <li>
+      <code>
+       Linked Open Data
+      </code>
+     </li>
+     <li>
+      <code>
+       schema.org
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    In this research paper, we present the results of the analysis conducted on Freeyork.org, a design blog from Poland that has been using WordLift, a plugin for WordPress, for a period of 6 months toautomatically add the semantic markup for improving its online visibility.
+   </p>
+   <p>
+    WordLift
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn0" id="fn_pointer_ftn0" title="Footnote 1: Novel Semantic Tagging tool to benefit Digital Journalism. CORDIS. June 2016.">
+      1
+     </a>
+    </sup>
+    analyses articles using Named Entity Recognition (NER) and Named Entity Disambiguation (NED). The entities are ex-tracted from different knowledge graphs including but not limited to DBpedia, GeoNames and Wikidata. WordLift provides UIs for creating and curating custom vocabularies. The plugin implements a semi-automated annotation workflow and publishes metadata by asynchronously injecting a JSON-LD
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn4" id="fn_pointer_ftn4" title="Footnote 2: See the issue on GitHub">
+      2
+     </a>
+    </sup>
+    on-page and by publishing linked (open) data in the cloud using Apache Marmotta: an open implementation of a Linked Data Platform
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn5" id="fn_pointer_ftn5" title="Footnote 3: Linked Data Platform (LDP) 1.0 Recommendation. W3C. 26 February 2015. https://www.w3.org/TR/ldp/">
+      3
+     </a>
+    </sup>
+    . Metrics used to measure the impact of structured data are based on organic search results as opposed to paid links (i.e. advertisement), that is to
+    <strong>
+     measure the position of a web site in the search results solely based on the ranking of the web site related to the search terms
+    </strong>
+    entered by the end user. So that a user entering a web site from an organic search result is considered an organic session and the traffic generated by this user is defined as organic traffic (vs. paid traffic, i.e. traffic generated by a sponsored or advertised link).
+   </p>
+   <p>
+    In this analysis, we used Google Analytics to collect and analyze traffic data, over the course of 6 months and we could see that linked structured data helps semantic search engines like Google provide better results to their users and indirectly improves the traffic of a website. This has been measured by comparing both quantitative metrics like pageviews and sessions and qualitative metrics like time spent on page and session duration.
+   </p>
+   <p>
+    Our goal was to measure organic traffic (page views and sessions) and engagement (time spent on the pages and number of page-views per session) considered as key performance indicators for the website. Since Freeyork.org has an advertising based business model, organic traffic is crucial to drive revenues.
+   </p>
+   <p>
+    Here follow the highlights:
+   </p>
+   <ul>
+    <li>
+     <p>
+      After the first three months
+      <strong>
+       WordLift improved the number of organic sessions and the number of new users with a double digit growth
+      </strong>
+      (+ 12.13% of new users).
+     </p>
+    </li>
+    <li>
+     <p>
+      <strong>
+       Google seems to be faster, compared to Bing and Yandex, in indexing and promoting articles that use WordLift’s semantic markup
+      </strong>
+      . In the first three months we have seen a 18.47% increase of sessions from Google, comparing with the previous period. Other search engines like Bing and Yandex have also provided more visits to the articles but only after the second and third month of activity.
+     </p>
+    </li>
+    <li>
+     <p>
+      On average,
+      <strong>
+       pages enriched with WordLift
+      </strong>
+      (featuring the schema.org markup that the software provides), compared with all the other pages,
+      <strong>
+       are performing 2.4 times better
+      </strong>
+      in terms of page views and in terms of sessions.
+     </p>
+    </li>
+    <li>
+     <p>
+      <strong>
+       The average time spent on enriched articles is also improved by 17.3%
+      </strong>
+      in comparison to the rest of the website that is not annotated.
+     </p>
+    </li>
+    <li>
+     <p>
+      <strong>
+       The average session duration is improved by 13.75%
+      </strong>
+      when articles are enriched.
+     </p>
+    </li>
+    <li>
+     <p>
+      A glossary of terms, like the one that WordLift automatically creates, has a p
+      <strong>
+       ositive impact in extending the length of users’ sessions
+      </strong>
+      but has little or no impact on search traffic unless content is original and curated.
+     </p>
+    </li>
+   </ul>
+  </section>
+  <section>
+   <h1>
+    Introduction – What we learned
+   </h1>
+   <p>
+    When creating a SaaS like WordLift whose mission is to automate digital marketing tasks and to improve the visibility of websites, testing the product’s assumptions by looking at the web metrics with a methodical approach, is an integral part of our product development.
+   </p>
+   <p>
+    We have been focusing our effort in creating a semi-automated workflow to improve the impact of organic traffic on websites, to reduce the time spent by editors in enriching articles and to improve the user experience of the readers thanks to meaningful navigation widgets
+    <a href="#__RefHeading__456_683783752">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Andrea Volpini and David Riccitelli. 2015. WordLift: Meaningful Navigation Systems and Content Recommendation for News Sites running WordPress. In Proceedings of the ESWC Developers Workshop 2015 co-located with the 12th Extended Semantic Web Conference (ESWC 2015), Portoroˇz, Slovenia, May 31, 2015. 20–22. http://ceur-ws.org/Vol-1361/paper4.pdf">
+      [3]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    As obvious as it might sound, not all websites are made equal and, just like any other business, each website has its own unique strengths and weaknesses. The following study focuses on a community driven blog from Poland accessible on the Internet as freeyork.org. The blog helps artists and designers promote and share their stories and their artwork.
+   </p>
+   <p>
+    When analysing clients’ data our goal is twofold:
+   </p>
+   <ul>
+    <li>
+     <p>
+      prove that our hypothesis are wrong (or right) in order to improve WordLift
+     </p>
+    </li>
+    <li>
+     <p>
+      provide the client with actionable recommendations to grow their business
+     </p>
+    </li>
+   </ul>
+   <p>
+    Samur, co-founder and CEO of the news organization behind Freeyork, started using WordLift in January 2017 fito add intelligencefi to his WordPress site and to cope with a decreasing amount of traffic coming from search engines (organic sessions between October 2016 and December 2016, when compared to the previous three months, had been constantly decreasing).
+   </p>
+  </section>
+  <section>
+   <h1>
+    Methodology used and results
+   </h1>
+   <p>
+    In
+    <a href="#refIllustration0">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 1
+     </span>
+    </a>
+    we’re looking at the traffic coming from the organic search in the first 3 months after installing WordLift (January / March 2017) compared to the previous period (October / December2016).
+   </p>
+   <figure id="refIllustration0">
+    <p>
+     <img alt="Sessions from organic search (orange = October /December 2016; blue = January / March 2017)" src="img/10000201000003CF0000009BC0D1F65B.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 1.
+     </strong>
+     Sessions from organic search (orange = October /December 2016; blue = January / March 2017)
+    </figcaption>
+   </figure>
+   <p>
+    It is interesting to see that Google has been the fastest search engine to boost the enriched content over its SERPs and to bring new traffic to the site (we have seen an
+    <strong>
+     increase of 18.47% for traffic coming from Google
+    </strong>
+    in the first three months). Yandex and Bing started to contribute more after the second and the third month.
+   </p>
+   <figure>
+    <p>
+     <img alt="Percentage change of organic traffic between October - December 2016 and January - March 2017" src="img/10000201000001C30000009D2BA22A09.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 2.
+     </strong>
+     Percentage change of organic traffic between October - December 2016 and January - March 2017
+    </figcaption>
+   </figure>
+   <p>
+    The Page/Session ratio also increased slightly by a 1.96%. Freeyork is currently running with a WordLift configuration that automatically adds links on articles for every annotated occurrence of a detected named entity. This setting has been designed to drive more traffic from articles to entity pages. Since entity pages have not been curated by the team, the impact in terms of traffic has beenminimal (around 0.25% on the total in terms of pageviews).
+    <strong>
+     Entities, unless curated, don’t attract organic traffic and their impact on the user experience also remains low.
+    </strong>
+   </p>
+   <p>
+    Now the main issue, in terms of insights that we could extract from this analysis of the traffic, was that out of 13.500 pages indexed by Google only 1.661 articles have been annotated and enrichedwith WordLift. The annotation process has not been consistent, due to the fact that some editors did use WordLift while others didnfit. WordLift was used starting from January 2017 and in the beginning only a small percentage of articles had been annotated. As the team become more accustomed to the new workflow the percentage of annotated articles increased. In May, June and July 2017 the team produced 667 articles and yet only 363 (54.4%) have been annotated with WordLift.
+   </p>
+   <p>
+    The vocabulary currently features 2.684 entities but, as said, the impact in terms of traffic was minimal due to the fact that entities have not been curated from the editorial point of view. WordLift retrieves content for each entity using linked data graphs such as DBpedia and Wikidata or other controlled vocabularies that the client might decide to use. Content is meant to guide the editor inpersonalizing each term; it can be done using WordPress just like any other blog post.
+   </p>
+   <figure>
+    <p>
+     <img alt="Annotated posts and Entity pages" src="img/1000020100000237000000D8586509E1.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 3.
+     </strong>
+     Annotated posts and Entity pages
+    </figcaption>
+   </figure>
+   <p>
+    We were curious to dive deeper into the data in order to understand how much the articles enriched with WordLift were really contributing to the traffic of the website.
+   </p>
+   <p>
+    It was therefore decided to pull data from Google Analytics and to combine it with data from &lt;data.wordlift.io&gt; (this is the linked data platform where the linked knowledge graph of Freeyork is stored). Using a SPARQL query we could extract the list of the URLs of the annotated articles (they are marked up with the property http://schema.org/BlogPosting) and the list of the URLs of entities (their &lt;rdf:type&gt; - the class associated with each named entity - is one of the types of the schema.org vocabulary that WordLift supports
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 4: WordLift online documentation">
+      4
+     </a>
+    </sup>
+    ).
+   </p>
+   <p>
+    Using a VLOOKUP function on Google Spreadsheet we combined the two datasets and could finally see the performance of the annotated articles in comparison with the rest of the website for the following metrics: number of sessions, number of page views, average time spent on page, average duration per session and bounce rate.
+   </p>
+   <p>
+    We used the add-on of Google Analytics for Google Spreadsheet
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn6" id="fn_pointer_ftn6" title="Footnote 5: Google Analytics Add on for Google Spreadsheet documentation https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add- on">
+      5
+     </a>
+    </sup>
+    . This is a precious tool but can only output 10.000 results at the time. We therefore configured the Add-on to extract the top 10.000 pages sorted by number of sessions and by number of page views (we wanted to run the analysis on the pages that had the biggest impact on the website for the selected metrics); this could be done in our case by adding -ga:sessions, -ga:pageviews in the sort field of the configuration panel of the Google Analytics Add-On.
+   </p>
+   <p>
+    We focused on pageviews and sessions after the talks that we had with Samur as these are the metrics that he cares the most: the magazinefis revenues are driven primarily by advertising.
+   </p>
+   <p>
+    We wanted to look this time at the overall traffic of the website and not just at the organic portion of it. We also looked at a different time frame (the period from April to June) to ensure that results from WordLift remained consistent over time.
+   </p>
+   <section>
+    <h2>
+     Measuring the impact of enriched articles
+    </h2>
+    <p>
+     The impact on all key metrics for enriched articles - compared to the rest of the website - has been positive and rewarding for the team at Freeyork and of course for us as well.
+    </p>
+    <p>
+     In the results below post is used for pages enriched with WordLift and KO is used for any other page that have not been enriched with WordLift. The formulas being used to extract the averages below aggregate all values for each type (post and KO) related to each metric. The analyzed metrics are: sessions (ga:sessions), pageviews (ga:pageviews), average time on page (ga:avgTimeOnPage) and bounce rate (ga:bounceRate). More information on how Google Analytics aggregates data and a definition of each metric is available on the online documentation provided by Google Analyticsdocumentation
+     <sup class="fn cgen" data-rash-original-content=" ">
+      <a href="#ftn2" id="fn_pointer_ftn2" title="Footnote 6: https://support.google.com/analytics/answer/1033861?hl=en">
+       6
+      </a>
+     </sup>
+     .
+    </p>
+    <figure>
+     <p>
+      <img alt="Average sessions and pageviews" src="img/10000201000004CE0000024D28D8B27F.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 4.
+      </strong>
+      Average sessions and pageviews
+     </figcaption>
+    </figure>
+    <figure>
+     <p>
+      <img alt="Average time on page and bounce rate" src="img/10000201000004BF00000243FF3F4AB2.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 5.
+      </strong>
+      Average time on page and bounce rate
+     </figcaption>
+    </figure>
+   </section>
+  </section>
+  <section>
+   <h1>
+    Few more insights from this study and how to help Wordlift become an even better SEO tool
+   </h1>
+   <ul>
+    <li>
+     <p>
+      Structure is more important than we might think. In RankBrain’s era ensuring the best user experience to humans is key to stand out on Search pages. The more we are able to
+      <strong>
+       provide consistency to our readers by organizing content around the concepts that matters
+      </strong>
+      and the more the dwell time on our site increases. At the same time, content curation is costly and editors need to focus their attention to core entities only. Out of the 2.684 entities a list of the most interconnected entities can help us understand what wefire talking about and where editors should put their focus in the next future. These entities are the ones that have the highest number of relationships with both articles and other entities in the graph of the website that WordLift creates. We usually rely on the DBpedia ontology to gain a first insight on the content of website by looking at the different types of entities that a blog is using. As shown in the chart below we could see that people, namely designers, play a central role in Freeyork.
+     </p>
+     <figure>
+      <p>
+       <img alt="Most used entities organized by type (DBpedia Ontology)" src="img/100002010000026F0000015AB0677FF7.png"/>
+      </p>
+      <figcaption>
+       <strong class="cgen" data-rash-original-content="">
+        Figure 6.
+       </strong>
+       Most used entities organized by type (DBpedia Ontology)
+      </figcaption>
+     </figure>
+     <p>
+      (dbpo:Agent, dbpo:Person, dbpo:Artist) followed by the places where artists work and exhibit (dbpo:Place, dbpo:PopulatedPlace, dbpo:Settlement, dbpo:Country) and at last the organizations they deal with (dbpo:Organization and dbpo:Company) and the artwork that they produce (dbpo:Work). This is a good starting point that we can augment further by looking at the top 20 entities of the website.
+     </p>
+     <figure>
+      <p>
+       <img alt="Most recurring entities" src="img/10000201000003AA00000177334C6715.png"/>
+      </p>
+      <figcaption>
+       <strong class="cgen" data-rash-original-content="">
+        Figure 7.
+       </strong>
+       Most recurring entities
+      </figcaption>
+     </figure>
+     <p>
+      This list of interconnected entities is still quite raw and could be further cleaned and refined; nevertheless, even without adding more details to it, this data can help us see that: photography, sculpture, illustration, art installations and paintings are the most important clusters to group artists and designers on the Freeyork website. Tools like WordLift shall bring this data into the hands of bloggers and editorial teams to help them focus on writing content that fits within their existing editorial plan.
+     </p>
+    </li>
+    <li>
+     <p>
+      As editors focus their effort on the most important concepts in their vocabulary we can probably expect more traffic coming to entities pages. We can also, at that point, start to
+      <strong>
+       increase the average session duration
+      </strong>
+      even more (assuming that this fits with the business goals of the website) by adding navigation widgets such as the navigator and the faceted search widget. These widgets in WordLift complement with the links that WordLift adds to drive users from articles to entity pages and are designed to improve the time a user spends on your website before moving somewhere else (this metric is tightly connected with theconcept of dwell time). In the charts below we can see how WordLift’s articles, while keeping users slightly more time on each page, tend also to extend the duration of the session. More internal links help readers discover more content on the website and have indirectly a positive impact on search engine rankings. We assume that by adding navigation widgets to a website like Freeyork this effect can be boosted.
+     </p>
+    </li>
+   </ul>
+   <figure>
+    <p>
+     <img alt="Average time spent on page and duration of thesession for not enriched pages" src="img/10000201000001CE000001DC932B7000.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 8.
+     </strong>
+     Average time spent on page and duration of thesession for not enriched pages
+    </figcaption>
+   </figure>
+   <figure>
+    <p>
+     <img alt="Average time spent on page and duration of thesession for enriched articles" src="img/10000201000001C0000001DCDDE60450.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 9.
+     </strong>
+     Average time spent on page and duration of thesession for enriched articles
+    </figcaption>
+   </figure>
+   <ul>
+    <li>
+     <p>
+      A lot of pages - on large websites - donfit get much traffic or donfit get traffic at all.
+      <strong>
+       Pruning content in some cases is a good option to ensure that your visitors, both humans and machines, really get the best of your site at their first encounters
+      </strong>
+      . When pruning is not an option (you need to have time and resources to do a comprehensive content audit) - we can at least ensure that crawlers donfit waste their time on indexing content that is not strategic for your website. Letfis be more specific: while itfis true that publishing more relevant content around a particular topic improves your ranking for that topic, sometimes therefis actually more value in keeping certain pages on your website out of a search engine’s index. When pages are not high-quality, when they are not properly curated and they donfit have clear call to actions - they can still be helpful for readers trying to get a clue of an article- but might not perform well over search. In these specific cases -
+      <strong>
+       adding a noindex and tell search engines to turn away from these pages can improve the overall authority and rankings of the website.
+      </strong>
+     </p>
+     <p>
+      In the upcoming releases, and specifically for entity pages, WordLift shall automatically decide when it makes sense to add a noindex tag to ensure that websites like Freeyork.org can always get the best out of organic
+      <sup class="fn cgen" data-rash-original-content=" ">
+       <a href="#ftn3" id="fn_pointer_ftn3" title="Footnote 7: Follow up this issue on GitHub https://github.com/insideout10/wordlift- plugin/issues/43">
+        7
+       </a>
+      </sup>
+      .
+     </p>
+    </li>
+   </ul>
+  </section>
+  <section>
+   <h1>
+    Conclusions
+   </h1>
+   <p>
+    Now more than ever, as we transition from keywords-based searches to semantic searches it has become critical for online magazines, bloggers and digital publishers, to improve the enriched metadata on their sites to maintain and to grow their online visibility. To achieve this target, WordLift adds a layer of semantic annotations that improve the crawlability and findability of web pages. The rationale is straightforward: implementing schema.org annotations helps search engines understand the content better, and provides better results for end users
+    <a href="#__RefHeading__454_683783752">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Raphael Troncy Thomas Steiner and Michael Hausenblas. 2010. How Google is using Linked Data Today and Vision For Tomorrow. In Proceedings of the Workshop on Linked Data in the Future Internet at the Future Internet Assembly (LDFI-2010). CEUR, Ghent, Belgium.">
+      [2]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    Our on-going effort in evaluating the impact of Linked Data technologies in search is strategic asset in our companyfis culture and a great way to establish a virtuous feedback loop with our early users.
+   </p>
+   <p>
+    As next steps we plan to extend the present methodology in order to analyze how the impact of a tool like WordLift varies over time for a given set of articles and to implement new functionalities into the product for helping editors write more consistently around the topics that really matter and for automating additional SEO tasks (such as adding the noindex tag).
+   </p>
+  </section>
+  <section>
+   <h1>
+    About WordLift
+   </h1>
+   <p>
+    WordLift
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn7" id="fn_pointer_ftn7" title="Footnote 8: WordLift’s official website https://wordlift.io">
+      8
+     </a>
+    </sup>
+    is an Italian startup incorporated in January 2017 that commercializes the first semantic plug-in for WordPress. WordLift uses natural language processing and linked data publishing forautomating structured data markup. The startup, after several years of research and development
+    <a href="#__RefHeading__452_683783752">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Patrick Aichroth, Christian Weigel, Thomas Kurz, Horst Stadler, Frank Drewes, Johanna Bj örklund, Kai Schlegel, Emanuel Berndl, Antonio Perez, Alex Bowyer, and Andrea Volpini. 2015. MICO - Media in Context. In 2015 IEEE International Conference on Multimedia &amp; Expo Workshops, ICME Workshops 2015, Turin, Italy, June 29 - July 3, 2015. 1–4. https://doi.org/10.1109/ICMEW.2015.7169827.">
+      [1]
+     </span>
+    </a>
+    , received its first seed funding round on March 2017 by WooRank, a Belgian leading SEO anddigital marketing service provider.
+   </p>
+  </section>
+  <section class="doc-acknowledgements">
+   <h1>
+    Acknowledgements
+   </h1>
+   <p>
+    This work would have never been possible without the great support of the team at Freeyork.org and their valuable traffic data.
+   </p>
+  </section>
+  <section class="doc-bibliography">
+   <h1>
+    References
+   </h1>
+   <ol>
+    <li class="doc-biblioentry" id="__RefHeading__452_683783752">
+     <p>
+      Patrick Aichroth, Christian Weigel, Thomas Kurz, Horst Stadler, Frank Drewes, Johanna Bj örklund, Kai Schlegel, Emanuel Berndl, Antonio Perez, Alex Bowyer, and Andrea Volpini. 2015. MICO - Media in Context. In 2015 IEEE International Conference on Multimedia &amp; Expo Workshops, ICME Workshops 2015, Turin, Italy, June 29 - July 3, 2015. 1–4. https://doi.org/10.1109/ICMEW.2015.7169827.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefHeading__454_683783752">
+     <p>
+      Raphael Troncy Thomas Steiner and Michael Hausenblas. 2010. How Google is using Linked Data Today and Vision For Tomorrow. In Proceedings of the Workshop on Linked Data in the Future Internet at the Future Internet Assembly (LDFI-2010). CEUR, Ghent, Belgium.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefHeading__456_683783752">
+     <p>
+      Andrea Volpini and David Riccitelli. 2015. WordLift: Meaningful Navigation Systems and Content Recommendation for News Sites running WordPress. In Proceedings of the ESWC Developers Workshop 2015 co-located with the 12th Extended Semantic Web Conference (ESWC 2015), Portoroˇz, Slovenia, May 31, 2015. 20–22. http://ceur-ws.org/Vol-1361/paper4.pdf
+     </p>
+    </li>
+   </ol>
+  </section>
+  <section class="doc-endnotes">
+   <h1>
+    Footnotes
+   </h1>
+   <section class="doc-endnote" id="ftn0">
+    <p>
+     <q>
+      Novel Semantic Tagging tool to benefit Digital Journalism
+     </q>
+     . CORDIS. June 2016.
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn0">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn4">
+    <p>
+     See the issue on GitHub
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn4">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn5">
+    <p>
+     <q>
+      Linked Data Platform (LDP) 1.0 Recommendation
+     </q>
+     . W3C. 26 February 2015.
+    </p>
+    <p>
+     <a href="https://www.w3.org/TR/ldp/">
+      https://www.w3.org/TR/ldp/
+     </a>
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn5">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn1">
+    <p>
+     WordLift online documentation
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn1">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn6">
+    <p>
+     Google Analytics Add on for Google Spreadsheet documentation https://developers.google.com/analytics/solutions/google-analytics-spreadsheet-add-on
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn6">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn2">
+    <p>
+     https://support.google.com/analytics/answer/1033861?hl=en
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn2">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn3">
+    <p>
+     Follow up this issue on GitHub https://github.com/insideout10/wordlift-plugin/issues/43
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn3">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn7">
+    <p>
+     WordLift’s official website https://wordlift.io
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn7">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+  </section>
+ </body>
+</html>

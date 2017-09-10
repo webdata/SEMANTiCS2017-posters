@@ -1,0 +1,865 @@
+<!DOCTYPE HTML>
+<html prefix="
+  schema: http://schema.org/
+  prism: http://prismstandard.org/namespaces/basic/2.0/
+  dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <!-- Visualisation requirements (mandatory for optimal reading) -->
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/rash.css" rel="stylesheet"/>
+  <!-- /END Visualisation requirements (mandatory for optimal reading) -->
+  <title property="dcterms:title">
+   Linking Data To Understand The Fintech Ecosystem
+  </title>
+  <!-- Author's data (one or more) -->
+  <meta content="Elie Abi-Lahoud" name="dc.creator" property="schema:name"/>
+  <meta content="elie.abilahoud@ucd.ie" property="schema:email"/>
+  <link href="#bs-ucd" property="schema:affiliation"/>
+  <meta content="Paul-Emmanuel Raoul" name="dc.creator" property="schema:name"/>
+  <meta content="paul-emmanuel.raoul@ucd.ie" property="schema:email"/>
+  <link href="#bs-ucd" property="schema:affiliation"/>
+  <meta content="Cal Muckley" name="dc.creator" property="schema:name"/>
+  <meta content="cal.muckley@ucd.ie" property="schema:email"/>
+  <link href="#bs-ucd" property="schema:affiliation"/>
+  <!-- Affiliations -->
+  <meta content="School of Business, University College Dublin, Ireland" property="schema:name"/>
+  <!-- Paper keywords (one or more) -->
+  <meta content="Financial technology" property="prism:keyword"/>
+  <meta content="Knowledge representation" property="prism:keyword"/>
+  <meta content="Design science research" property="prism:keyword"/>
+  <meta content="Fintech" property="prism:keyword"/>
+  <meta content="Regtech" property="prism:keyword"/>
+  <meta content="Semantic web" property="prism:keyword"/>
+  <meta content="Linked open data" property="prism:keyword"/>
+  <meta content="Ontology" property="prism:keyword"/>
+  <meta content="RDF graph" property="prism:keyword"/>
+  <meta content="SPARQL" property="prism:keyword"/>
+  <meta content="Data visualisation" property="prism:keyword"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    Linking Data To Understand The Fintech Ecosystem
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Elie Abi-Lahoud
+    </strong>
+    <code class="email">
+     <a href="mailto:elie.abilahoud@ucd.ie">
+      elie.abilahoud@ucd.ie
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     School of Business, University College Dublin, Ireland
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Paul-Emmanuel Raoul
+    </strong>
+    <code class="email">
+     <a href="mailto:paul-emmanuel.raoul@ucd.ie">
+      paul-emmanuel.raoul@ucd.ie
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     School of Business, University College Dublin, Ireland
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Cal Muckley
+    </strong>
+    <code class="email">
+     <a href="mailto:cal.muckley@ucd.ie">
+      cal.muckley@ucd.ie
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     School of Business, University College Dublin, Ireland
+    </span>
+   </address>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       Financial technology
+      </code>
+     </li>
+     <li>
+      <code>
+       Knowledge representation
+      </code>
+     </li>
+     <li>
+      <code>
+       Design science research
+      </code>
+     </li>
+     <li>
+      <code>
+       Fintech
+      </code>
+     </li>
+     <li>
+      <code>
+       Regtech
+      </code>
+     </li>
+     <li>
+      <code>
+       Semantic web
+      </code>
+     </li>
+     <li>
+      <code>
+       Linked open data
+      </code>
+     </li>
+     <li>
+      <code>
+       Ontology
+      </code>
+     </li>
+     <li>
+      <code>
+       RDF graph
+      </code>
+     </li>
+     <li>
+      <code>
+       SPARQL
+      </code>
+     </li>
+     <li>
+      <code>
+       Data visualisation
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract" id="SectionAbstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    The fintech ecosystem is a highly dynamic environment. Venture investment in fintech grew
+      by 11% to $17.4 billion in 2016 according to
+    <a href="https://www.forbes.com/sites/lawrencewintermeyer/2017/02/17/global-fintech-vc-investment-soars-in-2016">
+     Forbes
+    </a>
+    and
+    <a href="https://www.slideshare.net/innovatefinance/the-2016-vc-fintech-investment-landscape-71849828/1">
+     Pitchbook
+    </a>
+    .
+      Having a clear picture of this ecosystem at a given point in time is much needed to inform policy activities
+      as evidenced by the European Commission call for tenders SMART 2016/0042. This paper describes our approach
+      to integrating, enriching and presenting data about the fintech ecosystem. It presents
+    <em>
+     FintechBrowser
+    </em>
+    ,
+      a demonstrator of an integrated set of dashboards and a graph explorative-browsing tool.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Introduction
+   </h1>
+   <p>
+    Over the past decade we have witnessed technology-driven innovations that disrupted the financial
+      services industry and continue to do so. In consumer payments, nascent start-ups are able to bring to
+      market affordable and flexible cross-border payment solutions outperforming some of the largest
+      traditional financial institutions. In the funding space, the rise of crowd-funding democratised
+      access-to-capital creating a whole new market segment. In investment management, robo-advisors renewed
+      the faith of many in the applications of Artificial Agents while providing satisfying results at
+      competitive costs. Disruption caught-up even with currencies - one of the oldest concepts in the
+      financial industry - with the proliferation of crypto-currencies using blockchain technologies.
+   </p>
+   <p>
+    Having a clear picture of this ecosystem at a given point in time is much needed to inform policy
+      activities as evidenced by the European Commission call for tenders SMART 2016/0042. Our research
+      is focussed on exploring the fintech ecosystem using ontological modelling. It seeks, inter alia, to
+      improve our understanding of this ecosystem, which is a critically important environment from which
+      solutions to operational risks at financial institutions frequently arise. We combine novel knowledge
+      representation and data modelling techniques to reveal links between concepts represented in the data
+      which otherwise are not accessible. We use semantic web standards to free data from tables &amp;
+      spreadsheets and to enrich it with linked open data. We visualise data through the lens of our ontology
+      and present it on a map and in a navigable graph.
+   </p>
+   <p>
+    The rest of the paper is structured as follows. In
+    <a href="#SectionTowardsAFintechKnowledgeGraph">
+     <span class="cgen" data-rash-original-content=" ">
+      Section 2
+     </span>
+    </a>
+    we describe our approach to building a fintech knowledge graph
+    <sup class="fn cgen" data-rash-original-content="">
+     <a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 1: The ontology will be made available at: https://github.com/FinTechEcosystem.">
+      1
+     </a>
+    </sup>
+    . In
+    <a href="#SectionFintechBrowserToNavigateTheGraph">
+     <span class="cgen" data-rash-original-content="">
+      Section 3
+     </span>
+    </a>
+    we present FintechBrowser
+    <sup class="fn cgen" data-rash-original-content="">
+     <a href="#ftn2" id="fn_pointer_ftn2" title="Footnote 2: Demonstrations of FintechBrowser are available via: http://fintechecosystem.net.">
+      2
+     </a>
+    </sup>
+    ,
+      a tool for presenting and navigating the fintech knowledge graph. Finally, in
+    <a href="#SectionConclusions">
+     <span class="cgen" data-rash-original-content="">
+      Section 4
+     </span>
+    </a>
+    we conclude the paper and outline on-going work to extend the knowledge
+      graph and FintechBrowser.
+   </p>
+  </section>
+  <section id="SectionTowardsAFintechKnowledgeGraph">
+   <h1>
+    Towards a fintech knowledge graph
+   </h1>
+   <p>
+    Current semantic web specifications
+    <a href="#BrickleyRDFSchema">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 6: Brickley, D. and Guha, R.V. (2004). RDF vocabulary description language 1.0: RDF schema.">
+      [6]
+     </span>
+    </a>
+    <a href="#McGuinnessOWLOverview">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 14: McGuinness, D.L. and Van Harmelen, F. (2004). OWL web ontology language overview. W3C recommendation, 10(10), p.2004.">
+      [14]
+     </span>
+    </a>
+    <a href="#HarrisSPARQL">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 11: Harris, S., Seaborne, A. and Prud’hommeaux, E. (2013). SPARQL 1.1 query language. W3C recommendation, 21(10).">
+      [11]
+     </span>
+    </a>
+    and tools
+    <a href="#MusenProtege">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 15: Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters. Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4), June 2015. DOI: 10.1145/2557001.25757003.">
+      [15]
+     </span>
+    </a>
+    <a href="#McBrideJena">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 13: McBride, B. (2001). Jena: Implementing the rdf model and syntax specification. In Second International Conference on Semantic Web-Volume 40 (pp. 23-28).">
+      [13]
+     </span>
+    </a>
+    <a href="#ApacheJena">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 1: Apache Jena: project website. https://jena.apache.org/ (Last visited June 2017).">
+      [1]
+     </span>
+    </a>
+    allow to represent a domain by documenting its concepts and the relationships
+      between them, to source data instantiating this representation from heterogeneous sources and to perform
+      automated reasoning to draw inferences and deductions from data following the domain representation. We
+      build on these capabilities in order to construct the nucleus of a knowledge graph of the fintech ecosystem.
+      Ehrlinger &amp; Wöß
+    <a href="#EhrlingerDefinitionKnowledgeGraphs">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 7: Ehrlinger, L., &amp; Wöß, W. (2016). Towards a Definition of Knowledge Graphs. SEMANTiCS.">
+      [7]
+     </span>
+    </a>
+    outline that a knowledge graph is
+    <q>
+     somehow superior to a knowledge base
+    </q>
+    as a knowledge graph
+    <q>
+     acquires and integrates information into
+      an ontology and applies a reasoner to derive new knowledge
+    </q>
+    . At the heart of this fintech knowledge
+      graph is our OWL fintech ontology. We enrich the latter with custom-built layers of extensions to include
+      additional domain knowledge and by tapping into, and reusing knowledge from, the Linked Open Data Cloud.
+    <a href="#SectionConclusions">
+     <span class="cgen" data-rash-original-content="">
+      Section 4
+     </span>
+    </a>
+    outlines our plan to evolve this knowledge base into a knowledge graph.
+   </p>
+   <section>
+    <h2>
+     Building an ontology of the fintech ecosystem
+    </h2>
+    <p>
+     We follow a Design Science approach in building our ontology
+     <a href="#HevnerDesignScience">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 12: Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information Systems Research. Management Information Systems Quarterly, 28(1), p.6.">
+       [12]
+      </span>
+     </a>
+     .
+        With the objective of maximising our ontology's chances of reuse, we pay special attention to guidelines
+        2 and 4 on the relevance of the research and the value of the contribution as described by Hevner et al.
+        To this end, we have assembled an advisory committee of domain experts in financial services, in fintech
+        and in technology
+     <a href="#FintechEcosystem">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 10: Fintech Ecosystem: project website. www.fintechecosystem.net (Last visited July 2017).">
+       [10]
+      </span>
+     </a>
+     to observe, assist and assess. The ontology architecture
+        is described in
+     <a href="#FigureOntologyArchitecture">
+      <span class="cgen" data-rash-original-content="">
+       Figure 1
+      </span>
+     </a>
+     (Top left). A core module contains definitions
+        of OWL classes, object properties and restrictions representing the main actors of the fintech ecosystem
+        and the relationships among them. Extension modules build on top of the core one to add further concepts
+        as we learn about them or as they become relevant to the applications/queries this ontology underpins.
+        For example, we are designing an extension to represent innovation programs and accelerators and another
+        extension to represent conferences and industry events. In addition to these two layers and as our study
+        evolves, the time dimension is becoming more and more relevant to support for example queries about people
+        changing roles or investment trends over time. To this end, we are adding time-related information to some
+        concepts, roles and relationships. The ontology metrics of the current version of our core ontology module
+        are highlighted in
+     <a href="#FigureOntologyArchitecture">
+      <span class="cgen" data-rash-original-content="">
+       Figure 1
+      </span>
+     </a>
+     (Right) in a screenshot from Protégé
+     <a href="#MusenProtege">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 15: Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters. Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4), June 2015. DOI: 10.1145/2557001.25757003.">
+       [15]
+      </span>
+     </a>
+     .
+    </p>
+    <figure id="FigureOntologyArchitecture">
+     <p>
+      <img alt="Ontology's architecure" src="img/ontology-architecture.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 1.
+      </strong>
+      (Top left) Overview of the fintech ecosystem ontology and its extensions. (Bottom left)
+            Excerpt of the ontology key competency questions. (Right) Excerpt of the Core ontology metrics from
+            Protégé.
+     </figcaption>
+    </figure>
+   </section>
+   <section>
+    <h2>
+     Validating and enriching the ontology
+    </h2>
+    <p>
+     In our Design Science approach and following guidelines 3 and 5 on evaluation and rigour
+     <a href="#HevnerDesignScience">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 12: Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information Systems Research. Management Information Systems Quarterly, 28(1), p.6.">
+       [12]
+      </span>
+     </a>
+     , we gathered a set of queries that the first version of
+        the ontology should help answer. This is in-line with ontology engineering best practices and
+        widely referenced guidelines
+     <a href="#UscholdOntologies">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 16: Uschold, M. and Gruninger, M. (1996). Ontologies: Principles, methods and applications. The knowledge engineering review, 11(02), pp.93-136.">
+       [16]
+      </span>
+     </a>
+     <a href="#Fernandez-LopezMethontology">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 8: Fernández-López, M., Gómez-Pérez, A. and Juristo, N. (1997). Methontology: from ontological art towards ontological engineering.">
+       [8]
+      </span>
+     </a>
+     .
+     <a href="#FigureOntologyArchitecture">
+      <span class="cgen" data-rash-original-content="">
+       Figure 1
+      </span>
+     </a>
+     (Bottom left) shows an excerpt of these questions.
+        As we were capturing these key competency questions, we were able to identify classes and entities
+        which are highlighted between quotes in
+     <a href="#FigureOntologyArchitecture">
+      <span class="cgen" data-rash-original-content="">
+       Figure 1
+      </span>
+     </a>
+     (Bottom left) and
+        which made their way to our ontology.
+    </p>
+    <p>
+     The Linked Open Data community is growing steadily
+     <a href="#BauerLinkedOpenData">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 3: Bauer, F. and Kaltenböck, M. (2011). Linked open data: The essentials. Edition mono/monochrom, Vienna.">
+       [3]
+      </span>
+     </a>
+     <a href="#BizerLinkedData">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 5: Bizer, C., Heath, T., Idehen, K. and Berners-Lee, T. (2008). Linked data on the web (LDOW2008). In 17th international conference on World Wide Web (pp. 1265-1266). ACM.">
+       [5]
+      </span>
+     </a>
+     and in particular Dbpedia
+     <a href="#AuerDbpedia">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 2: Auer, S., Bizer, C., Kobilarov, G., Lehmann, J., Cyganiak, R. and Ives, Z. (2007). Dbpedia: A nucleus for a web of open data. The semantic web, pp.722-735.">
+       [2]
+      </span>
+     </a>
+     contains
+        knowledge relevant to this study. We link to Dbpedia to obtain information, for example, about
+        locations, cities and population sizes. We use this linked data in queries such as the second one
+        described in
+     <a href="#FigureOntologyArchitecture">
+      <span class="cgen" data-rash-original-content="">
+       Figure 1
+      </span>
+     </a>
+     (Bottom left), where we correlate technologies
+        with services and locations of firms and then filter by the size of the population in this (these)
+        location(s). Another source of knowledge we are currently working on linking to, is the Financial
+        Industry Business Ontology (FIBO). FIBO is an initiative supported by many institutions
+     <a href="#BennettTheFinancialIndustryBusinessOntology">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 4: Bennett, M. (2013). The financial industry business ontology: Best practice for big data. Journal of Banking Regulation, 14(3-4), pp.255-268.">
+       [4]
+      </span>
+     </a>
+     . Modules of FIBO are undergoing the Objet
+        Management Group's rigorous standardisation process
+     <a href="#FinancialServicesStandardsFIBO">
+      <span class="cgen" data-rash-original-content="" title="Bibliographic reference 9: Financial Services Standards: FIBO, Object Management Group Website. http://www.omg.org/hot-topics/finance.htm (Last visited June 2017).">
+       [9]
+      </span>
+     </a>
+     .
+        In particular, FIBO Business Entities and its modules contain knowledge relevant to this study such
+        as the definitions of entities and corporations and also individuals representing a wide array of
+        regulators in different jurisdictions.
+    </p>
+   </section>
+  </section>
+  <section id="SectionFintechBrowserToNavigateTheGraph">
+   <h1>
+    FintechBrowser to navigate the graph
+   </h1>
+   <p>
+    The architecture of FintechBrowser is illustrated in
+    <a href="#FigureFintechBrowserArchitecture">
+     <span class="cgen" data-rash-original-content="">
+      Figure 2
+     </span>
+    </a>
+    .
+      A front-end sits on top of the knowledge graph. It allows the user to express queries by selecting
+      filtering criteria and constraining them. FintechBrowser then translates these user queries into SPARQL
+      queries that are executed against the graph. FintechBrowser allows the user to visualise and navigate
+      the knowledge graph. It has three main front-end views: 1) a list view, 2) a map view, and 3) a graph
+      view. All three views are controlled by the aforementioned set of selection criteria and filters.
+   </p>
+   <figure id="FigureFintechBrowserArchitecture">
+    <p>
+     <img alt="FintechBrowser's software architecure" src="img/fintechbrowser-architecture.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 2.
+     </strong>
+     Software architecture of FintechBrowser.
+    </figcaption>
+   </figure>
+   <p>
+    For experimentation purposes, we loaded a test dataset containing information about 200+ fintech
+      firms, banks and investors located in Europe, the United States and Africa. In the map view, we were
+      able to see the how the firms where geographically clustered and distributed with just a glance at the
+      screen. This was facilitated by SPARQL queries launched at runtime to Dbpedia in order to retrieve geographic
+      coordinates of firms' locations. In the graph navigation view, we were able to explore for each node
+      in the graph all the nodes linked to it. See for example screenshot in
+    <a href="#FigureFintechBrowserInterface">
+     <span class="cgen" data-rash-original-content="">
+      Figure 3
+     </span>
+    </a>
+    where the user started from a firm providing a compliance analysis service, navigated to another one using the
+      same technology: blockchain, to see that the second firm uses the same technology but for a different
+      service, namely payment.
+   </p>
+   <figure id="FigureFintechBrowserInterface">
+    <p>
+     <img alt="FintechBrowser's main interface" src="img/fintechbrowser-interface.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 3.
+     </strong>
+     Screenshot of FintechBrowser in the graph navigation view.
+    </figcaption>
+   </figure>
+   <p>
+    One major advantage of this approach is that some of these links were not asserted in the original
+      dataset but rather inferred at runtime using the domain description in the ontology. For instance, in
+      response to the query:
+    <em>
+     list all investors who have invested in (a company that is located in) Dublin
+    </em>
+    ,
+      the system was able to follow the property chain:
+    <code>
+     (investor) investedInRound (investmentRound) +
+      (company) hasReceivedInvestmentInRound (investmentRound) + (company) isLocatedIn (city)
+    </code>
+    in order to infer
+    <code>
+     (investor) investedInCity (city)
+    </code>
+    . Furthermore, the location attribute in the ontology,
+      combined with instance data from Dbpedia allowed the system to automatically answer queries such as
+      the second one described in
+    <a href="#FigureOntologyArchitecture">
+     <span class="cgen" data-rash-original-content="">
+      Figure 1
+     </span>
+    </a>
+    (Bottom left).
+   </p>
+  </section>
+  <section id="SectionConclusions">
+   <h1>
+    Conclusions
+   </h1>
+   <p>
+    We follow a Design Science approach in building our ontology
+    <a href="#HevnerDesignScience">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 12: Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information Systems Research. Management Information Systems Quarterly, 28(1), p.6.">
+      [12]
+     </span>
+    </a>
+    .
+      With the objective of maximising our ontology's chances of reuse, we pay special attention to guidelines
+      2 and 4 on the relevance of the research and the value of the contribution as described by Hevner et al.
+      To this end, we have assembled an advisory committee of domain experts in financial services, in fintech
+      and in technology
+    <a href="#FintechEcosystem">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 10: Fintech Ecosystem: project website. www.fintechecosystem.net (Last visited July 2017).">
+      [10]
+     </span>
+    </a>
+    to observe, assist and assess. The ontology architecture
+      is described in
+    <a href="#FigureOntologyArchitecture">
+     <span class="cgen" data-rash-original-content="">
+      Figure 1
+     </span>
+    </a>
+    (Top left). A core module contains definitions
+      of OWL classes, object properties and restrictions representing the main actors of the fintech ecosystem
+      and the relationships among them. Extension modules build on top of the core one to add further concepts
+      as we learn about them or as they become relevant to the applications/queries this ontology underpins.
+      For example, we are designing an extension to represent innovation programs and accelerators and another
+      extension to represent conferences and industry events. In addition to these two layers and as our study
+      evolves, the time dimension is becoming more and more relevant to support for example queries about people
+      changing roles or investment trends over time. To this end, we are adding time-related information to some
+      concepts, roles and relationships. The ontology metrics of the current version of our core ontology module
+      are highlighted in
+    <a href="#FigureOntologyArchitecture">
+     <span class="cgen" data-rash-original-content="">
+      Figure 1
+     </span>
+    </a>
+    (Right) in a screenshot from Protégé
+    <a href="#MusenProtege">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 15: Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters. Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4), June 2015. DOI: 10.1145/2557001.25757003.">
+      [15]
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    As it stands, FintechBrowser operates on manually collected data, which we believe is an impediment
+      to it reaching its full potential and helping us improve our understanding of the fintech ecosystem. We
+      are exploring a series of algorithms to automatically (or semi-automatically) collect instance data and
+      evolve our knowledge base to a knowledge graph
+    <a href="#EhrlingerDefinitionKnowledgeGraphs">
+     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 7: Ehrlinger, L., &amp; Wöß, W. (2016). Towards a Definition of Knowledge Graphs. SEMANTiCS.">
+      [7]
+     </span>
+    </a>
+    .
+      We are evaluating Named Entity Recognition and other Natural Language Processing techniques to populate
+      the graph from different sources including company websites and news. With more data continuously being
+      added and time-stamped, it is our expectation that through this study we will be able to deepen our
+      understanding of this ecosystem by exploring the impact of criteria such as "education", "tax rates", etc.
+      on fintech performance expressed in terms of number of "deal values", "patents", etc. at a given "location",
+      and in a subsequent step to explore scenarios of future development of the fintech ecosystem.
+   </p>
+  </section>
+  <section class="doc-acknowledgements">
+   <h1>
+    Acknowledgments
+   </h1>
+   <p>
+    This work is supported by Enterprise Ireland and IDA Ireland under the Government of Ireland Technology Centre Programme. It is also supported by University College Dublin, College of Business Research Support scheme 2017.
+   </p>
+  </section>
+  <section class="doc-bibliography" id="SectionReferences">
+   <h1>
+    References
+   </h1>
+   <ul>
+    <li class="doc-biblioentry" id="ApacheJena">
+     <p>
+      Apache Jena: project website. https://jena.apache.org/ (Last visited June 2017).
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="AuerDbpedia">
+     <p>
+      Auer, S., Bizer, C., Kobilarov, G., Lehmann, J., Cyganiak, R. and Ives, Z. (2007). Dbpedia: A
+          nucleus for a web of open data. The semantic web, pp.722-735.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="BauerLinkedOpenData">
+     <p>
+      Bauer, F. and Kaltenböck, M. (2011). Linked open data: The essentials. Edition
+          mono/monochrom, Vienna.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="BennettTheFinancialIndustryBusinessOntology">
+     <p>
+      Bennett, M. (2013). The financial industry business ontology: Best practice for big data.
+          Journal of Banking Regulation, 14(3-4), pp.255-268.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="BizerLinkedData">
+     <p>
+      Bizer, C., Heath, T., Idehen, K. and Berners-Lee, T. (2008). Linked data on the web
+          (LDOW2008). In 17th international conference on World Wide Web (pp. 1265-1266). ACM.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="BrickleyRDFSchema">
+     <p>
+      Brickley, D. and Guha, R.V. (2004). RDF vocabulary description language 1.0: RDF schema.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="EhrlingerDefinitionKnowledgeGraphs">
+     <p>
+      Ehrlinger, L., &amp; Wöß, W. (2016). Towards a Definition of Knowledge Graphs. SEMANTiCS.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="Fernandez-LopezMethontology">
+     <p>
+      Fernández-López, M., Gómez-Pérez, A. and Juristo, N. (1997). Methontology: from
+          ontological art towards ontological engineering.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="FinancialServicesStandardsFIBO">
+     <p>
+      Financial Services Standards: FIBO, Object Management Group Website.
+          http://www.omg.org/hot-topics/finance.htm (Last visited June 2017).
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="FintechEcosystem">
+     <p>
+      Fintech Ecosystem: project website. www.fintechecosystem.net (Last visited July 2017).
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="HarrisSPARQL">
+     <p>
+      Harris, S., Seaborne, A. and Prud’hommeaux, E. (2013). SPARQL 1.1 query language. W3C
+          recommendation, 21(10).
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="HevnerDesignScience">
+     <p>
+      Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information
+          Systems Research. Management Information Systems Quarterly, 28(1), p.6.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="McBrideJena">
+     <p>
+      McBride, B. (2001). Jena: Implementing the rdf model and syntax specification. In Second
+          International Conference on Semantic Web-Volume 40 (pp. 23-28).
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="McGuinnessOWLOverview">
+     <p>
+      McGuinness, D.L. and Van Harmelen, F. (2004). OWL web ontology language overview.
+          W3C recommendation, 10(10), p.2004.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="MusenProtege">
+     <p>
+      Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters.
+          Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4),
+          June 2015. DOI: 10.1145/2557001.25757003.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="UscholdOntologies">
+     <p>
+      Uschold, M. and Gruninger, M. (1996). Ontologies: Principles, methods and applications. The
+          knowledge engineering review, 11(02), pp.93-136.
+     </p>
+    </li>
+   </ul>
+  </section>
+  <section class="doc-endnotes">
+   <h1>
+    Footnotes
+   </h1>
+   <section class="doc-endnote" id="ftn1">
+    <p>
+     The ontology will be made available at:
+     <a href="https://github.com/FinTechEcosystem">
+      https://github.com/FinTechEcosystem
+     </a>
+     .
+     <sup class="hidden-print cgen" data-rash-original-content="">
+      <a href="#fn_pointer_ftn1">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn2">
+    <p>
+     Demonstrations of FintechBrowser are available via:
+     <a href="http://fintechecosystem.net">
+      http://fintechecosystem.net
+     </a>
+     .
+     <sup class="hidden-print cgen" data-rash-original-content="">
+      <a href="#fn_pointer_ftn2">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+  </section>
+ </body>
+</html>

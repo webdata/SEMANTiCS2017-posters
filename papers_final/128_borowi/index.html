@@ -1,0 +1,850 @@
+<!DOCTYPE HTML>
+<html prefix="schema: http://schema.org/ prism: http://prismstandard.org/namespaces/basic/2.0/" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/rash.css" rel="stylesheet"/>
+  <title>
+   Ontology-driven Visual Exploration of Preclinical Research Data in the Spinal Cord Injury Domain
+  </title>
+  <meta content="CITEC, Bielefeld University, Germany" property="schema:name"/>
+  <meta content="Neurology, HHU Düsseldorf, Germany" property="schema:name"/>
+  <meta content="Alexander Borowi" name="dc.creator" property="schema:name"/>
+  <meta content="aborowi@techfak.uni-bielefeld.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Hendrik ter Horst" name="dc.creator" property="schema:name"/>
+  <meta content="hterhors@cit-ec.uni-bielefeld.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Matthias Hartung" name="dc.creator" property="schema:name"/>
+  <meta content="mhartung@cit-ec.uni-bielefeld.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Veronica Estrada" name="dc.creator" property="schema:name"/>
+  <meta content="veronica.estrada@uni-duesseldorf.de" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Nicole Brazda" name="dc.creator" property="schema:name"/>
+  <meta content="nicole.brazda@uni-duesseldorf.de" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Hans Werner Müller" name="dc.creator" property="schema:name"/>
+  <meta content="hanswerner.mueller@uni-duesseldorf.de" property="schema:email"/>
+  <link href="#affiliation-2" property="schema:affiliation"/>
+  <meta content="Philipp Cimiano" name="dc.creator" property="schema:name"/>
+  <meta content="cimiano@cit-ec.uni-bielefeld.de" property="schema:email"/>
+  <link href="#affiliation-1" property="schema:affiliation"/>
+  <meta content="Visual Data Analytics" property="prism:keyword"/>
+  <meta content="Open Research Data" property="prism:keyword"/>
+  <meta content="Linked Data" property="prism:keyword"/>
+  <meta content="Ontology-based Access" property="prism:keyword"/>
+  <meta content="Spinal Cord Injury" property="prism:keyword"/>
+  <style type="text/css">
+   .MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+  </style>
+  <style type="text/css">
+   #MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview .MJXf-math {color: inherit!important}
+  </style>
+  <style type="text/css">
+   .MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+  </style>
+  <style type="text/css">
+   #MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+  </style>
+  <style type="text/css">
+   .MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+  </style>
+  <style type="text/css">
+   .MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+  </style>
+ </head>
+ <body>
+  <div id="MathJax_Message" style="display: none;">
+  </div>
+  <header class="page-header container cgen" data-rash-original-content="">
+   <h1 class="title">
+    Ontology-driven Visual Exploration of Preclinical Research Data in the Spinal Cord Injury Domain
+   </h1>
+   <address class="lead authors">
+    <strong class="author_name">
+     Alexander Borowi
+    </strong>
+    <code class="email">
+     <a href="mailto:aborowi@techfak.uni-bielefeld.de">
+      aborowi@techfak.uni-bielefeld.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     CITEC, Bielefeld University, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Hendrik ter Horst
+    </strong>
+    <code class="email">
+     <a href="mailto:hterhors@cit-ec.uni-bielefeld.de">
+      hterhors@cit-ec.uni-bielefeld.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     CITEC, Bielefeld University, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Matthias Hartung
+    </strong>
+    <code class="email">
+     <a href="mailto:mhartung@cit-ec.uni-bielefeld.de">
+      mhartung@cit-ec.uni-bielefeld.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     CITEC, Bielefeld University, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Veronica Estrada
+    </strong>
+    <code class="email">
+     <a href="mailto:veronica.estrada@uni-duesseldorf.de">
+      veronica.estrada@uni-duesseldorf.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Neurology, HHU Düsseldorf, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Nicole Brazda
+    </strong>
+    <code class="email">
+     <a href="mailto:nicole.brazda@uni-duesseldorf.de">
+      nicole.brazda@uni-duesseldorf.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Neurology, HHU Düsseldorf, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Hans Werner Müller
+    </strong>
+    <code class="email">
+     <a href="mailto:hanswerner.mueller@uni-duesseldorf.de">
+      hanswerner.mueller@uni-duesseldorf.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     Neurology, HHU Düsseldorf, Germany
+    </span>
+   </address>
+   <address class="lead authors">
+    <strong class="author_name">
+     Philipp Cimiano
+    </strong>
+    <code class="email">
+     <a href="mailto:cimiano@cit-ec.uni-bielefeld.de">
+      cimiano@cit-ec.uni-bielefeld.de
+     </a>
+    </code>
+    <br/>
+    <span class="affiliation">
+     CITEC, Bielefeld University, Germany
+    </span>
+   </address>
+   <p class="keywords">
+    <strong>
+     Keywords
+    </strong>
+    <ul class="list-inline">
+     <li>
+      <code>
+       Visual Data Analytics
+      </code>
+     </li>
+     <li>
+      <code>
+       Open Research Data
+      </code>
+     </li>
+     <li>
+      <code>
+       Linked Data
+      </code>
+     </li>
+     <li>
+      <code>
+       Ontology-based Access
+      </code>
+     </li>
+     <li>
+      <code>
+       Spinal Cord Injury
+      </code>
+     </li>
+    </ul>
+  </header>
+  <section class="doc-abstract">
+   <h1>
+    Abstract
+   </h1>
+   <p>
+    We present SCIExplorer
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn1" id="fn_pointer_ftn1" title="Footnote 1: http://psink.techfak.uni-bielefeld.de/SCIOExplorerv2/index.xhtml">
+      1
+     </a>
+    </sup>
+    , an interactive web application for browsing research data represented in RDF format. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the potentially high entrance barriers faced by human domain experts interested in investigating research results at a glance without the need to formulate complex queries. In contrast, SCIExplorer provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually. We demonstrate that the tool can be effectively used to answer relevant competency questions in the domain of spinal cord injury, thus providing intuitive access to the results of preclinical studies which are represented in RDF. In particular, SCIExplorer offers drill-downs to individual preclinical results in order to visualize their core parameters at an interpretable level of abstraction that is guided by an underlying domain ontology.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Introduction
+   </h1>
+   <p>
+    The amount of openly available research data in machine-readable formats such as RDF is constantly growing, due to the rise of open research portals, on the one hand, and successively more powerful natural language processing tools offering the capability of transforming unstructured data into structured form, on the other. Being tailored to automated processing by machines and services, these data sources are often hard to access by human researchers, as research data in various domains are inherently highly complex, and the data representation formalisms impose high barriers to human domain experts regarding their ability to interact with the data source. Against this background, the need for low-level, intuitive access to research data in RDF or derived formalisms becomes more important than ever. Current approaches towards browsing linked data such as LODmilla
+    <a href="#__RefNumPara__9808_1959585331">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: András Micsik, Sándor Turbucz, Attila Györök (2016): LODmilla: A Linked Data Browser for All, in: Proceedings of SEMANTICS Posters and Demo Track. http://ceur-ws.org/Vol-1224/paper8.pdf">
+      [4]
+     </span>
+    </a>
+    , Yuzu
+    <a href="#__RefNumPara__9846_1959585331">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: John P. McCrae (2016): Yuzu. Publishing Any Data as Linked Data, in: Proceedings of ISWC Posters and Demo Track.">
+      [1]
+     </span>
+    </a>
+    , Disco
+    <a href="#__RefNumPara__9848_1959585331">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Christian Bizer, Tobias Gauß (2007): Disco Hyperdata Browser. A simple browser for navigating the Semantic Web. h ttp://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/">
+      [3]
+     </span>
+    </a>
+    or Tabulator
+    <a href="#__RefNumPara__9850_1959585331">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: Tim Berners-Lee, Yuhsin Chen, Lydia Chilton, Dan Connolly, Ruth Dhanaraj, James Hollenbach, Adam Lerer, David Sheets (2006): Tabulator. Exploring and Analyzing linked data on the Semantic Web, in: Procedings of the 3rd International Semantic Web User Interaction Workshop, Athens, Georgia.">
+      [2]
+     </span>
+    </a>
+    closely follow the RDF data model. In case of complex knowledge structures as they are ubiquitous in research data, this may result in obfuscation due to a multitude of triples which need to be browsed.
+   </p>
+   <p>
+    In this work, we present SCIExplorer, an interactive web application for investigating the results of preclinical studies in the spinal cord injury (SCI) domain that are represented in RDF. Offering an intuitive exploration of the data in a visual interface based on the data-describing ontology, SCIExplorer is designed to overcome the aforementioned problems, thus enabling domain experts without profound technical knowledge to formulate complex queries that are meaningful from a research perspective. In particular, the tool provides filter-driven dynamic generation of SPARQL queries without the need to specify them manually, and offers drill-downs to individual preclinical results in order to visualize their results and core parameters at a glance. We demonstrate that SCIExplorer can be effectively used to answer relevant domain-specific competency questions provided by experts.
+   </p>
+  </section>
+  <section>
+   <h1>
+    Background: Automatically Populating a Spinal Cord Injury Knowledge Base from Preclinical Studies
+   </h1>
+   <p>
+    Our motivation to develop an exploration tool for efficiently browsing RDF research data arose in the context of the PSINK project
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn2" id="fn_pointer_ftn2" title="Footnote 2: http://www.psink.de">
+      2
+     </a>
+    </sup>
+    , that aims at ontology-based information extraction from large amounts of preclinical studies in the SCI domain. The main project goal is to create the first comprehensive SCI knowledge base in order to foster translation from preclinicial research into therapeutic concepts that are likely to be effective in human patients. The resulting knowledge structures, i.e., the results of preclinical studies, are represented in an RDF database that can be queried via SPARQL. Both the information extraction process and the data representation scheme underlying the SCIExplorer are guided by the Spinal Cord Injury Ontology (SCIO) that is specifically developed in this project
+    <a href="#__RefNumPara__9937_1959585331">
+     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Nicole Brazda, Veronica Estrada, Tarek Kirchhoffer, Hendrik ter Horst, Matthias Hartung, Cord Wiljes, Roman Klinger, Philipp Cimiano, Hans Werner Müller (2016): SCIO. The Spinal Cord Injury Ontology, a Prerequisite for Automated Data Extraction from Publications on Research in Spinal Cord Injury, in: Proceedings of the 18th Spinal Research Network Meeting.">
+      [5]
+     </span>
+    </a>
+    . Currently, SCIO contains over 500 entities and relations describing a preclinical study in a very fine-grained and well-structured way.
+   </p>
+  </section>
+  <section>
+   <h1>
+    SCIExplorer
+   </h1>
+   <p>
+    This tool was developed to explore the complex structures of preclinical studies that follow the conceptualization provided by the Spinal Cord Injury Ontology. The interface is generated semi-automatically given the specifications of an ontology and a configuration file. The latter is used to enable different views to the data, thus focusing on different aspects of SCIO.
+   </p>
+   <p>
+    <strong>
+     Technical Details.
+    </strong>
+    SCIExplorer is a stand-alone framework written in Java, HTML and PHP.
+    <sup class="fn cgen" data-rash-original-content=" ">
+     <a href="#ftn3" id="fn_pointer_ftn3" title="Footnote 3: https://github.com/ag-sc/SCIExplorer">
+      3
+     </a>
+    </sup>
+    It is accessible though common web-browsers. The graphical interfaces relies on the JavaEE standard JavaServer Faces – Framework (JSF) that is based on Servlets and JavaServer Pages (JSP). The content management is realized with PrimeFaces.
+   </p>
+   <p>
+    <strong>
+     System Architecture.
+    </strong>
+    <a href="#refFigure0">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 1
+     </span>
+    </a>
+    shows the overall system architecture. This work focuses on the SCIExplorer (grey box) that is divided into three main parts:
+   </p>
+   <figure id="refFigure0">
+    <p>
+     <img alt="System Architecture" src="img/100002010000021E00000282A9ECCEA52E89BA7E.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 1.
+     </strong>
+     System Architecture
+    </figcaption>
+   </figure>
+   <ol>
+    <li>
+     <p>
+      The
+      <em>
+       Exploration Interface
+      </em>
+      serves as an entry point. It is aligned to the ontology and modified by a configuration file that specifies different views to the data. The data exploration is driven by various filter strategies that are automatically extracted from the ontology.
+     </p>
+    </li>
+    <li>
+     <p>
+      The
+      <em>
+       Query Generator
+      </em>
+      automatically transforms set filters (based on concepts and properties provided by SCIO) into SPARQL statements.
+     </p>
+    </li>
+    <li>
+     <p>
+      The extracted data is prepared and visualized in the
+      <em>
+       Data Presentation
+      </em>
+      module. The configuration file specifies the parts of the data that should be viewed.
+     </p>
+    </li>
+   </ol>
+   <p>
+    In the following, all parts are described in more detail.
+   </p>
+   <section>
+    <h2>
+     Exploration Interface
+    </h2>
+    <p>
+     A major motivation of researchers working in the SCI domain is on gaining a deeper, comparative understanding of therapeutic approaches that have been investigated in previous preclinical studies and the core parameters involved in their successful or ineffective application. Our exploration interface adapts to this focus by offering the choice of a treatment (optionally including subtypes) as an entry point via an interactive search field (cf.
+     <a href="#refFigure1">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 2
+      </span>
+     </a>
+     ).
+    </p>
+    <figure id="refFigure1">
+     <p>
+      <img alt="Entry point of the system. A treatment can be selected from an interactive search field." src="img/100000000000032D0000006200F985CC364DCE6F.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 2.
+      </strong>
+      Entry point of the system. A treatment can be selected from an interactive search field.
+     </figcaption>
+    </figure>
+    <figure id="refFigure2">
+     <p>
+      <img alt="Different filter." src="img/100000000000019800000311B8839549525C6583.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 3.
+      </strong>
+      Different filter.
+     </figcaption>
+    </figure>
+    <p>
+     A drop-down menu provides a list of common treatments that are covered by the ontology, e.g., pharmaceutical compounds, hypothermic treatments, or rehabilitative trainings. Based on the selected treatment, further filters can be applied subsequently.
+    </p>
+    <p>
+     Main aspects of a preclinical SCI study as covered by SCIExplorer are
+     <em>
+      Treatment
+     </em>
+     ,
+     <em>
+      AnimalModel
+     </em>
+     ,
+     <em>
+      InjuryType
+     </em>
+     <em>
+      and
+     </em>
+     <em>
+      InvestigationMethod
+     </em>
+     .
+    </p>
+    <p>
+     Possible filters are automatically extracted from the ontology and grouped by their ontological role (i.e., subtype relations, object-type properties and data-type properties). Addressing these roles, we differentiate between two types of filters (cf.
+     <a href="#refFigure2">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 3
+      </span>
+     </a>
+     ):
+    </p>
+    <ol>
+     <li>
+      <p>
+       <strong>
+        Boolean Filter.
+       </strong>
+       Users can set constraints by specifying a rdf:type constraints to make sure that only results for a certain type are retrieved (e.g.
+       <em>
+        RatModel
+       </em>
+       or
+       <em>
+        Male
+       </em>
+       ).
+      </p>
+     </li>
+     <li>
+      <p>
+       <strong>
+        RegEx Filter.
+       </strong>
+       For data-type properties, users can set constrains by limiting the values of the object position to a certain range.
+      </p>
+     </li>
+    </ol>
+    <p>
+     All properties, sub-properties and sub-class relations are flattened under each main aspect in order to reduce the complexity of the data. We argue that the exact hierarchical structure below these main aspects can be discarded without losing any important information.
+    </p>
+   </section>
+   <section>
+    <h2>
+     Filter-driven Dynamic Generation of SPARQL Queries
+    </h2>
+    <p>
+     The dynamic generation of SPARQL queries takes all previously set filters into account and translates them into a set of SPARQL statements. Each filter that was set by the user in the GUI is translated into a basic graph pattern (BGP) in the SPARQL query. BGPs can be typing statements using
+     <code>
+      rdf:type
+     </code>
+     or triples involving an object property or data-type property. For instance, the filter specifying that the user is interested in trials in rats (cf.
+     <a href="#refFigure2">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 3
+      </span>
+     </a>
+     ) imposes an
+     <code>
+      rdf:type
+     </code>
+     constraint on the possible subtypes of the
+     <em>
+      AnimalModel
+     </em>
+     class in SCIO, which would be translated as follows:
+    </p>
+    <figure>
+     <pre><code>?OrganismModel rdfs:type scio:RatModel.</code></pre>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Listing 1.
+      </strong>
+      Translation of type constraint into query statement
+     </figcaption>
+    </figure>
+    <p>
+     Analogously, SPARQL statements capturing filters over object properties (e.g.,
+     <code>
+      scio:hasGender
+     </code>
+     ) are translated as follows:
+    </p>
+    <figure>
+     <pre><code>?OrganismModel scio:hasGender scio:Male.</code></pre>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Listing 2.
+      </strong>
+      Translation of object-type property constraint into query statement
+     </figcaption>
+    </figure>
+    <p>
+     An example of a filter involving a data-type property is the specification of an interval of animals’ weights, which is translated into SPARQL using a
+     <code>
+      FILTER
+     </code>
+     statement:
+    </p>
+    <figure>
+     <pre><code>?OrganismModel scio:hasWeight ?Weight.
+?Weight scio-data:hasValue ?WeightValue.
+<code>       FILTER regex(?WeightValue, "300-400 gramm", "I")</code></code></pre>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Listing 3.
+      </strong>
+      Translation of data-type property constraint into query statement
+     </figcaption>
+    </figure>
+    <p>
+     In order to generate a complete SPARQL query, statements on classes with a common parent (e.g.,
+     <em>
+      RatModel
+     </em>
+     and
+     <em>
+      MouseModel
+     </em>
+     with parent
+     <em>
+      Animal
+     </em>
+     <em>
+      Model
+     </em>
+     ) are disjunctively combined using the
+     <code>
+      UNION
+     </code>
+     keyword. All other statements are combined into a conjunction.
+    </p>
+   </section>
+   <section>
+    <h2>
+     Data Presentation
+    </h2>
+    <p>
+     Retrieved results are presented in bar diagrams (one per main aspect) capturing the success rate of the respective treatments, divided into positive, negative, and neutral outcome. By default, the four main aspects and all properties of the selected treatment are shown in one dashboard. An example of a bar diagram displaying the observed outcomes of a particular treatment for different dosages is shown in
+     <a href="#refFigure6">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 4
+      </span>
+     </a>
+     .
+    </p>
+    <figure id="refFigure6">
+     <p>
+      <img alt="Bar diagram for different dosages" src="img/100000000000023D0000013F9EA6E294E6113887.png"/>
+     </p>
+     <figcaption>
+      <strong class="cgen" data-rash-original-content="">
+       Figure 4.
+      </strong>
+      Bar diagram for different dosages
+     </figcaption>
+    </figure>
+    <p>
+     If all desired filters are set, the user can switch to a drill-down view in which the retrieved results are arranged in a table (each column representing a main aspect of a study, each row representing a result). In the interest of presenting an entire study at a glance, aspect-related columns are grouped together.
+     <a href="#refFigure8">
+      <span class="cgen" data-rash-original-content=" ">
+       Figure 6
+      </span>
+     </a>
+     shows an example drill-down.
+    </p>
+   </section>
+  </section>
+  <section>
+   <h1>
+    Use Cases in the Spinal Cord Injury Domain
+   </h1>
+   <p>
+    Common requirements proposed by researchers in the SCI domain involve
+    <em>
+     answering competency questions
+    </em>
+    aiming at comparative views of individual studies with a focus on certain key parameters, or
+    <em>
+     treatment analytics
+    </em>
+    at different levels of depth and granularity (e.g., detecting clusters of equivalent treatment concepts, predicting their prospective success in different model organisms, among others). Definitive answers to such information needs may require statistical analyses and meta studies. Yet, SCIExplorer in its current state is already capable of delivering valuable information regarding comparative views on treatments or the generation of new hypotheses or explanations about the observed (in-)efficacy of therapeutic concepts.
+   </p>
+   <figure id="refFigure7">
+    <p>
+     <img alt="Exemplary dashboard for answering competency questions" src="img/100000000000044000000362DF44BF4E3D7C9BF0.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 5.
+     </strong>
+     Exemplary dashboard for answering competency questions
+    </figcaption>
+   </figure>
+   <p>
+    Consider the following competency question:
+   </p>
+   <p>
+    In which lesion models being tested in male rats or mice have no negative effects of erythropoietin been observed so far?
+   </p>
+   <p>
+    Answering this question requires the specification of three filters (
+    <em>
+     MouseModel
+    </em>
+    ,
+    <em>
+     RatModel
+    </em>
+    ,
+    <em>
+     Male
+    </em>
+    ). As a result, the answer can be inferred from investigating the
+    <em>
+     InjuryType
+    </em>
+    pane on the dashboard (cf.
+    <a href="#refFigure7">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 5
+     </span>
+    </a>
+    ): The current data pool contains two different injury models treated with erythropoietin, viz., compressions and contusions. So far, negative outcomes have only been reported for compressions.
+   </p>
+   <p>
+    Additionally, inspection of the
+    <em>
+     Dosage
+    </em>
+    pane shows that the negative result is tied to a particular dosage of 0.01 ml/kg of erythropoietin; however, the same dosage has also led to positive and neutral outcomes. In order to explore this finding in more detail, a drill-down can be generated by adding an additional constraint for the specific dosage. The resulting table, presenting all individual results from the RDF data pool which satisfy the current set of ontological constraints at a glance, is displayed in
+    <a href="#refFigure8">
+     <span class="cgen" data-rash-original-content=" ">
+      Figure 6
+     </span>
+    </a>
+    .
+   </p>
+   <p>
+    As can be seen from the table, the difference in outcomes (positive vs. negative/neutral) is due to different time points of the measurement of the observation (four weeks vs. six weeks after treatment). Apparently, all other parameters being equal, erythropoietin in mice tends to induce early effects towards functional recovery after compression which are not sustainable over time, though.
+   </p>
+   <figure id="refFigure8">
+    <p>
+     <img alt="Comparative drill-down to study results based on previously specified constraints" src="img/100000000000060F0000029180E4C65234901207.png"/>
+    </p>
+    <figcaption>
+     <strong class="cgen" data-rash-original-content="">
+      Figure 6.
+     </strong>
+     Comparative drill-down to study results based on previously specified constraints
+    </figcaption>
+   </figure>
+  </section>
+  <section>
+   <h1>
+    Discussion
+   </h1>
+   <p>
+    We have presented SCIExplorer as a tool that enables visual analytics over research data represented in RDF, based on an intuitive access layer that is guided by an underlying domain ontology. With a focus on the spinal cord injury domain, we have demonstrated that SCIExplorer is capable to highlight meaningful and interpretable information for domain experts, without the need for specifying complex queries in a formal language such as SPARQL. SCIExplorer is automatically derived from a data-describing ontology, assuming a particular view on the underlying RDF data pool. We envisage two main directions for further development of SCIExplorer: first, adapting the tool to different research domains; second, increasing the degrees of freedom in the exploration process (e.g., by providing alternative entry points), while keeping the complexity faced by the user at a tractable level.
+   </p>
+  </section>
+  <section class="doc-acknowledgements">
+   <h1>
+    Acknowledgements
+   </h1>
+   <p>
+    This work has been funded by the Federal Ministry of Education and Research (BMBF, Germany) in the PSINK projects (031L0028A &amp; 031L0028B).
+   </p>
+  </section>
+  <section class="doc-bibliography">
+   <h1>
+    References
+   </h1>
+   <ol>
+    <li class="doc-biblioentry" id="__RefNumPara__9846_1959585331">
+     <p>
+      John P. McCrae (2016): Yuzu. Publishing Any Data as Linked Data, in: Proceedings of ISWC Posters and Demo Track.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefNumPara__9850_1959585331">
+     <p>
+      Tim Berners-Lee, Yuhsin Chen, Lydia Chilton, Dan Connolly, Ruth Dhanaraj, James Hollenbach, Adam Lerer, David Sheets (2006):
+      <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">
+       Tabulator. Exploring and Analyzing
+      </a>
+      <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">
+       linked
+      </a>
+      <a href="http://swui.semanticweb.org/swui06/papers/Berners-Lee/Berners-Lee.pdf">
+       data on the Semantic Web
+      </a>
+      , in: Procedings of the
+      <a href="http://swui.semanticweb.org/swui06">
+       3rd International Semantic Web User Interaction Workshop
+      </a>
+      , Athens, Georgia.
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefNumPara__9848_1959585331">
+     <p>
+      Christian Bizer, Tobias Gauß (2007): Disco Hyperdata Browser. A simple browser for navigating the Semantic Web.
+      <a href="http://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/">
+       h
+      </a>
+      <a href="http://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/">
+       ttp://web.archive.org/web/20110722105422/http://www4.wiwiss.fu-berlin.de/bizer/ng4j/disco/
+      </a>
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefNumPara__9808_1959585331">
+     <p>
+      András Micsik, Sándor Turbucz, Attila Györök (2016): LODmilla: A Linked Data Browser for All, in: Proceedings of SEMANTICS Posters and Demo Track.
+      <a href="http://ceur-ws.org/Vol-1224/paper8.pdf">
+       http://ceur-ws.org/Vol-1224/paper8.pdf
+      </a>
+     </p>
+    </li>
+    <li class="doc-biblioentry" id="__RefNumPara__9937_1959585331">
+     <p>
+      Nicole Brazda, Veronica Estrada, Tarek Kirchhoffer, Hendrik ter Horst, Matthias Hartung, Cord Wiljes, Roman Klinger, Philipp Cimiano, Hans Werner Müller (2016): SCIO. The Spinal Cord Injury Ontology, a Prerequisite for Automated Data Extraction from Publications on Research in Spinal Cord Injury, in: Proceedings of the 18th Spinal Research Network Meeting.
+     </p>
+    </li>
+   </ol>
+  </section>
+  <section class="doc-endnotes">
+   <h1>
+    Footnotes
+   </h1>
+   <section class="doc-endnote" id="ftn1">
+    <p>
+     <a href="http://psink.techfak.uni-bielefeld.de/SCIOExplorerv2/index.xhtml">
+      http://psink.techfak.uni-bielefeld.de/SCIOExplorerv2/index.xhtml
+     </a>
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn1">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn2">
+    <p>
+     <a href="http://www.psink.de/">
+      http://www.psink.de
+     </a>
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn2">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+   <section class="doc-endnote" id="ftn3">
+    <p>
+     <a href="https://github.com/ag-sc/SCIExplorer">
+      https://github.com/ag-sc/SCIExplorer
+     </a>
+     <sup class="hidden-print cgen" data-rash-original-content=" ">
+      <a href="#fn_pointer_ftn3">
+       [back]
+      </a>
+     </sup>
+    </p>
+   </section>
+  </section>
+ </body>
+</html>
