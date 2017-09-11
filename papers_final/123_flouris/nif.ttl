@@ -1,0 +1,275 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13965"^^xsd:nonNegativeInteger ;
+    nif:isString """GIORGOS FLOURIS              fgeo@ics.forth.gr             FORTH, Greece  THEODORE PATKOS              patkos@ics.forth.gr             FORTH, Greece  ILIA ADAMI              iadami@ics.forth.gr             FORTH, Greece  ANTONIS BIKAKIS              a.bikakis@ucl.ac.uk             UCL, UK  MANOS DIMITRAKIS              mdimitrak@ics.forth.gr             FORTH, Greece  GEORGE MATHIOUDAKIS              gmathiou@ics.forth.gr             FORTH, Greece  GIANNIS ROUSSAKIS              rousakis@ics.forth.gr             FORTH, Greece  DIMITRIS PLEXOUSAKIS              dp@ics.forth.gr             FORTH, Greece  ACM SUBJECT CATEGORIES       Information systems: Reputation systems            Information systems: Social tagging systems            Information systems: Content ranking            Information systems: Social recommendation       KEYWORDS  -           Comments        -           Reviews        -           Semantic Web        -           Social Web        -           Computational Argumentation        -           Crowdsourcing           ABSTRACT   User reviews, comments and votes on the Social Web form the modern version of word-of-mouth communication, which has a huge impact on people’s shopping habits, businesses and the overall market. Despite that, systems have so far limited practical success in helping consumers and businesses analysing, managing and understanding Social Web content. In this paper, we present a new tool that leverages a combination of techniques from Semantic Web, Computational Argumentation and Crowdsourcing to support this activity, through an intuitive and functional user interface.    INTRODUCTION   The Social Web is populated with arguments, which usually have the form of comments, opinions or reviews, and are the main ingredients of online discussion forums, social networks, online rating and review sites, debate portals and other online communities - the electronic version of word-of-mouth communication. Since the emergence of the Social Web, its impact has been paramount to several aspects of human behaviour, ranging from health-related [4] , to buying [5] , travelling [11] or voting habits [1] . Also, opinions in the Social Web significantly impact businesses and the overall market; a study on the impact of online reviews on the restaurant industry found that a one-star increase in Yelp.com rating led to a 5-9�ncrease in the revenue of the rated restaurants [8] .  It is thus clear that understanding, analysing and managing such comments is of paramount importance in various industrial sectors. Towards this end, two main approaches exist. On the one end, Computational Argumentation [2] has provided mature results in understanding and formalizing the interplay of arguments in structured debates. This work has yet limited applicability on the Social Web, due to the highly unstructured nature of the latter, despite some recent efforts to bridge the differences [6] , [3] . On the other end, opinion analysis methods attempt to make sense out of online discussions, relying heavily on Natural Language Processing (NLP) techniques. Their performance in understanding the basic trends and sentiments of online dialogues has improved remarkably over the last years, yet their accuracy is still very low when it comes to identifying the arguments in opinions, understanding their relations (attack/support), or extracting the most acceptable arguments in a dialogue [7] .  The Methinks system aims to bring these two approaches closer, by harnessing crowdsourcing techniques instead of NLP for obtaining meta-information about an opinion and by relying on Semantic Web and Computational Argumentation methods to automate opinion processing. The novelties reside both at the frontend, where a number of features have been developed to facilitate the task of comment annotation for the _consumer_ (typically a potential customer searching for a product or service, having the role of comment reader or writer), and at the backend where novel, powerful and semantically-enriched analytical tools have been developed to assist the _analyst_ (typically an employee of the product or service provider, a system administrator, or a market analyst) in the task of spotting valuable comments and ironing out irrelevant or unhelpful ones. Eventually, the experience of all beneficiaries is improved by a more elaborate characterization of comments in terms of acceptance of the opinions they express by the participants of a given dialogue, and quality of their content.    FEATURES OF METHINKS   General Properties  Methinks is an online service developed using modern web technologies, intended to be licensed and delivered as Software as a Service (SaaS). The target market of Methinks includes, among others, hotels, online booksellers, listings directories (e.g., booking.com, ebay, etc.) and content aggregators.  Unlike generic commenting and debating tools such as Disqus ¹ , the objectives of Methinks are very much market-related, namely to (a) assist the consumer towards _more informed shopping decisions_ , and (b) help the analyst identify _trends_ , as well as _problematic or attractive characteristics_ of the offered products or services to improve their business. Each objective is achieved through a different frontend operating on the same backend ² .  For the User Interface design of the final prototype, the user-centred design (UCD) process [9] was followed to ensure optimal usability of the end product. The process included the following phases: user requirement collection and analysis, creation of high-fidelity interface mock-up designs, expert walkthrough evaluation of the prototypes, adjustments based on expert evaluation results, user-based evaluation in a laboratory environment, and further adjustments of the prototype based on the results from the evaluation.   Features for the Consumer  Comments as first-class citizens  In Methinks, comments are organised in user-generated _topics_ . For example, in the provided demo (referring to the hotel domain), different topics may include “restaurant” and “room” ; however, the list of topics is open, to allow the comment writers to give emphasis on any aspect that they consider important (e.g., “mosquitos” or “nightlife” ).  One of the main ideas behind Methinks is that comments are treated as _first-class citizens_ , carrying as much information as the actual description of a product or service. A button brings about a drawer showing the provided comments, with various options for searching, filtering, organising or viewing them (see Figure 1 ). The related retrieval functionalities are implemented using SPARQL queries posed against an RDF backend following an appropriate ontological schema.  [ The Drawer (Main Methinks Window)]  FIGURE 1. The Drawer (Main Methinks Window) More importantly, comments are _integrated_ with the actual page content. Any textual content in the description of the product/service that corresponds to an existing topic of discussion appears underlined in an indication that there is further information linked to it. On mouse-over, a box appears above the underlined text showing the number of discussions that have been created on this particular topic (see Figure 2 ). Upon clicking inside the box, the main Methinks plug-in window ( Figure 1 ) expands and shows the discussions that are associated with the selected topic. Similarly, selecting some text in the description, allows one to search in the comments for this text, or create a new topic for this text.  [ Integration of Comments in Web Page Content]  FIGURE 2. Integration of Comments in Web Page Content  Leveraging crowdsourcing and argumentation to understand comments  Whenever a consumer wants to add a comment to the system, this can appear as a new comment, or as a _reaction_ to an existing one. In both cases, the comment writer needs to provide topics (existing or new ones), and may additionally provide various types of textual and/or structured feedback. The system provides help in selecting topics, by proposing existing topics that match what the user is writing.  Textual feedback is addressed to humans, whereas structured feedback (like votes, star ratings and characterizations of aspects as outdated or helpful) helps evaluating the comments and the product/service. In fact, users have various ways to criticise (or praise) various aspects of previously submitted comments or of the product/service under discussion, and this rich feedback is leveraged by complex argumentation-inspired algorithms, whose details can be found at [10] . These algorithms allow a fine-grained analysis of how positively or negatively the crowd views certain aspects associated with the product/service at hand, or the comment itself, by leveraging (among other things) the two types of relations among comments (attack/support) using methods from quantitative argumentation frameworks [3] , as well as by employing the categorization of feedback in different aspects and/or topics.  Comments are evaluated by assessing their _quality_ and _acceptance_ . The quality rating of a comment determines its reliability and usefulness for other consumers and helps in ranking the comments. The acceptance rating is used to determine whether other consumers agree with the comment’s assessment on the topic (positive or negative); this in turn determines the contribution of the comment in formulating the final score assigned to the topic. NLP technologies may help improve these algorithms in the future; yet, our goal on involving users in the loop aims at keeping them engaged in the reviewing process.   Features for the Analyst  With regards to the analyst, we have developed a rich graphical user interface (GUI) allowing monitoring trends and understanding the social feeling associated with products (see Figure 3 ). The analyst interface allows _moderating_ (accepting/rejecting) comments, thereby allowing the analyst to block comments with offensive or profane language, and control what comments are published to the webpage. It also allows _responding_ to comments, a feature that gains popularity in most review sites. More importantly, it provides various _visualizations_ of the comments’/topics’ quantity and scores. All visualizations allow various types of organisation and filtering along various dimensions (temporal, topical, status etc), leveraging the flexibility of our semantic representation and facilitated by SPARQL expressiveness.  [ The User Interface for the Analyst]  FIGURE 3. The User Interface for the Analyst   Used Technologies  The frontend was implemented as a web-page plugin using the AngularJS ³ framework. It was designed and developed with the following two principles in mind: easy web-page integration and minimum possible dependencies on external javascript and styling libraries.  The analyst interface was implemented as a single-page application in order to provide a user experience similar to that of a desktop application. It was developed on top of AngularJS framework, using Twitter Bootstrap ⁴ for the styling and positioning of the UI components. The various analytics graphs are created dynamically as SVG images with the help of the nvd3 ⁵ and D3.js ⁶ libraries.  The backend uses Virtuoso Triplestore ⁷ version 7.2 to store all the created comments along with all the metadata (e.g., creation date, authors, comment relations etc.) that are necessary for supporting Methinks’ functionalities. The storage and data access layers are implemented using RDF and SPARQL, respectively.  Even though Methinks’ data could conceivably be stored also using relational technologies, the use of semantics allows future interoperability among different deployments of the Methinks platform and datasets from the Data Web, therefore allowing better integration and paving the road for future developments that could lead to a global repository of annotation-rich comments, where comments from different web sites and products/services could be combined with online data to provide a more complete user experience.  The ontology used for the representation of the comments transfers part of the business logic to the representation layer, for easier maintenance, and is shown in Figure 4 . The ontology design employed a functionality-oriented approach. In particular, the top-level concepts (O1_Creation_Data, O2_Strength, O3_Concept) were created with regards to the types of properties that different lower-level concepts should support. For example, the class O1_Strength is the domain of all properties associated with the notion of strength (acceptability, quality, etc.) and subsumes all concepts whose value (strength) is evaluated in the system (namely, topics and various types of arguments). The same idea is used for the other concepts. More details are omitted due to lack of space.  [ The Methinks Ontology]  FIGURE 4. The Methinks Ontology    CONCLUSION   In this paper, we presented _Methinks_ , a tool for enhanced review sites that allows easier management and analysis of user comments in a Social Web context. Emphasis is given to market-related web sites, providing features that create benefit for both the consumer and the product/service provider. The tool is still under development, and various new features are considered, such as the introduction of multimedia comments, cross-website and/or cross-product comparison using comment scores and others.    REFERENCES   1.        R.M. Bond, C.J. Fariss, J.J. Jones, A.D.I. Kramer, C. Marlow, J.E.     Settle, J.H. Fowler. A 61-million-person experiment in social     influence and political mobilization. Nature     489(7415):295–298, 2012.  2.        P. Besnard, A. Hunter. Elements of Argumentation. The MIT Press.     2008.  3.        P. Baroni, M. Romano, F. Toni, M. Aurisicchio, G. Bertanza.     Automatic evaluation of design alternatives with     quantitative argumentation. Argument
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_10491_10497>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "10491"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10497"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_11084_11101>
+    nif:anchorOf "Twitter Bootstrap" ;
+    nif:beginIndex "11084"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11101"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999993206076886 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Bootstrap_(front-end_framework)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_11572_11578>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "11572"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11578"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_12119_12127>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12119"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12127"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_12293_12301>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12293"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12301"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_13514_13517>
+    nif:anchorOf "C.J" ;
+    nif:beginIndex "13514"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13517"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999755282264 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/CJ_(musician)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_13557_13563>
+    nif:anchorOf "Marlow" ;
+    nif:beginIndex "13557"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13563"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999935822148868 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Marlow,_Buckinghamshire> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_13595_13599>
+    nif:anchorOf "A 61" ;
+    nif:beginIndex "13595"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13599"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ArchitecturalStructure, dbo:Infrastructure, dbo:Place, dbo:Road, dbo:RouteOfTransportation, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bundesautobahn_61 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_13779_13782>
+    nif:anchorOf "MIT" ;
+    nif:beginIndex "13779"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13782"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9888101292778975 ;
+    itsrdf:taIdentRef dbpedia:Massachusetts_Institute_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_142_148>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "142"^^xsd:nonNegativeInteger ;
+    nif:endIndex "148"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_1497_1509>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "1497"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1509"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_213_219>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "213"^^xsd:nonNegativeInteger ;
+    nif:endIndex "219"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_2380_2382>
+    nif:anchorOf "-9" ;
+    nif:beginIndex "2380"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2382"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Biomolecule, dbo:Protein ;
+    itsrdf:taConfidence 0.9994777645806905 ;
+    itsrdf:taIdentRef dbpedia:Interleukin_9 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_3630_3642>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "3630"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3642"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_363_369>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "363"^^xsd:nonNegativeInteger ;
+    nif:endIndex "369"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_445_451>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "445"^^xsd:nonNegativeInteger ;
+    nif:endIndex "451"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_4833_4844>
+    nif:anchorOf "booking.com" ;
+    nif:beginIndex "4833"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4844"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Priceline.com> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_525_531>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "525"^^xsd:nonNegativeInteger ;
+    nif:endIndex "531"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_602_608>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "602"^^xsd:nonNegativeInteger ;
+    nif:endIndex "608"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_6666_6672>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6666"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6672"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_66_72>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "66"^^xsd:nonNegativeInteger ;
+    nif:endIndex "72"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999666652007 ;
+    itsrdf:taIdentRef dbpedia:Ancient_Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_8220_8224>
+    nif:anchorOf "star" ;
+    nif:beginIndex "8220"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8224"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9544473279935258 ;
+    itsrdf:taIdentRef dbpedia:Celebrity .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_919_931>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "919"^^xsd:nonNegativeInteger ;
+    nif:endIndex "931"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_9741_9765>
+    nif:anchorOf "graphical user interface" ;
+    nif:beginIndex "9741"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9765"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_9767_9770>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "9767"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9770"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/123_flouris/nif.ttl/#offset_0_13965> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+

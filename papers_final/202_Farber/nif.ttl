@@ -1,0 +1,113 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1249"^^xsd:nonNegativeInteger ;
+    nif:isString """MICHAEL FÄRBER              michael.faerber@kit.edu             Karlsruhe Institute of Technology (KIT), Institute AIFB,  CARSTEN MENNE                    Karlsruhe Institute of Technology (KIT), Institute AIFB,  ANDREAS HARTH              aha@aifb.uni-karlsruhe.de             Karlsruhe Institute of Technology (KIT), Institute AIFB,  KEYWORDS  -           Linked Data        -           CrunchBase        -           RDF        -           API        -           Startups           ABSTRACT   CrunchBase is a database about startups and technology companies. The database can be searched, browsed, and edited via a website, but is also accessible via an entity-centric HTTP API in JSON format. We present a wrapper around the API that provides the data as Linked Data. The wrapper provides schema-level links to schema.org, Friend-of-a-Friend and Vocabulary-of-a-Friend, and entity-level links to DBpedia for organization entities. We describe how to harvest the RDF data to obtain a local copy of the data for further processing and querying that goes beyond the access facilities of the CrunchBase API. Further, we describe the cases in which the Linked Data API for CrunchBase and the crawled CrunchBase RDF data have been used in other works.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_1151_1162>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1151"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1162"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_155_164>
+    nif:anchorOf "Karlsruhe" ;
+    nif:beginIndex "155"^^xsd:nonNegativeInteger ;
+    nif:endIndex "164"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9997582719555617 ;
+    itsrdf:taIdentRef dbpedia:Karlsruhe_Institute_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_278_287>
+    nif:anchorOf "Karlsruhe" ;
+    nif:beginIndex "278"^^xsd:nonNegativeInteger ;
+    nif:endIndex "287"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9997582719555617 ;
+    itsrdf:taIdentRef dbpedia:Karlsruhe_Institute_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_358_369>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "358"^^xsd:nonNegativeInteger ;
+    nif:endIndex "369"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_64_73>
+    nif:anchorOf "Karlsruhe" ;
+    nif:beginIndex "64"^^xsd:nonNegativeInteger ;
+    nif:endIndex "73"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9997582719555617 ;
+    itsrdf:taIdentRef dbpedia:Karlsruhe_Institute_of_Technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_671_675>
+    nif:anchorOf "HTTP" ;
+    nif:beginIndex "671"^^xsd:nonNegativeInteger ;
+    nif:endIndex "675"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999996589 ;
+    itsrdf:taIdentRef dbpedia:Hypertext_Transfer_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_683_687>
+    nif:anchorOf "JSON" ;
+    nif:beginIndex "683"^^xsd:nonNegativeInteger ;
+    nif:endIndex "687"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:JSON .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_758_769>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "758"^^xsd:nonNegativeInteger ;
+    nif:endIndex "769"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_814_824>
+    nif:anchorOf "schema.org" ;
+    nif:beginIndex "814"^^xsd:nonNegativeInteger ;
+    nif:endIndex "824"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/202_Farber/nif.ttl/#offset_0_1249> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999624833 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Schema.org> .
+

@@ -1,0 +1,125 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1535"^^xsd:nonNegativeInteger ;
+    nif:isString """MILAN DOJCHINOVSKI              milan.dojchinovski@fit.cvut.cz             Web Intelligence Research Group, Faculty of Information Technology, Czech Technical University in Prague  TOMAS VITVAR              tomas.vitvar@fit.cvut.cz             Web Intelligence Research Group, Faculty of Information Technology, Czech Technical University in Prague  KEYWORDS  -           Web APIs        -           Linked Data        -           Web services        -           Linked Web APIs        -           ontology           ABSTRACT   Web APIs enjoy a significant increase in popularity and usage in the last decade. They have become the core technology for exposing functionalities and data. Nevertheless, due to the lack of semantic Web API descriptions their discovery, sharing, integration, and assessment of their quality and consumption is limited. In this paper, we present the Linked Web APIs dataset, an RDF dataset with semantic descriptions about Web APIs. It provides semantic descriptions for 11,339 Web APIs, 7,415 mashups and 7,717 developer profiles, which make it the largest available dataset from the Web APIs domain. The dataset captures the provenance, temporal, technical, functional, and non-functional aspects. In addition, we describe the Linked Web APIs Ontology, a minimal model which builds on top of several well-known ontologies. The dataset has been interlinked and published according to the Linked Data principles. Finally, we describe several possible usage scenarios for the dataset and show its potential.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_5>
+    nif:anchorOf "MILAN" ;
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Device, dbo:Weapon, schema:Product ;
+    itsrdf:taConfidence 0.999999999851525 ;
+    itsrdf:taIdentRef dbpedia:MILAN .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_1417_1428>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1417"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1428"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_143_169>
+    nif:anchorOf "Czech Technical University" ;
+    nif:beginIndex "143"^^xsd:nonNegativeInteger ;
+    nif:endIndex "169"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9991737802623712 ;
+    itsrdf:taIdentRef dbpedia:Czech_Technical_University_in_Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_173_179>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "173"^^xsd:nonNegativeInteger ;
+    nif:endIndex "179"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9691095774497839 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_244_260>
+    nif:anchorOf "Web Intelligence" ;
+    nif:beginIndex "244"^^xsd:nonNegativeInteger ;
+    nif:endIndex "260"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Web_intelligence .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_312_338>
+    nif:anchorOf "Czech Technical University" ;
+    nif:beginIndex "312"^^xsd:nonNegativeInteger ;
+    nif:endIndex "338"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 0.9991737802623712 ;
+    itsrdf:taIdentRef dbpedia:Czech_Technical_University_in_Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_342_348>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "342"^^xsd:nonNegativeInteger ;
+    nif:endIndex "348"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9691095774497839 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_400_411>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "400"^^xsd:nonNegativeInteger ;
+    nif:endIndex "411"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_498_506>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "498"^^xsd:nonNegativeInteger ;
+    nif:endIndex "506"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.99999999999784 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_75_91>
+    nif:anchorOf "Web Intelligence" ;
+    nif:beginIndex "75"^^xsd:nonNegativeInteger ;
+    nif:endIndex "91"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/205_Dojchinovski/nif.ttl/#offset_0_1535> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Web_intelligence .
+

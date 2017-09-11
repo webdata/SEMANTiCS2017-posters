@@ -1,0 +1,101 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1650"^^xsd:nonNegativeInteger ;
+    nif:isString """IKER ESNAOLA-GONZALEZ              iker.esnaola@tekniker.es             IK4-Tekniker  JESÚS BERMÚDEZ              jesus.bermudez@ehu.eus             University of the Basque Country, UPV/EHU  IZASKUN FERNANDEZ              izaskun.fernandez@tekniker.es             IK4-Tekniker  SANTIAGO FERNANDEZ              santiago.fernandez@tekniker.es             IK4-Tekniker  AITOR ARNAIZ              aitor.arnaiz@tekniker.es             IK4-Tekniker  KEYWORDS  -           Outlier Detection        -           Semantic Technologies        -           Wireless Sensor Network        -           Knowledge Discovery in Databases           ABSTRACT   Outlier detection in the preprocessing phase of Knowledge Discovery in Databases (KDD) processes has been a widely researched topic for many years. However, identifying the potential outlier cause still remains an unsolved challenge even though it could be very helpful for determining what actions to take after detecting it. Furthermore, conventional outlier detection methods might still overlook outliers in certain complex contexts. In this article, Semantic Technologies are used to contribute overcoming these problems by proposing the SemOD (Semantic Outlier Detection) Framework. This framework guides the data-scientist towards the detection of certain types of outliers in WSNs (Wireless Sensor Network). Feasibility of the approach has been tested in outdoor temperature sensors and results show that the proposed approach is generic enough to apply it to different sensors, even improving the accuracy, specificity and sensitivity of outlier detection as well as spotting their potential cause.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_1332_1355>
+    nif:anchorOf "Wireless Sensor Network" ;
+    nif:beginIndex "1332"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1355"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Wireless_sensor_network .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_167_181>
+    nif:anchorOf "Basque Country" ;
+    nif:beginIndex "167"^^xsd:nonNegativeInteger ;
+    nif:endIndex "181"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999744803748 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Basque_Country_(autonomous_community)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_265_268>
+    nif:anchorOf "IK4" ;
+    nif:beginIndex "265"^^xsd:nonNegativeInteger ;
+    nif:endIndex "268"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999711625382 ;
+    itsrdf:taIdentRef dbpedia:Ik4 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_279_287>
+    nif:anchorOf "SANTIAGO" ;
+    nif:beginIndex "279"^^xsd:nonNegativeInteger ;
+    nif:endIndex "287"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9922109732352357 ;
+    itsrdf:taIdentRef dbpedia:Santiago .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_354_357>
+    nif:anchorOf "IK4" ;
+    nif:beginIndex "354"^^xsd:nonNegativeInteger ;
+    nif:endIndex "357"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999711625382 ;
+    itsrdf:taIdentRef dbpedia:Ik4 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_431_434>
+    nif:anchorOf "IK4" ;
+    nif:beginIndex "431"^^xsd:nonNegativeInteger ;
+    nif:endIndex "434"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999711625382 ;
+    itsrdf:taIdentRef dbpedia:Ik4 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_545_568>
+    nif:anchorOf "Wireless Sensor Network" ;
+    nif:beginIndex "545"^^xsd:nonNegativeInteger ;
+    nif:endIndex "568"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Wireless_sensor_network .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_72_75>
+    nif:anchorOf "IK4" ;
+    nif:beginIndex "72"^^xsd:nonNegativeInteger ;
+    nif:endIndex "75"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/143_EsnaolaGonzalez/nif.ttl/#offset_0_1650> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999711625382 ;
+    itsrdf:taIdentRef dbpedia:Ik4 .
+

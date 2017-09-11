@@ -1,0 +1,30 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/164_Nikolova/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/164_Nikolova/nif.ttl/#offset_0_1280> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/164_Nikolova/nif.ttl/#offset_0_1280>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1280"^^xsd:nonNegativeInteger ;
+    nif:isString """IVELINA NIKOLOVA              ivelina.nikolova@ontotext.com             Ontotext  KEYWORDS  -           springer nature        -           scigraph        -           linked open data        -           LOD           ABSTRACT   Springer Nature SciGraph is a new Linked Open Data platform that aggregates and interlinks various data sources from the scholarly domain. It is part of Springer Nature’s longstanding commitment to advance discovery by publishing robust and insightful research, supporting the development of new areas of knowledge, making ideas and information accessible around the world, and leading the way on open access.  Some of the many benefits Springer Nature SciGraph offers are:  -   overcoming internal and external content silos in research     communities;  -   broadening users’ perspective by semantic relations being revealed     visually;  -   encouraging developers to reuse Springer Nature’s datasets;  -   easily accessing high quality content from trusted and reliable     sources;  -   finding optimal content for analysis and recommendation tools for     funders, librarians, conference organizers, etc.;  -   increasing the discoverability of publications due to large parts of     the datasets being freely accessible (CC BY-NC 4.0 license).
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/164_Nikolova/nif.ttl/#offset_1257_1265>
+    nif:anchorOf "CC BY-NC" ;
+    nif:beginIndex "1257"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1265"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/164_Nikolova/nif.ttl/#offset_0_1280> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Creative_Commons_license .
+

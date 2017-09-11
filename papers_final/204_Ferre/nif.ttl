@@ -1,0 +1,100 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1256"^^xsd:nonNegativeInteger ;
+    nif:isString """SÉBASTIEN FERRÉ              ferre@irisa.fr             IRISA, Université de Rennes 1  KEYWORDS  -           semantic search        -           SPARQL endpoint        -           query builder        -           faceted search        -           natural language           ABSTRACT   SPARKLIS is a Semantic Web tool that helps users explore and query SPARQL endpoints by guiding them in the interactive building of questions and answers, from simple ones to complex ones. It combines the fine-grained guidance of faceted search, most of the expressivity of SPARQL, and the readability of (controlled) natural languages. No knowledge of the vocabulary and schema are required for users. Many SPARQL features are covered: multidimensional queries, union, negation,optional, filters, aggregations, ordering. Queries are verbalized in either English or French, so that no knowledge of SPARQL is ever necessary. All of this is implemented in a portable Web application, SPARKLIS, and has been evaluated on many endpoints and questions. No endpoint-specific configuration is necessary as the data schema is discovered on the fly by the tool. Online since April 2014, thousands of queries have been formed by hundreds of users over more than a hundred endpoints.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_144_150>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "144"^^xsd:nonNegativeInteger ;
+    nif:endIndex "150"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_298_310>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "298"^^xsd:nonNegativeInteger ;
+    nif:endIndex "310"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_351_357>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "351"^^xsd:nonNegativeInteger ;
+    nif:endIndex "357"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_557_563>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "557"^^xsd:nonNegativeInteger ;
+    nif:endIndex "563"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_56_61>
+    nif:anchorOf "IRISA" ;
+    nif:beginIndex "56"^^xsd:nonNegativeInteger ;
+    nif:endIndex "61"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999619149 ;
+    itsrdf:taIdentRef dbpedia:Institut_de_recherche_en_informatique_et_systèmes_aléatoires .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_63_85>
+    nif:anchorOf "Université de Rennes 1" ;
+    nif:beginIndex "63"^^xsd:nonNegativeInteger ;
+    nif:endIndex "85"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:University_of_Rennes_1 .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_691_697>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "691"^^xsd:nonNegativeInteger ;
+    nif:endIndex "697"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_881_887>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "881"^^xsd:nonNegativeInteger ;
+    nif:endIndex "887"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/204_Ferre/nif.ttl/#offset_0_1256> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+

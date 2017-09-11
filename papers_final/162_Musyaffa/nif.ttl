@@ -1,0 +1,491 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16851"^^xsd:nonNegativeInteger ;
+    nif:isString """FATHONI A. MUSYAFFA              musyaffa@cs.uni-bonn.de             University of Bonn, Germany  FABRIZIO ORLANDI              fabrizio.orlandi@iais.fraunhofer.de             Fraunhofer IAIS, Germany  TIANSI DONG              tdong@uni-bonn.de             University of Bonn, Germany  LAVDIM HALILAJ              halilaj@cs.uni-bonn.de             University of Bonn / Fraunhofer IAIS, Germany  KEYWORDS  -           Budget and spending data        -           Open data        -           Semantic budgeting data platform           ABSTRACT   OpenBudgets.eu (OBEU) provides an open-source software framework and accompanying Software-As-A-Service (SAAS) platform for supporting financial transparency, thus enhancing accountability within public sectors as well as influencing corruption prevention. To this end, a scalable framework for multi-stakeholders is developed, with the aim of maximizing flexibility and ease of use. The core features of the OBEU platform are: (1) A semantic data model used to integrate heterogenous budget data, giving a pre-defined structure to the input data; (2) a library of visualisation tools with a user-friendly interface, which enables stakeholders to visualise available data in different granularity and modality; (3) a library of data mining and comparative analysis tools, which enables the aggregation of existing data in order to obtain new outcomes and discover recent trends and patterns, and potentially forecasting budget measures; and (4) an interface for feedback and citizen engagement which enables users to evaluate, discuss and give feedback on the provided data. A demonstration of the OBEU platform and portal is available at http://apps.openbudgets.eu/ and can be easily embedded into municipalities’ websites.    INTRODUCTION   Corruption is a global issue that seriously harms the economy and society, affecting people’s lives and often infringing fundamental human rights. The European Commission Anti-Corruption Report estimates that corruption can be estimated to cost the European Union economy 120 billion Euro per year [4] . One possible solution against corruption is to increase financial transparency. The OpenBudgets.eu project is a research project funded by the EU H2020 framework no. 645833 from May 2015 to October 2017. The OBEU platform and the corresponding open-source technology aim to support financial transparency, government efficiency, and citizen engagement, by developing an integrated platform as illustrated in Figure 1 .  [Overview of the OBEU platform.]  FIGURE 1. Overview of the OBEU platform. Several challenges are encountered for developing OBEU platform:  -   _Heterogeneous budget data_ . Budget data by different     municipalities have their own format, language, structure,     terminologies, and abbreviations. -   _Complex visualization of budget data_ . The second challenge is to     find attractive and unified ways to visualize heterogeneous and     multi-dimensional data. -   _Analysis of budget data_ . Different municipalities may use their     own accounting methods, comparison among semantically heterogeneous     budget data. Therefore, identifying effective ways to analyze and     compare this data is another big challenge. -   _Software-As-A-Service infrastructure_ . The fourth challenge is to     identify an easy solution to integrate the developed system into the     platform of different stakeholders.  As a solution to these challenges, we developed a platform using Semantic Web technologies and a distributed container networking model based on the Docker platform ¹ . In the following sections, more details about the data model, the software architecture and the developed components are provided.    MANAGING HETEROGENEOUS BUDGET DATA   Our solution to the data heterogeneity challenge is first to define and develop a standard budget data vocabulary and data model. Second, to develop with fully automatic and computer-aided tools, which transform heterogeneous budget data into the standardized data model.   OBEU Data Model  OpenBudgets.eu (OBEU) data model ² is developed to represent budget datasets across different levels and public administrations, based on the Data Cube Vocabulary (DCV) ³ , a W3C Recommendation.  In DCV, every dataset is required to have a _Data Structure Definition_ (DSD), which provides information regarding measures, dimensions, or attributes available on the datasets. _Measure_ determines the type of value in the datasets. _Dimension_ determines possible dimension used to explain the observed measure. When combined, dimensions uniquely determine an observation. _Attribute_ determines additional characteristics in an observation, but not a part of the component, which would uniquely define an observation [3] .  In the OBEU platform, the processed data are specific on spending and budget datasets. DCV vocabulary is adapted to represent the datasets in the OBEU, by extending additional dimension properties, attribute properties, optional properties and measure properties. The full reference of this data model is available in the OBEU data model documentation [1] .  Budget and spending datasets are transformed according to this RDF data model. This transformation unifies the previously heterogeneous formats provided by public administrations. Depending on the structure of the dataset, the transformation can be done either using automatic transformation tools or manually developing RDF transformation (ETL) pipelines, which allow users to define specific mapping rules between the dataset and the OBEU data model.   Automatic Transformation to RDF  Automatic transformation can be done only if the format and the structure of the dataset is supported by the OBEU platform. The automatic transformation tools, which have been developed as part of the project, consist of three main components: (i) OpenSpending Packager ⁴ , (ii) LinkedPipes ⁵ , and (iii) FDP2RDF ⁶ transformation pipeline.  The OpenSpending Packager is a tool for transforming raw datasets from the CSV (Comma Separated Values) tabular format into a format called Fiscal Data Package (FDP) ⁷ . The tool presents a user-friendly interface guiding users through the transformation process. FDP is a JSON-based format, which consists of the original CSV data augmented with additional metadata. The metadata incorporates available dimensions, attributes, measures, as well as descriptive metadata. FDP is a widely used format for representing budget and spending data which was developed by the OpenSpending project and the Open Knowledge International ⁸ . The content of each FDP JSON file can be used as a basis (as a contextual and controlled source) for the automatic transformation into RDF. This transformation is performed by the FDP2RDF pipeline.  The FDP2RDF transformation pipeline itself is built using LinkedPipes. LinkedPipes is a tool to convert the datasets to RDF by developing ETL (Extract Transform Load) data transformation pipelines. For this specific purpose of FDP to RDF transformation, the custom and reusable FDP2RDF pipeline has been developed.  For budget and spending datasets in other formats, we need to transform them into CSV files, as OpenSpending Packager only supports CSV datasets with the labeling dimensions provided within the datasets. For XML files, we developed an automatic CSV extractor package, which is publicly available on GitHub ⁹ .   Customised ETL Pipelines  Manually developed pipelines provides a flexibility to transform datasets, which have their unique structure not compatible with any standard and/or the OBEU data model. The users are required to understand the content of their datasets and the basics of RDF and SPARQL queries. The users should also develop the DSD for their data set. Despite the technical complexity, developing the pipeline manually decrease the risk of errors that can occur during an automatic transformation process.   Interlinking Budget Data  One of the benefits of using semantic technologies is to enable seamless integration of heterogeneous datasets. To realize this integration, interlinking efforts between different classifications should be performed. In the budget and spending data context, classification is denoted by pre-defined notations, including labels and descriptions. For example, functional classification denotes functional usage of funding; administrative classification denotes how public offices manage their funds. Within OpenBudgets.eu, the interlinking across different classifications enables comparative analysis across different semantic datasets. Classifications generated by this interlinking process are publicly available ¹⁰ [2] .    OBEU ARCHITECTURE   Components of the Openbudgets.eu platform are illustrated in Figure 2 . The OpenSpending project contributed, as part of OpenBudgets.eu, with some components included in the architecture. Specifically, the Packager and the Viewer, which have been adapted to the OBEU infrastructure.  [Software architecture of the OBEU platform.]  FIGURE 2. Software architecture of the OBEU platform. LP-ETL : FDP datasets can be transformed into RDF by triggering the aforementioned FDP2RDF pipeline based on the LinkedPipes ETL tool (LP-ETL in Figure 2). Users can also manually perform such transformations using LinkedPipes. The result of this transformation is stored into the Virtuoso triple store. RDF dump files are also produced as backup.  ALIGNMENT UI: a tool which enables users to align (or interlink) two different classifications. The resulting alignment is also stored in the Virtuoso triple store.  RUDOLF: a backend API that serves data requests from different OpenBudgets components, mainly Data Analytics and Mining (DAM) components and GUI components.  DAM (DATA ANALYSIS AND MINING): the central component for managing data-mining analysis, allocating data-mining tasks at different servers. Currently, tasks include outlier detection, rule mining, descriptive statistics, time-series and key performance indicator analysis.  While the previous components were mainly target experts or administrators, the following components involve also the end users.  PACKAGER: a tool for representing and transforming raw tabular data and providing metadata by mapping the columns in the raw datasets. The Packager guides users in producing the raw dataset enriched with additional JSON metadata in a format called Fiscal Data Package (FDP).  VIEWER: a tool to visualize datasets in FDP and OBEU RDF format. There are several visualization possibilities available within the Viewer, and users can filter the datasets according to different dimensions using a graphical user interface.  RDF BROWSER: a GUI to browse the structure of RDF triples available on the OBEU Virtuoso server.  MICROSITE : a configurable website containing OBEU Viewer visualizations that can be embedded on external web pages.  INDIGO: a GUI that allows browsing/searching of datasets and performing analytical features of them.  PARTICIPATORY BUDGETING: a web portal leveraging participatory budgeting for public administrations and citizens.   Distributed Data Analysis and Mining  Data analysis and mining modules of the OBEU platform can be distributed at any places currently are located in three places: (1) UEP server ¹¹ , (2) OKFGR server ¹² , (3) Fraunhofer server ¹³ . The central control component of Data Analysis and Mining (DAM) provides a unified functional entry point to process users’ requests. The DAM is implemented using Python Flask and utilizes available technologies such as EasyMiner, R and Open CPU for data mining algorithms. The DAM architecture and the functional communication with other modules is illustrated in Figure 3 .  [DAM and its functional communication with other modules.]  FIGURE 3. DAM and its functional communication with other modules.   Visualizations for Budget Data  OBEU Viewer is the main front-end for visualization of the OBEU datasets (Figure 4). After selecting the dataset from the Indigo’s dataset browser, the user is redirected to OBEU Viewer ¹⁴ , which is a customization of the OpenSpending Viewer ¹⁵ . The main functionality is to visualize aggregated values of the particular dataset.  After users select a visualization, the OBEU Viewer will read the dataset’s DSD and present available dimensions in the left pane of the Viewer. Users can filter dimensions, search particular notation/classification, and sort data, which are useful for table-like visualizations. The available visualizations are Bar chart, Line chart, Treemap, Geomap, Pie chart, Pivot table, Radar chart. Figure 4 illustrates Bonn Budget 2019 treemap.  [A treemap visualization of Bonn Budget 2019.]  FIGURE 4. A treemap visualization of Bonn Budget 2019.   Microsite as a SAAS  The OBEU Microsite ¹⁶ is an independent software, which can be typically embedded into municipality’s website, so that users can view, and comment on budget data (Figure 6). Data and visualization software does not need to be hosted by the municipality, rather displayed on the fly using a remote OBEU server instance. The Microsite is configurable in terms of colors, language, datasets, and arrangement of the views.   Participatory Budgeting  The OpenBudgets Participatory Budgeting (OBEU-PB) ¹⁷ is an independent open-source software developed by CIVIO ¹⁸ to enable citizens to influence budget allocation. It provides a voting process where citizens can vote for their preferred proposals. The city council administrators will set up a mechanism for their citizens to participate in the budget voting. Each participant is assigned a number, which represents the public budgets that she/he can allocate to the preferred project. Citizens can learn to use this tool, understand the budget cycle, influence the budget allocation, and monitor the usage of the budget. A demo of OBEU-PB depicted in Figure 5 is available online ¹⁹ .  [Citizens vote for their favorite budgeting proposals.]  FIGURE 5. Citizens vote for their favorite budgeting proposals.    CONCLUSIONS   We presented OpenBudgets.eu, an EU H2020 project supporting financial transparency, enhancing accountability within public sectors as well as influencing corruption prevention. A platform to manage fiscal data, such as budget and spending datasets, has been developed and it is currently undergoing its final testing and dissemination phase. The platform integrates semantic technologies, data mining and analytics as well as visualizations to improve the consumption and analysis of open budget and spending data. The tools described in this paper are fully open-source and available online. Three different municipalities (Paris, Bonn and Thessaloniki) with real datasets are currently testing the platform. This will improve the final version of the platform and validate the project use-case scenarios.    ACKNOWLEDGEMENTS   EU H2020 funds OpenBudgets with no. 645833 (OpenBudgets.eu). The first author is supported by DAAD.    REFERENCES   -         Dudas M., Klímek J., Kučera J., Mynarz J., Sedmihradská L.,     Zbranek J. (2016): OpenBudgets.eu - Deliverable D1.5 - Final release     of data definitions for public finance data,     http://openbudgets.eu/assets/deliverables/D1.5.pdf  -         Ioannidis L., Klímek J., Musyaffa F., Mynarz J., Sedmihradská L.,     Zbranek J. (2016): Deliverable 1.9 - Linking code lists to external     datasets, http://openbudgets.eu/assets/deliverables/D1.9.pdf  -         Klímek J., Kučera J., Mynarz J., Sedmihradská L., Zbranek J. (2015):     OpenBudgets.eu - Deliverable D1.2 - Design of data structure     definition for public budget data,     http://openbudgets.eu/assets/deliverables/D1.2.pdf  -         Report From the Commission To The Council And The European     Parliament (2014): EU Anti-Corruption Report, Brussels, 32.2014 COM,     38 final.    FOOTNOTES   https://www.docker.com/ [back]  https://github.com/openbudgets/data-model [back]  http://www.w3.org/TR/2014/REC-vocab-data-cube-20140116/ [back]  https://github.com/openspending/os-packager [back]  https://etl.linkedpipes.com/ [back]  https://github.com/openbudgets/pipeline-fragments/tree/master/FDPtoRDF [back]  http://specs.frictionlessdata.io/fiscal-data-package/ [back]  https://openspending.org/ [back]  https://github.com/openbudgets/xml2csv [back]  https://github.com/openbudgets/linksets [back]  https://github.com/kizi/easyminer [back]  http://okfnrg.math.auth.gr/ocpu/test/ [back]  http://dam-obeu.iais.fraunhofer.de/ [back]  http://apps.openbudgets.eu/viewer/ [back]  http://docs.openspending.org/en/latest/developers/viewer/ [back]  http://microsite-obeu.iais.fraunhofer.de/vizmanager/1/ [back]  https://github.com/openbudgets/participatory-budgeting [back]  http://www.civio.es/ [back]  http://openbudgets-monitoring-sample.herokuapp.com/ [back]
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10359_10370>
+    nif:anchorOf "raw dataset" ;
+    nif:beginIndex "10359"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10370"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Raw_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10396_10400>
+    nif:anchorOf "JSON" ;
+    nif:beginIndex "10396"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10400"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:JSON .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10450_10453>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "10450"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10453"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10497_10500>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "10497"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10500"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10673_10697>
+    nif:anchorOf "graphical user interface" ;
+    nif:beginIndex "10673"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10697"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10715_10718>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "10715"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10718"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_10926_10929>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "10926"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10929"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_11617_11628>
+    nif:anchorOf "data mining" ;
+    nif:beginIndex "11617"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11628"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Data_mining .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_12615_12626>
+    nif:anchorOf "Radar chart" ;
+    nif:beginIndex "12615"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12626"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Radar_chart .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_12649_12653>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "12649"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12653"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_12704_12708>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "12704"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12708"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_1273_1284>
+    nif:anchorOf "data mining" ;
+    nif:beginIndex "1273"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1284"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Data_mining .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_12761_12765>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "12761"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12765"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_13319_13339>
+    nif:anchorOf "open-source software" ;
+    nif:beginIndex "13319"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13339"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Open_source .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_14463_14474>
+    nif:anchorOf "data mining" ;
+    nif:beginIndex "14463"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14474"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Data_mining .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_14706_14710>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "14706"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14710"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_14715_14727>
+    nif:anchorOf "Thessaloniki" ;
+    nif:beginIndex "14715"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14727"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Thessaloniki .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_15839_15847>
+    nif:anchorOf "Brussels" ;
+    nif:beginIndex "15839"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15847"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Brussels .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_15993_15998>
+    nif:anchorOf "/2014" ;
+    nif:beginIndex "15993"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15998"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:TimePeriod, dbo:Year ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/2014> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_16688_16690>
+    nif:anchorOf "/1" ;
+    nif:beginIndex "16688"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16690"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:TimePeriod, dbo:Year ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/1> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_1921_1933>
+    nif:anchorOf "human rights" ;
+    nif:beginIndex "1921"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1933"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Human_rights .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_1939_1958>
+    nif:anchorOf "European Commission" ;
+    nif:beginIndex "1939"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1958"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Commission .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_2037_2051>
+    nif:anchorOf "European Union" ;
+    nif:beginIndex "2037"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2051"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Union .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_271_275>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "271"^^xsd:nonNegativeInteger ;
+    nif:endIndex "275"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_3247_3268>
+    nif:anchorOf "Software-As-A-Service" ;
+    nif:beginIndex "3247"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3268"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Software_as_a_service .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_3493_3505>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "3493"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3505"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_363_367>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "363"^^xsd:nonNegativeInteger ;
+    nif:endIndex "367"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_4234_4237>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "4234"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4237"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_579_599>
+    nif:anchorOf "open-source software" ;
+    nif:beginIndex "579"^^xsd:nonNegativeInteger ;
+    nif:endIndex "599"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Open_source .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6051_6073>
+    nif:anchorOf "Comma Separated Values" ;
+    nif:beginIndex "6051"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6073"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Comma-separated_values .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6132_6135>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "6132"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6135"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6235_6238>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "6235"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6238"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_627_648>
+    nif:anchorOf "Software-As-A-Service" ;
+    nif:beginIndex "627"^^xsd:nonNegativeInteger ;
+    nif:endIndex "648"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Software_as_a_service .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6442_6445>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "6442"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6445"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6621_6624>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "6621"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6624"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6625_6629>
+    nif:anchorOf "JSON" ;
+    nif:beginIndex "6625"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6629"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:JSON .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_6943_6965>
+    nif:anchorOf "Extract Transform Load" ;
+    nif:beginIndex "6943"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6965"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Extract,_transform,_load> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_7027_7030>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "7027"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7030"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_7324_7327>
+    nif:anchorOf "XML" ;
+    nif:beginIndex "7324"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7327"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:XML .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_7415_7421>
+    nif:anchorOf "GitHub" ;
+    nif:beginIndex "7415"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7421"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Website, dbo:Work, schema:CreativeWork, schema:WebPage ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:GitHub .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_7717_7723>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "7717"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7723"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_83_87>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "83"^^xsd:nonNegativeInteger ;
+    nif:endIndex "87"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999871733963 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_9113_9116>
+    nif:anchorOf "FDP" ;
+    nif:beginIndex "9113"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9116"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Free_Democratic_Party_(Germany)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_9760_9763>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "9760"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9763"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_979_998>
+    nif:anchorOf "semantic data model" ;
+    nif:beginIndex "979"^^xsd:nonNegativeInteger ;
+    nif:endIndex "998"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/162_Musyaffa/nif.ttl/#offset_0_16851> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_data_model .
+

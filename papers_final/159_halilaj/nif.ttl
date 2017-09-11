@@ -1,0 +1,578 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13150"^^xsd:nonNegativeInteger ;
+    nif:isString """LAVDIM HALILAJ              halilaj@cs.uni-bonn.de             University of Bonn / Fraunhofer IAIS, Germany  IRLÁN GRANGEL-GONZÁLEZ              grangel@cs.uni-bonn.de             University of Bonn / Fraunhofer IAIS, Germany  MARIA-ESTHER VIDAL              vidal@cs.uni-bonn.de             Fraunhofer IAIS, Germany / Universidad Simon Bolivar, Venezuela  STEFFEN LOHMANN              steffen.lohmann@iais.fraunhofer.de             Fraunhofer IAIS, Germany  SÖREN AUER              soeren.auer@tib.eu             Technische Informationsbibliothek, Hannover, Germany  KEYWORDS  -           Ontology Engineering        -           Test-Driven Ontology Development        -           Test Cases        -           Dependency Graph           ABSTRACT   Traditional approaches, which follow a _test-driven development_ technique, allow a set of test cases to be exhaustively evaluated ensuring that each modification of an ontology does not violate predefined requirements. However, the time required for the evaluation of test cases is high and usually represents a bottleneck in an ontology development process. The _EffTE_ framework tackles this problem; it relies on a graph-based model of the dependencies between test cases to support users during an ontology development process. Traversing the dependency graph is realized using breadth-first search along with a mechanism that tracks _tabu_ test cases, i.e., test cases that will be ignored for further evaluation due to faulty parent test cases. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for validating an ontology after each modification. We demonstrate the benefits of prioritization and selection of the test cases to be evaluated with _DemoEffTE_ . Attendees will observe the behavior of both a naive approach and the _EffTE_ framework on different configuration settings such as different: (1) ontology size; (2) topology of the dependency graph of the test cases; and (3) number of test cases. The demo is available at: http://vocol.iais.fraunhofer.de/DemoEffTE .    INTRODUCTION   The development of domain-specific ontologies requires joint efforts among different groups of stakeholders, such as knowledge engineers and domain experts. Functional requirements can be expressed through Competency Questions, which are questions that the underlying ontology should be able to answer [4] . However, the concurrent definition of ontology concepts often results in a violation of the defined requirements, or creates design issues like duplicate entries or missing documentation. For example, in the large and monolithic DBpedia ¹ ontology, version 2016-04 only 556 from a total of 2,849 properties have associated label descriptions or comments [3] . To ensure that any ontology modification has only the expected effects, a set of test cases can be defined based on Competency Questions. This is similar to the test-driven software development principles, where test cases that represent requirements, are defined before the code is actually written [1] .  Commonly, the time demand for evaluating predefined test cases is high and represents a bottleneck in the ontology development process. Therefore, with a naive approach, test cases are exhaustively evaluated to identify any not intended modification or design issue introduced during the concurrent development of the ontology. Since much effort is invested in creating and extending ontologies for various domains, it is crucial to make ontology development and maintenance cost-effectively [2] .  On the other hand, modeling the relationship between test cases using a dependency graph enables prioritization and selection of test cases to be evaluated. As a result, the number of test cases that are evaluated is minimized, thus reducing the time required for ontology validation after each modification. In order to illustrate the benefits of a test cases dependency graph compared to the cases where such a graph is not used, we designed _DemoEffTE,_ a naive and dependency-aware test cases evaluation demonstrator. Attendees will be able to choose various options related to the: (1) ontology size; (2) topology of dependency graphs; and (3) number of test cases and observe results like total evaluation time and number of evaluated test cases. The demo includes a set of test cases to be evaluated that provides a comparison of the performance between a naive approach and _EffTE_ .    THE DEMOEFFTE ARCHITECTURE   The architecture of _DemoEffTE_ is illustrated in Figure 1 and is composed of two main components: (1) the GUI; and (2) _Test Cases Processing (TCP)_ . The GUI provides the possibility for the users to specify the approach to be tested; ontology size; number of test cases and the typology of the dependency graph. The _TCP_ component receives as input the selections made by users. Next, according to the chosen options, the _TCP_ component validates the ontology file against a set of test cases, which are defined by the user and stored in the _Test Cases DB_ module. The _Test Case Selection_ is responsible for prioritization and selection of the test cases to be evaluated. Each test case is evaluated in the _Test Case Evaluation_ . The collected results are returned to the GUI, where can further be explored by attendees.  [The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output.]  FIGURE 1. The architecture of the DemoEffTE demonstrator. Users are able to choose different scenarios for evaluation of the EffTE approach compared to a naive approach, as well as a set of test cases and their dependencies; the result of the validation process i s returned as output. [A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated.]  FIGURE 2. A Naive Approach. (a) Test Cases (TCs) to check if an ontology satisfies the design requirements; (b) faulty test cases (orange) over time after each ontology modification; and (c) number of evaluated test cases (TCs) per instance of time. Every instan ce of time, the set of test cases is completely evaluated. _DemoEffTE_ demonstrates the evaluation of a set of 15 test cases using the naive approach and the _EffTE_ framework. Figure 2 illustrates that in different instances of time, the number of evaluated test cases after each ontology modification using a naive approach is always the same, i.e., 15 test cases. On the other hand, as shown in Figure 3 , the number of evaluated test cases in different instance of times is reduced. This comes as a result of considering the parent-child relationships between test cases modeled as a dependency graph, where a faulty parent indicates a set a faulty children test cases.  [The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases.]  FIGURE 3. The EffTE Approach. (a) A test case dependency graph; (b) faulty test cases over time (orange nodes are faulty test cases), gray nodes represent test cases ignored for evaluation; and (c) number of evaluated test cases (TCs) per instance of time. Depen dencies enable to ignore faulty test cases. The results are visualized using D3.js library according to the selected options. Additionally, _DemoEffTE_ illustrates traversals of a dependency graph according to a breadth-first search algorithm. This illustration is enabled in an animation view developed on Cytoscape.js ² library. Bar charts that depict the results are designed using Highcharts.js ³ . The _TCP_ component is implemented using Java Apache Jena libraries version 3.0.1. The entire implementation of _DemoEffTE_ is deployed on a virtual server with AMD Opteron 2.3 GHz CPU, 4 cores, 8 GB RAM operating in SUSE Linux Enterprise Server 12 SP1.    DEMONSTRATION OF SCENARIOS   We design several scenarios to illustrate the efficiency of the _EffTE_ approach. Thus, attendees will be able to observe how a naive approach and the _EffTE_ approach exhibit different behavior on the evaluation of a given set of test cases. _DemoEffTE_ demonstrates the execution of both approaches in five instances of time. In the first four time instances, various test cases are randomly chosen to fail. No faulty test cases are included in the instance number five, in order to show the behavior of both approaches on the same conditions. Two evaluation metrics will be shown: (1) evaluation time; and (2) number of evaluated test cases. The following scenarios are demonstrated:  EFFECT OF AN ONTOLOGY SIZE . The impact of the ontology size will be observed on a set of test cases. We asses the efficiency of a naive approach and the _EffTE_ framework on three different ontologies: (1) _FOAF_ : an ontology used to describe persons, activities, and relationships between them and other objects; (2) _Schema.org_ ontology describes entities, actions, and their relations to promote the usage of the structured data; and (3) _DBpedia_ , a cross-domain ontology for describing the information extracted from Wikipedia infoboxes. Table 1 describes these ontologies in terms number of triples, different subjects, properties, and objects.   ---------------- ---------------- ---------------- ---------------- ----------------  | ONTOLOGY       | # TRIPLES      | # SUBJECTS     | # PROPERTIES   | # OBJECTS      |  ---------------- ---------------- ---------------- ---------------- ----------------  | FOAF           | 631            | 86             | 15             | 192            |  ---------------- ---------------- ---------------- ---------------- ----------------  | Schema.org     | 8,103          | 1,569          | 13 | 3,545          |  ---------------- ---------------- ---------------- ---------------- ----------------  | DBpedia        | 30,793         | 3,986          | 23             | 16,807         |  ---------------- ---------------- ---------------- ---------------- ----------------   TABLE 1. Description of Ontologies. Different ontology sizes in terms of number of triples, subjects, properties, and objects. IMPACT OF THE TOPOLOGY OF THE DEPENDENCY GRAPH . The goal of this scenario is to show the impact of the topology of dependency graph in the evaluation of set of test cases. Figure 4 shows three topologies with 10 test cases each where test case has different dependencies between each other. The topologies are randomly generated using RStudio ⁴ _randomDag_ _⁵_ __ function. Attendees will be able to visualize the results from evaluation of a given set of test cases produced over a period of five instances of time.  [Test Cases. Three different topologies of dependency graphs between test cases .]  FIGURE 4. Test Cases. Three different topologies of dependency graphs between test cases.  IMPACT OF THE NUMBER OF THE TEST CASES. We demonstrate three different dependency graphs composed of 10, 20, and 30 test cases, respectively. Figure 5 illustrates the dependency graphs randomly generated using RStudio _randomDag_ function. Similar to other scenarios, for each set, a random number of test cases are chosen to fail using a _Random Distribution_ function in RStudio. Attendees will be able to visualize the results produced over a period of time.  [Test Cases. Three different topologies of dependency graphs between test cases .]  FIGURE 5. Test Cases. Three different sets composed of 10, 20, and 30 test cases, respectively.    CONCLUSIONS   _DemoEffTE_ provides a visual comparison how modeling relationships between test cases using dependency graphs affects the performance of the overall evaluation time after each ontology change. Particularly, _DemoEffTE_ shows a trade-off between a naive approach that exhaustively evaluates all test cases and the _EffTE_ framework in three different scenarios. Attendees will be able to explore all the scenarios, understand why modeling relationship of test cases using dependency graphs play an important role in ontology development process. Furthermore, they will observe how this dependency graph modeling enables minimization of the test cases to be evaluated, thus reducing the time required for validating an ontology after each modification.    ACKNOWLEDGEMENTS   This work has been supported by the European Union's Horizon 2020 programme for the project BigDataEurope (grant no. 644564), and the German Federal Ministry of Education and Research (BMBF) for the projects Industrial Data Space (grant no. 01IS15054) and SDI-X (grant no. 01IS15035C).    REFERENCES   -         Fraser, S. Beck, K., Caputo, B., Mackinnon, T., Newkirk, J.,
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_10013_10017>
+    nif:anchorOf "FOAF" ;
+    nif:beginIndex "10013"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10017"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999140554828 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/FOAF_(software)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_10187_10197>
+    nif:anchorOf "Schema.org" ;
+    nif:beginIndex "10187"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10197"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999990905 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Schema.org> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_10568_10576>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "10568"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10576"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_10753_10761>
+    nif:anchorOf "topology" ;
+    nif:beginIndex "10753"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10761"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999966943705725 ;
+    itsrdf:taIdentRef dbpedia:Topology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_1081_1089>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1081"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1089"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_12180_12188>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12180"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12188"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_12519_12527>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12519"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12527"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_1254_1262>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1254"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1262"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_12721_12729>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12721"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12729"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_12813_12827>
+    nif:anchorOf "European Union" ;
+    nif:beginIndex "12813"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12827"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:European_Union .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_1624_1632>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1624"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1632"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_1917_1925>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "1917"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1925"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_1936_1944>
+    nif:anchorOf "topology" ;
+    nif:beginIndex "1936"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1944"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999966943705725 ;
+    itsrdf:taIdentRef dbpedia:Topology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_195_199>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "195"^^xsd:nonNegativeInteger ;
+    nif:endIndex "199"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999939840189626 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_2374_2382>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "2374"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2382"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_2452_2460>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "2452"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2460"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_2653_2661>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "2653"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2661"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_2793_2801>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "2793"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2801"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_3187_3195>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3187"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3195"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_3399_3407>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3399"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3407"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_347_356>
+    nif:anchorOf "Venezuela" ;
+    nif:beginIndex "347"^^xsd:nonNegativeInteger ;
+    nif:endIndex "356"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999999999940883 ;
+    itsrdf:taIdentRef dbpedia:Venezuela .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_3519_3527>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3519"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3527"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_3844_3852>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "3844"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3852"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4171_4179>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "4171"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4179"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4190_4198>
+    nif:anchorOf "topology" ;
+    nif:beginIndex "4190"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4198"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999966943705725 ;
+    itsrdf:taIdentRef dbpedia:Topology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4611_4614>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "4611"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4614"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4648_4651>
+    nif:anchorOf "TCP" ;
+    nif:beginIndex "4648"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4651"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Transmission_Control_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4660_4663>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "4660"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4663"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4741_4749>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "4741"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4749"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4824_4827>
+    nif:anchorOf "TCP" ;
+    nif:beginIndex "4824"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4827"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Transmission_Control_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4931_4934>
+    nif:anchorOf "TCP" ;
+    nif:beginIndex "4931"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4934"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Transmission_Control_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_4960_4968>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "4960"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4968"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_5286_5289>
+    nif:anchorOf "GUI" ;
+    nif:beginIndex "5286"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5289"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Graphical_user_interface .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_5956_5964>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "5956"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5964"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_6052_6060>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6052"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6060"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_6280_6288>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6280"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6288"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_6376_6384>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6376"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6384"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_6760_6768>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6760"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6768"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_77_81>
+    nif:anchorOf "Bonn" ;
+    nif:beginIndex "77"^^xsd:nonNegativeInteger ;
+    nif:endIndex "81"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999939840189626 ;
+    itsrdf:taIdentRef dbpedia:Bonn .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_791_814>
+    nif:anchorOf "test-driven development" ;
+    nif:beginIndex "791"^^xsd:nonNegativeInteger ;
+    nif:endIndex "814"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Test-driven_development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8125_8128>
+    nif:anchorOf "TCP" ;
+    nif:beginIndex "8125"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8128"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Transmission_Control_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8161_8165>
+    nif:anchorOf "Java" ;
+    nif:beginIndex "8161"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8165"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ProgrammingLanguage, dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Java_(programming_language)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8166_8172>
+    nif:anchorOf "Apache" ;
+    nif:beginIndex "8166"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8172"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Apache_HTTP_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8173_8177>
+    nif:anchorOf "Jena" ;
+    nif:beginIndex "8173"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8177"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9719719950840613 ;
+    itsrdf:taIdentRef dbpedia:Jena .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8281_8284>
+    nif:anchorOf "AMD" ;
+    nif:beginIndex "8281"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8284"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Advanced_Micro_Devices .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8285_8292>
+    nif:anchorOf "Opteron" ;
+    nif:beginIndex "8285"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8292"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Opteron .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8320_8323>
+    nif:anchorOf "RAM" ;
+    nif:beginIndex "8320"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8323"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9990695473304443 ;
+    itsrdf:taIdentRef dbpedia:Random-access_memory .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_8337_8365>
+    nif:anchorOf "SUSE Linux Enterprise Server" ;
+    nif:beginIndex "8337"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8365"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Software, dbo:Work, schema:CreativeWork ;
+    itsrdf:taConfidence 0.9999995672052164 ;
+    itsrdf:taIdentRef dbpedia:SUSE_Linux_Enterprise_Server .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9141_9149>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9141"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9149"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_920_928>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "920"^^xsd:nonNegativeInteger ;
+    nif:endIndex "928"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9302_9306>
+    nif:anchorOf "FOAF" ;
+    nif:beginIndex "9302"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9306"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999140554828 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/FOAF_(software)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9313_9321>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9313"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9321"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9415_9425>
+    nif:anchorOf "Schema.org" ;
+    nif:beginIndex "9415"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9425"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999990905 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Schema.org> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9427_9435>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9427"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9435"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_9565_9573>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "9565"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9573"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/159_halilaj/nif.ttl/#offset_0_13150> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+

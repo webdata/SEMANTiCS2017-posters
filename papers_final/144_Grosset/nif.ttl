@@ -1,0 +1,96 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1308"^^xsd:nonNegativeInteger ;
+    nif:isString """MARY-ANN GROSSET              mary-ann.grosset@oecd.org             OECD  THIERRY VEBR              thierry.vebr@oecd.org             OECD  JAN-ANNO SCHUUR              jan-anno.schuur@oecd.org             OECD  KEYWORDS  -           Semantic Discovery        -           Semantic Annotation        -           Linked Data        -           Semantic Search           ABSTRACT   “O.N.E Sight” , a fully semantic reading assistant developed in the OECD, relies on a semantic layer to enable concept searching. It crawls over millions of resources, consistently tagged to enable discovery of new facts. The use of corporate taxonomies and ontologies, allows you to search using your preferred language and/or vocabulary without having to worry about the language the information is written in, or the words contained in the content. Search in English, find results in French. Search for articles on Agriculture in Australia, and be prompted with information on coastal fishery in Sydney. The semantic layer, allows for the use of discovery algorithms to expand your search with ideas and suggestions and allows you to search for something and find something else of interest that you were not aware of. Search for agriculture in Australia and be prompted to discover content on Agritourism in New South Wales.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_1291_1306>
+    nif:anchorOf "New South Wales" ;
+    nif:beginIndex "1291"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1306"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9997176620639728 ;
+    itsrdf:taIdentRef dbpedia:New_South_Wales .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_134_138>
+    nif:anchorOf "OECD" ;
+    nif:beginIndex "134"^^xsd:nonNegativeInteger ;
+    nif:endIndex "138"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Organisation_for_Economic_Co-operation_and_Development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_206_210>
+    nif:anchorOf "OECD" ;
+    nif:beginIndex "206"^^xsd:nonNegativeInteger ;
+    nif:endIndex "210"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Organisation_for_Economic_Co-operation_and_Development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_311_322>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "311"^^xsd:nonNegativeInteger ;
+    nif:endIndex "322"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_447_451>
+    nif:anchorOf "OECD" ;
+    nif:beginIndex "447"^^xsd:nonNegativeInteger ;
+    nif:endIndex "451"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Organisation_for_Economic_Co-operation_and_Development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_68_72>
+    nif:anchorOf "OECD" ;
+    nif:beginIndex "68"^^xsd:nonNegativeInteger ;
+    nif:endIndex "72"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Organisation_for_Economic_Co-operation_and_Development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_978_984>
+    nif:anchorOf "Sydney" ;
+    nif:beginIndex "978"^^xsd:nonNegativeInteger ;
+    nif:endIndex "984"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/144_Grosset/nif.ttl/#offset_0_1308> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9998846390248428 ;
+    itsrdf:taIdentRef dbpedia:Sydney .
+

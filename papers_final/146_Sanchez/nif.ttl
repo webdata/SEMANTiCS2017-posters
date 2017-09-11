@@ -1,0 +1,105 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1628"^^xsd:nonNegativeInteger ;
+    nif:isString """DIEGO SÁNCHEZ DE RIVERA              diegosanchez@dit.upm.es             Technical University of Madrid  TOMAS ROBLES              trobles@dit.upm.es             Universidad Politécnica de Madrid  JUAN ANTONIO LOPEZ MORALES              juanantonio.lopez@carm.es             IMIDA  AZUCENA SIERRA DE MIGUEL              asdm@tragsa.es             TRAGSA  MARIANO NAVARRO              mnc@tragsa.es             TRAGSA  MARÍA SOFÍA IGLESIAS GÓMEZ              msig@tragsa.es             TRAGSA  JUAN ANTONIO MARTINEZ NAVARRO              jamartinez@odins.es             Odin Solutions S.L.  ANTONIO SKARMETA GOMEZ              skarmeta@um.es             Universidad de Murcia  KEYWORDS  -           Ontology        -           agriculture        -           IoT        -           Management           ABSTRACT   Water management is a key scenario for the deployment of IoT systems because of the particularities that arise depending on the geographical region as well as its inherent weather conditions. This scenario offers different and challenging problems to the deployment of IoT based applications and services which must rely on a rich technological vocabulary able to represent such characteristics and particularities. This is the reason why ontologies are the medium to achieve this goal. In this paper, we review the most well-known related ontologies as well as propose a model called MEGA promoted at state level with the objective of not only representing the information, but also integrating all the elements of an irrigation system, specially water distribution networks under interoperable platforms or systems
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_14_16>
+    nif:anchorOf "DE" ;
+    nif:beginIndex "14"^^xsd:nonNegativeInteger ;
+    nif:endIndex "16"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9938420958839517 ;
+    itsrdf:taIdentRef dbpedia:Germany .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_189_195>
+    nif:anchorOf "Madrid" ;
+    nif:beginIndex "189"^^xsd:nonNegativeInteger ;
+    nif:endIndex "195"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999911349510331 ;
+    itsrdf:taIdentRef dbpedia:Madrid .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_197_215>
+    nif:anchorOf "JUAN ANTONIO LOPEZ" ;
+    nif:beginIndex "197"^^xsd:nonNegativeInteger ;
+    nif:endIndex "215"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Juan_Antonio_López .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_297_299>
+    nif:anchorOf "DE" ;
+    nif:beginIndex "297"^^xsd:nonNegativeInteger ;
+    nif:endIndex "299"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9938420958839517 ;
+    itsrdf:taIdentRef dbpedia:Germany .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_568_572>
+    nif:anchorOf "Odin" ;
+    nif:beginIndex "568"^^xsd:nonNegativeInteger ;
+    nif:endIndex "572"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9988623558450689 ;
+    itsrdf:taIdentRef dbpedia:Odin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_589_605>
+    nif:anchorOf "ANTONIO SKARMETA" ;
+    nif:beginIndex "589"^^xsd:nonNegativeInteger ;
+    nif:endIndex "605"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Antonio_Skármeta .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_667_673>
+    nif:anchorOf "Murcia" ;
+    nif:beginIndex "667"^^xsd:nonNegativeInteger ;
+    nif:endIndex "673"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.999991513446816 ;
+    itsrdf:taIdentRef dbpedia:Murcia .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_97_103>
+    nif:anchorOf "Madrid" ;
+    nif:beginIndex "97"^^xsd:nonNegativeInteger ;
+    nif:endIndex "103"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/146_Sanchez/nif.ttl/#offset_0_1628> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999911349510331 ;
+    itsrdf:taIdentRef dbpedia:Madrid .
+

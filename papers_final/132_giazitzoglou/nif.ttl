@@ -1,0 +1,250 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5370"^^xsd:nonNegativeInteger ;
+    nif:isString """GIAZITZOGLOU MICHALIS              mikegiatzi@image.ntua.gr             School of Electrical and Computer Engineering, National Technical University of Athens (NTUA), Athens, Greece  TZOUVARAS VASSILEIOS              tzouvaras@image.ntua.gr             School of Electrical and Computer Engineering, National Technical University of Athens (NTUA), Athens, Greece  CHORTARAS ALEXANDROS              achort@cs.ntua.gr             School of Electrical and Computer Engineering, National Technical University of Athens (NTUA), Athens, Greece  MATOS ALFONSO ENRIQUE              gardero@image.ntua.gr             School of Electrical and Computer Engineering, National Technical University of Athens (NTUA), Athens, Greece  DROSOPOULOS NASOS              ndroso@gmail.com             School of Electrical and Computer Engineering, National Technical University of Athens (NTUA), Athens, Greece  KEYWORDS  -           Cultural Heritage        -           Metadata Interoperability        -           Data Integration        -           Visualization        -           Semantic Linking        -           Annotation           ABSTRACT   The cooperative content sourcing and publication platform WITH targets the creative and cultural industries, aiming to increase the use and re-use of digital cultural content that is available through a variety of sources. The platform addresses all the stakeholders of these industries, from content holders and producers, to application and service developers, scholars and normal users. WITH offers services that facilitate the discovery of cultural resources that meet users' criteria in order to be collected and re-used for artistic creation, promotion of innovation and showcasing of the social and economic value of cultural material. It has evolved through a series of hackathons, workshops and seminars in the framework of EC-funded projects such as Europeana Space , which aimed to produce new applications and services based on published resources through the use of the platform's programmatic interfaces (APIs). These interactions led to the intuitive integration of linked data principles and related services that can enhance and enrich available web resources, as well as to the development of a complete annotation and crowdsourcing infrastructure that is aligned with the efforts of W3C’s Open Annotation Community Group.    INTRODUCTION   In recent years, the Cultural Heritage (CH) sector has seen an incredible transformation: a great deal of content from thousands of cultural institutions, such as museums, libraries and archives has been aggregated in digital platforms such as Europeana and The Digital Public Library of America . These platforms operate as cross-domain hubs that distribute aggregated content, readily accessible to users who wish to search and study it, or available through creative apps and web services that reuse and repurpose it.  While these platforms have greatly succeeded in aggregating and publishing content, certain basic functionalities are not always available directly from their web pages or APIs. For instance, consider users that try to search for items related to historical events. First they would have to access repositories individually to locate, process and associate content with additional sources of contextual information. Faceted search options are not always implemented so they face the difficulty of manually filtering their search results. Then, without any better way to store their items of interest, users would have to resolve to keeping web browser bookmarks and saving images to their computer. For users who want to use their retrieved content in tasks that require collaboration with others, this can become cumbersome.  Developers have an equally hard time handling different data sources and APIs, which adds overhead in their code. More so, there are other issues that have to be solved and certain difficulties arise: adapting or developing a unified data model and transforming metadata accordingly, handling media, creating quality metrics, and synchronizing resources.  WITH offers users an interface that gives solutions to all the aforementioned issues, and provides many other useful functionalities. For developers, it offers an open API that automates these cumbersome tasks and accelerates their developing and prototyping processes. In this paper, we present the main services available through the WITH web interface and API and also discuss potential use cases for users and developers.    THE WITH PORTAL   The main motivation for WITH is to utilize CH repositories in unison and provide necessary front-end services to users and an open API to developers who wish to access unified services and publicly available institutional and user generated content. In its core, WITH is a platform for CH retrieval, integration, management, crowdsourcing and curation. It offers a faceted search interface that allows federated search for digital content to a range of different and unconnected repositories and databases from a single access point. Resources from these repositories can be added to collections managed by users, or shared in user groups. Collections in WITH can then be modified, enriched or automatically annotated with terms from linked open data vocabularies for CH.  For content holders WITH offers an easy to use content
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_152_158>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "152"^^xsd:nonNegativeInteger ;
+    nif:endIndex "158"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_167_173>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "167"^^xsd:nonNegativeInteger ;
+    nif:endIndex "173"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_175_181>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "175"^^xsd:nonNegativeInteger ;
+    nif:endIndex "181"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999948655786219 ;
+    itsrdf:taIdentRef dbpedia:Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_2333_2336>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "2333"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2336"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_2430_2432>
+    nif:anchorOf "CH" ;
+    nif:beginIndex "2430"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2432"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ChemicalCompound, dbo:ChemicalSubstance ;
+    itsrdf:taConfidence 0.938705773161666 ;
+    itsrdf:taIdentRef dbpedia:Methane .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_333_339>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "333"^^xsd:nonNegativeInteger ;
+    nif:endIndex "339"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_348_354>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "348"^^xsd:nonNegativeInteger ;
+    nif:endIndex "354"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_356_362>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "356"^^xsd:nonNegativeInteger ;
+    nif:endIndex "362"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999948655786219 ;
+    itsrdf:taIdentRef dbpedia:Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_4585_4587>
+    nif:anchorOf "CH" ;
+    nif:beginIndex "4585"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4587"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ChemicalCompound, dbo:ChemicalSubstance ;
+    itsrdf:taConfidence 0.938705773161666 ;
+    itsrdf:taIdentRef dbpedia:Methane .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_4828_4830>
+    nif:anchorOf "CH" ;
+    nif:beginIndex "4828"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4830"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ChemicalCompound, dbo:ChemicalSubstance ;
+    itsrdf:taConfidence 0.938705773161666 ;
+    itsrdf:taIdentRef dbpedia:Methane .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_4907_4921>
+    nif:anchorOf "faceted search" ;
+    nif:beginIndex "4907"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4921"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Faceted_search .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_508_514>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "508"^^xsd:nonNegativeInteger ;
+    nif:endIndex "514"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_523_529>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "523"^^xsd:nonNegativeInteger ;
+    nif:endIndex "529"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_5310_5312>
+    nif:anchorOf "CH" ;
+    nif:beginIndex "5310"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5312"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:ChemicalCompound, dbo:ChemicalSubstance ;
+    itsrdf:taConfidence 0.938705773161666 ;
+    itsrdf:taIdentRef dbpedia:Methane .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_531_537>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "531"^^xsd:nonNegativeInteger ;
+    nif:endIndex "537"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999948655786219 ;
+    itsrdf:taIdentRef dbpedia:Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_688_694>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "688"^^xsd:nonNegativeInteger ;
+    nif:endIndex "694"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_703_709>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "703"^^xsd:nonNegativeInteger ;
+    nif:endIndex "709"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_711_717>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "711"^^xsd:nonNegativeInteger ;
+    nif:endIndex "717"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999948655786219 ;
+    itsrdf:taIdentRef dbpedia:Greece .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_859_865>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "859"^^xsd:nonNegativeInteger ;
+    nif:endIndex "865"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_874_880>
+    nif:anchorOf "Athens" ;
+    nif:beginIndex "874"^^xsd:nonNegativeInteger ;
+    nif:endIndex "880"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:AdministrativeRegion, dbo:Place, dbo:PopulatedPlace, dbo:Region, schema:AdministrativeArea, schema:Place ;
+    itsrdf:taConfidence 0.9999999997835403 ;
+    itsrdf:taIdentRef dbpedia:Athens .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_882_888>
+    nif:anchorOf "Greece" ;
+    nif:beginIndex "882"^^xsd:nonNegativeInteger ;
+    nif:endIndex "888"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/132_giazitzoglou/nif.ttl/#offset_0_5370> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9999948655786219 ;
+    itsrdf:taIdentRef dbpedia:Greece .
+

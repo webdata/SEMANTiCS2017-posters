@@ -1,0 +1,509 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15538"^^xsd:nonNegativeInteger ;
+    nif:isString """GIANFRANCO E. MODONI              gianfranco.modoni@itia.cnr.it             Institute of Industrial Technologies and Automation - National Research Council, Bari, Italy  MARCO SACCO              marco.sacco@itia.cnr.it             Institute of Industrial Technologies and Automation - National Research Council, Milano, Italy  GABRIELA CANDEA              gabriela.candea@ropardo.ro             Ropardo S.R.L., Sibiu, Romania  SILVIA ORTE              silvia.orte@eurecat.org             Eurecat, Barcelona, Spain  FILIP VELICKOVSKI              filip.velickovski@eurecat.org             Eurecat, Barcelona, Spain  KEYWORDS  -           Semantic Web        -           Context awareness        -           Semantic Repository        -           Behaviour recognition           ABSTRACT   This research aims to realize a knowledge-based system recognizing teenagers’ behaviours in the lifestyle domain. Since various heterogeneous data sources are involved in this recognition process (e.g. wearable sensors, etc.), it is essential to face the harmonization of the data produced from these disparate sources and expressed under the form of both structured and unstructured content. The herein proposed approach leverages a common semantic reference model which represents the individual as a whole, permitting classification and integration of behavioural and contextual information. In this regard, an automatic semantic enrichment of the data produced by the involved sources is carried out, thus allowing to support a behaviour recognition process handled in a two-phase process (real-time and long-term detection and analysis of behaviours and trends).    INTRODUCTION   Presently we are witnessing a growing demand of customized services which are tailored to the specific needs and characteristics of users. A key success factor for the implementation of these services is the user profiling, which consists of creating an explicit representation of a person's identity, i.e., a conceptual understanding of the user [1] [2] that is commonly employed to enhance usability as well as to support personalization, adaptivity and other user-centric features [3] . In addition, as a user might be found in various contexts, it is essential to construct a conceptual representation of a user model which is context-aware, thus able to infer which context the user is in a given moment in time, and consequently adapts the intervention to the selected context.  This paper reports major features of an approach to support the process of user profiling which leverages the combination of Semantic Web technologies (SWT) [4] with the mobile and wearable technologies. The potential of this approach has been verified in the context of the European research project PEGASO ¹ [5] which aimed at promoting healthy lifestyle among teenagers. In particular, it provides personalized interventions based on the recognition of users’ behaviours with the objective of triggering an adjustable behaviour change process. In this regard, an ontology-based approach (Fig. 1) [6] is adopted to capture and cover the knowledge related with the so called Virtual Individual Model (VIM) [7] , characterizing the user on different aspects (i.e. physical, functional and behavioural parameters) [8] . Such a common reference model, which represents the individual as a whole, can contribute to harmonize data from different sources, providing in this way a systematic manner to classify and integrate the valuable knowledge. In fact, the common data model collects all the information and defines the reciprocal relationships between individual's different aspects, aggregating and unifying all the information. The definition of VIM stems from a conceptual framework of relations linking status, behaviours of the individual in different domains as well the context and the relation [9] .  This paper is structured as follows. Section 2 introduces the behaviour recognition in PEGASO project, while Section 3 illustrates the semantic approach followed in this project to support behaviour recognition. Finally, Section 4 draws the conclusions, summarizing the main outcomes.  [PEGASO approach based on Semantic Web Technologies]  FIGURE 1. PEGASO approach based on Semantic Web Technologies    THE BEHAVIOUR RECOGNITION IN PEGASO   The data sources  Leveraging the VIM, a Behaviour Recognition System (BRS) has been implemented to conduct an individualized behaviour detection. The BRS is implemented as a two-dimensional system (short and long term) to be able to measure the two timescales considered in the project. In particular, the BRS is based on a mobile platform, where the smartphone is a key element that acts as the main contact point with the user. The mobile device also acts as communication gateway towards the sensors, running reasoning processes that allows inferring in real-time the necessary information to personalize the interventions delivered through the apps. This analysis is performed upon the available data extracted from various sources. Specifically:  -   Physical activity and sleep data is retrieved from available     wearables (e.g. bracelet, etc.) and smartphone accelerometer.  -   Nutritional information is gathered through a mobile food app.  -   Context data includes different kind of information that involves     users’ situation in a certain moment (e.g. day and weather     information, user location).    OVERVIEW OF THE KNOWLEDGE BASED SYSTEM   The VIM ontology  The definition of a common reference model, which represents the individual as a whole, is proposed as a solution to harmonize data from the different heterogeneous sources, providing in this way a systematic manner to classify and integrate the valuable knowledge. The common data model defines the reciprocal relationship between the individual's different aspects, aggregating and unifying all this information. In particular, the definition of such virtual individual model stems from a conceptual model of relations linking status, behaviours of the individual in different domains as well the context surrounding the individual. This reference model is represented through a set of ontologies by adopting the SWT. An ontology based approach offers the significant key advantages of allowing to represent a formal semantics which contributes to enhance the interoperability of different software applications. In addition, it allows to entail and infer new knowledge about the concepts and their linking relationships, in addition to those initially already asserted. Finally, it allows to efficiently model and manage data to be distributed over the network, under the form of Linked Open Data (LOD) [10] . The latter is a proven way to publish and interlink public set of data in the scientific community (and also other fields). Considering the relevance of the open model, we could imagine another connection to the LOD diagram through a circle containing the VIM meta model which is paired with a data set of example.   The architecture  The proposed technological architecture is capable to handle and expose the VIM ontology (expressed in OWL DL ² ). It consists of two main pillars hosted on AWS cloud: the Semantic Repository (SR) and the Connector (Fig. 2). This latter represents the one single gateway, which play the role of Integration Service [11] , by transforming and combining structured and unstructured legacy data into valuable information according to the common data model behind VIM ontology. After this conversion process, the extracted information are also persisted and stored in a specific database (Semantic Repository). Specifically, the managed data comprise (Figure 3):  -   the domain ontology (TBOX), as representation of the knowledge about     VIM;  -   the ontological population (ABOX), compliant to the domain ontology;  -   the derivation rules (RBOX) needed to properly entail the implicit     knowledge and specified through the syntax of SWRL ³ .  The Connector, exposed as a RESTFUL web-service, is in charge of translating received HTTP requests into corresponding queries, formulated in SPARQL ⁴ which is the standard language to compose the semantic query. Thus, SPARQL queries play the role of mediator between the application-driven models and the ABOX, TBOX and RBOX of the VIM model (Fig. 3).   The Semantic Repository  One of the strengths of the SWT is that they allow to virtually express any type of information. The flip side is that this expressivity and flexibility imply the need to revise for SWT most part of the classical data management problems, including efficient storage and query optimization. Thus, as the request of semantic applications in real scenarios is continuously growing, the issue of efficiently storing and retrieving RDF data is getting more and more relevant. This need is posing significant challenges for researchers and technologists in terms of scalable and efficient stores. Under these conditions, a significant study of the PEGASO project has regarded the identification of a valid RDF store [12] , which finally brought to exploit an instance of the Stardog database ⁵ .   Interaction of the data sources with the Semantic Repository  BRS takes advantage of both mHealth (smartphone apps and wearables) and cloud solutions to perform a two-stage processing of the user-generated data at different timespans to provide different levels of feedback and user interaction. Collected data, which encompasses indicators of detectable target behaviours, is cleaned and then fused into daily aggregated summaries (24h timespan) that are finally stored in the SR deployed in the cloud for further knowledge management. Additionally, collected and inferred data in those 24h timespan is continuously analyzed to provide real-time response to detected events such as behaviour abnormalities.  On the other side, the PEGASO cloud consumes the inferred information from the semantic repository to build a longer timespan summary (1 month) to be further analyzed. This long-term analysis is in charge of identifying user behaviour trends and evaluate the user progression on the goals set in the platform. As a result, it provides behavioural feedback and recommendations on personalized behaviour change interventions.  [Technological platform hosting VIM ontology]  FIGURE 2. Technological platform hosting VIM ontology [ Ontology querying mechanism]  FIGURE 3. Ontology querying mechanism    EXPERIMENTAL SETTINGS   The services exposed by the architecture had been evaluated in terms of performance under heavy load (e.g high number of client connections), through a session of stress tests, using the Chrome plugin RESTful Stress ⁶ . The stress test demonstrated that the overall architecture satisfies the requirement in terms of horizontal scalability. Moreover, a six-month pilot study to assess the feasibility of the system in real life conditions was carried out in four different countries. Approximately 350 participants of the four pilot sites have been involved during the study. The feedback concerning the use of the semantic architecture is positive. In particular, the architecture confirmed its capability to support the concurrent access of different users (up to 100) with an acceptable average duration of a request (under the threshold of 100 milliseconds).    CONCLUSIONS   This paper has introduced an approach to support teenager behaviour recognition which is based on a semantic architecture. The latter offers interesting advantage, in particular allowing to enhance the semantic interoperability of the data sources monitoring and collecting teenager data. In addition, the architecture provides a SPARQL endpoint, which is the preliminary step to expose the meta-model of the VIM as Linked Open Data.  Future developments will address three main goals. First of all, the VIM-based approach will be validated also with other categories of users, different from teenagers (e.g. elderly people or people with impairment). In fact, even the PEGASO approach has been conceived for teenager, VIM ontology can be tailored for other categories of users, while the semantic architecture is agnostic to the meta-model of the used semantic data. The second goal will concern the integration of other sensors to extend the functionalities of the already implemented knowledge based system. Finally, the proposed architecture will be extended to enable a new model of collaboration among the involved sensors and apps, which can support their synergistic and smarter interaction and cooperation [13] .    ACKNOWLEDGEMENTS   This work has been partially funded by the EU 7th Framework Programme under the grant agreement No: 610727, “Personalised Guidance Services for Optimising lifestyle in teenagers through awareness, motivation and engagement” (PEGASO).    REFERENCES   1.        M. Sacco, E. G. Caldarola, G. Modoni, and W. Terkaj. Supporting the     design of AAL through a SW integration framework: the D4All project.     International Conference on Universal Access in     Human-Computer Interaction. Springer International Publishing, 2014.  2.        G. Fischer. User Modeling in Human-Computer Interaction. User     Modeling and User-Adapted Interaction. 11: 65-68, 2001.  3.        M. Golemati et al.. Creating an ontology for the user profile:     Method and applications. Proceedings of the first RCIS     conference, 2007.  4.        T. Berners-Lee, J. Hendler and O. Lassila, \"The Semantic Web\",     Scientific American, vol. 284, n. 5, 2001.  5.        R. Guarneri, and G. Andreoni. PEGASO Fit for Future. European     Project Space on Computational Intelligence. Knowledge Discovery and     Systems Engineering for Health and Sports.  6.        T. R. Gruber. A translation approach to portable     ontology specifications. Knowledge acquisition, 5(2), 1993.  7.        C. Lafortuna, J. C. Serrano, et al.. The building of a virtual     individual model (VIM): multi domain characterisation of health     status in the PEGASO project. Advances in Human Aspects of     Healthcare, 2014.  8.        F. Velickovski, S. Orte, et al.. Detection and Assessment of     Behaviours Associated with the Risk of Obesity in Adolescents. In     eHealth 360°. Springer International Publishing, 2017.  9.        A. Sojic, W. Terkaj, et al.. Modularising ontology and designing     inference patterns to personalise health condition assessment: the     case of obesity. Journal of Biomedical Semantics, 7(1), 12, 2016.  10.       C. Bizer, T. Heath, and T. Berners-Lee. Linked data-the story     so far. Semantic Services, Interoperability and Web Applications:     Emerging Concepts, 2009.  11.       G. E. Modoni, M. Veniero, and M. Sacco. Semantic Knowledge     Management and Integration Services for AAL Applications.     Proceedings ForItAAL2016, Lecture Notes in Electrical     Engineering, 2016.  12.       G. E. Modoni, M. Sacco, and W. Terkaj. A survey of RDF     store solutions. Proceedings of the 20th International Conference on     Engineering, Technology and Innovation, 2014.  13.       G.E. Modoni, M. Veniero, A. Trombetta, et al.. Semantic based events     signaling for AAL systems. Journal of Ambient Intelligence and     Humanized Computing, 2017.    FOOTNOTES   http://pegasof4f.eu/home [back]  http://www.w3.org/TR/owl-features/ [back]  https://www.w3.org/Submission/SWRL/ [back]  https://www.w3.org/TR/sparql11-query/ [back]  http://stardog.com/ [back]  https://chrome.google.com/webstore/detail/restful-stress/ [back]
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_10329_10337>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "10329"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10337"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_10385_10393>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "10385"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10393"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_11701_11707>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "11701"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11707"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_12041_12047>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "12041"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12047"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_12094_12102>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "12094"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12102"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_12185_12193>
+    nif:anchorOf "agnostic" ;
+    nif:beginIndex "12185"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12193"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Agnosticism .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_12840_12846>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "12840"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12846"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_12891_12900>
+    nif:anchorOf "Caldarola" ;
+    nif:beginIndex "12891"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12900"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999703168219 ;
+    itsrdf:taIdentRef dbpedia:Caldarola .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13317_13325>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "13317"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13325"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13488_13500>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "13488"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13500"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13507_13526>
+    nif:anchorOf "Scientific American" ;
+    nif:beginIndex "13507"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13526"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Magazine, dbo:PeriodicalLiterature, dbo:Work, dbo:WrittenWork, schema:CreativeWork ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Scientific_American .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13564_13572>
+    nif:anchorOf "Guarneri" ;
+    nif:beginIndex "13564"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13572"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999985693648 ;
+    itsrdf:taIdentRef dbpedia:Guarneri .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13591_13597>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "13591"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13597"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_13807_13815>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "13807"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13815"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_14027_14033>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "14027"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14033"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_14348_14356>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "14348"^^xsd:nonNegativeInteger ;
+    nif:endIndex "14356"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_157_161>
+    nif:anchorOf "Bari" ;
+    nif:beginIndex "157"^^xsd:nonNegativeInteger ;
+    nif:endIndex "161"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Bari .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_2584_2596>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "2584"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2596"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_2760_2766>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "2760"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2766"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_327_335>
+    nif:anchorOf "GABRIELA" ;
+    nif:beginIndex "327"^^xsd:nonNegativeInteger ;
+    nif:endIndex "335"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, dbo:PoliticalParty, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:GABRIELA .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_3955_3961>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "3955"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3961"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_411_416>
+    nif:anchorOf "Sibiu" ;
+    nif:beginIndex "411"^^xsd:nonNegativeInteger ;
+    nif:endIndex "416"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999999999736247 ;
+    itsrdf:taIdentRef dbpedia:Sibiu .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_4155_4161>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "4155"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4161"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_4180_4192>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "4180"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4192"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_418_425>
+    nif:anchorOf "Romania" ;
+    nif:beginIndex "418"^^xsd:nonNegativeInteger ;
+    nif:endIndex "425"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Country, dbo:Place, dbo:PopulatedPlace, schema:Country, schema:Place ;
+    itsrdf:taConfidence 0.9174336813993749 ;
+    itsrdf:taIdentRef dbpedia:Romania .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_4218_4224>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "4218"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4224"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_4243_4255>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "4243"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4255"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_4301_4307>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "4301"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4307"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_434_438>
+    nif:anchorOf "ORTE" ;
+    nif:beginIndex "434"^^xsd:nonNegativeInteger ;
+    nif:endIndex "438"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999988978776562 ;
+    itsrdf:taIdentRef dbpedia:Orte .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_497_506>
+    nif:anchorOf "Barcelona" ;
+    nif:beginIndex "497"^^xsd:nonNegativeInteger ;
+    nif:endIndex "506"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999999954525 ;
+    itsrdf:taIdentRef dbpedia:Barcelona .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_5480_5488>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "5480"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5488"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_597_606>
+    nif:anchorOf "Barcelona" ;
+    nif:beginIndex "597"^^xsd:nonNegativeInteger ;
+    nif:endIndex "606"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.9999999999954525 ;
+    itsrdf:taIdentRef dbpedia:Barcelona .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_6213_6221>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "6213"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6221"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_637_649>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "637"^^xsd:nonNegativeInteger ;
+    nif:endIndex "649"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7051_7077>
+    nif:anchorOf "technological architecture" ;
+    nif:beginIndex "7051"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7077"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999642384037497 ;
+    itsrdf:taIdentRef dbpedia:Mobile_business_development .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7118_7126>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7118"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7126"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7502_7510>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7502"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7510"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7713_7721>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7713"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7721"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7723_7727>
+    nif:anchorOf "TBOX" ;
+    nif:beginIndex "7723"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7727"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Tbox .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7813_7817>
+    nif:anchorOf "ABOX" ;
+    nif:beginIndex "7813"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7817"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999427018 ;
+    itsrdf:taIdentRef dbpedia:Abox .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_7844_7852>
+    nif:anchorOf "ontology" ;
+    nif:beginIndex "7844"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7852"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Ontology_(information_science)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_8072_8076>
+    nif:anchorOf "HTTP" ;
+    nif:beginIndex "8072"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8076"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Hypertext_Transfer_Protocol .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_8128_8134>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8128"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8134"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_8205_8211>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8205"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8211"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_8292_8296>
+    nif:anchorOf "ABOX" ;
+    nif:beginIndex "8292"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8296"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999999427018 ;
+    itsrdf:taIdentRef dbpedia:Abox .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_8298_8302>
+    nif:anchorOf "TBOX" ;
+    nif:beginIndex "8298"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8302"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Tbox .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_9009_9015>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "9009"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9015"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_9891_9897>
+    nif:anchorOf "PEGASO" ;
+    nif:beginIndex "9891"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9897"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/133_modoni/nif.ttl/#offset_0_15538> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999977634262001 ;
+    itsrdf:taIdentRef dbpedia:Pegasus .
+

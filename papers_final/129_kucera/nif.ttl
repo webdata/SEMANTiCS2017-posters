@@ -1,0 +1,694 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "23902"^^xsd:nonNegativeInteger ;
+    nif:isString """JAN KUČERA              jan.kucera[at]vse.cz             University of Economics, Prague  VOJTĚCH SVÁTEK              svatek[at]vse.cz             University of Economics, Prague  JINDŘICH MYNARZ              jindrich.mynarz[at]vse.cz             University of Economics, Prague  KEYWORDS  -           costs        -           competencies        -           data consumer        -           data publisher        -           Linked Data        -           semantic web           ABSTRACT   Linked Data Fragments brought an attention to distribution of costs associated with querying Linked Data between servers and clients. Costs associated with consumption of infrastructure resources such as CPU or RAM are often discussed. However from the business perspective the IT infrastructure is not the only factor in deciding the type of interface for publishing data. Competencies also play an important role and developing them therefore acts as a cost driver. We discuss how the necessary competencies vary between three different Linked Data querying scenarios: data dumps, SPARQL endpoint and triple pattern fragments. Results of our analysis could serve as an input into the competency gap analysis.    INTRODUCTION   Linked Data (LD) is provided through various types of interfaces such as data dumps, SPARQL endpoints or triple pattern fragments (TPF) [5] . These interfaces could be characterized with server costs in terms of CPU, RAM, and disk use and client costs associated with processing the responses of the server. The type of interface affects the distribution of the total costs of querying LD between servers and clients. For example, data dumps are cheap for servers to provide, but higher costs are usually incurred to clients, whereas providing data through a SPARQL endpoint typically results in higher server costs and lower client costs [5] .  Research aimed at the Linked Data Fragments, and specifically the TPF, has already resulted in promising outcomes. From the business perspective, however, costs measured as consumption of information technology (IT) resources are too narrowly defined: publishing and consuming LD also requires relevant competencies. According to [1] the lack of the competencies is one of the roadblocks for publishing and reuse of openly licensed LD. Investments into developing the necessary competencies should therefore be considered.  Our objective is to discuss how these competencies vary between the three LD querying scenarios mentioned. The motivation is that the competencies act as cost a driver and therefore play an important role when deciding about the type of interface to publish LD. With this paper we aim to complement the ongoing discussion about the technical implications of different kinds of interfaces.    RESEARCH APPROACH   By competencies we understand abilities and skills of people to effectively perform some tasks. Developing the IT human capital portfolio involves, among other activities, identification of gaps between the desired and the current state of this portfolio and subsequent identification of scenarios to close the gaps, e.g. training, hiring or outsourcing [4] . Implementing these scenarios requires resources and therefore it is a source of costs. These implications are illustrated in Figure 1 .  [Competency gap as a cost driver]  FIGURE 1. Competency gap as a cost driver Competency requirements to publish and consume LD could lead to the competency gap. Our analysis highlights the elements that should be taken into account during the gap analysis as a prerequisite of the cost estimation.  We also build upon the roles in the Linked Data Value Chain proposed in [3] . Since we focus on querying LD, we are interested in Linked Data Publishers and Linked Data Consumers. In contrast to [3] we do not use the term Linked Data Application Provider because we do not presume the purpose for which a subject queries LD. Raw data transformation into LD is beyond the scope of our analysis, too.  First, we described the LD querying scenarios and analysed the required competencies. Then, we selected a subset of the case studies from the W3C Semantic Web Education and Outreach (SWEO) Interest Group portal ¹ in order to examine domain-specific constellations of potential LD Publishers and Consumers. Since a subject currently consuming human-readable data could possibly consume LD in the future, the End User role was considered as well.  Despite the limited representativeness of this collection (its bulk had been contributed before the uptake of the LD technology), it hints to areas where structured data amenable to processing in RDF abound. In order to focus on case studies featuring (ideally, public) instance data querying, rather than, e.g., reasoning over OWL taxonomies, we selected a subset based on the “SW technologies used” metadata facet on the portal. We required one of the facet’s value to be “SPARQL” or “public datasets”, which yielded 20 cases.  The analysis of one study took approximately 20-30 minutes to one researcher (co-author of this paper); each analysis was then verified by one different researcher, and a consensual view was subsequently formed.    LINKED DATA QUERYING SCENARIOS   We did not intend to perform an exhaustive analysis of all possible interfaces and thus we limited our analysis to three LD querying scenarios. Data dumps and SPARQL endpoints were selected because they represent boundary scenarios in the continuum of LD interfaces described in [5] . In order to investigate whether a similar distribution pattern as in the case of the infrastructure resource consumption applies to the required competencies for querying LD, the triple pattern fragments scenario with HDT (Header, Dictionary, Triples, see [2] ) files as backend was added (the same TPF backend as in [5] ).  In the data dumps scenario ( Figure 2 ) LD Consumer accesses data published by LD Publisher in a form of downloadable files. LD Consumer uses its own IT infrastructure to make the data queryable.  [Data dumps]  FIGURE 2. Data dumps In the TPF with HDT files scenario ( Figure 3 ) LD Publisher makes LD queryable using a TPF server and LD Consumer access this data using a TPF client.  [TPF with HDT files]  FIGURE 3. TPF with HDT files In the RDF store with a SPARQL endpoint scenario ( Figure 4 ) LD Publisher makes data accessible via a SPARQL endpoint and LD Consumer can query this endpoint directly from an application.  [RDF store with a SPARQL endpoint]  FIGURE 4. RDF store with a SPARQL endpoint    REQUIRED COMPETENCIES FOR QUERYING LINKED DATA    Table 1 summarizes competencies directly required to publish and query LD based on the components of the LD querying scenarios. We assumed that LD Publisher would be able to create RDF data. Likewise, LD Consumer might perform various other tasks besides querying LD such as data cleansing or enrichment, but competencies required for these tasks were not taken into account.  Differences in the required competencies result from the different nature of the interfaces, e.g., publishing downloadable files is a common competency non-specific to querying LD, whereas publishing data using a SPARQL endpoint or TPF server requires competencies to install and maintain the respective software components.  The costs of developing the necessary competencies would depend on the available learning materials, courses, or on the selected HW and SW components and the associated services provided by their vendors. According to [1] people without prior knowledge of LD sometimes find the existing tutorials difficult to understand, which contributes to the perceived lack of the LD-related competencies.   -------------------- -------------------- -------------------- --------------------  | Subject            | Data dumps         | TPF with HDT files | RDF store with a   | |                    |                    |                    | SPARQL endpoint    |  ==================== ==================== ==================== ====================  | LD Publisher       | Ability to publish | Ability to create  | Ability to install | |                    | downloadable files | HDT files          | and maintain a RDF | |                    |                    |                    | store and a SPARQL | |                    |                    | Ability to install | endpoint           | |                    |                    | and maintain a TPF |                    | |                    |                    | server             | Ability to load    | |                    |                    |                    | RDF data into an   | |                    |                    |                    | RDF store          |  -------------------- -------------------- -------------------- --------------------  | LD Consumer        | SPARQL skills      | SPARQL skills      | SPARQL skills      | |                    |                    |                    |                    | |                    | Ability to install | Ability to         | Ability to         | |                    | and maintain an    | develop/ implement | develop/ implement | |                    | RDF store and a    | and maintain a TPF | and maintain       | |                    | SPARQL endpoint    | client             | application        | |                    |                    |                    | querying RDF data  | |                    | Ability to load    | Ability to         |                    | |                    | RDF data into a    | develop/ implement |                    | |                    | RDF store          | and maintain       |                    | |                    |                    | application        |                    | |                    | Ability to         | querying RDF data  |                    | |                    | develop/ implement |                    |                    | |                    | and maintain an    |                    |                    | |                    | RDF ETL tool       |                    |                    | |                    | (optional)         |                    |                    | |                    |                    | |                    | |                    | Ability to         |                    |                    | |                    | develop/ implement |                    |                    | |                    | and maintain       |                    |                    | |                    | application        |                    |                    | |                    | querying RDF data  |                    |                    |  -------------------- -------------------- -------------------- --------------------   TABLE 1. Competencies required to publish and query Linked Data    LEGACY CASE STUDIES: FIRST TOUCH ON PUBLISHER AND CONSUMER COMPETENCE REQUIREMENT ANALYSIS   Two out of the twenty selected case studies turned out to be irrelevant since they described a platform rather than a consumption of some datasets. The remaining studies are listed in Table 2 . The studies are identified with their acronym and can be accessed at the URL that conforms to the pattern:       https://www.w3.org/2001/sw/sweo/public/UseCases/{acronym}      .  We distinguished between cases where the same subject acted as LD Publisher and Consumer and cases where different subjects acted in these roles (“P=C” column). Sometimes both situations were present in a single case. We classified the involved LD Publishers, Consumers and End Users. The typology of the subjects was not normalized but we tried to classify the subjects as described in the case studies. Finally, we marked whether End User is affiliated with LD Consumer or not.  Despite the selected case studies referred to SPARQL at the SWEO portal, in five cases the LD publishing method was unobvious. In another five cases SPARQL was mentioned but it was not clear how the data was actually queried. SPARQL endpoint was mentioned in three cases. Other mentioned publishing methods included content negotiation, machine-readable feeds, web service or use of RDFa.  In seven cases distinct subjects acted as LD Publisher and Consumer. Out of this group Kisti, ZBW and Faviki represent a constellation with no overlap between these roles. In this constellation subjects can focus on developing the required competencies based on their role and type of the LD publishing interface.  In case of iLaw, LD Publisher first consumed LD internally but subsequently started to provide data to distinct LD Consumers as well. In such a constellation the subject combining roles should develop a wider range of competencies, but this would allow it to benefit from its own published data.  In the Europeana and BBC cases, subjects are also combining the roles of LD Publisher and Consumer, but they enrich their own data with data published by a distinct LD Publisher. Therefore developing of the competencies partly depends on interfaces through which they consume the external data.  Finally, the Volkswagen case represents a constellation with mutual LD Publisher-Consumer relationships. The first subject publishes data in RDF that are used by the second subject to add semantics to some primary data. This enriched data is subsequently consumed by the first subject. Both subjects need to develop the required competencies.   ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Acronym    | Year       | P=C        | LD         | LD         | End user   | End user   | |            |            |            | Publisher  | Consumer   | type       | affiliatio | |            |            |            | type       | type       |            | n          |  ============ ============ ============ ============ ============ ============ ============  | NRK        | 2007       | yes        | broadcasti | x - same   | journalist | internal   | |            |            |            | ng         | as LD      | s,         |            | |            |            |            | company    | publisher  | program    |            | |            |            |            |            |            | makers     |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Talis      | 2009       | yes        | university | x          | instructor | internal   | |            |            |            |            |            | s,         |            | |            |            |            |            |            | students   |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | IOInformat | 2011       | yes        | consortium | x          | researcher | internal   | | ics        |            |            | including  |            | s,         |            | |            |            |            | hospital,  |            | clinicians |            | |            |            |            | university |            |            |            | |            |            |            | and        |            |            |            | |            |            |            | research   |            |            |            | |            |            |            | centre     |            |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Volkswagen | 2011       | both       | car        | car        | web portal | both       | |            |            |            | producer,  | producer,  | users      |            | |            |            |            | used car   | used car   |            |            | |            |            |            | seller     | seller     |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Zaragoza-2 | 2008       | yes        | local      | x          | tourists   | external   | |            |            |            | government |            |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | EDF        | 2008       | yes        | energy     | x          | employees  | internal   | |            |            |            | company    | |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Europeana  | 2012       | both       | non-profit | unspecifie | unspecifie | external   | |            |            |            | foundation | d          | d          |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | iLaw       | 2010       | both       | ministry   | government | legal      | both       | |            |            |            |            | ministries | experts    |            | |            |            |            |            | and        |            |            | |            |            |            |            | agencies   |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Kisti      | 2010       | no         | government | public,    | unspecifie | external   | |            |            |            | agency     | businesses | d          |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Aquaring   | 2009       | yes        | unspecifie | x          | unspecifie | external   | |            |            |            | d          |            | d          |            | |            |            |            |            |            | users of   |            | |            |            |            |            |            | the portal |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Nasa       | 2008       | yes        | public     | x          | staffers,  | internal   | |            |            |            | institutio |            | workforce  |            | |            |            |            | n          |            | planners,  |            | |            |            |            |            |            | analysts,  |            | |            |            |            |            | | related    |            | |            |            |            |            |            | personnel  |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Lilly      | 2007       | yes        | pharmaceut | x          | researcher | internal   | |            |            |            | ical       |            | s,         |            | |            |            |            | company    |            | scientists |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | ZBW        | 2009       | no         | library    | other      | other      | external   | |            |            |            |            | people and | people and |            | |            |            |            |            | institutio | institutio |            | |            |            |            |            | ns         | ns         |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Faviki     | 2008       | no         | community  | IT company | unspecifie | external   | |            |            |            | project    |            | d          |            | |            |            |            |            |            | users of   |            | |            |            |            |            |            | the        |            | |            |            |            |            |            | tagging    |            | |            |            |            |            |            | service    |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | UniZheijan | 2007       | yes        | academic   | x          | unspecifie | external   | | g          |            |            | institutio |            | d          |            | |            |            |            | n          |            | users      |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | Twine      | 2009       | yes        | IT company | x          | unspecifie | external   | |            |            |            |            |            | d          |            | |            |            |            |            |            | users of   |            | |            |            |            |            |            | the        |            | |            |            |            |            |            | tagging    |            | |            |            |            |            |            | service    |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | BBC        | 2010       | both       | broadcasti | broadcasti | broadcasti | internal   | |            |            |            | ng         | ng         | ng         |            | |            |            |            | company,   | company    | company    |            | |            |            |            | other      |            | teams      |            | |            |            |            | subjects   |            |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------  | OntoFrame  | 2009       | yes        | public     | x          | researcher | external   | |            |            |            | institutio |            | s          |            | |            |            |            | n          |            |            |            |  ------------ ------------ ------------ ------------ ------------ ------------ ------------   TABLE 2. Characteristics of the analysed case studies    CONCLUSIONS   LD could be published using various interfaces. The type of the interface affects the costs incurred by the subjects publishing and querying data. Not only technologies but also competencies are necessary for querying LD and therefore developing these competencies could be a source of costs. We analysed three LD querying scenarios from the perspective of the necessary competencies, and investigated constellations of LD Publishers and Consumers based on a subset of the legacy SWEO case studies.  Learning materials could play a significant role in developing the necessary competencies. Future research will therefore address the question of availability and quality of the learning materials. We will also proceed to other collections of case studies to collect a wider set of LD Publisher-Consumer constellations and we will study the competencies for querying LD in more detail.    ACKNOWLEDGEMENTS   This research has been supported by the H2020 project no. 645833 (OpenBudgets.eu) with contribution of the long term institutional support of research activities by Faculty of Informatics and Statistics, University of Economics, Prague.    REFERENCES   -         Archer, P. et al.: Study on business models for Linked Open     Government Data (2013),     https://joinup.ec.europa.eu/sites/default/files/85/31/25/Study_on_business_models_for_Linked_Open_Government_Data_BM4LOGD_v1.00.pdf  -         Fernández, J.D. et al.: Binary RDF representation for publication     and exchange (HDT). Journal of Web Semantics, vol. 19, pp.     22-41 (2013)  -         Latif, A. et al.: The Linked Data Value Chain: A Lightweight Model     for Business Engineers. In: SEMANTiCS 2009, pp. 568-575  -         Maizlish, B., Handler, R.: IT Portfolio Management Step-by-Step.     John Wiley
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1030_1041>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1030"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1041"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1074_1080>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1074"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1080"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_10818_10829>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "10818"^^xsd:nonNegativeInteger ;
+    nif:endIndex "10829"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_11826_11832>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "11826"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11832"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_11929_11935>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "11929"^^xsd:nonNegativeInteger ;
+    nif:endIndex "11935"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12006_12012>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "12006"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12012"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12096_12115>
+    nif:anchorOf "content negotiation" ;
+    nif:beginIndex "12096"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12115"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Content_negotiation .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12163_12167>
+    nif:anchorOf "RDFa" ;
+    nif:beginIndex "12163"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12167"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:RDFa .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1220_1231>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1220"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1231"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12257_12262>
+    nif:anchorOf "Kisti" ;
+    nif:beginIndex "12257"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12262"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:EthnicGroup ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Kist_people .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12272_12278>
+    nif:anchorOf "Faviki" ;
+    nif:beginIndex "12272"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12278"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Faviki .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12291_12304>
+    nif:anchorOf "constellation" ;
+    nif:beginIndex "12291"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12304"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999792335077 ;
+    itsrdf:taIdentRef dbpedia:Constellation .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12350_12363>
+    nif:anchorOf "constellation" ;
+    nif:beginIndex "12350"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12363"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999792335077 ;
+    itsrdf:taIdentRef dbpedia:Constellation .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12629_12642>
+    nif:anchorOf "constellation" ;
+    nif:beginIndex "12629"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12642"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999792335077 ;
+    itsrdf:taIdentRef dbpedia:Constellation .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_12803_12806>
+    nif:anchorOf "BBC" ;
+    nif:beginIndex "12803"^^xsd:nonNegativeInteger ;
+    nif:endIndex "12806"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.999152838639047 ;
+    itsrdf:taIdentRef dbpedia:BBC .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1305_1311>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1305"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1311"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_13091_13101>
+    nif:anchorOf "Volkswagen" ;
+    nif:beginIndex "13091"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13101"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999999972042133 ;
+    itsrdf:taIdentRef dbpedia:Volkswagen .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_13120_13133>
+    nif:anchorOf "constellation" ;
+    nif:beginIndex "13120"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13133"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999999792335077 ;
+    itsrdf:taIdentRef dbpedia:Constellation .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_13889_13892>
+    nif:anchorOf "NRK" ;
+    nif:beginIndex "13889"^^xsd:nonNegativeInteger ;
+    nif:endIndex "13892"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:NRK .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1437_1440>
+    nif:anchorOf "RAM" ;
+    nif:beginIndex "1437"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1440"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999903108106187 ;
+    itsrdf:taIdentRef dbpedia:Memory .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_15470_15480>
+    nif:anchorOf "Volkswagen" ;
+    nif:beginIndex "15470"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15480"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.9999999972042133 ;
+    itsrdf:taIdentRef dbpedia:Volkswagen .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_15935_15943>
+    nif:anchorOf "Zaragoza" ;
+    nif:beginIndex "15935"^^xsd:nonNegativeInteger ;
+    nif:endIndex "15943"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:Place ;
+    itsrdf:taConfidence 0.999995508338626 ;
+    itsrdf:taIdentRef dbpedia:Zaragoza .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_17226_17231>
+    nif:anchorOf "Kisti" ;
+    nif:beginIndex "17226"^^xsd:nonNegativeInteger ;
+    nif:endIndex "17231"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:EthnicGroup ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Kist_people .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_172_178>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "172"^^xsd:nonNegativeInteger ;
+    nif:endIndex "178"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999995469016657 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1779_1785>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1779"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1785"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_18742_18746>
+    nif:anchorOf "ical" ;
+    nif:beginIndex "18742"^^xsd:nonNegativeInteger ;
+    nif:endIndex "18746"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.999999999998181 ;
+    itsrdf:taIdentRef dbpedia:ICalendar .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_1888_1899>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "1888"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1899"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_19447_19453>
+    nif:anchorOf "Faviki" ;
+    nif:beginIndex "19447"^^xsd:nonNegativeInteger ;
+    nif:endIndex "19453"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Faviki .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_19499_19501>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "19499"^^xsd:nonNegativeInteger ;
+    nif:endIndex "19501"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_20509_20511>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "20509"^^xsd:nonNegativeInteger ;
+    nif:endIndex "20511"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_2078_2080>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "2078"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2080"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_21121_21124>
+    nif:anchorOf "BBC" ;
+    nif:beginIndex "21121"^^xsd:nonNegativeInteger ;
+    nif:endIndex "21124"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Company, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 0.999152838639047 ;
+    itsrdf:taIdentRef dbpedia:BBC .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_23258_23264>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "23258"^^xsd:nonNegativeInteger ;
+    nif:endIndex "23264"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999995469016657 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_23437_23440>
+    nif:anchorOf "/25" ;
+    nif:beginIndex "23437"^^xsd:nonNegativeInteger ;
+    nif:endIndex "23440"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:TimePeriod, dbo:Year ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/25> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_23706_23717>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "23706"^^xsd:nonNegativeInteger ;
+    nif:endIndex "23717"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_23849_23851>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "23849"^^xsd:nonNegativeInteger ;
+    nif:endIndex "23851"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_272_278>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "272"^^xsd:nonNegativeInteger ;
+    nif:endIndex "278"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999995469016657 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_2913_2915>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "2913"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2915"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_3634_3645>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "3634"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3645"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_3728_3739>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "3728"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3739"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_3755_3766>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "3755"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3766"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_3820_3831>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "3820"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3831"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_3923_3926>
+    nif:anchorOf "Raw" ;
+    nif:beginIndex "3923"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3926"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Raw_image_format .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_4140_4143>
+    nif:anchorOf "W3C" ;
+    nif:beginIndex "4140"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4143"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Organisation, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:World_Wide_Web_Consortium .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_4144_4156>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "4144"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4156"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_426_437>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "426"^^xsd:nonNegativeInteger ;
+    nif:endIndex "437"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_457_469>
+    nif:anchorOf "semantic web" ;
+    nif:beginIndex "457"^^xsd:nonNegativeInteger ;
+    nif:endIndex "469"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_4919_4925>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "4919"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4925"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_491_502>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "491"^^xsd:nonNegativeInteger ;
+    nif:endIndex "502"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_5381_5387>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "5381"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5387"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_584_595>
+    nif:anchorOf "Linked Data" ;
+    nif:beginIndex "584"^^xsd:nonNegativeInteger ;
+    nif:endIndex "595"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Linked_data .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_5982_5984>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "5982"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5984"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_6292_6298>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6292"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6298"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_6371_6377>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6371"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6377"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_6476_6482>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6476"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6482"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_6521_6527>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "6521"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6527"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_702_705>
+    nif:anchorOf "RAM" ;
+    nif:beginIndex "702"^^xsd:nonNegativeInteger ;
+    nif:endIndex "705"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 0.9999903108106187 ;
+    itsrdf:taIdentRef dbpedia:Memory .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_7180_7186>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "7180"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7186"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_769_771>
+    nif:anchorOf "IT" ;
+    nif:beginIndex "769"^^xsd:nonNegativeInteger ;
+    nif:endIndex "771"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Information_technology .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_7925_7931>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "7925"^^xsd:nonNegativeInteger ;
+    nif:endIndex "7931"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_8281_8287>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8281"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8287"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_82_88>
+    nif:anchorOf "Prague" ;
+    nif:beginIndex "82"^^xsd:nonNegativeInteger ;
+    nif:endIndex "88"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:City, dbo:Place, dbo:PopulatedPlace, dbo:Settlement, schema:City, schema:Place ;
+    itsrdf:taConfidence 0.9999995469016657 ;
+    itsrdf:taIdentRef dbpedia:Prague .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_8829_8835>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8829"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8835"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_8850_8856>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8850"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8856"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_8871_8877>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "8871"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8877"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_9259_9265>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "9259"^^xsd:nonNegativeInteger ;
+    nif:endIndex "9265"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/129_kucera/nif.ttl/#offset_0_23902> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+

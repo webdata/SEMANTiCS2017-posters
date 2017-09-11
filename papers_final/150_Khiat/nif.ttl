@@ -1,0 +1,53 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_0_2221> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_0_2221>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2221"^^xsd:nonNegativeInteger ;
+    nif:isString """ABDERRAHMANE KHIAT              abderrahmane.khiat@fu-berlin.de             Human-Centered Computing Freie Universität Berlin  MAXIMILIAN MACKEPRANG              maximilian.mackeprang@fu-berlin.de             Human-Centered Computing Freie Universität Berlin  CLAUDIA MULLER-BIRN              clmb@inf.fu-berlin.de             Human-Centered Computing Freie Universität Berlin  KEYWORDS  -           Collaborative Ideation        -           Crowd Ideation        -           Semantic Annotation        -           Ontology        -           Solution Space        -           Ontology Matching           ABSTRACT   One of the main processes in innovation is the generation of ideas for new applications of technologies. Research has shown that new ideas can be greatly enhanced through seeing ideas of collaborating individuals (contrary to the „lone inventor“ myth). Online crowd platforms provide a promising approach for supporting such collaborative ideation process due to the heterogeneity of the crowd (each person brings unique knowledge and points of views). To leverage online crowds to generate even more creative ideas, research has explored different ways such as presenting diverse ideas as inspiration or employing expert facilitation. One challenge of collaborative ideation is the amount and the model of delivery of ideas: Large numbers of ideas make it infeasible to check every idea manually. Furthermore, users of crowd ideation submit their ideas in the form of short full text descriptions making it challenging to automatically assess the similarity between ideas and detect clusters. To overcome this challenge, our research aims to obtain insights about the meaning of ideas by the use of semantic technologies, more specifically annotating concepts used in the ideas, and linking them to external knowledge-bases. Then applying conceptual similarity measures to assess the semantic distance (similarity/diversity) between ideas. Furthermore, the semantic distance between all ideas allows to build a two-dimensional representation of the ideas, the so called ‘solution map’. This solution map can be used to get a quick overview over group efforts, find inspiration, and detect idea clusters.
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_101_125>
+    nif:anchorOf "Freie Universität Berlin" ;
+    nif:beginIndex "101"^^xsd:nonNegativeInteger ;
+    nif:endIndex "125"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_0_2221> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Free_University_of_Berlin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_234_258>
+    nif:anchorOf "Freie Universität Berlin" ;
+    nif:beginIndex "234"^^xsd:nonNegativeInteger ;
+    nif:endIndex "258"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_0_2221> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Free_University_of_Berlin .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_352_376>
+    nif:anchorOf "Freie Universität Berlin" ;
+    nif:beginIndex "352"^^xsd:nonNegativeInteger ;
+    nif:endIndex "376"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/150_Khiat/nif.ttl/#offset_0_2221> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Free_University_of_Berlin .
+

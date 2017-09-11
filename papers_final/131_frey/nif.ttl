@@ -1,0 +1,197 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#collection>
+    nif:hasContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    <http://purl.org/dc/terms/conformsTo> <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core/2.1> ;
+    a nif:ContextCollection .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411>
+    nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+    nif:endIndex "8411"^^xsd:nonNegativeInteger ;
+    nif:isString """JOHANNES FREY              frey@informatik.uni-leipzig.de             AKSW/KILT, Leipzig University, Leipzig, Germany  SEBASTIAN HELLMANN              hellmann@informatik.uni-leipzig.de             AKSW/KILT, Leipzig University, Leipzig, Germany  ACM SUBJECT CATEGORIES       Information systems,  Data provenance            Information systems,  Resource Description Framework (RDF)            Information systems,  Data exchange       KEYWORDS  -           RDF        -           SPARQL        -           metadata representation        -           reification        -           provenance           ABSTRACT   The maintenance and use of metadata, such as provenance and time-related information (when was a data entity created or retrieved), is of increasing importance in the Semantic Web, especially for Big Data applications, that work on heterogeneous data from multiple sources and which require high data quality. In an RDF dataset it is possible to store metadata alongside the actual RDF data and several possible Metadata Representation Models (e.g. Singleton Property and n-ary relation) have been proposed. However, studies investigating the performance of these models show that choosing the appropriate metadata representation depends on the used data and metadata, queries and RDF store. To allow a flexible storage and querying of data and its metadata independent of the applied Metadata Representation Model, we propose MaSQue (Metadata Storage and Querying). The approach introduces an intermediate (meta)data serialization format and query annotations as metadata layer on top of RDF and SPARQL.    INTRODUCTION   Within the “Smart Data Web” project ¹ data about persons, locations, companies and their products is fetched from many different sources (government files, industry databases, websites and social network texts) to extract, transform, integrate and aggregate the information to represent it in one open industry knowledge graph. The involved tools generate a variety of metadata in every step of the data processing pipeline. Such metadata (e.g. the name of the source the fact has been found in, the retrieval date and license of that source, the version number of the (recognition) tool, which has been used etc.) describes how a fact or piece of information has been derived.  The storage of such metadata alongside the data in the same RDF store allows to record fine-grained traceability and provenance information, license and access rights, data trustworthiness and confidence scores for every single fact in the knowledge graph. Detailed metadata increases data quality and supports subsequent data processing steps. Resolving conflicting data values (like the number of employees) for a company found in different sources, can be improved by metadata-based heuristics, e.g. prefer newer facts or prefer values from a source, which is known to ensure high data quality.  Besides the RDF Reification Vocabulary ² other Metadata Representation Models (MRMs) have been presented. Figure 1 illustrates the MRMs considered in this work. Comparing the performance of these models was subject of a few evaluations [2] , [4] , [5] , [6] . However, the performance results of the MRMs differ significantly between the evaluation scenarios and can be influenced by use case specific parameters like characteristics of data and metadata, complexity of the queries and the used RDF store [1] , [4] . Thus it is challenging to determine the best MRM for a scenario beforehand. To enable the development of an RDF application extensively using metadata, but without restricting it a-priori to one concrete implementation of an MRM, we propose MaSQue (Metadata Storage and Querying). MaSQue serves as an abstraction layer for different MRMs covering both the storage and serialization of RDF (meta)data as well as querying RDF stores using SPARQL.  [Structure of different Metadata Representation Models: Six different ways of describing (or reifying) an RDF triple s, p, o with a metadata key and value pair are supported by MaSQue; Companion property (cpprop), nary relation (nary), named graphs (ngraphs), singleton properties (sgprop), standard reification (stdreif), and the Blazegraph-specific Reification Done Right (rdr). Besides rdr, which is based on the vendor-independent RDF* and SPARQL* 3, all approaches use an explicit statement identifier (red), which is used to attach metadata (green) to the data (grey). Cpprop and stdreif are based on additional triple handlers (white). Properties which also occur as subject in another triple are drawn with dashed lines.]  FIGURE 1. STRUCTURE OF DIFFERENT METADATA REPRESENTATION MODELS: Six different ways of describing (or reifying) an RDF triple        s, p, o       with a metadata        key       and        value       pair are supported by MaSQue; Companion property (cpprop), nary relation (nary), named graphs (ngraphs), singleton properties (sgprop), standard reification (stdreif), and the Blazegraph-specific Reification Done Right (rdr). Besides rdr, which is based on the vendor-independent RDF* and SPARQL* [3] , all approaches use an explicit statement identifier (red), which is used to attach metadata (green) to the data (grey). Cpprop and stdreif are based on additional triple handlers (white). Properties which also occur as subject in another triple are drawn with dashed lines.    METADATA LEVELS AND METADATA REPRESENTATION MODELS   As METADATA REPRESENTATION MODEL (MRM) , we define a strategy of splitting an RDF statement or triple _t_ and its set of key-value based metadata facts _m_ into several triples or quads, such that we can store and query metadata - for all statements individually - in an RDF Store. The MRMs supported by MaSQue are displayed and briefly discussed in Figure 1 . For a detailed explanation we refer to [4] and [1] (cpprop and rdr). As METADATA we understand the aforementioned detailed, descriptive information (confidence, provenance, validity scope, traceability information, license etc.) for an individual triple or a small subset of triples from the knowledge graph. META-METADATA is characterized by one or more nested layers of metadata, which describe metadata itself.   Metadata granularity levels, factorization and grouping  Metadata can be recorded for individual triples or sets of triples. In the context of MaSQue we distinguish between three granularity levels. Metadata on GRAPH-LEVEL provides information for all entities and statements within the same named graph. It is typically applied to store provenance for several or all entities/triples of an entire dataset. The ENTITY/RESOURCE-LEVEL is the level where all statements with the same subject (entity identifier) share meta information. The most fine-grained metadata is on TRIPLE-LEVEL , where metadata is kept for each statement or triple (classic reification scenario). As FACTORIZATION we denote the feature of cpprop and ngraphs to store shared metadata (on various granularity levels) only once. This is realized by using the same statement identifier for all statements sharing the same metadata. The remainder MRMs are not capable of this technique since they rely on the identifier to reconstruct the actual data triple or, in the case of rdr, do not use an id. Within MaSQue we use a workaround. Instead of connecting the metadata to every statement, the metadata will be linked to a new shared resource, and only the link from the statements to that resource will be stored redundantly. Another requirement towards metadata storage (especially in the Wikidata use case from [4] ) is the creation of metadata fact groups or logical units. To give an example: If a fact was retrieved from two sources with two different confidence scores, the source and score form a logical unit. The confidence score does only make sense in the scope of the source.    MASQUE APPROACH   MaSQue is a Java-based framework and command line utility. Its paradigm is to hide the complexity and individual characteristics of various MRMs behind a uniform “mask” . The usage of MaSQue in a scenario, in which storage and retrieval of extensive and fine grained RDF metadata is crucial, allows to switch between different MRMs without rewriting the application logic. It consists of 2 major components meta-RDF and meta-SPARQL, which establish an abstraction layer for RDF data and its metadata for storage
+""" ;
+    a nif:Context, nif:OffsetBasedString .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_101_108>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "101"^^xsd:nonNegativeInteger ;
+    nif:endIndex "108"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, dbo:Town, schema:Place ;
+    itsrdf:taConfidence 0.9829090488665854 ;
+    itsrdf:taIdentRef dbpedia:Leipzig .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_119_128>
+    nif:anchorOf "SEBASTIAN" ;
+    nif:beginIndex "119"^^xsd:nonNegativeInteger ;
+    nif:endIndex "128"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:Artist, dbo:MusicalArtist, dbo:Person, schema:MusicGroup, schema:Person, <http://xmlns.com/foaf/0.1/Person> ;
+    itsrdf:taConfidence 0.9999999987630872 ;
+    itsrdf:taIdentRef <http://dbpedia.org/resource/Sebastian_(French_musician)> .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_1611_1617>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "1611"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1617"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_1948_1963>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "1948"^^xsd:nonNegativeInteger ;
+    nif:endIndex "1963"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_209_227>
+    nif:anchorOf "Leipzig University" ;
+    nif:beginIndex "209"^^xsd:nonNegativeInteger ;
+    nif:endIndex "227"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_229_236>
+    nif:anchorOf "Leipzig" ;
+    nif:beginIndex "229"^^xsd:nonNegativeInteger ;
+    nif:endIndex "236"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Place, dbo:PopulatedPlace, dbo:Settlement, dbo:Town, schema:Place ;
+    itsrdf:taConfidence 0.9829090488665854 ;
+    itsrdf:taIdentRef dbpedia:Leipzig .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_2556_2571>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "2556"^^xsd:nonNegativeInteger ;
+    nif:endIndex "2571"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_347_377>
+    nif:anchorOf "Resource Description Framework" ;
+    nif:beginIndex "347"^^xsd:nonNegativeInteger ;
+    nif:endIndex "377"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Resource_Description_Framework .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_3869_3875>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "3869"^^xsd:nonNegativeInteger ;
+    nif:endIndex "3875"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_4322_4328>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "4322"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4328"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_4386_4389>
+    nif:anchorOf "red" ;
+    nif:beginIndex "4386"^^xsd:nonNegativeInteger ;
+    nif:endIndex "4389"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Colour ;
+    itsrdf:taConfidence 0.9917104440910074 ;
+    itsrdf:taIdentRef dbpedia:Red .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_482_488>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "482"^^xsd:nonNegativeInteger ;
+    nif:endIndex "488"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_5101_5107>
+    nif:anchorOf "SPARQL" ;
+    nif:beginIndex "5101"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5107"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:SPARQL .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_5168_5171>
+    nif:anchorOf "red" ;
+    nif:beginIndex "5168"^^xsd:nonNegativeInteger ;
+    nif:endIndex "5171"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Colour ;
+    itsrdf:taConfidence 0.9917104440910074 ;
+    itsrdf:taIdentRef dbpedia:Red .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_6098_6113>
+    nif:anchorOf "knowledge graph" ;
+    nif:beginIndex "6098"^^xsd:nonNegativeInteger ;
+    nif:endIndex "6113"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Knowledge_Graph .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_781_793>
+    nif:anchorOf "Semantic Web" ;
+    nif:beginIndex "781"^^xsd:nonNegativeInteger ;
+    nif:endIndex "793"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Semantic_Web .
+
+<https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_81_99>
+    nif:anchorOf "Leipzig University" ;
+    nif:beginIndex "81"^^xsd:nonNegativeInteger ;
+    nif:endIndex "99"^^xsd:nonNegativeInteger ;
+    nif:referenceContext <https://svn.aksw.org/papers/2017/semantics_proceedings/public-posters/131_frey/nif.ttl/#offset_0_8411> ;
+    a nif:OffsetBasedString, nif:Phrase ;
+    itsrdf:taAnnotatorsRef <http://www.dbpedia-spotlight.com> ;
+    itsrdf:taClassRef dbo:Agent, dbo:EducationalInstitution, dbo:Organisation, dbo:University, schema:CollegeOrUniversity, schema:EducationalOrganization, schema:Organization ;
+    itsrdf:taConfidence 1.0 ;
+    itsrdf:taIdentRef dbpedia:Leipzig_University .
+
