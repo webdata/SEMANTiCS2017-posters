@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -68,7 +68,7 @@
    <body>
       <section role="doc-abstract">
          <h1>ABSTRACT</h1>
-         <p>DBpedia has existed for almost over a decade now. Although the data and the community created ontology have received immense investment, good tools to query and explore the data are still rare. In this paper, we present a prototype that attempts to break down complexity of graph querying into simple and guided steps. During the implementation of our DBpedia Explorer, we faced many barriers that can be traced back to a lack of data quality as well as the design of the DBpedia Ontology. We investigated these problems in detail based on a small sub-graph of DBpedia and gained valuable insights that will hopefully allow us to apply data trans- formation and ﬁxes to DBpedia that will be beneﬁcial for browsing and querying of the data in the future.</p>
+         <p>DBpedia has existed for almost over a decade now. Although the data and the community created ontology have received immense investment, good tools to query and explore the data are still rare. In this paper, we present a prototype that attempts to break down complexity of graph querying into simple and guided steps. During the implementation of our DBpedia Explorer, we faced many barriers that can be traced back to a lack of data quality as well as the design of the DBpedia Ontology. We investigated these problems in detail based on a small sub-graph of DBpedia and gained valuable insights that will hopefully allow us to apply data transformation and ﬁxes to DBpedia that will be beneﬁcial for browsing and querying of the data in the future.</p>
       </section>
       <section>
          <h1>INTRODUCTION</h1>
@@ -83,7 +83,7 @@
       <section>
          <h1>IMPLEMENTATION</h1>
          <p>
-            <em>Overview and Initial Search</em>. We restricted ourselves to a single text input ﬁeld to keep the tool simple and to make it resemble a search engine rather than a query builder. The user interface of the tool can be seen in <a href="#_Ref490606403"> </a> and <a href="#_Ref490606461"> </a>. The text input of the user is then translated to an element of the DBpedia knowledge graph using an auto-complete feature. For this we used the DBpedia Lookup<a href="#ftn2"> </a> service<sup> </sup>providing a preﬁx search for all the instances of the graph. In order to include also both classes and properties of the DBpedia ontology into the tool, we added these to a custom Solr index and merged the output of both services. Using the results of the auto- complete, the user can create a search query that generates a SPARQL query which consults the oﬃcial endpoint. </p>
+            <em>Overview and Initial Search</em>. We restricted ourselves to a single text input ﬁeld to keep the tool simple and to make it resemble a search engine rather than a query builder. The user interface of the tool can be seen in <a href="#_Ref490606403"> </a> and <a href="#_Ref490606461"> </a>. The text input of the user is then translated to an element of the DBpedia knowledge graph using an auto-complete feature. For this we used the DBpedia Lookup<a href="#ftn2"> </a> service<sup> </sup>providing a preﬁx search for all the instances of the graph. In order to include also both classes and properties of the DBpedia ontology into the tool, we added these to a custom Solr index and merged the output of both services. Using the results of the auto-complete, the user can create a search query that generates a SPARQL query which consults the oﬃcial endpoint. </p>
          <p>This initial query is deﬁned as the ﬁrst filter on the class Thing and creates the ﬁrst tab. While additional filters limit the result set of the current tab, the expand operation will open in a new dependent tab, allowing the user to keep history, freely switch between sets and make changes to a set which will also propagate to sets expanding from it. The tab view also provides the options to close a set and to create a new empty one. <a href="#_Ref490605913"> </a> shows the high-level architecture of our tool.</p>
          <figure id="_Ref490605913">
             <p>
@@ -93,23 +93,68 @@
             <figcaption>  DBpedia  Explorer High-Level Architecture</figcaption>
          </figure>
          <p>
-            <em>Filters</em>. A filter is either based on an instance, a class or a property from the underlying knowledge graph and can be added to a result set to generate its query. Filters based on instances are referred to as instance filters, the ones based on classes and properties as class filters and property filters respectively. Filters are rendered in natural language, so the user is always able to keep track of his current query. Class ﬁlters are displayed with their label, e.g. ”Actor”. When adding an instance as a ﬁlter, the ﬁlter will search for instances with an arbitrary relation to the previous ﬁlter. This arbitrary relation with the label <q/>Actor”. When adding an instance as a ﬁlter, the ﬁlter will search for instances with an arbitrary relation to the previous ﬁlter. This arbitrary relation with the label <q/>. When adding an instance as a ﬁlter, the ﬁlter will search for instances with an arbitrary relation to the previous ﬁlter. This arbitrary relation with the label <q>related to</q> (e.g. ”Actor related to Germany”) can be clicked on and changed to a speciﬁc property in a drop-down menu. Properties in the drop-down are ordered by the number of occurrences of the property with the ﬁlter instance. Each ﬁlter implements a function F (i) that generates a SPARQL snippet that is then inserted into the main query. A class ﬁlter with class C creates the snippet <q/>Actor related to Germany”) can be clicked on and changed to a speciﬁc property in a drop-down menu. Properties in the drop-down are ordered by the number of occurrences of the property with the ﬁlter instance. Each ﬁlter implements a function F (i) that generates a SPARQL snippet that is then inserted into the main query. A class ﬁlter with class C creates the snippet <q/>) can be clicked on and changed to a speciﬁc property in a drop-down menu. Properties in the drop-down are ordered by the number of occurrences of the property with the ﬁlter instance. Each ﬁlter implements a function F (i) that generates a SPARQL snippet that is then inserted into the main query. A class ﬁlter with class C creates the snippet <q>?si a C.</q>, a property ﬁlter with property P produces <q>?si P ?ok .</q> and an Instance ﬁlter with instance I produces ”?si ?pk I .”, where k is an integer that is increased when iterating over the set ﬁlters to create unique variables and i is an integer passed to the snippet generation function.</p>
+            <em>Filters</em>. A filter is either based on an instance, a class or a property from the underlying knowledge graph and can be added to a result set to generate its query. Filters based on instances are referred to as instance filters, the ones based on classes and properties as class filters and property filters respectively. Filters are rendered in natural language, so the user is always able to keep track of his current query. Class ﬁlters are displayed with their label, e.g. ”Actor”. When adding an instance as a ﬁlter, the ﬁlter will search for instances with an arbitrary relation to the previous ﬁlter. This arbitrary relation with the label <q>related to</q> (e.g. ”Actor related to Germany”) can be clicked on and changed to a speciﬁc property in a drop-down menu. Properties in the drop-down are ordered by the number of occurrences of the property with the ﬁlter instance. Each ﬁlter implements a function <em>F</em>(<em>i</em>) that generates a SPARQL snippet that is then inserted into the main query. A class ﬁlter with class <em>C</em> creates the snippet “?s<sub>
+               <em>i</em>
+            </sub> a C.”, a property ﬁlter with property <em>P</em> produces “?s<sub>
+               <em>i</em>
+            </sub> 
+            <em>P</em> ?o<sub>
+               <em>k</em>
+            </sub> .” and an Instance ﬁlter with instance <em>I</em> produces ”?s<sub>
+               <em>i</em>
+            </sub> ?p<sub>
+               <em>k</em>
+            </sub> 
+            <em>I</em> .”, where <em>k</em> is an integer that is increased when iterating over the set ﬁlters to create unique variables and <em>i</em> is an integer passed to the snippet generation function.</p>
          <p>
-            <em>Expand</em>. Expands are used to create a relation between two sets (opening a new dependent tab). This relation can be arbitrary or a ﬁxed property from the ontology. Each result set s<sub>n</sub> may have a set s<sub>m</sub> that it is expanding from. This set s<sub>m</sub> is referred to as the base set. Query generation is a base query with snippets S<sub>1</sub> to S<sub> j</sub> with S<sub>n</sub> being the snippet generated for set s<sub>n</sub> and with s<sub>n + 1</sub> being the base set of s<sub>n</sub> .</p>
+            <em>Expand</em>. Expands are used to create a relation between two sets (opening a new dependent tab). This relation can be arbitrary or a ﬁxed property from the ontology. Each result set s<sub>
+               <em>n</em>
+            </sub> may have a set s<sub>
+               <em>m</em>
+            </sub> that it is expanding from. This set s<sub>
+               <em>m</em>
+            </sub> is referred to as the base set. Query generation is a base query with snippets S<sub>
+               <em>1</em>
+            </sub> to S<sub>
+               <em>j</em>
+            </sub> with S<sub>
+               <em>n</em>
+            </sub> being the snippet generated for set s<sub>
+               <em>n</em>
+            </sub> and with s<sub>
+               <em>n + 1</em>
+            </sub> being the base set of s<sub>
+               <em>n</em>
+            </sub> .</p>
          <p>
-            <code>“SELECT ?S</code>
-            <sub>
-               <code>0</code>
+            <code>“SELECT ?S<sub>0</sub>
+           WHERE "</code> + S<sub><em>0</em>
+</sub>
+            <sub> </sub>+ S<sub>
+               <em>1</em>
             </sub>
-            <code> WHERE “ </code>+ S<sub>0 </sub>+ S<sub>1 </sub>+ … + S<sub>j </sub>+<code> </code>” <code>LIMIT 1000”</code>
+            <sub> </sub>+ … + S<sub>
+               <em>j</em>
+            </sub>
+            <sub> </sub>+ <code>" LIMIT 1000”</code>
          </p>
-         <p>with S<sub>n</sub> being:</p>
+         <p>with S<sub>
+               <em>n</em>
+            </sub> being:</p>
          <p>
             <em>f</em>
             <sub>1</sub> .<em>F</em> (<em>n</em>) + <em>f</em>
             <sub>2</sub> .<em>F</em> (<em>n</em>) + … + <em>f</em>
             <sub>p</sub> .<em>F</em> (<em>n</em>) + <em>Er</em> (<em>n</em>)</p>
-         <p>with<em> p</em> being the number of ﬁlters in the result set. The expand function <em>Er</em> (<em>i</em>) produces an empty snippet, if the set s<sub>r</sub> has no base set. Otherwise it yields the snippet “?s<sub>i</sub> ?p<sub>k</sub> ?s<sub>i + 1</sub>.” when describing an arbitrary relation between two sets. Expands can be added by clicking the expand button and will result in a new set searching for instances related to the previous set. This arbitrary expand can then also be reﬁned by clicking the <q/> when describing an arbitrary relation between two sets. Expands can be added by clicking the expand button and will result in a new set searching for instances related to the previous set. This arbitrary expand can then also be reﬁned by clicking the “<em>related to</em>” label in the set description and selecting a property from the drop-down.</p>
+         <p>with<em> p</em> being the number of ﬁlters in the result set. The expand function <em>Er</em> (<em>i</em>) produces an empty snippet, if the set s<sub>
+               <em>r</em>
+            </sub> has no base set. Otherwise it yields the snippet “?s<sub>
+               <em>i</em>
+            </sub> ?p<sub>
+               <em>k</em>
+            </sub> ?s<sub>
+               <em>i + 1</em>
+            </sub>.” when describing an arbitrary relation between two sets. Expands can be added by clicking the expand button and will result in a new set searching for instances related to the previous set. This arbitrary expand can then also be reﬁned by clicking the “<em>related to</em>” label in the set description and selecting a property from the drop-down.</p>
          <p>
             <em>Search Restrictions</em>. Entering a string into the search ﬁeld will suggest one or more elements from the knowledge graph using auto-completion. The best match is then selected and used to suggest one or more possible operations the user can execute. These operations can be the addition of an expand, the addition of a ﬁlter or a combination of the two. The user can now submit his input to simply add the selected element as a ﬁlter or click on a suggested operation to execute it. When selecting properties and classes we excluded operations from the suggestion when they did not make sense (disjoint sets, such as <q>Persons that are also Castles</q> or <q>Places being birth place of Castle</q>). The collection of instances in the result set all have, per deﬁnition, the common type <code>owl:Thing</code>. This common type of all instances can be more speciﬁc as a class ﬁlter will force all instances of the set to be of a speciﬁc type. This common type is referred to as the set class. The set class prevents the user from adding any class or property ﬁlter that would change the set class to any class not being a sub- or super-class of the current one. This can occur when adding class or property ﬁlters as well as property expands. Checking for the validity of property ﬁlters and expands is done using the domain and range of the property.</p>
          <figure id="_Ref490606403">
@@ -134,7 +179,7 @@
          <p>In some cases, there are ambivalences between classes, properties and instances. For instance, searching for Monarch will suggest the class <code>dbo:Monarch</code> and also the instance <a href="http://dbpedia.org/resource/Monarch">http://dbpedia.org/resource/Monarch</a>. In addition, there is a property labeled <q>monarch</q>. To hide this issue in the tool, we merged elements sharing the same label into one auto-completion result and created operation suggestions for each element. This way, all operations are available to the user; however, this behavior might be confusing for the user.</p>
          <p>In many cases, the DBpedia knowledge graph contains empty classes. According to our analysis only 61.14% of DBpedia classes have instances (461 out of 754 classes). Searching for a class like <code>dbo:Biologist</code> will yield an empty result, which is unintended behaviour caused by the underlying data. In practice Biologists are usually linked to the <a href="http://dbpedia.org/resource/Biologist">http://dbpedia.org/resource/Biologist</a> instance using the <code>dbo:field</code> property. In the case of <code>dbo:Actors</code>, the search does have results, though it is incomplete (6695 results). Most actors are linked to the <a href="http://dbpedia.org/resource/Actor">http://dbpedia.org/resource/Actor</a> instance with the <code>dbo:occupation</code> property (19802 results). It would make sense for the <code>dbo:occupation</code> property to be rigid, with the <a href="http://dbpedia.org/resource/Actor">http://dbpedia.org/resource/Actor</a> and similar instances being of type <code>dbo:Profession</code>. This would then facilitate the retrieval of a result set containing all instances of the same profession, no matter if it is Actor or Biologist. To get around this issue, the tool would require a custom handwritten rule set or a linked ontology that has equivalent terms and OntoClean annotations. Furthermore, we ran into problems regarding transitivity and missing OWL property chains. Data inconsistencies where, for example, some castles are linked to <a href="http://dbpedia.org/reource/Germany">http://dbpedia.org/reource/Germany</a> directly; some are only linked to a city in Germany and not the Germany instance itself, which causes incompleteness of data. In this particular case we found only 8 castles being related to the Germany instance with the <code>dbo:location</code> property and 51 when searching for castles with locations within Germany. Furthermore, Wikipedia states that the actual number of German castles is in the thousands<a href="#ftn3"> </a>, so there are still a lot of castles missed even by our second query. Such issues can only ﬁxed by custom inference rules in DBpedia itself as inclusion in our tool would make the queries a lot less eﬃcient and yield many irrelevant results. This would as well require a custom rule set containing property chains for additional inference. We further tested for completeness of country assignment of <code>dbo:City</code> and <code>dbo:AdministrativeRegions</code> via <strong>FILTER NOT EXISTS</strong> and found that around 82% of these links are missing, thus rendering application-level property chains less eﬀective.</p>
          <p>In <a href="#_Ref490606403"> </a>, a full query example is shown. After searching for <q>Castle</q> and <q>Person</q> and clicking on the respective operation suggestions, the result set contained the list of <q>Persons related to Castles</q>. The search was then further reﬁned by adding <q>Japan</q> as an instance ﬁlter, resulting in <q>Persons related to Japan related to Castles</q>. The relation between Persons and Castles could then be changed to something more speciﬁc by selecting a relation in the drop-down menu (<q>being owner of</q>, <q>birth place being</q>, etc.)</p>
-         <p>When allowing the user to specify the generic “<em>related to</em>” property in the expand and ﬁlter operation, we realized that property occurrence counts are insuﬃcient to rank relevant properties accordingly as the general count lacks context speciﬁcity. Multiplying the count with a pre-calculated TF-IDF measure, where classes are documents and property occurrence of instances of this class are terms, yielded much better results, however, the measure is class-speciﬁc and can only be applied in some situations. Using the tool properly requires no knowledge of the SPARQL syntax or the structure of a query, however it currently requires a rough knowledge of the class and property names. This issue has to be tackled by a more sophisticated auto-completion using alternative labels of the ontology (for instance, the input ”born in” should be resolved to <q/> property in the expand and ﬁlter operation, we realized that property occurrence counts are insuﬃcient to rank relevant properties accordingly as the general count lacks context speciﬁcity. Multiplying the count with a pre-calculated TF-IDF measure, where classes are documents and property occurrence of instances of this class are terms, yielded much better results, however, the measure is class-speciﬁc and can only be applied in some situations. Using the tool properly requires no knowledge of the SPARQL syntax or the structure of a query, however it currently requires a rough knowledge of the class and property names. This issue has to be tackled by a more sophisticated auto-completion using alternative labels of the ontology (for instance, the input ”born in” should be resolved to <q/>born in” should be resolved to <q/> should be resolved to “<code>dbo:birthPlace</code>” by the auto-completion). While approaches to lexicalize DBpedia exist <a href="#_Ref490639451"> </a>, results have not yet been consolidated into the main knowledge graph and no synonyms exist.</p>
+         <p>When allowing the user to specify the generic “<em>related to</em>” property in the expand and ﬁlter operation, we realized that property occurrence counts are insuﬃcient to rank relevant properties accordingly as the general count lacks context speciﬁcity. Multiplying the count with a pre-calculated TF-IDF measure, where classes are documents and property occurrence of instances of this class are terms, yielded much better results, however, the measure is class-speciﬁc and can only be applied in some situations. Using the tool properly requires no knowledge of the SPARQL syntax or the structure of a query, however it currently requires a rough knowledge of the class and property names. This issue has to be tackled by a more sophisticated auto-completion using alternative labels of the ontology (for instance, the input ”born in” should be resolved to “<code>dbo:birthPlace</code>” by the auto-completion). While approaches to lexicalize DBpedia exist <a href="#_Ref490639451"> </a>, results have not yet been consolidated into the main knowledge graph and no synonyms exist.</p>
       </section>
       <section>
          <h1>CONCLUSION</h1>
@@ -179,16 +224,24 @@
       </section>
       <section role="doc-endnotes">
          <section id="ftn1" role="doc-endnote">
-            <p> https://developers.google.com/freebase/</p>
+            <p> 
+               <a href="https://developers.google.com/freebase/">https://developers.google.com/freebase/</a>
+            </p>
          </section>
          <section id="ftn2" role="doc-endnote">
-            <p> http://wiki.dbpedia.org/projects/dbpedia-lookup</p>
+            <p> 
+               <a href="http://wiki.dbpedia.org/projects/dbpedia-lookup">http://wiki.dbpedia.org/projects/dbpedia-lookup</a>
+            </p>
          </section>
          <section id="ftn3" role="doc-endnote">
-            <p> http://en.wikipedia.org/wiki/List_of_castles_in_Germany</p>
+            <p> 
+               <a href="http://en.wikipedia.org/wiki/List_of_castles_in_Germany">http://en.wikipedia.org/wiki/List_of_castles_in_Germany</a>
+            </p>
          </section>
          <section id="ftn4" role="doc-endnote">
-            <p> https://github.com/holycrab13/factor-tool</p>
+            <p> 
+               <a href="https://github.com/holycrab13/factor-tool">https://github.com/holycrab13/factor-tool</a>
+            </p>
          </section>
       </section>
    </body>
