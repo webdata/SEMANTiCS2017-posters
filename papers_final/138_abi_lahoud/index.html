@@ -655,51 +655,20 @@
     Conclusions
    </h1>
    <p>
-    We follow a Design Science approach in building our ontology
-    <a href="#HevnerDesignScience">
-     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 12: Hevner, A.R., March, S.T., Park, J. and Ram, S. (2008). Design Science in Information Systems Research. Management Information Systems Quarterly, 28(1), p.6.">
-      [12]
-     </span>
-    </a>
-    .
-      With the objective of maximising our ontology's chances of reuse, we pay special attention to guidelines
-      2 and 4 on the relevance of the research and the value of the contribution as described by Hevner et al.
-      To this end, we have assembled an advisory committee of domain experts in financial services, in fintech
-      and in technology
-    <a href="#FintechEcosystem">
-     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 10: Fintech Ecosystem: project website. www.fintechecosystem.net (Last visited July 2017).">
-      [10]
-     </span>
-    </a>
-    to observe, assist and assess. The ontology architecture
-      is described in
-    <a href="#FigureOntologyArchitecture">
-     <span class="cgen" data-rash-original-content="">
-      Figure 1
-     </span>
-    </a>
-    (Top left). A core module contains definitions
-      of OWL classes, object properties and restrictions representing the main actors of the fintech ecosystem
-      and the relationships among them. Extension modules build on top of the core one to add further concepts
-      as we learn about them or as they become relevant to the applications/queries this ontology underpins.
-      For example, we are designing an extension to represent innovation programs and accelerators and another
-      extension to represent conferences and industry events. In addition to these two layers and as our study
-      evolves, the time dimension is becoming more and more relevant to support for example queries about people
-      changing roles or investment trends over time. To this end, we are adding time-related information to some
-      concepts, roles and relationships. The ontology metrics of the current version of our core ontology module
-      are highlighted in
-    <a href="#FigureOntologyArchitecture">
-     <span class="cgen" data-rash-original-content="">
-      Figure 1
-     </span>
-    </a>
-    (Right) in a screenshot from Protégé
-    <a href="#MusenProtege">
-     <span class="cgen" data-rash-original-content="" title="Bibliographic reference 15: Musen, M.A. (2005). The Protégé project: A look back and a look forward. AI Matters. Association of Computing Machinery Specific Interest Group in Artificial Intelligence, 1(4), June 2015. DOI: 10.1145/2557001.25757003.">
-      [15]
-     </span>
-    </a>
-    .
+   In this paper we described on-going research aiming at improving our understanding of the fintech
+      ecosystem. We followed a semantic web approach in so far we used semantic web de facto standards to
+      guide and express our knowledge representation of this domain. In building the ontology, we followed
+      design science research guidelines on rigour and relevance. We sought advice and feedback from a
+      committee of international domain experts. We also built FintechBrowser a demonstrator of an
+      integrated set of dashboards and graph navigation tool. FintechBrowser reuses the ontology enriched
+      with linked open data and populated with a test dataset to highlight the benefits of this approach and
+      how it contributes to increasing our understanding of the fintech ecosystem. We conducted a set of
+      experiments with FintechBrowser and experienced first hand the advantages of discovering
+      associations in the knowledge base by visually navigating from node to node without the need for
+      typical tabular data manipulation such as pivot and manual cross-referencing. FintechBrowser along
+      with the fintech ecosystem ontology also allowed us to demonstrate one major benefit of this approach
+      namely: you do not need to have all the data about the ecosystem, the system will create associations
+      between entities using the domain knowledge represented in the ontology.
    </p>
    <p>
     As it stands, FintechBrowser operates on manually collected data, which we believe is an impediment
